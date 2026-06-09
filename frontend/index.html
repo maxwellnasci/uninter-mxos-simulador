@@ -1,0 +1,1724 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MXOS — Simulador de Questões</title>
+  <style>
+    /* ============================================================
+       CSS VARIABLES — TEMA DARK (padrão) e LIGHT
+       ============================================================ */
+    :root {
+      --bg: #0f0f1a;
+      --surface: #1c1c2e;
+      --surface-hover: #262640;
+      --surface-soft: #16162a;
+      --text: #e8e8f0;
+      --muted: #8a8aaa;
+      --line: #2a2a44;
+      --ink: #0a0a14;
+      --ok: #22c55e;
+      --ok-bg: rgba(34, 197, 94, 0.12);
+      --bad: #ef4444;
+      --bad-bg: rgba(239, 68, 68, 0.12);
+      --warn: #f59e0b;
+      --primary: #7c3aed;
+      --primary-hover: #6d28d9;
+      --primary-glow: rgba(124, 58, 237, 0.25);
+      --primary-text: #fff;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 0.22s ease;
+    }
+
+    [data-theme="light"] {
+      --bg: #f4f3f8;
+      --surface: #ffffff;
+      --surface-hover: #f0eff5;
+      --surface-soft: #ebeaf0;
+      --text: #1a1a2e;
+      --muted: #6b6b80;
+      --line: #d4d4e0;
+      --ink: #0f0f1a;
+      --ok: #16a34a;
+      --ok-bg: rgba(22, 163, 74, 0.1);
+      --bad: #dc2626;
+      --bad-bg: rgba(220, 38, 38, 0.1);
+      --warn: #d97706;
+      --primary: #6d28d9;
+      --primary-hover: #5b21b6;
+      --primary-glow: rgba(109, 40, 217, 0.18);
+      --primary-text: #fff;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    button, input, textarea { font: inherit; border: none; outline: none; }
+
+    button {
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      user-select: none;
+    }
+
+    a { color: var(--primary); text-decoration: none; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+    .app-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--primary), #a78bfa);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 0;
+      box-shadow: 0 0 20px var(--primary-glow);
+      flex-shrink: 0;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .brand span {
+      display: block;
+      margin: 1px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .theme-toggle {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      font-size: 1.15rem;
+      transition: background var(--transition), border var(--transition), transform var(--transition);
+    }
+    .theme-toggle:hover { background: var(--surface-hover); transform: scale(1.05); }
+    .theme-toggle:active { transform: scale(0.95); }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: background var(--transition), border var(--transition);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background var(--transition), transform 0.15s ease, box-shadow var(--transition);
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--primary-text);
+    }
+    .btn-primary:hover { background: var(--primary-hover); box-shadow: 0 0 24px var(--primary-glow); }
+
+    .btn-secondary {
+      background: var(--surface-soft);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+    .btn-secondary:hover { background: var(--surface-hover); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--line);
+    }
+    .btn-ghost:hover { background: var(--surface-soft); }
+
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    .view { display: flex; flex-direction: column; gap: 18px; }
+    .view[hidden] { display: none !important; }
+
+    /* ============================================================
+       LOGIN
+       ============================================================ */
+    .login-wrap {
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-card {
+      width: min(420px, calc(100% - 32px));
+      padding: 40px 36px;
+    }
+
+    .login-card .brand-logo {
+      width: 56px;
+      height: 56px;
+      font-size: 1.4rem;
+      margin: 0 auto 16px;
+    }
+
+    .login-card h2 {
+      text-align: center;
+      margin-bottom: 6px;
+      font-size: 1.3rem;
+    }
+
+    .login-card .login-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group input {
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: border var(--transition);
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    .login-error {
+      color: var(--bad);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-bottom: 12px;
+      display: none;
+    }
+
+    .login-card .btn-primary {
+      width: 100%;
+      min-height: 48px;
+    }
+
+    .login-footer {
+      text-align: center;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    /* ============================================================
+       LANDING
+       ============================================================ */
+    .landing-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .landing-content { padding: 40px; }
+
+    .landing-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--primary-glow);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    .landing-content h2 {
+      font-size: 2rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .landing-content h2 strong { color: var(--primary); }
+
+    .landing-content p {
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    .landing-features {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .landing-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .landing-features li::before {
+      content: "✦";
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .landing-illustration {
+      padding: 40px;
+      display: grid;
+      place-items: center;
+    }
+
+    .landing-illustration svg {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      opacity: 0.85;
+    }
+
+    /* ============================================================
+       THEMES
+       ============================================================ */
+    .themes-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+    }
+
+    .themes-header h2 { margin: 0; font-size: 1.3rem; }
+    .themes-header p { margin: 4px 0 0; color: var(--muted); font-size: 0.88rem; }
+
+    .themes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .theme-card {
+      display: flex;
+      flex-direction: column;
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      text-align: left;
+      gap: 12px;
+    }
+
+    .theme-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--theme-accent, var(--primary));
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .theme-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: color-mix(in srgb, var(--theme-accent, var(--primary)) 14%, var(--surface));
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+    }
+
+    .theme-card h3 { margin: 0; font-size: 1.02rem; line-height: 1.3; }
+    .theme-card p { margin: 0; color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
+
+    .theme-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    .theme-meta span { font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+
+    .theme-badge {
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--theme-accent, var(--primary)) 14%, var(--surface));
+      color: var(--theme-accent, var(--primary));
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    /* ============================================================
+       QUIZ
+       ============================================================ */
+    .quiz-header { padding: 18px 22px; }
+
+    .quiz-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .quiz-top h2 { margin: 0; font-size: 1.15rem; }
+    .quiz-top p { margin: 3px 0 0; color: var(--muted); font-size: 0.84rem; }
+
+    .progress-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .progress-track {
+      height: 8px;
+      background: var(--surface-soft);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), #a78bfa);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .progress-label {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.85rem;
+      min-width: 80px;
+      text-align: right;
+    }
+
+    .quiz-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .question-panel { padding: 24px; }
+
+    .question-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .question-kicker {
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .timer-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .timer-badge.warning { color: var(--warn); border-color: var(--warn); }
+    .timer-badge.danger { color: var(--bad); border-color: var(--bad); animation: pulse-timer 1s ease infinite; }
+
+    @keyframes pulse-timer {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .question-text {
+      margin: 0 0 20px;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      white-space: pre-line;
+    }
+
+    .options { display: grid; gap: 10px; }
+
+    .option-btn {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      text-align: left;
+      line-height: 1.5;
+      font-size: 0.92rem;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.15s ease;
+    }
+
+    .option-btn:hover:not(.disabled) {
+      border-color: var(--primary);
+      background: var(--surface-hover);
+      transform: translateX(4px);
+    }
+
+    .option-btn .letter {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-sm);
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.82rem;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+
+    .option-btn.selected {
+      border-color: var(--primary);
+      background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+    }
+
+    .option-btn.selected .letter {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .option-btn.correct {
+      border-color: var(--ok);
+      background: var(--ok-bg);
+    }
+
+    .option-btn.correct .letter {
+      background: var(--ok);
+      color: #fff;
+    }
+
+    .option-btn.wrong {
+      border-color: var(--bad);
+      background: var(--bad-bg);
+    }
+
+    .option-btn.wrong .letter {
+      background: var(--bad);
+      color: #fff;
+    }
+
+    .option-btn.disabled { cursor: default; opacity: 0.6; }
+    .option-btn.disabled:hover { transform: none; border-color: var(--line); }
+
+    .feedback-msg {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .feedback-msg.show { display: block; animation: fadeSlideIn 0.3s ease; }
+
+    .feedback-msg.correct {
+      background: var(--ok-bg);
+      color: var(--ok);
+      border: 1px solid var(--ok);
+    }
+
+    .feedback-msg.wrong {
+      background: var(--bad-bg);
+      color: var(--bad);
+      border: 1px solid var(--bad);
+    }
+
+    .feedback-msg .explanation {
+      margin-top: 8px;
+      font-weight: 400;
+      opacity: 0.85;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .feedback-msg .source {
+      margin-top: 6px;
+      font-weight: 400;
+      opacity: 0.6;
+      font-size: 0.78rem;
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quiz-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .side-panel {
+      padding: 16px;
+      position: sticky;
+      top: 16px;
+    }
+
+    .side-panel h3 {
+      margin: 0 0 12px;
+      font-size: 0.88rem;
+      letter-spacing: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .side-panel h3 small {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .question-map {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+    }
+
+    .map-btn {
+      aspect-ratio: 1;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 0.78rem;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+      display: grid;
+      place-items: center;
+    }
+
+    .map-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+    .map-btn.current {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+    }
+
+    .map-btn.answered {
+      color: #fff;
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .map-btn.answered.correct {
+      background: var(--ok);
+      border-color: var(--ok);
+    }
+
+    .map-btn.answered.wrong {
+      background: var(--bad);
+      border-color: var(--bad);
+    }
+
+    /* ============================================================
+       RESULT
+       ============================================================ */
+    .result-header { padding: 22px 24px; }
+
+    .result-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .result-top h2 { margin: 0; font-size: 1.3rem; }
+    .result-top p { margin: 4px 0 0; color: var(--muted); font-size: 0.88rem; }
+
+    .result-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 0;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      padding: 0 24px 18px;
+    }
+
+    .metric {
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .metric .status-approved { color: var(--ok); }
+    .metric .status-reproved { color: var(--bad); }
+
+    .result-chart-wrap {
+      padding: 0 24px 18px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .result-chart-wrap canvas {
+      max-width: 200px;
+      max-height: 200px;
+    }
+
+    .review-section {
+      padding: 18px 24px 24px;
+    }
+
+    .review-section h3 {
+      margin: 0 0 14px;
+      font-size: 1.05rem;
+    }
+
+    .review-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .review-item {
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      transition: background var(--transition), border var(--transition);
+    }
+
+    .review-item.correct { border-left: 4px solid var(--ok); }
+    .review-item.wrong { border-left: 4px solid var(--bad); }
+
+    .review-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .review-top strong { font-size: 0.9rem; }
+
+    .review-badge {
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+
+    .review-badge.correct { background: var(--ok-bg); color: var(--ok); }
+    .review-badge.wrong { background: var(--bad-bg); color: var(--bad); }
+
+    .review-line {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .review-line strong { color: var(--text); }
+
+    .review-explanation {
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-soft);
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+
+    .review-source {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .user-info .user-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .btn-logout {
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: border var(--transition), color var(--transition);
+    }
+
+    .btn-logout:hover { border-color: var(--bad); color: var(--bad); }
+
+    /* ============================================================
+       RESPONSIVO
+       ============================================================ */
+    @media (max-width: 860px) {
+      .landing-layout, .quiz-layout { grid-template-columns: 1fr; }
+      .landing-illustration { display: none; }
+      .landing-content { padding: 28px; }
+      .side-panel { position: static; }
+      .question-map { grid-template-columns: repeat(6, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .app-shell { width: min(100% - 20px, 1180px); padding-top: 14px; }
+      .topbar { flex-wrap: wrap; gap: 10px; }
+      .question-panel { padding: 16px; }
+      .quiz-header { padding: 14px 16px; }
+      .themes-grid { grid-template-columns: 1fr; }
+      .result-grid { grid-template-columns: repeat(2, 1fr); }
+      .landing-content h2 { font-size: 1.4rem; }
+      .question-map { grid-template-columns: repeat(5, 1fr); }
+      .quiz-actions .btn { flex: 1 1 120px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app-shell">
+    <!-- ============================================================
+         TOPBAR
+         ============================================================ -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">MX</div>
+        <div>
+          <h1>MXOS</h1>
+          <span>Simulador de Questões</span>
+        </div>
+      </div>
+      <div class="topbar-actions" id="topbarActions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">
+          🌙
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         LOGIN
+         ============================================================ -->
+    <section class="view" id="loginView">
+      <div class="login-wrap">
+        <div class="panel login-card">
+          <div class="brand-logo" style="margin: 0 auto 16px;">MX</div>
+          <h2>Acessar Simulador</h2>
+          <p class="login-sub">Use seu RU para acessar</p>
+
+          <div class="login-error" id="loginError"></div>
+
+          <form id="loginForm" autocomplete="off">
+            <div class="form-group">
+              <label for="ruInput">RU</label>
+              <input type="text" id="ruInput" placeholder="Digite seu RU" required autocomplete="username" />
+            </div>
+            <!-- Senha removida - login apenas com RU -->
+            <button class="btn btn-primary" type="submit" id="loginBtn">
+              Entrar
+            </button>
+          </form>
+
+          <p class="login-footer">
+            Login apenas com RU. Alunos de teste disponíveis.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         LANDING
+         ============================================================ -->
+    <section class="view" id="landingView" hidden>
+      <div class="panel landing-layout">
+        <div class="landing-content">
+          <div class="landing-tag">🚀 Nova versão</div>
+          <h2>Simulado inteligente<br>para <strong>testar seus conhecimentos</strong></h2>
+          <p>
+            São 4 simulados com 30 questões cada, correção automática, feedback imediato
+            e revisão comentada. Ideal para se preparar para provas e certificações.
+          </p>
+          <ul class="landing-features">
+            <li>30 questões por tema</li>
+            <li>Feedback imediato com explicações</li>
+            <li>Modo escuro / claro</li>
+            <li>Resultado com gráfico e métricas</li>
+          </ul>
+          <button class="btn btn-primary" type="button" id="startBtn">Começar agora →</button>
+        </div>
+        <div class="landing-illustration">
+          <svg viewBox="0 0 340 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="40" width="280" height="200" rx="16" stroke="var(--primary)" stroke-width="2" fill="none" opacity="0.3"/>
+            <rect x="60" y="70" width="220" height="140" rx="10" stroke="var(--primary)" stroke-width="1.5" fill="none" opacity="0.2"/>
+            <circle cx="170" cy="110" r="18" fill="var(--primary)" opacity="0.15"/>
+            <circle cx="170" cy="110" r="8" fill="var(--primary)" opacity="0.4"/>
+            <line x1="120" y1="150" x2="220" y2="150" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3"/>
+            <line x1="130" y1="165" x2="200" y2="165" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3"/>
+            <line x1="140" y1="180" x2="190" y2="180" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3"/>
+            <circle cx="90" cy="220" r="6" fill="var(--ok)" opacity="0.5"/>
+            <circle cx="120" cy="220" r="6" fill="var(--bad)" opacity="0.5"/>
+            <circle cx="150" cy="220" r="6" fill="var(--ok)" opacity="0.5"/>
+            <circle cx="180" cy="220" r="6" fill="var(--ok)" opacity="0.5"/>
+            <circle cx="210" cy="220" r="6" fill="var(--bad)" opacity="0.5"/>
+            <circle cx="240" cy="220" r="6" fill="var(--ok)" opacity="0.5"/>
+            <rect x="50" y="245" width="240" height="4" rx="2" fill="var(--line)" opacity="0.3"/>
+            <rect x="50" y="245" width="160" height="4" rx="2" fill="var(--primary)" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         THEMES
+         ============================================================ -->
+    <section class="view" id="themesView" hidden>
+      <div class="panel themes-header">
+        <div>
+          <h2>Escolha um simulado</h2>
+          <p>Selecione o tema que deseja praticar</p>
+        </div>
+        <button class="btn btn-ghost" type="button" id="backToLanding">Voltar</button>
+      </div>
+      <div class="themes-grid" id="themesGrid"></div>
+    </section>
+
+    <!-- ============================================================
+         QUIZ
+         ============================================================ -->
+    <section class="view" id="quizView" hidden>
+      <div class="panel quiz-header">
+        <div class="quiz-top">
+          <div>
+            <h2 id="quizTitle">Simulado</h2>
+            <p id="quizSubtitle">30 questões</p>
+          </div>
+          <button class="btn btn-ghost" type="button" id="backToThemes">Trocar tema</button>
+        </div>
+        <div class="progress-row">
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="progress-label" id="progressLabel">0/30</div>
+        </div>
+      </div>
+
+      <div class="quiz-layout">
+        <article class="panel question-panel">
+          <div class="question-meta">
+            <span class="question-kicker" id="questionKicker">Questão 1 de 30</span>
+            <span class="timer-badge" id="timerBadge">
+              <span>⏱</span>
+              <span id="timerDisplay">30:00</span>
+            </span>
+          </div>
+          <p class="question-text" id="questionText"></p>
+          <div class="options" id="optionsContainer"></div>
+          <div class="feedback-msg" id="feedbackMsg"></div>
+          <div class="quiz-actions">
+            <button class="btn btn-secondary" type="button" id="prevBtn">← Anterior</button>
+            <button class="btn btn-secondary" type="button" id="nextBtn">Próxima →</button>
+            <button class="btn btn-primary" type="button" id="submitBtn">📊 Ver resultado</button>
+          </div>
+        </article>
+
+        <aside class="panel side-panel">
+          <h3>
+            Questões
+            <small id="answeredCount">0/30</small>
+          </h3>
+          <div class="question-map" id="questionMap"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RESULT
+         ============================================================ -->
+    <section class="view" id="resultView" hidden>
+      <div class="panel result-header">
+        <div class="result-top">
+          <div>
+            <h2 id="resultTitle">Resultado</h2>
+            <p id="resultSubtitle"></p>
+          </div>
+          <div class="result-actions">
+            <button class="btn btn-secondary" type="button" id="retryBtn">Refazer</button>
+            <button class="btn btn-ghost" type="button" id="chooseThemeBtn">Temas</button>
+          </div>
+        </div>
+      </div>
+      <div class="result-grid" id="resultMetrics"></div>
+      <div class="result-chart-wrap">
+        <canvas id="resultChart" width="200" height="200"></canvas>
+      </div>
+      <div class="review-section" id="reviewSection">
+        <h3>📋 Revisão das questões</h3>
+        <div class="review-list" id="reviewList"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* ================================================================
+       API — Configuração
+       ================================================================ */
+    const API_BASE = window.location.origin;
+    let TOKEN = localStorage.getItem('mxos-token');
+    let USUARIO = JSON.parse(localStorage.getItem('mxos-user') || 'null');
+
+    async function apiRequest(endpoint, options = {}) {
+      const headers = { 'Content-Type': 'application/json' };
+      if (TOKEN) headers['Authorization'] = `Bearer ${TOKEN}`;
+
+      const res = await fetch(`${API_BASE}${endpoint}`, {
+        ...options,
+        headers: { ...headers, ...options.headers }
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Erro na requisição');
+      }
+
+      return data;
+    }
+
+    /* ================================================================
+       ESTADO
+       ================================================================ */
+    const state = {
+      temas: [],
+      currentTheme: null,
+      questoes: [],
+      currentIndex: 0,
+      answers: {},
+      timerInterval: null,
+      timerSeconds: 1800,
+      isCompleted: false,
+      feedbackVisible: false
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const views = {
+      login: $('loginView'),
+      landing: $('landingView'),
+      themes: $('themesView'),
+      quiz: $('quizView'),
+      result: $('resultView')
+    };
+
+    /* ================================================================
+       TEMA DARK / LIGHT
+       ================================================================ */
+    function loadTheme() {
+      const saved = localStorage.getItem('mxos-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      $('themeToggle').textContent = saved === 'dark' ? '🌙' : '☀️';
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('mxos-theme', next);
+      $('themeToggle').textContent = next === 'dark' ? '🌙' : '☀️';
+    }
+
+    /* ================================================================
+       LOGIN / AUTH
+       ================================================================ */
+    function showUserInfo() {
+      if (!USUARIO) return;
+
+      const actions = $('topbarActions');
+      const infoDiv = document.createElement('div');
+      infoDiv.className = 'user-info';
+      infoDiv.id = 'userInfo';
+      infoDiv.innerHTML = `
+        <div class="user-avatar">${USUARIO.nome.charAt(0).toUpperCase()}</div>
+        <span>${USUARIO.ru}</span>
+        <button class="btn-logout" id="logoutBtn">Sair</button>
+      `;
+
+      // Remove existing user info
+      const existing = $('userInfo');
+      if (existing) existing.remove();
+
+      actions.insertBefore(infoDiv, actions.firstChild);
+
+      $('logoutBtn').addEventListener('click', logout);
+    }
+
+    function logout() {
+      localStorage.removeItem('mxos-token');
+      localStorage.removeItem('mxos-user');
+      TOKEN = null;
+      USUARIO = null;
+      const info = $('userInfo');
+      if (info) info.remove();
+      showView('login');
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+
+      const ru = $('ruInput').value.trim();
+      const errorDiv = $('loginError');
+      const btn = $('loginBtn');
+
+      if (!ru) {
+        errorDiv.textContent = 'Digite seu RU.';
+        errorDiv.style.display = 'block';
+        return;
+      }
+
+      errorDiv.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Entrando...';
+
+      try {
+        const data = await apiRequest('/api/login', {
+          method: 'POST',
+          body: JSON.stringify({ ru })
+        });
+
+        TOKEN = data.token;
+        USUARIO = data.aluno;
+
+        localStorage.setItem('mxos-token', TOKEN);
+        localStorage.setItem('mxos-user', JSON.stringify(USUARIO));
+
+        showUserInfo();
+        showView('landing');
+        await carregarTemas();
+      } catch (err) {
+        errorDiv.textContent = 'RU não encontrado.';
+        errorDiv.style.display = 'block';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Entrar';
+      }
+    }
+
+    /* ================================================================
+       NAVEGAÇÃO ENTRE VIEWS
+       ================================================================ */
+    function showView(name) {
+      Object.keys(views).forEach(k => views[k].hidden = k !== name);
+    }
+
+    /* ================================================================
+       CARREGAR TEMAS
+       ================================================================ */
+    async function carregarTemas() {
+      try {
+        const data = await apiRequest('/api/temas');
+        state.temas = data.temas;
+      } catch (err) {
+        console.error('Erro ao carregar temas:', err);
+      }
+    }
+
+    /* ================================================================
+       LANDING
+       ================================================================ */
+    $('startBtn').addEventListener('click', () => {
+      showView('themes');
+      renderThemes();
+    });
+
+    $('backToLanding').addEventListener('click', () => showView('landing'));
+
+    /* ================================================================
+       TEMAS
+       ================================================================ */
+    function renderThemes() {
+      const grid = $('themesGrid');
+      if (state.temas.length === 0) {
+        grid.innerHTML = '<p style="padding: 24px; color: var(--muted);">Nenhum tema disponível.</p>';
+        return;
+      }
+
+      grid.innerHTML = state.temas.map(t => `
+        <div class="theme-card" data-id="${t.id}" style="--theme-accent: ${t.accent}">
+          <div class="theme-icon">${t.icon}</div>
+          <h3>${t.title}</h3>
+          <p>${t.description}</p>
+          <div class="theme-meta">
+            <span>${t.total} questões</span>
+            <span class="theme-badge" style="color: ${t.accent}">Nota mín: ${t.passingScore}</span>
+          </div>
+        </div>
+      `).join('');
+
+      grid.querySelectorAll('.theme-card').forEach(card => {
+        card.addEventListener('click', () => startQuiz(card.dataset.id));
+      });
+    }
+
+    /* ================================================================
+       INICIAR QUIZ
+       ================================================================ */
+    async function startQuiz(themeId) {
+      const theme = state.temas.find(t => t.id === themeId);
+      if (!theme) return;
+
+      try {
+        // Carregar questões do backend
+        const data = await apiRequest(`/api/temas/${themeId}/questoes`);
+        state.questoes = data.questoes;
+
+        state.currentTheme = theme;
+        state.currentIndex = 0;
+        state.answers = {};
+        state.questoesFinais = [];
+        state.isCompleted = false;
+        state.feedbackVisible = false;
+
+        $('submitBtn').style.display = 'none';
+
+        $('quizTitle').textContent = theme.title;
+        $('quizSubtitle').textContent = `${theme.total} questões`;
+
+        showView('quiz');
+        renderQuestion();
+        renderQuestionMap();
+        startTimer();
+      } catch (err) {
+        console.error('Erro ao iniciar quiz:', err);
+        alert('Erro ao carregar questões. Tente novamente.');
+      }
+    }
+
+    /* ================================================================
+       RENDERIZAR QUESTÃO
+       ================================================================ */
+    function renderQuestion() {
+      const theme = state.currentTheme;
+      const idx = state.currentIndex;
+      const q = state.questoes[idx];
+      if (!q) return;
+
+      $('questionKicker').textContent = `Questão ${q.number} de ${theme.total}`;
+      $('questionText').textContent = q.prompt;
+
+      const userAnswer = state.answers[q.id] || null;
+
+      let html = q.alternatives.map(alt => {
+        const selected = userAnswer === alt.letter;
+        let cls = 'option-btn';
+        if (selected) cls += ' selected';
+
+        if (state.feedbackVisible && userAnswer) {
+          if (alt.letter === state.questoesFinais?.[idx]?.correta) {
+            cls += ' correct';
+          } else if (selected) {
+            cls += ' wrong';
+          }
+        }
+
+                return `<button class="${cls}" data-letter="${alt.letter}" ${state.feedbackVisible && userAnswer ? 'disabled' : ''}>
+            <span class="letter">${alt.letter}</span>
+            <span>${alt.text}</span>
+          </button>`;
+      }).join('');
+
+      // Re-adicionar classe correct á alternativa correta mesmo quando o usuário erra
+      if (state.feedbackVisible && userAnswer && state.questoesFinais?.[idx]?.resposta_correta_letra) {
+        const correta = state.questoesFinais[idx].resposta_correta_letra;
+        const botoes = $('optionsContainer').querySelectorAll('.option-btn');
+        botoes.forEach(btn => {
+          if (btn.dataset.letter === correta) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+
+      $('optionsContainer').innerHTML = html;
+
+      // Feedback message
+      const fb = $('feedbackMsg');
+      if (state.feedbackVisible && userAnswer && state.questoesFinais) {
+      const qf = state.questoesFinais[idx];
+      if (qf) {
+        const isCorrect = userAnswer === qf.correta;
+        let feedbackHtml = isCorrect
+          ? '\u2705 Você acertou!'
+          : '\u274C Você errou!'
+        feedbackHtml += `<div class="explanation">${qf.explicacao}</div>`;
+        feedbackHtml += `<div class="source">${qf.fonte}</div>`;
+        fb.className = `feedback-msg show ${isCorrect ? 'correct' : 'wrong'}`;
+        fb.innerHTML = feedbackHtml;
+      }
+      } else {
+      fb.className = 'feedback-msg';
+      fb.innerHTML = '';
+      }
+
+      $('prevBtn').disabled = idx === 0;
+      $('nextBtn').textContent = idx === theme.total - 1 ? 'Finalizar revisão →' : 'Próxima →';
+
+      const answeredCount = Object.keys(state.answers).length;
+      const pct = (answeredCount / theme.total) * 100;
+      $('progressFill').style.width = pct + '%';
+      $('progressLabel').textContent = `${answeredCount}/${theme.total}`;
+      $('answeredCount').textContent = `${answeredCount}/${theme.total}`;
+
+      renderQuestionMap();
+    }
+
+    /* ================================================================
+       MAPA DE QUESTÕES
+       ================================================================ */
+    function renderQuestionMap() {
+      const theme = state.currentTheme;
+      const map = $('questionMap');
+      map.innerHTML = state.questoes.map((q, i) => {
+        const answered = state.answers[q.id] != null;
+        const isCurrent = i === state.currentIndex;
+        let cls = 'map-btn';
+        if (isCurrent) cls += ' current';
+        if (answered) cls += ' answered';
+        return `<button class="${cls}" data-index="${i}">${q.number}</button>`;
+      }).join('');
+
+      map.querySelectorAll('.map-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.dataset.index);
+          if (idx >= 0 && idx < theme.total) {
+            state.currentIndex = idx;
+            state.feedbackVisible = state.answers[state.questoes[idx]?.id] != null;
+            renderQuestion();
+          }
+        });
+      });
+    }
+
+    /* ================================================================
+       SELECIONAR ALTERNATIVA
+       ================================================================ */
+    $('optionsContainer').addEventListener('click', async (e) => {
+      const btn = e.target.closest('.option-btn');
+      if (!btn || btn.disabled) return;
+      if (state.feedbackVisible) return;
+
+      const letter = btn.dataset.letter;
+      const q = state.questoes[state.currentIndex];
+      state.answers[q.id] = letter;
+
+      // Validar no servidor
+      try {
+        const result = await apiRequest('/api/responder', {
+          method: 'POST',
+          body: JSON.stringify({ questao_id: q.id, alternativa_letra: letter })
+        });
+
+        // Salvar resultado
+        if (!state.questoesFinais) state.questoesFinais = [];
+        state.questoesFinais[state.currentIndex] = {
+          correta: result.correta ? letter : null,
+          resposta_correta_letra: result.resposta_correta_letra,
+          explicacao: result.explicacao,
+          fonte: result.fonte
+        };
+
+        state.feedbackVisible = true;
+        renderQuestion();
+
+        const answeredCount = Object.keys(state.answers).length;
+        if (answeredCount >= state.currentTheme.total) {
+          $('submitBtn').style.display = 'flex';
+        }
+      } catch (err) {
+        console.error('Erro ao validar resposta:', err);
+      }
+    });
+
+    /* ================================================================
+       NAVEGAÇÃO
+       ================================================================ */
+    $('prevBtn').addEventListener('click', () => {
+      if (state.currentIndex > 0) {
+        state.currentIndex--;
+        const q = state.questoes[state.currentIndex];
+        state.feedbackVisible = state.answers[q?.id] != null;
+        renderQuestion();
+      }
+    });
+
+    $('nextBtn').addEventListener('click', () => {
+      const theme = state.currentTheme;
+      if (state.currentIndex < theme.total - 1) {
+        state.currentIndex++;
+        const q = state.questoes[state.currentIndex];
+        state.feedbackVisible = state.answers[q?.id] != null;
+        renderQuestion();
+      }
+    });
+
+    $('backToThemes').addEventListener('click', () => {
+      stopTimer();
+      showView('themes');
+      renderThemes();
+    });
+
+    /* ================================================================
+       TIMER
+       ================================================================ */
+    function startTimer() {
+      stopTimer();
+      state.timerSeconds = 1800;
+      updateTimerDisplay();
+
+      state.timerInterval = setInterval(() => {
+        state.timerSeconds--;
+        updateTimerDisplay();
+        if (state.timerSeconds <= 0) {
+          stopTimer();
+          finishQuiz();
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (state.timerInterval) {
+        clearInterval(state.timerInterval);
+        state.timerInterval = null;
+      }
+    }
+
+    function updateTimerDisplay() {
+      const m = Math.floor(state.timerSeconds / 60);
+      const s = state.timerSeconds % 60;
+      $('timerDisplay').textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+
+      const badge = $('timerBadge');
+      badge.className = 'timer-badge';
+      if (state.timerSeconds < 60) badge.classList.add('danger');
+      else if (state.timerSeconds < 300) badge.classList.add('warning');
+    }
+
+    /* ================================================================
+       FINALIZAR / SUBMETER
+       ================================================================ */
+    $('submitBtn').addEventListener('click', finishQuiz);
+
+    async function finishQuiz() {
+      const theme = state.currentTheme;
+
+      // Marcar não respondidas
+      state.questoes.forEach(q => {
+        if (!state.answers[q.id]) state.answers[q.id] = null;
+      });
+
+      state.isCompleted = true;
+      stopTimer();
+
+      try {
+        const result = await apiRequest('/api/finalizar', {
+          method: 'POST',
+          body: JSON.stringify({
+            tema_id: theme.id,
+            respostas: state.answers
+          })
+        });
+
+        showResult(result);
+      } catch (err) {
+        console.error('Erro ao finalizar:', err);
+        alert('Erro ao finalizar simulado.');
+      }
+    }
+
+    /* ================================================================
+       RESULTADO
+       ================================================================ */
+    function showResult(result) {
+      $('resultTitle').textContent = result.tema_title;
+      $('resultSubtitle').textContent = `${result.acertos} acertos de ${result.total} questões`;
+
+      $('resultMetrics').innerHTML = `
+        <div class="metric">
+          <span>✅ Acertos</span>
+          <strong>${result.acertos}</strong>
+        </div>
+        <div class="metric">
+          <span>❌ Erros</span>
+          <strong>${result.erros}</strong>
+        </div>
+        <div class="metric">
+          <span>📊 Nota</span>
+          <strong>${result.nota.toFixed(1)}</strong>
+        </div>
+        <div class="metric">
+          <span>🏆 Status</span>
+          <strong class="${result.status === 'APROVADO' ? 'status-approved' : 'status-reproved'}">${result.status}</strong>
+        </div>
+      `;
+
+      drawChart(result.acertos, result.erros);
+
+      $('reviewList').innerHTML = result.detalhes.map(d => `
+        <div class="review-item ${d.correto ? 'correct' : 'wrong'}">
+          <div class="review-top">
+            <strong>Q${d.numero}</strong>
+            <span class="review-badge ${d.correto ? 'correct' : 'wrong'}">
+              ${d.correto ? '✅ Correto' : '❌ Incorreto'}
+            </span>
+          </div>
+          <p class="review-line">
+            <strong>Sua resposta:</strong> ${d.sua_resposta || '(sem resposta)'}
+          </p>
+          <p class="review-line">
+            <strong>Resposta correta:</strong> ${d.resposta_correta}
+          </p>
+          <div class="review-explanation">
+            ${d.explicacao}
+            <div class="review-source">${d.fonte}</div>
+          </div>
+        </div>
+      `).join('');
+
+      showView('result');
+    }
+
+    /* ================================================================
+       GRÁFICO DE PIZZA
+       ================================================================ */
+    function drawChart(acertos, erros) {
+      const canvas = $('resultChart');
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const r = 80;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const total = acertos + erros;
+      if (total === 0) return;
+
+      const angAcertos = (acertos / total) * Math.PI * 2;
+      const angErros = (erros / total) * Math.PI * 2;
+
+      const style = getComputedStyle(document.documentElement);
+
+      // Acertos
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + angAcertos);
+      ctx.closePath();
+      ctx.fillStyle = style.getPropertyValue('--ok').trim();
+      ctx.fill();
+
+      // Erros
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, r, -Math.PI / 2 + angAcertos, -Math.PI / 2 + angAcertos + angErros);
+      ctx.closePath();
+      ctx.fillStyle = style.getPropertyValue('--bad').trim();
+      ctx.fill();
+
+      // Círculo interno
+      ctx.beginPath();
+      ctx.arc(cx, cy, r * 0.55, 0, Math.PI * 2);
+      ctx.fillStyle = style.getPropertyValue('--surface').trim();
+      ctx.fill();
+
+      // Texto
+      ctx.fillStyle = style.getPropertyValue('--text').trim();
+      ctx.font = 'bold 22px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const pct = ((acertos / total) * 100).toFixed(0);
+      ctx.fillText(pct + '%', cx, cy - 8);
+
+      ctx.font = '12px Inter, sans-serif';
+      ctx.fillStyle = style.getPropertyValue('--muted').trim();
+      ctx.fillText('acertos', cx, cy + 18);
+    }
+
+    /* ================================================================
+       AÇÕES DO RESULTADO
+       ================================================================ */
+    $('retryBtn').addEventListener('click', () => {
+      if (state.currentTheme) {
+        startQuiz(state.currentTheme.id);
+      }
+    });
+
+    $('chooseThemeBtn').addEventListener('click', () => {
+      showView('themes');
+      renderThemes();
+    });
+
+    /* ================================================================
+       INICIALIZAÇÃO
+       ================================================================ */
+    loadTheme();
+    $('themeToggle').addEventListener('click', toggleTheme);
+
+    if (TOKEN && USUARIO) {
+      showUserInfo();
+      showView('landing');
+      carregarTemas();
+    } else {
+      showView('login');
+    }
+
+    // Login form
+    $('loginForm').addEventListener('submit', handleLogin);
+  </script>
+</body>
+</html>
