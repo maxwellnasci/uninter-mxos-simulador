@@ -91,7 +91,7 @@ uninter-mxos-simulador/
 
 ## Melhorias anotadas (backlog)
 
-- [ ] Trocar `pm2 restart` por `pm2 reload` no deploy.yml para zero downtime
+- [x] Trocar `pm2 restart` por `pm2 reload` no deploy.yml para zero downtime ✅
 - [ ] Adicionar 4 novas matérias do próximo módulo
 - [ ] Painel de histórico de simulados por aluno
 - [ ] Ranking de pontuações
