@@ -57,5 +57,5 @@ jobs:
             cd backend
             npm install --production
             echo "=== Reiniciando servidor ==="
-            pm2 restart mxos
+            pm2 reload mxos
             echo "=== Deploy concluído! ==="
