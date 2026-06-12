@@ -1,9 +1,15 @@
 const AULA06 = {
   "id": "aula06",
   "title": "Sistemas de Segurança na Informação",
+  "shortTitle": "Segurança na Informação",
+  "description": "Qualidade da informação, segurança de dados, privacidade e sistemas de proteção.",
+  "accent": "#dc2626",
+  "icon": "🔒",
+  "total": 30,
+  "passingScore": 21,
   "questions": [
     {
-      "id": "q1",
+      "id": "q6_1",
       "number": 1,
       "prompt": "Alguns procedimentos podem ser levados a cabo para se garantir a precisão e a confiabilidade dos dados. Há vários problemas possíveis, relacionados à coleta de grandes massas de dados de fontes variadas, como ocorre em cidades inteligentes. Nessa aplicação, potencialmente milhares de sensores coletam, constantemente, informações. Vários pontos de falhas podem perturbar a confiança nos dados, antes de seu armazenamento, para posterior consumo e transformação. Bettini et al. (2009) identificam em seus estudos os principais problemas relacionados a essas massas de dados. (Texto adaptado). Fonte: Rota de Aprendizagem 2 (Operações de conversão). De acordo com o texto acima e os estudos realizados, quais são os principais problemas relacionados às massas de dados identificados por Bettini et al. (2009)?",
       "alternatives": [
@@ -29,7 +35,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 2 (Operações de conversão)."
     },
     {
-      "id": "q2",
+      "id": "q6_2",
       "number": 2,
       "prompt": "A formação do conhecimento a partir de informações de autenticidade duvidosa, sem garantia de integridade e de disponibilidade incontrolável, certamente não resultará em construções intelectuais plenamente válidas. Por outro lado, segundo Kolbe, 2017, a capacidade de coletar as informações corretas e transformá-las em conhecimento efetivo, torna-se o grande diferencial competitivo individual ou de uma organização da IS. Fonte: Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO). De acordo com o texto acima e os estudos realizados na disciplina, escolha a alternativa que melhor reflete o ponto de vista sobre o impacto da qualidade das informações na formação do conhecimento e no diferencial competitivo.",
       "alternatives": [
@@ -55,7 +61,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO)."
     },
     {
-      "id": "q3",
+      "id": "q6_3",
       "number": 3,
       "prompt": "Podemos definir banco de dados (BD) como a armazenagem organizada de dados e, eventualmente, arquivos, conservando o relacionamento mútuo que possibilite a consulta e a manipulação (Turbanet et al., 2005, p. 523). Fonte: Rota de Aprendizagem 3 (BANCO DE DADOS). Com base nos estudos ao longo da disciplina, qual foi a solução utilizada para suprir a necessidade dos primeiros bancos de dados?",
       "alternatives": [
@@ -81,7 +87,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 3 (BANCO DE DADOS)."
     },
     {
-      "id": "q4",
+      "id": "q6_4",
       "number": 4,
       "prompt": "Considerando a necessária padronização, no âmbito computacional, todo dado será numérico. E não apenas isso: esses números devem ser binários, ou seja, devem ser convertidos para uma sequência de zeros e uns. Essas sequências binary, são de difícil leitura para o ser humano. (Texto adaptado). Fonte: Rota de Aprendizagem 2 (Tema: DADO DIGITAL). Com base no texto fornecido, escolha a alternativa que melhor descreve a relação entre algarismos hexadecimais e a visualização de dados.",
       "alternatives": [
@@ -107,7 +113,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 2 (Tema: DADO DIGITAL)."
     },
     {
-      "id": "q5",
+      "id": "q6_5",
       "number": 5,
       "prompt": "Pixel é a menor unidade de uma imagem digital, independentemente de sua fonte. Se você pegar uma foto e fizer uma aproximação (zoom), verá uma série de quadradinhos que a compõem. Cada um desses pontos luminosos é um pixel. São milhões ou milhares deles. Fonte: O que é um pixel? Tecnoblog. Após esta avaliação, caso queira ler o artigo, acesse o link disponível em: https://tecnoblog.net/responde/o-que-e-um-pixel/. Acesso em 26/11/2024. De acordo com o material de estudos da disciplina e com base no texto fornecido acima, qual é o processo descrito para armazenar imagens em um computador?",
       "alternatives": [
@@ -133,7 +139,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 2 (Tema: DADO DIGITAL)."
     },
     {
-      "id": "q6",
+      "id": "q6_6",
       "number": 6,
       "prompt": "Dados quantitativos podem ser transformados em informações qualitativas. Um bom exemplo disso é a avaliação do bom ou mau desempenho de um produto baseada nos dados quantitativos de suas vendas. Fonte: Rota de Aprendizagem 2 (Tema: Informação quantitativa e informação qualitativa). Com base no texto fornecido e nos estudos anteriormente realizados na disciplina, escolha a alternativa que melhor representa o processo de transformação de dados quantitativos em informações qualitativas.",
       "alternatives": [
@@ -159,7 +165,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 2 (Tema: Informação quantitativa e informação qualitativa)."
     },
     {
-      "id": "q7",
+      "id": "q6_7",
       "number": 7,
       "prompt": "Uma informação para ser consumida depende de um sistema que a transforme em conhecimento. Segundo Kolbe (2017, p. 53), essa transformação se dá, em uma organização empresarial, em três níveis, definidos pela necessidade dos usuários. Fonte: Rota de Aprendizagem 1 (Tema: HIERARQUIA DOS SISTEMAS DA INFORMAÇÃO). De acordo com o texto e o conteúdo estudado, qual é a principal característica das informações no nível operacional de uma organização?",
       "alternatives": [
@@ -185,7 +191,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 1 (Tema: HIERARQUIA DOS SISTEMAS DA INFORMAÇÃO)."
     },
     {
-      "id": "q8",
+      "id": "q6_8",
       "number": 8,
       "prompt": "Entendemos que um dado, do ponto de vista técnico, é uma leitura do meio. A princípio, um dado não está necessariamente provido de um significado. De fato, o significado de um dado é frequentemente dito como um metadado. Um dado digital, ou digitalizado, é a representação, no meio computacional, de um dado (na verdade também de informações e conhecimento. Essa representação se dá de maneira bastante padronizada, como seria de se esperar, considerando que o computador é uma máquina eletrônica limitada. Fonte: Rota de Aprendizagem 2 (Tema: DADO DIGITAL). Com base no texto fornecido, escolha a alternativa que melhor descreve a relação entre dados digitais e sua padronização no âmbito computacional.",
       "alternatives": [
@@ -211,7 +217,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 2 (Tema: DADO DIGITAL)."
     },
     {
-      "id": "q9",
+      "id": "q6_9",
       "number": 9,
       "prompt": "O acesso a um dado na internet é um processo complexo tecnicamente. Trata-se de uma complexidade translúcida. Só percebemos a debilidade do processo quando ele entra em colapso, fato que, já sabemos empiricamente, não é raro. Desta forma, seguindo ainda as conclusões de Castells, a sociedade dependente da tecnologia, resultante, transfere o poder para aqueles que geram, transmitem e processam a informação para ser consumida por esta sociedade. (Texto adaptado). Fonte: Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO). Com base no texto e no conteúdo da disciplina, identifique a alternativa que explica corretamente o conceito de \"complexidade translúcida\" e sua relação com o poder na sociedade dependente da tecnologia.",
       "alternatives": [
@@ -237,7 +243,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO)."
     },
     {
-      "id": "q10",
+      "id": "q6_10",
       "number": 10,
       "prompt": "Não é mais objeto de discussão a excessiva profusão de informações, válidas e inválidas, na qual estamos involuntariamente imersos. Qualquer tema, independentemente de sua complexidade, pode ser visitado em questão de milésimos de segundos, na rede, sob diversos aspectos, muitos, infelizmente, equivocados. Este não é um fenômeno novo, Peter Drucker, em 1966, no best-seller The Age of Discontinuity, cunha o termo “sociedade da informação” (IS, information society, em inglês). Fonte: Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO). Com base no texto acima e no conteúdo estudado na disciplina, escolha a alternativa que descreve corretamente o conceito de \"sociedade da informação\" apresentado por Peter Drucker.",
       "alternatives": [
@@ -263,7 +269,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO)."
     },
     {
-      "id": "q11",
+      "id": "q6_11",
       "number": 11,
       "prompt": "O trânsito e o consumo da informação estão ligados intimamente à tecnologia. Não concebemos mais acessar informações que não estejam mediadas pela tecnologia. Neste exato momento, nesta etapa, estamos discutindo informações mediadas por um sistema de publicação em nuvem, acessadas por um hardware computacional e exibidas em uma tela para você. Fonte: Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E TECNOLOGIA). Com base no texto e nos estudos realizados na disciplina, identifique a principal característica do consumo de informações na era tecnológica.",
       "alternatives": [
@@ -289,7 +295,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E TECNOLOGIA)."
     },
     {
-      "id": "q12",
+      "id": "q6_12",
       "number": 12,
       "prompt": "Instituições privadas tem por finalidade o retorno financeiro sobre os investimento e esforço do empreendedor, desta forma, a evolução dos SIGs, nesses empreendimentos se deu na direção de incrementar os patamares de venda e lucratividade. Já nas primeiras implementações, verificou-se a necessidade de segregar a inteligência do algoritmo dos dados propriamente ditos. Surge então a ideia de constituir bancos de dados, reservatórios de informações que podem ser acessados por vários sistemas. Fonte: Rota de Aprendizagem 1 (Tema: Demandas por sistemas computacionais em empreendimentos privados). Qual dos seguintes sistemas busca entender o desempenho empresarial, segundo o texto e o conteúdo estudado nas aulas?",
       "alternatives": [
@@ -315,7 +321,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 1 (Tema: Demandas por sistemas computacionais em empreendimentos privados)."
     },
     {
-      "id": "q13",
+      "id": "q6_13",
       "number": 13,
       "prompt": "Ao realizar a conversão dos dados em informações, alguns cuidados podem auxiliar na garantia de ganho de valor. Seguindo ainda o preconizado por Kolbe Júnior (2017), essas operações podem ser resumidas em cinco tópicos. (Texto adaptado). Fonte: Rota de Aprendizagem 2 (Operações de conversão). De acordo com o material de estudos da disciplina e com base no texto fornecido, quais são os cinco tópicos mencionados por Kolbe Júnior (2017) que auxiliam na conversão dos dados em informações?",
       "alternatives": [
@@ -341,7 +347,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 2 (Operações de conversão)."
     },
     {
-      "id": "q14",
+      "id": "q6_14",
       "number": 14,
       "prompt": "Um banco de dados, após criado por um DBP, tende a existir por muitos anos. Desse modo, quando um dado é armazenado em BD, o SGBD deve implementar estratégias de preservação da integridade desse dado. Nem todas as providências relacionadas à integridade dos dados são gerenciadas pelo SGBD. A redundância de gravação em disco, por exemplo, é gerenciada pelos sistemas operacionais do servidor. Fonte: Rota de Aprendizagem 3 (Preservação de dados em BDs). De acordo com o texto e com os textos das aulas, qual é a função do SGBD em relação ao banco de dados (BD)?",
       "alternatives": [
@@ -367,7 +373,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 3 (Preservação de dados em BDs)."
     },
     {
-      "id": "q15",
+      "id": "q6_15",
       "number": 15,
       "prompt": "Um bom exemplo é o uso da tabela American Standard Code for Information Interchange (ASCii) ou código padrão americano para intercâmbio de informações, em português, que transforma caracteres em números binários. (Texto adaptado). Fonte: Rota de Aprendizagem 2 (Tema: DADO DIGITAL). Com base no texto fornecido e nos estudos realizados na disciplina, qual é a estratégia de conversão adotada para armazenar imagens em um computador?",
       "alternatives": [
@@ -393,7 +399,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 2 (Tema: DADO DIGITAL)."
     },
     {
-      "id": "q16",
+      "id": "q6_16",
       "number": 16,
       "prompt": "Uma ferramenta importante que compõe o SGSI é o Plano Diretor de Segurança. Alguns autores defendem que esse plano deve ser a origem do SGSI. Eles propõem que a alta direção da empresa deve definir as linhas gerais de defesa dos dados, criando um plano de conteúdo generalista, que delimita a intensidade e a consistência esperada, com a direção dos esforços de proteção e a preservação das informações corporativas. Fonte: Rota de Aprendizagem 4 (Tema: Plano diretor de segurança). Sobre o Plano Diretor de um Sistema de Gestão de Segurança da Informação (SGSI), de acordo com o conteúdo estudado, qual das afirmações a seguir está correta?",
       "alternatives": [
@@ -419,7 +425,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 4 (Tema: Plano diretor de segurança)."
     },
     {
-      "id": "q17",
+      "id": "q6_17",
       "number": 17,
       "prompt": "Como já sabemos, cada organização terá uma sua PSI particular. Seus objetivos gerais e a sua extensão serão extraídos do plano diretor. Além do necessário alinhamento com o plano diretor de segurança e o SGSI, a PSI deve se submeter à legislação. Esse alinhamento jurídico e empresarial é chamado de compliance, ou conformidade. O compliance das ferramentas de segurança pode ser aferido por processos de auditoria independente. Essa prática de sujeição a certificações, pela análise dos procedimentos, facilita a “acreditação” da empresa em relação a entes públicos, clientes, fornecedores e a comunidade em geral. Fonte: Rota de Aprendizagem 4 (Tema: Componentes da PSI). De acordo com o texto e o conteúdo estudado, como será criada a Política de Segurança da Informação (PSI) dentro de uma organização?",
       "alternatives": [
@@ -445,7 +451,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 4 (Tema: Componentes da PSI)."
     },
     {
-      "id": "q18",
+      "id": "q6_18",
       "number": 18,
       "prompt": "Podemos conceituar a vulnerabilidade a partir da ideia de exposição de um dado ou informação. Retomando ao conceito de ciclo de vida da informação, reconhecemos que um dado precisa ser resguardado, desde a sua origem até o momento de descarte. A intensidade de preservação de um dado depende de seu valor, conforme já vimos em nossas aulas. Considerando, por exemplo, a valoração em função do grau de confidencialidade do dado, a exposição indevida fará com que o dado fique vulnerável. (Texto adaptado). Fonte: Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças). Com base no conceito apresentado na disciplina Sistemas de Segurança da Informação, podemos afirmar que a vulnerabilidade ocorre quando:",
       "alternatives": [
@@ -471,7 +477,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças)."
     },
     {
-      "id": "q19",
+      "id": "q6_19",
       "number": 19,
       "prompt": "Uma das características da informação segura é a garantia de autenticidade, que permite condicionar o não repúdio a uma transação, por exemplo. Fazer os dados se acompanharem de uma assinatura daquele que assegura sua autenticidade é uma estratégia eficiente. Para que entendamos, tecnicamente, o processo de assinatura digital, precisaríamos de conceitos de criptografia com múltiplas chaves, possíveis com o uso de teoremas matemáticos avançados, ligados à aritmética modular e determinação de primacidade de grandes números. Do ponto de vista funcional, entretanto, a compreensão é relativamente simples. A esse “aval” público à assinatura eletrônica denominamos certificação digital. (Texto adaptado). Fonte: Rota de Aprendizagem 6 (Assinatura digital). De acordo com o texto acima e os estudos realizados, qual é a definição correta de certificação digital, conforme descrito no texto?",
       "alternatives": [
@@ -497,7 +503,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 6 (Assinatura digital)."
     },
     {
-      "id": "q20",
+      "id": "q6_20",
       "number": 20,
       "prompt": "Uma vez conceituada a ameaça, podemos passar ao conceito de risco. Basicamente, risco é uma medida estatística que avalia a possibilidade de violação de uma informação segura. Os conceitos de vulnerabilidade e ameaça são variáveis categóricas de segurança, ou seja, não são representados diretamente em números, já o risco é uma variável quantitativa. Portanto, podemos conceituar risco como a probabilidade matemática de que uma ameaça obtenha sucesso em sua ação, mudando as características da informação. (Texto adaptado). Fonte: Rota de Aprendizagem 4 (Tema: Risco e impacto). Com base no exposto e no conteúdo estudado na disciplina, qual das alternativas melhor define o conceito de risco?",
       "alternatives": [
@@ -523,7 +529,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 4 (Tema: Risco e impacto)."
     },
     {
-      "id": "q21",
+      "id": "q6_21",
       "number": 21,
       "prompt": "Quando avaliamos o risco de uma ameaça, devemos associá-lo ao impacto do incidente para a organização. O impacto avalia o grau de dano à segurança da informação. Esse processo de associação de uma estatística de risco e de um grau de impacto, considerando a vulnerabilidade e a ameaça, é conhecido como gestão de risco. (Texto adaptado). Fonte: Rota de Aprendizagem 4 (Tema: Risco e impacto). De acordo com o texto acima e os estudos realizados na disciplina, escolha a alternativa que melhor reflete o conceito de gestão de risco?",
       "alternatives": [
@@ -549,7 +555,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 4 (Tema: Risco e impacto)."
     },
     {
-      "id": "q22",
+      "id": "q6_22",
       "number": 22,
       "prompt": "No seio da área de tecnologia de informação, temos uma área que recentemente ganhou maior significância, em função da importância dos dados como ativos organizacionais e das alterações nos arcabouços legais de proteção à privacidade de dados. Trata-se da área de segurança de dados (ou Security Office). Segundo Kolbe (2017, p. 109), ao ser retirada do guarda-chuva de TI, essa área recebe atribuições próprias, como o objetivo de estabelecer mecanismos de segurança alinhados com as fronteiras de autoridade, orçamento e cultura da empresa. Fonte: Rota de Aprendizagem 4 (Tema: Security Office). Conforme mencionado no texto e estudado no conteúdo das aulas, qual das afirmativas abaixo melhor descreve o impacto da separação da área de segurança de dados da TI?",
       "alternatives": [
@@ -575,7 +581,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 4 (Tema: Security Office)."
     },
     {
-      "id": "q23",
+      "id": "q6_23",
       "number": 23,
       "prompt": "Comentamos que a evolução dos sistemas funcionais também se deu em direção à retirada de boa parte dos esforços de construção de conhecimento, com base nos dados empresariais, nas mãos humanas. Também já sabemos que o conhecimento é o bem mais valioso de um empreendimento. Fonte: Rota de Aprendizagem 5 (Tema: Sistemas de conhecimento). Conforme estudos realizados em aula e com o texto acima, como são os Sistemas Baseados em Conhecimento dentro de uma organização?",
       "alternatives": [
@@ -601,7 +607,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 5 (Tema: Sistemas de conhecimento)."
     },
     {
-      "id": "q24",
+      "id": "q6_24",
       "number": 24,
       "prompt": "Para que um dado tenha sua confidencialidade garantida o uso de técnicas de criptografia é a estratégia indicada. Processos criptográficos podem assegurar, com bom grau de eficiência, se escolhido o processo correto, que apenas aqueles que detêm as chaves e/ou algoritmos criptográficos acessem o conteúdo da informação. Fonte: Rota de Aprendizagem 6 (Criptografia). De acordo com o material de estudos da disciplina sobre os algoritmos criptográficos, é correto afirmar que:",
       "alternatives": [
@@ -627,7 +633,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 6 (Criptografia)."
     },
     {
-      "id": "q25",
+      "id": "q6_25",
       "number": 25,
       "prompt": "Sistemas de controle e automação industriais enfrentam problemas de desatualização de maneira distinta que seus pares não fabris. Atualizar um sistema informacional qualquer depende apenas da escolha de horário, para reduzir eventuais impactos sobre usuários conectados. Sistemas de controle industrial, por sua vez, exigem paradas de máquina, que devem ser programadas com antecedência. O mesmo fenômeno ocorre com os hardwares de controle, obrigando a convivência da rede com equipamentos e aplicações antigos. Fonte: Rota de Aprendizagem 5 (Tema: Atualização de sistemas). Com base no texto fornecido e nos estudos realizados na disciplina, qual é o principal impacto das atualizações mal planejadas em sistemas operacionais e equipamentos?",
       "alternatives": [
@@ -653,7 +659,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 5 (Tema: Atualização de sistemas)."
     },
     {
-      "id": "q26",
+      "id": "q6_26",
       "number": 26,
       "prompt": "No levantamento das fraquezas, como comentamos como comentamos em nossas aulas, a ideia é investigar as fragilidades do processo de preservação da segurança, em busca de possíveis incidentes de comprometimento. Esse comprometimento é, entretanto, apenas potencial. Será necessário contar com um agente capaz de explorar a vulnerabilidade, e assim encontramos uma ameaça possível. Meditando sobre esse conceito, podemos concluir que uma ameaça pode ser voluntária, involuntária ou natural. (Texto adaptado). Fonte: Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças). Com base no texto acima e no conteúdo estudado na disciplina, análise a alternativa sobre qual das alternativas a seguir melhor define o conceito de ameaça?",
       "alternatives": [
@@ -679,7 +685,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças)."
     },
     {
-      "id": "q27",
+      "id": "q6_27",
       "number": 27,
       "prompt": "Sabemos que vulnerabilidades são fraquezas no processo de preservação das características seguras da informação, capazes de gerar incidentes de comprometimento. A análise ou o levantamento de vulnerabilidades é uma atividade essencial para suportar os sistemas de preservação da segurança. Essa prática exige, do profissional, experiência no negócio e boa capacitação técnica. Fonte: Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças). Com base no exposto e na disciplina Sistemas de Segurança da Informação, identifique qual é o principal objetivo da análise de vulnerabilidades?",
       "alternatives": [
@@ -705,7 +711,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças)."
     },
     {
-      "id": "q28",
+      "id": "q6_28",
       "number": 28,
       "prompt": "Comentamos anteriormente e nossas aulas, que o entendimento de complexos conjuntos de dados, como os presentes em uma base de dados de clientes e prospects, pode ser enfrentado por algoritmos de IA. Fonte: Rota de Aprendizagem 5 (Tema: Machine Learning (ML)). Com base no texto fornecido e nos estudos anteriormente realizados na disciplina, escolha a alternativa que melhor representa o que os algoritmos inteligentes de Machine Learning (ML) são capazes de fazer?",
       "alternatives": [
@@ -731,7 +737,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 5 (Tema: Machine Learning (ML))."
     },
     {
-      "id": "q29",
+      "id": "q6_29",
       "number": 29,
       "prompt": "A norma NBR/ISO/IEC 27001, cujo título é Tecnologia da informação — Técnicas de segurança — Sistemas de gestão da segurança da informação — Requisitos, foi criada em 2005, no ISO, pela adaptação de um padrão britânico (BS7799) que elencava boas práticas de segurança da informação. Segundo Kolbe (2017, p. 176), o princípio geral da norma “é a adoção de um conjunto de processos, controles e requisitos que visam à gerência de riscos de uma organização”. Desta forma, a 27001 proporciona a adequação de melhores práticas na criação de um sistema de gestão de segurança de dados para cada negócio e porte empresarial. Fonte: Rota de Aprendizagem 6 (NORMA NBR/ISO/IEC 27001). Qual é a base fundamental da norma NBR/ISO/IEC 27001?",
       "alternatives": [
@@ -757,7 +763,7 @@ const AULA06 = {
       "source": "Rota de Aprendizagem 6 (Recomendações da Norma)."
     },
     {
-      "id": "q30",
+      "id": "q6_30",
       "number": 30,
       "prompt": "Standardization Organization) é uma organização não governamental que congrega a opinião técnica de profissionais voluntários na busca de padrões consensuais para os mais diversos aspectos científicos e de mercado. A ela se vinculam 167 associações nacionais voltadas a padronização de procedimentos (ISO, 2022). Fonte: Rota de Aprendizagem 6 (Normas ISO). De acordo com o texto e com os conteúdos abordados em nossas aulas, qual é a principal recomendação de todas as normas da família ISO 27000 sobre segurança da informação?",
       "alternatives": [

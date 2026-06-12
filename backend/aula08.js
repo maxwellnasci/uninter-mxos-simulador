@@ -1,9 +1,15 @@
 const AULA08 = {
   "id": "aula08",
   "title": "Tecnologias Digitais para Segurança Cibernética",
+  "shortTitle": "Tecnologias Digitais",
+  "description": "Certificados digitais, criptografia, redes seguras e tecnologias de proteção.",
+  "accent": "#7c3aed",
+  "icon": "💻",
+  "total": 30,
+  "passingScore": 21,
   "questions": [
     {
-      "id": "q1",
+      "id": "q8_1",
       "number": 1,
       "prompt": "“Um certificado digital é uma prova de identidade no meio virtual. Podemos, desta forma, entendê-lo como uma “carteira de identidade” virtual. Esta analogia, no entanto, nos induz ao erro de imaginarmos que os certificados estariam vinculados somente a pessoas, mas, de fato, podem ser emitidos também para computadores, softwares ou empresas”. Fonte: Texto da Rota de Aprendizagem 3 (Tema: CERTIFICADOS DIGITAIS). Com base no que foi estudado na disciplina, como podemos descrever um certificado digital?",
       "alternatives": [
@@ -29,7 +35,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 3 (Tema: CERTIFICADOS DIGITAIS)."
     },
     {
-      "id": "q2",
+      "id": "q8_2",
       "number": 2,
       "prompt": "“Há poucas décadas a comunicação a distância se fazia parcamente por sistemas de radiocomunicação ou, quando necessária a transmissão de documentos, um fac simile (fax) podia ser usado. Estas primeiras comunicações digitais eram realizadas a taxas de transmissão inimagináveis na atualidade. Eram frequentes canais de comunicação, considerados de alto desempenho, com velocidade limitada a menos de um milésimo daquela que hoje temos disponível em nossos aparelhos celulares. Fenômeno equivalente ocorreu com a capacidade de processamento”. Fonte: Rota de Aprendizagem 1 (Tema: Tecnologia e Segurança). Considerando o conteúdo estudado em aula, assinale a alternativa que aponta corretamente a denominação do primeiro computador comercial:",
       "alternatives": [
@@ -55,7 +61,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 1 (Tema: Tecnologia e Segurança)."
     },
     {
-      "id": "q3",
+      "id": "q8_3",
       "number": 3,
       "prompt": "Naturalmente, você já ouviu falar da memória disponível em dispositivos microprocessados, como um aparelho de telefonia celular digital. Uma memória de acesso randômico com algumas dezenas de gigabytes (GB) é um bom indicativo de que há espaço suficiente para armazenar suas informações no equipamento. (Texto adaptado). Fonte: Texto da Rota de Aprendizagem 2 (Tema: REPRESENTAÇÃO DE NÚMEROS EM MÁQUINAS COMPUTACIONAIS). Considerando o conteúdo estudado em aula, assinale a alternativa que indica corretamente o termo técnico utilizado para se referir à memória disponível em um dispositivo microprocessado, como um celular digital:",
       "alternatives": [
@@ -81,7 +87,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 2 (Tema: REPRESENTAÇÃO DE NÚMEROS EM MÁQUINAS COMPUTACIONAIS)."
     },
     {
-      "id": "q4",
+      "id": "q8_4",
       "number": 4,
       "prompt": "Como evidenciamos durante as nossas aulas, no que se refere a manutenção das características seguras da informação, a criptografia é uma boa forma de manter a confidencialidade e privacidade, da mesma forma que técnicas hash permitem conservar a autenticidade e integridade. A assinatura eletrônica é uma ferramenta importante para garantir o não repúdio à mensagem. (Texto adaptado). Fonte: Texto da Rota de Aprendizagem 3 (Tema: HASH, CRIPTOGRAFIA E ASSINATURA ELETRÔNICA). De acordo com o texto acima e com os estudos realizados na disciplina, assinale a alternativa correta acerca da assinatura eletrônica:",
       "alternatives": [
@@ -107,7 +113,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 3 (Tema: HASH, CRIPTOGRAFIA E ASSINATURA ELETRÔNICA)."
     },
     {
-      "id": "q5",
+      "id": "q8_5",
       "number": 5,
       "prompt": "“As técnicas criptográficas são procedimentos eminentemente matemáticos que transformam os dados pelo uso de algoritmos, que os combinam com senhas (ditas chaves criptográficas) de maneira complexa. Essa combinação torna os dados originais (chamados de texto plano em criptografia) ininteligíveis para aqueles que desconhecem o algoritmo e a chave”. Fonte: Texto da Rota de Aprendizagem 2 (Tema: INTRODUÇÃO À CRIPTOGRAFIA). Com base nos estudos realizados em aula, qual é o termo utilizado para descrever o processo de decodificação realizado à revelia dos proprietários da informação, seja de forma maliciosa ou não? Assinale a alternativa correta:",
       "alternatives": [
@@ -133,7 +139,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 2 (Tema: INTRODUÇÃO À CRIPTOGRAFIA)."
     },
     {
-      "id": "q6",
+      "id": "q8_6",
       "number": 6,
       "prompt": "“Com a evolução da computação, que permite a realização quase que instantânea de cálculos matemáticos de certa complexidade, a criptografia ganhou contornos menos simplistas. Atualmente, as técnicas criptográficas não são criadas para que permaneçam sigilosas. Abandonamos, portanto, a ideia de criptografia imune a quebra. Sabemos, agora, que todo algoritmo é, ou será, público, e toda cifra será, em dado momento, quebrada”. Fonte: Texto da Rota de Aprendizagem 2 (CRIPTOGRAFIA NA ATUALIDADE). De acordo com o estudado na disciplina, qual é o objetivo principal dos criptógrafos da atualidade ao desenvolver novas cifras? Assinale a alternativa correta:",
       "alternatives": [
@@ -159,7 +165,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 2 (CRIPTOGRAFIA NA ATUALIDADE)."
     },
     {
-      "id": "q7",
+      "id": "q8_7",
       "number": 7,
       "prompt": "“Barreto et al. (2018, p. 24) nos ensina que o ciclo de vida é, de fato, um histórico da informação, desde o momento de sua criação até sua morte. Segundo os autores, o ciclo de vida descreve, entre  outros eventos, as mudanças quanto à relevância da informação para seus detentores, identificando a perda de valor e a necessidade de eventual descarte”. Fonte: Texto da Rota de Aprendizagem 3 (CICLO DE VIDA DA INFORMAÇÃO). Considerando o conteúdo estudado em aula e o texto da rota de aprendizagem, assinale a alternativa correta acerca da fase de Descarte:",
       "alternatives": [
@@ -185,7 +191,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 3 (CICLO DE VIDA DA INFORMAÇÃO)."
     },
     {
-      "id": "q8",
+      "id": "q8_8",
       "number": 8,
       "prompt": "“O uso de nibles, com o meteórico crescimento da capacidade computacional, havia caído em absoluto desuso, mas a internet das coisas (IoT) com seus dispositivos de baixo custo e eletrônica reduzida, fomentaram sua ressurreição”. Fonte: Rota de Aprendizagem 1 (Tema: NIBLE, BYTE, WORD...). De acordo com o material estudado em aula, assinale a alternativa correta acerca do tamanho de um nible:",
       "alternatives": [
@@ -211,7 +217,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 1 (Tema: NIBLE, BYTE, WORD...)."
     },
     {
-      "id": "q9",
+      "id": "q8_9",
       "number": 9,
       "prompt": "“Um dos primeiros sistemas criptográficos de chave pública é o algoritmo de Rivest, Shamir e Adleman, conhecido pelas iniciais de seus idealizadores, RSA. Esse algoritmo ainda é bastante utilizado em transmissão de dados, por ser relativamente rápido”. Fonte: Texto da Rota de Aprendizagem 2 (Tema: ALGORITMO ASSIMÉTRICO RSA). Com base no material estudado em aula, julgue as afirmativas abaixo como V (verdadeiras) ou F (falsas) quanto o algoritmo RSA:\n( ) A base do sistema repousa sobre aritmética modular, que é uma releitura das operações aritméticas de forma cíclica.\n( ) Em aritmética modular, não temos igualdades, mas congruências.\n( ) Sempre que existir outro inteiro que multiplicado n e somado com y resulte em x, a congruência será satisfeita.\n( ) Mesmo divulgando a chave pública, a decodificação da cifra não seja unívoca, existirão vários textos planos possíveis.\nAssinale a alternativa que corresponde à sequência correta:",
       "alternatives": [
@@ -237,7 +243,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 2 (Tema: ALGORITMO ASSIMÉTRICO RSA)."
     },
     {
-      "id": "q10",
+      "id": "q8_10",
       "number": 10,
       "prompt": "“Como já sabemos, a máquina computacional opera apenas com zeros e uns. Utiliza, portanto, unicamente, o sistema binário. Longas sequências binárias são bastante comuns e tornam-se de difícil leitura para nós, humanos. Apenas para ilustrar o decimal 8217,44, precisa de 48 bits para ser representado no sistema binário: 8217,44 = (0010 0000 0001 1001,0111 0011) ². Para tornar a visualização um pouco mais simples e concisa, costuma-se apresentar os binários em uma outra base numérica, a hexadecimal”. Fonte: Texto da Rota de Aprendizagem 1 (Tema: SISTEMAS DE NUMERAÇÃO). Com base no estudado em aula, responda: por que os binários são frequentemente apresentados em base hexadecimal? Assinale a alternativa correta:",
       "alternatives": [
@@ -263,7 +269,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 1 (Tema: SISTEMAS DE NUMERAÇÃO)."
     },
     {
-      "id": "q11",
+      "id": "q8_11",
       "number": 11,
       "prompt": "Cada processo de conversão de dados segue regras rigorosas para garantir a consistência e a interoperabilidade entre diferentes máquinas computacionais. A padronização desses processos permite o compartilhamento eficaz de dados digitalizados entre sistemas distintos. No caso específico da conversão de letras, palavras e textos, o padrão de 8 bits, conhecido como byte, foi desenvolvido para incluir uma tabela de conversão que mapeia caracteres e símbolos para padrões binários, esse padrão é conhecido como ASCII. (Texto adaptado). Fonte: Texto da Rota de Aprendizagem. Considerando os conteúdos estudados em aula, assinale a alternativa que apresenta, corretamente, o significado da sigla ASCII no contexto de padrões de codificação de caracteres:",
       "alternatives": [
@@ -289,7 +295,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 1 (Tema: CONVERSÃO DA REALIDADE PARA INFORMAÇÃO DIGITAL)."
     },
     {
-      "id": "q12",
+      "id": "q8_12",
       "number": 12,
       "prompt": "Quando pensamos em informação, mesmo do ponto de vista leigo, imaginamos um dado útil sobre um fenômeno qualquer. Mas, qual seria a menor unidade de informação possível? Quando as máquinas computacionais foram idealizadas, optou-se por dotá-las de uma característica, devido à facilidade de construção eletrônica. (Texto adaptado). Fonte: Rota de Aprendizagem 1 (Tema: O BIT, A INFORMAÇÃO ELEMENTAR). Com base no conteúdo estudado em aula e no fragmento acima, assinale a alternativa que define corretamente o termo \"bit\".",
       "alternatives": [
@@ -315,7 +321,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 1 (Tema: O BIT, A INFORMAÇÃO ELEMENTAR)."
     },
     {
-      "id": "q13",
+      "id": "q8_13",
       "number": 13,
       "prompt": "“Byte, trata-se da associação de dois nibles, ou seja, oito bits. O byte “ganhou notoriedade” porque permite a representação de 256 estados (28 = 256). Hoje as dimensões de memória computacional utilizam o byte, representado pela letra “B” maiúscula, como balizador. Já velocidade de processamento ou de transmissão de dados utilizam o bit, representado pela letra “b” (minúscula). Desta forma escrevemos, por exemplo, memória de 32 GB e velocidade de 128 Mb por segundo ou 128 Mbps”. Fonte: Rota de Aprendizagem 1 (Tema: NIBLE, BYTE, WORD...). Com base nos estudos realizados em aula, assinale a alternativa que apresenta, corretamente, qual é a principal função do byte na representação de dados.",
       "alternatives": [
@@ -341,7 +347,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 1 (Tema: NIBLE, BYTE, WORD...)."
     },
     {
-      "id": "q14",
+      "id": "q8_14",
       "number": 14,
       "prompt": "“Segundo Machado (2014, p. 154), o hash pode ser utilizado para “verificar a integridade de um arquivo armazenado em um computador, mensagem ou arquivos de backups, verificar a integridade de um arquivo obtido da internet ou gerar assinaturas digitais”.” Fonte: Texto da Rota de Aprendizagem 3 (Tema: HASH). Considerando o conteúdo estudado em aula, assinale a alternativa correta sobre a função do hashing:",
       "alternatives": [
@@ -367,7 +373,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 3 (Tema: HASH)."
     },
     {
-      "id": "q15",
+      "id": "q8_15",
       "number": 15,
       "prompt": "Quando tomamos contato com o conceito de criptografia, principalmente ao considerarmos o uso de chaves criptográficas associadas aos algoritmos, de forma a dificultar a quebra, normalmente imaginamos um método chamado de simétrico, no qual tanto emissor quanto receptor conhecem e compartilham a mesma chave. Você deve estar pensando que não há outra forma de criptografar e decodificar senão pelo compartilhamento secreto de uma chave, não é? Na verdade, essa é apenas uma das formas, a mais simples e rápida, mas também a de menor segurança, assim, existem dois tipos de criptografia. (Texto adaptado). Fonte: Texto da Rota de Aprendizagem 2 (Tema: TIPOS DE CRIPTOGRAFIA). Tomando por base o conteúdo estudado em aula, marque a alternativa correta a respeito método assimétrico:",
       "alternatives": [
@@ -393,7 +399,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 2 (Tema: TIPOS DE CRIPTOGRAFIA)."
     },
     {
-      "id": "q16",
+      "id": "q8_16",
       "number": 16,
       "prompt": "“Quando precisamos conectar ou comunicar duas máquinas computacionais, necessitamos criar uma estrutura capaz de possibilitar essa conexão. Se são apenas duas máquinas, essa solução pode ser obtida pela mera conexão, com interface adequada, entre as máquinas.” Fonte: Rota de Aprendizagem 4 (Tema: Redes de computadores e comunicação entre redes (Internet Communication). Com base no texto enunciado da questão, responda: como é chamada a conexão de rede dinâmica e descentralizada que envolve múltiplos dispositivos? Assinale a alternativa correta:",
       "alternatives": [
@@ -419,7 +425,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 4 (Tema: Redes de computadores e comunicação entre redes (Internet Communication)."
     },
     {
-      "id": "q17",
+      "id": "q8_17",
       "number": 17,
       "prompt": "“Há um terceiro modelo, semelhante ao PTM, no qual a comunicação direta entre assinantes é possível. As redes MTM (multiponto-para-multiponto), ou mesh, permitem a comunicação de um nó com o outro sem a necessidade de um gerenciamento central. Naturalmente esse modelo de redes exigirá capacidade de processamento e de roteamento em cada nó, restringindo o desempenho.” Fonte: Rota de Aprendizagem 4 (Tema: Comunicação multiponto – multiponto). Com base no conteúdo estudado em aula e no fragmento acima, qual é a principal vantagem das redes MTM (multiponto-para-multiponto) ou mesh? Assinale a alternativa correta:",
       "alternatives": [
@@ -445,7 +451,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 4 (Tema: Comunicação multiponto – multiponto)."
     },
     {
-      "id": "q18",
+      "id": "q8_18",
       "number": 18,
       "prompt": "“As primeiras Fibras ópticas (FOs) comerciais utilizavam dois cilindros concêntricos de sílica com índices de refração diferentes, chamados núcleo (ou core, em inglês) e casca (ou cladding). Após a casca, deposita-se acrilato e resina silicônica para conferir resistência mecânica e certa flexibilidade ao conjunto. Várias dessas fibras são então agrupadas em um cabo que terá elementos extras para sustentação e resistência a cisalhamento e pressão.” Fonte: Rota de Aprendizagem 5 (Tema: TRANSMISSÃO ÓPTICA). Considerando o conteúdo estudado em aula e o texto da rota de aprendizagem, assinale a alternativa correta acerca da característica das fibras ópticas que originou sua denominação como \"fibras multimodo\":",
       "alternatives": [
@@ -471,7 +477,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 5 (Tema: TRANSMISSÃO ÓPTICA)."
     },
     {
-      "id": "q19",
+      "id": "q8_19",
       "number": 19,
       "prompt": "Quando a rede que interconecta nossos usuários é a internet, de topologia PTM, precisamos padronizar a forma de endereçar as várias máquinas assinantes da rede. A primeira padronização que entrou em operação, após a popularização da internet, foi o protocolo de internet que se trata de endereçamento binário composto por 32 bits, o que permite em torno de 4,3 bilhões de endereços distintos (ditos válidos). Fonte: Rota de Aprendizagem 4 (Tema: Endereçamento). (Texto adaptado). Com base nos estudos realizados em aula, assinale a alternativa que apresenta, corretamente, como se denomina o protocolo de endereçamento que utiliza um esquema binário de 32 bits e permite aproximadamente 4,3 bilhões de endereços distintos:",
       "alternatives": [
@@ -497,7 +503,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 4 (Tema: Endereçamento)."
     },
     {
-      "id": "q20",
+      "id": "q8_20",
       "number": 20,
       "prompt": "“Se pensarmos em uma operação PTM ou MTM, com vários usuários, percebemos que será necessário ao originador da mensagem identificar a quem deseja que a mensagem seja entregue. Essa informação não é necessária em uma comunicação PTP, já que há apenas um destinatário possível. ” Fonte: Rota de Aprendizagem 4 (Tema: Endereçamento). De acordo com o material estudado em aula, em uma operação PTM ou MTM, qual é a identificação necessária para que o próximo nó ou roteador saiba para onde a mensagem deve ser entregue, especialmente quando há múltiplos destinatários habilitados? Assinale a alternativa correta:",
       "alternatives": [
@@ -523,7 +529,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 4 (Tema: Endereçamento)."
     },
     {
-      "id": "q21",
+      "id": "q8_21",
       "number": 21,
       "prompt": "“A comunicação por rádio se baseia nas emissões controladas de ondas eletromagnéticas (OEM) pelo ar (ou vácuo). Em outras palavras, a transmissão de rádio é possível graças à capacidade de emitir OEMs no espaço livre, capazes de alcançar o destino almejado. A mera emissão de OEMs, por outro lado, seria inútil se não fosse possível controlá-las em função do sinal de dados que desejamos transmitir.” Fonte: Rota de Aprendizagem 5 (Tema: CONCEITOS RUDIMENTARES DE TELECOMUNICAÇÕES). Com base nos estudos realizados em aula, como chamamos o processo de controle das ondas eletromagnéticas para transmitir um sinal de dados em comunicação por rádio? Assinale a alternativa correta:",
       "alternatives": [
@@ -549,7 +555,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 5 (Tema: CONCEITOS RUDIMENTARES DE TELECOMUNICAÇÕES)."
     },
     {
-      "id": "q22",
+      "id": "q8_22",
       "number": 22,
       "prompt": "Na aula 04, comentamos que existem entidades que gerenciam o processo de associação dos dados digitais a seu significado, propósito e destino. De fato, a literatura científica prefere descrever esse processo todo (entidades + comunicação) como camadas de um modelo padronizado de comunicação entre redes. (Texto adaptado pelo elaborador da questão). Fonte: Rota de Aprendizagem 4 (Tema: Camadas). Qual camada do modelo de comunicação é responsável pela adequação do bloco de dados encapsulados ao meio de transmissão, tratando suas especificidades mecânicas e elétricas? Assinale a alternativa correta:",
       "alternatives": [
@@ -575,7 +581,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 4 (Tema: Camadas)."
     },
     {
-      "id": "q23",
+      "id": "q8_23",
       "number": 23,
       "prompt": "Na aula 05, exploramos os três principais meios físicos de transmissão: metálico, óptico e propagação livre por radiocomunicação. Analisamos as tecnologias associadas a cada um desses meios e discutimos suas aplicações mais adequadas. Além disso, abordamos as vantagens e desvantagens de cada opção, ajudando a compreender qual meio é mais eficaz para diferentes situações. (Texto elaborado pelo autor da questão). Fonte: Texto da Rota de Aprendizagem 5 (Tema: A CORRETA ESCOLHA DO MEIO). Com base no material estudado em aula, julgue as afirmativas abaixo como V (verdadeiras) ou F (falsas):\n( ) O meio metálico oferece vantagens como baixo custo, facilidade de implementação e manutenção, mas é suscetível a ruídos, interferências e furtos. Além disso, técnicas para minimizar essas desvantagens podem aumentar o custo das instalações.\n( ) A transmissão óptica oferece imunidade a ruídos, baixa suscetibilidade a invasões e menor valor comercial da sucata, mas enfrenta desafios como baixa resistência mecânica, complexidade de projeto, e alto custo de manutenção e instalação.\n( ) A radiopropagação equilibra custo e resistência à interferência entre as soluções metálica e óptica, oferecendo flexibilidade e viabilidade para longas distâncias, mas é mais suscetível a interferências intensas como descargas atmosféricas.\n( ) O meio metálico oferece vantagens como alta imunidade a interferências e segurança contra invasões, sendo altamente resistente a ruídos e furtos. Sua implementação é complexa e exige manutenção constante, o que pode tornar esse meio mais caro a longo prazo, mas técnicas simples e acessíveis podem facilmente mitigar qualquer desvantagem.\nAssinale a alternativa que corresponde à sequência correta:",
       "alternatives": [
@@ -601,7 +607,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 5 (Tema: A CORRETA ESCOLHA DO MEIO)."
     },
     {
-      "id": "q24",
+      "id": "q8_24",
       "number": 24,
       "prompt": "“A ideia de tornar o PTM bidirecional demorou a surgir, mas hoje está presente no sistema de telefonia celular. Controlada por estações rádio base (ERB), conhecidas pelo público leigo como antenas de celular, a comunicação se dá sempre com a gestão da ERB, e não ocorre, efetivamente, a conexão real, direta, entre dois assinantes. A ERB escuta a todos os smarphones e faz a comutação, conectando virtualmente dois smartphones.” Fonte: Rota de Aprendizagem 4 (Tema: Comunicação ponto – multiponto). De acordo com os estudos realizados nas aulas da disciplina, qual foi o contexto inicial em que surgiu a ideia da comunicação ponto-multiponto (PTM)? Assinale a alternativa correta:",
       "alternatives": [
@@ -627,7 +633,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 4 (Tema: Comunicação ponto – multiponto)."
     },
     {
-      "id": "q25",
+      "id": "q8_25",
       "number": 25,
       "prompt": "Ao estudarmos os códigos binários, as máquinas computacionais, para que seja possível a portabilidade dos dados, devem ter alto grau de padronização. Por esse motivo, devemos esperar a mesma padronização quando tratamos dos protocolos de comunicação entre máquinas. Esses protocolos definirão o encapsulamento gradativo dos dados de forma a garantir que a máquina remota seja absolutamente capaz de ler e interpretar convenientemente a mensagem recebida. Vários padrões foram propostos para esse fim. (Texto adaptado pelo elaborador da questão). Fonte: Rota de Aprendizagem 4 (Camadas padronizadas). Considerando o conteúdo estudado em aula, responda: Qual é o padrão de comunicação entre máquinas que ganhou universalidade por definir o encapsulamento gradativo dos dados, garantindo a correta interpretação das mensagens recebidas? Assinale a alternativa correta:",
       "alternatives": [
@@ -653,7 +659,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 4 (Camadas padronizadas)."
     },
     {
-      "id": "q26",
+      "id": "q8_26",
       "number": 26,
       "prompt": "“Comunicação ponto a ponto trata-se do tipo elementar de comunicação. Neste paradigma temos uma conexão transmissor (TX) de um lado, e receptor (RX) de outro.” Fonte: Rota de Aprendizagem 4 (Tema: Comunicação ponto a ponto). Qual das alternativas abaixo descreve corretamente o conceito de comunicação ponto a ponto? Assinale a alternativa correta:",
       "alternatives": [
@@ -679,7 +685,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 4 (Tema: Comunicação ponto a ponto)."
     },
     {
-      "id": "q27",
+      "id": "q8_27",
       "number": 27,
       "prompt": "“Um enlace de rádio ponto a ponto consiste basicamente em dois transceptores operando na mesma frequência de portadora, conectados a antenas adequada. A escolha dos equipamentos e da técnica de modulação dependerá da qualidade e das características exigidas para a comunicação. O problema comum nos enlaces ponto a ponto são os altos custos de sistemas de rádio com alta estabilidade. Esse problema, na maioria dos casos, pode ser enfrentado pela adaptação de uma técnica utilizada em rádios militares, chamada de spread-spectrum.” Fonte: Texto da Rota de Aprendizagem 5 (Tema: Enlaces de rádio ponto a ponto). Considerando o conteúdo estudado em aula, qual é a característica principal dos rádios spread-spectrum? Assinale a alternativa correta:",
       "alternatives": [
@@ -705,7 +711,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 5 (Tema: Enlaces de rádio ponto a ponto)."
     },
     {
-      "id": "q28",
+      "id": "q8_28",
       "number": 28,
       "prompt": "“A estabilidade da conexão, com uso da internet, dependerá da disponibilidade de uma rede administrada por vários operadores independentes. Nesta solução não controlamos nem podemos influenciar na qualidade da conexão. Do ponto de vista de segurança, para o uso dessa solução, será necessário implementar recursos de isolamento e monitoração do tráfego de rede.” Fonte: Rota de Aprendizagem 4 (Tema: Redes de computadores e comunicação entre redes (Internet Communication). Considerando os conteúdos estudados em aula, assinale a alternativa que apresenta, corretamente, qual dos recursos a seguir, é necessário implementar para garantir a segurança ao utilizar uma rede administrada por vários operadores independentes:",
       "alternatives": [
@@ -731,7 +737,7 @@ const AULA08 = {
       "source": "Rota de Aprendizagem 4 (Tema: Redes de computadores e comunicação entre redes (Internet Communication)."
     },
     {
-      "id": "q29",
+      "id": "q8_29",
       "number": 29,
       "prompt": "Tratamos durante a nossa disciplina do conceito básico da comutação de pacotes. Como nos ensina Comer (2016, p. 6), esse método “mudou as redes de maneira fundamental e forneceu a base da Internet moderna” por permitir a circulação de dados de múltiplas origens sobre uma rede compartilhada. Sabemos que essa comunicação é viabilizada pela justaposição de endereços que identificam origem e destino do pacote. Seguindo os estudos do mesmo autor, a comunicação de dados baseada em comutação de pacotes pode ser entendida a partir de três propriedades gerais. (Texto adaptado pelo autor da questão) Fonte: Texto da Rota de Aprendizagem 6 (Tema: COMUTAÇÃO DE PACOTES E COMUNICAÇÃO ENTRE REDES). Seguindo os estudos de Comer (2016), quais são as três propriedades gerais da comunicação de dados baseada em comutação de pacotes? Assinale a alternativa correta:",
       "alternatives": [
@@ -757,7 +763,7 @@ const AULA08 = {
       "source": "Texto da Rota de Aprendizagem 6 (Tema: COMUTAÇÃO DE PACOTES E COMUNICAÇÃO ENTRE REDES)."
     },
     {
-      "id": "q30",
+      "id": "q8_30",
       "number": 30,
       "prompt": "“Quando apresentamos o modelo IPSec na aula 06, comentamos que esse acréscimo de segurança ocorreu para evitar que agentes maliciosos se fizessem passar por atores legítimos da comunicação entre máquinas.” Fonte: Texto da Rota de Aprendizagem 6 (Tema: IPSec E SEGURANÇA EM TCP/IP). Como é denominado esse tipo de ataque feito por agentes maliciosos? Assinale a alternativa correta:",
       "alternatives": [

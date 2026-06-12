@@ -4,7 +4,7 @@
 const { getDatabase, closeDatabase } = require('./database');
 
 // ================================================================
-// DADOS — 4 AULAS COM 30 QUESTÕES CADA
+// DADOS — 8 AULAS COM 30 QUESTÕES CADA
 // ================================================================
 
 const AULA01 = {
@@ -195,7 +195,3183 @@ async function seed() {
   db.run('DELETE FROM temas');
   db.run('DELETE FROM alunos');
 
-  const aulas = [AULA01, AULA02, AULA03, AULA04];
+const AULA05 = {
+  "id": "aula05",
+  "title": "Português Elementar",
+  "shortTitle": "Português Elementar",
+  "description": "Regência, prosódia, morfologia, sintaxe e recursos da língua portuguesa.",
+  "accent": "#0891b2",
+  "icon": "📝",
+  "total": 30,
+  "passingScore": 21,
+  "questions": [
+    {
+      "id": "q5_1",
+      "number": 1,
+      "prompt": "Na língua portuguesa, a regência nominal trata da relação entre um nome (substantivo, adjetivo ou advérbio) e o termo que o complementa, geralmente intermediada por uma preposição. Por exemplo, na frase “Tenho admiração por meu pai”, o substantivo “admiração” exige a preposição “por” para ligar-se ao complemento. O domínio da regência nominal é fundamental para a produção de textos claros e adequados à norma-padrão, especialmente em contextos formais. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar e nas informações apresentadas, assinale a alternativa que apresenta corretamente o uso da regência nominal, de acordo com a norma-padrão:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Tenho respeito com meus professores, pois sempre me ajudaram nas dificuldades."
+        },
+        {
+          "letter": "B",
+          "text": "Estava aflito por sua demora, pois precisava de uma resposta urgente."
+        },
+        {
+          "letter": "C",
+          "text": "O aluno tem receio para não passar no exame final."
+        },
+        {
+          "letter": "D",
+          "text": "Tenho devoção com minha família, pois ela é meu alicerce."
+        }
+      ],
+      "answer": "B",
+      "explanation": "O adjetivo “aflito” admite a preposição “por” (“aflito por”), conforme a regência nominal da norma-padrão.",
+      "source": "Material da disciplina de Português Elementar - aula 3"
+    },
+    {
+      "id": "q5_2",
+      "number": 2,
+      "prompt": "A ortoepia e a prosódia são áreas da fonética e da fonologia que ajudam na pronúncia correta das palavras. A ortoepia trata da forma como pronunciamos os sons, enquanto a prosódia está relacionada à sílaba tônica das palavras. Já palavras como pudico, rubrica e recorde costumam ser pronunciadas com a sílaba tônica errada, o que pode gerar confusão. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar e no fragmento acima, qual alternativa apresenta a palavra com a sílaba tônica corretamente identificada, de acordo com a prosódia da norma padrão da língua portuguesa:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "REcorde, pois a pronúncia em português segue a mesma da língua inglesa."
+        },
+        {
+          "letter": "B",
+          "text": "ruBRIca, porque a sílaba mais forte ao pronunciar a palavra é a penúltima."
+        },
+        {
+          "letter": "C",
+          "text": "pudiCO, porque a pronúncia correta é com a última sílaba tônica."
+        },
+        {
+          "letter": "D",
+          "text": "SÚtil, afinal a prosódia respeita o registro ortográfico."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Segundo a Aula 1, a prosódia correta é puDIco, ruBRIca e reCOrde.",
+      "source": "Língua Portuguesa, aula1.pdf"
+    },
+    {
+      "id": "q5_3",
+      "number": 3,
+      "prompt": "Ao estudar a língua portuguesa, percebemos que as palavras podem ser agrupadas de diferentes formas. Uma delas leva em conta o significado que as palavras apresentam, enquanto outra observa a forma que elas assumem. Essas formas de organização ajudam a compreender melhor o funcionamento da língua e a utilizar as palavras de maneira adequada em diferentes contextos. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar e nos critérios de classificação das palavras estudados, assinale a alternativa que apresenta corretamente a diferença entre o critério semântico e o critério morfológico:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "O critério semântico classifica as palavras de acordo com o significado que elas possuem, enquanto o critério morfológico considera a forma e a possibilidade de variação das palavras."
+        },
+        {
+          "letter": "B",
+          "text": "O critério semântico considera a função sintática das palavras, enquanto o critério morfológico analisa o contexto em que a palavra aparece."
+        },
+        {
+          "letter": "C",
+          "text": "O critério semântico agrupa as palavras pelo número de sílabas, e o critério morfológico pelo número de letras."
+        },
+        {
+          "letter": "D",
+          "text": "O critério morfológico classifica as palavras pelo seu significado, e o critério semântico pela sua flexão de gênero e número."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Esta alternativa está correta, pois reflete exatamente a diferença entre os critérios conforme apresentado na aula.",
+      "source": "Material da disciplina de Português Elementar - aula 2"
+    },
+    {
+      "id": "q5_4",
+      "number": 4,
+      "prompt": "Em uma pesquisa escolar, Lucas encontrou um texto antigo com a palavra “pharmácia” e o utilizou em seu trabalho. Ao apresentá-lo, foi questionado sobre a grafia daquela palavra. Naquele momento, lembrou-se do conteúdo estudado na disciplina de Português Elementar, como, por exemplo, do texto explicativo sobre a padronização da escrita estabelecida a partir de análises que consideraram tanto os sons da língua quanto sua origem histórica, além de incluir grafias que se consolidaram pelo costume. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina e na situação descrita acima, responda como Lucas justificou o uso dessa grafia:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Afirmando que a grafia antiga é mais correta que a atual."
+        },
+        {
+          "letter": "B",
+          "text": "Dizendo que a palavra está errada e deve ser eliminada do texto."
+        },
+        {
+          "letter": "C",
+          "text": "Explicando que a ortografia é uma convenção social que muda com o tempo."
+        },
+        {
+          "letter": "D",
+          "text": "Justificando que a palavra foi escrita assim por erro de digitação."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Aula 1 mostra que grafias antigas foram modificadas por convenções ortográficas.",
+      "source": "Língua Portuguesa, aula 1.pdf"
+    },
+    {
+      "id": "q5_5",
+      "number": 5,
+      "prompt": "As preposições e as conjunções desempenham o papel de unir elementos dentro da linguagem, como palavras, frases e orações. Elas atuam como conectores, estabelecendo vínculos entre partes do discurso. Quando isoladas, perdem seu significado, pois sua função está diretamente ligada à conexão entre os termos. Uma situação que pode nos levar a pensar a esse respeito é o caso em que durante uma viagem, Rui Barbosa ouviu um passageiro dizer que estava indo “pro Rio de Janeiro”. A conversa revelou que o uso correto das preposições pode alterar o sentido da frase e até causar confusões engraçadas. As preposições, apesar de pequenas, são essenciais para ligar palavras e dar clareza ao que se quer comunicar. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Imagine que você está escrevendo uma mensagem para um amigo contando sobre sua viagem. Assinale a alternativa em que a preposição foi usada corretamente, considerando o sentido pretendido. Fundamente sua resposta no conteúdo da disciplina de Português Elementar.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Vou ao Rio de Janeiro para visitar minha família."
+        },
+        {
+          "letter": "B",
+          "text": "Vou em Rio de Janeiro para visitar minha família."
+        },
+        {
+          "letter": "C",
+          "text": "Vou para o Rio de Janeiro ontem."
+        },
+        {
+          "letter": "D",
+          "text": "Vou de Rio de Janeiro para visitar minha família."
+        }
+      ],
+      "answer": "A",
+      "explanation": "O uso da preposição “a” (ao) indica deslocamento para um local específico, conforme a norma culta.",
+      "source": "Material da disciplina de Português Elementar - aula 2"
+    },
+    {
+      "id": "q5_6",
+      "number": 6,
+      "prompt": "Certos elementos expressivos, como a pausa, o tom de voz, a musicalidade e até o uso do silêncio, são exclusivos da comunicação falada. Para compensar essa ausência na escrita, recorremos à pontuação como forma de transmitir nuances e intenções. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar e no fragmento acima, reflita sobre a seguinte situação: Em uma atividade de revisão textual, Maria escreveu a frase: “Vamos perder nada foi resolvido.” Ao ler em voz alta, ela percebeu que o sentido estava confuso. Qual seria a melhor orientação para Maria?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Reescrever a frase utilizando palavras mais difíceis para dar clareza."
+        },
+        {
+          "letter": "B",
+          "text": "Criar um parágrafo explicativo para a frase."
+        },
+        {
+          "letter": "C",
+          "text": "Substituir o ponto final por um ponto de interrogação."
+        },
+        {
+          "letter": "D",
+          "text": "Inserir a pontuação adequada para separar as ideias e tornar o texto claro."
+        }
+      ],
+      "answer": "D",
+      "explanation": "Aula 1 mostra que a pontuação organiza o texto e evita ambiguidades.",
+      "source": "Língua Portuguesa, aula 1.pdf"
+    },
+    {
+      "id": "q5_7",
+      "number": 7,
+      "prompt": "Decorar nomenclaturas ou a taxionomia não faz de ninguém detentor de saberes gramaticais; é preciso saber a função dessas nomenclaturas e saber usá-las em seus devidos contextos. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar e no fragmento acima, reflita sobre a seguinte situação: Durante uma aula de redação, o professor propôs que os alunos escrevessem um texto opinativo sobre o uso das redes sociais. João, ao revisar seu texto, percebeu que havia utilizado estruturas gramaticais diferentes das que costuma ver em livros didáticos. Preocupado, perguntou se seu texto estava “errado”. Qual orientação é a mais adequada ao estudante João?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Afirmar que qualquer desvio da norma-padrão é considerado erro gramatical."
+        },
+        {
+          "letter": "B",
+          "text": "Explicar que a gramática serve para organizar a linguagem e que o uso depende do contexto."
+        },
+        {
+          "letter": "C",
+          "text": "Recomendar que João decore todas as regras gramaticais para evitar erros."
+        },
+        {
+          "letter": "D",
+          "text": "Sugerir que João reescreva o texto priorizando frases retiradas de gramáticas tradicionais."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Aula 1 destaca que a gramática organiza a linguagem e não deve ser vista como um conjunto de regras absolutas.",
+      "source": "Língua Portuguesa, aula 1.pdf"
+    },
+    {
+      "id": "q5_8",
+      "number": 8,
+      "prompt": "Ao analisarmos frases em língua portuguesa, percebemos que uma mesma palavra pode exercer funções diferentes dependendo do contexto em que está inserida. Por exemplo, a palavra “animal” pode ser um substantivo em uma frase e um adjetivo em outra, de acordo com o sentido e a posição que ocupa. Esse fenômeno é estudado pela morfossintaxe, que considera tanto a forma quanto a função das palavras na oração. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar).  De acordo com o conteúdo da disciplina de Português Elementar e no fragmento acima, observe as frases abaixo e assinale a alternativa que apresenta corretamente a análise morfossintática da palavra destacada: I. “O cachorro é um animal dócil.” II. “Aquele jogo foi animal!”",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Em ambas as frases, “animal” é advérbio, pois modifica o sentido do verbo."
+        },
+        {
+          "letter": "B",
+          "text": "Em ambas as frases, “animal” é sempre substantivo, pois não pode mudar de classe gramatical."
+        },
+        {
+          "letter": "C",
+          "text": "Na frase I, “animal” é adjetivo; na frase II, “animal” é substantivo, pois indica algo bom."
+        },
+        {
+          "letter": "D",
+          "text": "Na frase I, “animal” é substantivo; na frase II, “animal” exerce função de adjetivo, qualificando o jogo."
+        }
+      ],
+      "answer": "D",
+      "explanation": "Em I, “animal” nomeia um ser; em II, caracteriza o jogo, assumindo valor adjetivo.",
+      "source": "Material da disciplina de Português Elementar - aula 2"
+    },
+    {
+      "id": "q5_9",
+      "number": 9,
+      "prompt": "O material da aula de Português Elementar explica que a prosódia trata da forma adequada sobre a acentuação das palavras, considerando a sílaba que recebe maior destaque na pronúncia. Ela analisa aspectos sonoros da linguagem falada que não são representados pela escrita convencional. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar e no fragmento acima, analise o seguinte cenário: Em uma prova de português, Ana escreveu a palavra “rubrica” com acento na primeira sílaba (RÚbrica). A professora a corrigiu e explicou que essa palavra não leva acento gráfico. Por que a palavra “rubrica” não deve ser acentuada?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Porque a sílaba tônica está na penúltima posição e não se enquadra nas regras de acentuação."
+        },
+        {
+          "letter": "B",
+          "text": "Porque a palavra é estrangeira e não segue as regras da língua portuguesa."
+        },
+        {
+          "letter": "C",
+          "text": "Porque todas as palavras com três sílabas são acentuadas e esse caso não é diferente."
+        },
+        {
+          "letter": "D",
+          "text": "Porque a palavra tem vogal nasal e não pode ser acentuada."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Aula 1 explica que palavras como “rubrica” são paroxítonas e não recebem acento gráfico.",
+      "source": "Língua Portuguesa, aula 1.pdf"
+    },
+    {
+      "id": "q5_10",
+      "number": 10,
+      "prompt": "No estudo das classes gramaticais, aprendemos que algumas palavras podem sofrer variações de gênero (masculino e feminino) e número (singular e plural), enquanto outras permanecem sempre com a mesma forma, independentemente do contexto. Essa característica é importante para a correta utilização das palavras na construção de frases. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar e no fragmento acima, analise as alternativas a seguir e assinale aquela que apresenta apenas classes de palavras invariáveis na língua portuguesa:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Advérbios, preposições e conjunções."
+        },
+        {
+          "letter": "B",
+          "text": "Substantivos, artigos e verbos."
+        },
+        {
+          "letter": "C",
+          "text": "Pronomes, numerais e adjetivos."
+        },
+        {
+          "letter": "D",
+          "text": "Verbos, advérbios e artigos."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Essas classes são invariáveis, ou seja, não sofrem flexão de gênero ou número.",
+      "source": "Material da disciplina de Português Elementar - aula 2"
+    },
+    {
+      "id": "q5_11",
+      "number": 11,
+      "prompt": "Em uma roda de conversa, um aluno afirma que “só fala português errado” porque não usa as mesmas expressões que vê nos livros didáticos. A professora, então, explica que a língua portuguesa possui diferentes variantes e que o padrão linguístico não é absoluto, mas sim uma convenção. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar e no fragmento acima, qual seria a melhor explicação para o aluno?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A norma-padrão é uma convenção sociocultural e desconsidera outras formas legítimas de uso da língua."
+        },
+        {
+          "letter": "B",
+          "text": "O padrão linguístico é fixo e deve ser seguido em qualquer situação comunicativa."
+        },
+        {
+          "letter": "C",
+          "text": "A norma-padrão é a única forma correta de se comunicar em português."
+        },
+        {
+          "letter": "D",
+          "text": "A variação linguística deve ser evitada para garantir clareza textual."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Aula 1 destaca que o padrão é uma convenção e que a língua abriga variantes legítimas.",
+      "source": "Língua Portuguesa, aula 1.pdf"
+    },
+    {
+      "id": "q5_12",
+      "number": 12,
+      "prompt": "Durante uma aula de Língua Portuguesa, a professora propôs aos alunos a análise de diferentes frases para identificar como o verbo atua na construção do sentido. Ela apresentou as frases: “O cachorro latiu durante a noite.” “Silêncio!” “As crianças brincam no parque.” Ao discutir com a turma, a professora destacou que, em algumas frases, o verbo é essencial para que haja sentido completo, enquanto em outras, o contexto pode garantir sentido mesmo sem verbo. Assim, os alunos perceberam que a presença ou ausência do verbo pode modificar a estrutura e o significado das frases. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar e na situação apresentada anteriormente, assinale a alternativa que explica corretamente o papel do verbo na estrutura das frases e resolve o problema de identificar em qual delas o verbo é indispensável para a construção do sentido:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Em todas as frases apresentadas, o verbo é indispensável para que haja sentido completo, pois sem ele não é possível formar um enunciado."
+        },
+        {
+          "letter": "B",
+          "text": "A frase “Silêncio!” não possui verbo, mas ainda assim é compreendida, pois o contexto pode garantir sentido ao enunciado, diferentemente das frases “O cachorro latiu durante a noite.” e “As crianças brincam no parque.”, em que o verbo é essencial para a estrutura e o sentido."
+        },
+        {
+          "letter": "C",
+          "text": "O verbo só é necessário em frases interrogativas e exclamativas, sendo dispensável em frases declarativas."
+        },
+        {
+          "letter": "D",
+          "text": "A ausência do verbo em qualquer frase torna impossível a identificação do sujeito, independentemente do contexto."
+        }
+      ],
+      "answer": "B",
+      "explanation": "O verbo é indispensável nas frases 1 e 3, mas não na 2, pois o contexto supre a ausência do verbo.",
+      "source": "Material da disciplina de Português Elementar - aula 3"
+    },
+    {
+      "id": "q5_13",
+      "number": 13,
+      "prompt": "Certos elementos expressivos, como a pausa, o tom de voz, a musicalidade e até o uso do silêncio, são exclusivos da comunicação falada. Para compensar essa ausência na escrita, recorremos à pontuação como forma de transmitir nuances e intenções. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar e no fragmento acima, reflita sobre o cenário a seguir: Em uma atividade de reescrita, um estudante escreveu: “Não espere.” e depois “Não, espere.”. Ao comparar as frases, percebeu que o sentido havia mudado completamente. O que explica essa mudança de sentido?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A vírgula é usada para separar os elementos em listados."
+        },
+        {
+          "letter": "B",
+          "text": "A pontuação pouco interfere no sentido, ela prevalece na estética do texto."
+        },
+        {
+          "letter": "C",
+          "text": "A vírgula é opcional em ambos os casos."
+        },
+        {
+          "letter": "D",
+          "text": "A vírgula altera a entonação e o sentido da frase, funcionando como recurso de coesão textual."
+        }
+      ],
+      "answer": "D",
+      "explanation": "Aula 1 mostra que a pontuação pode mudar completamente o sentido de uma frase.",
+      "source": "Língua Portuguesa, aula 1.pdf"
+    },
+    {
+      "id": "q5_14",
+      "number": 14,
+      "prompt": "Durante uma atividade em sala de aula, a professora pediu que os alunos identificassem o sujeito e o predicado em diferentes frases. Um dos alunos trouxe a seguinte frase: “O cachorro latiu alto durante a noite.” No entanto, ele ficou em dúvida sobre como separar corretamente os termos essenciais da oração. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Considerando o conteúdo da disciplina de Português Elementar e a situação apresentada acima, assinale a alternativa que apresenta corretamente a separação do sujeito e do predicado na frase “O cachorro latiu alto durante a noite.” e justifique sua escolha:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Sujeito: latiu alto durante a noite Predicado: O cachorro."
+        },
+        {
+          "letter": "B",
+          "text": "Sujeito: O cachorro Predicado: latiu alto durante a noite."
+        },
+        {
+          "letter": "C",
+          "text": "Sujeito: O cachorro latiu Predicado: alto durante a noite."
+        },
+        {
+          "letter": "D",
+          "text": "Sujeito: alto durante a noite Predicado: O cachorro latiu."
+        }
+      ],
+      "answer": "B",
+      "explanation": "“O cachorro” é quem pratica a ação (sujeito), e “latiu alto durante a noite” é o que se declara sobre o sujeito (predicado).",
+      "source": "Material da disciplina de Português Elementar - aula 2"
+    },
+    {
+      "id": "q5_15",
+      "number": 15,
+      "prompt": "A regência verbal diz respeito à relação que se estabelece entre o verbo e os termos que o complementam, podendo ser objetos diretos, indiretos ou adjuntos adverbiais. Em muitos casos, a escolha da preposição correta é fundamental para garantir o sentido adequado da frase e o respeito à norma-padrão. Por exemplo, o verbo “assistir”, no sentido de “ver”, exige a preposição “a”: “Assisti ao filme ontem”. Do mesmo modo, o verbo “agradecer” pede a preposição “a” para indicar a quem se agradece: “Agradeci ao professor pela ajuda”. (Enunciado do elaborador da questão com base no material da disciplina de Português Elementar). Com base no conteúdo da disciplina de Português Elementar, assinale a alternativa em que o uso da regência verbal está de acordo com a norma-padrão da língua portuguesa:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "O aluno agradeceu o professor pela explicação detalhada."
+        },
+        {
+          "letter": "B",
+          "text": "Ela assistiu o espetáculo com muita atenção."
+        },
+        {
+          "letter": "C",
+          "text": "Eles preferiram mais viajar do que ficar em casa."
+        },
+        {
+          "letter": "D",
+          "text": "O juiz participou da conciliação entre as partes envolvidas."
+        }
+      ],
+      "answer": "D",
+      "explanation": "O verbo “participar” exige a preposição “de” (“participou da conciliação”), e a frase está de acordo com a regência verbal da norma-padrão.",
+      "source": "Material da disciplina de Português Elementar - aula 3"
+    },
+    {
+      "id": "q5_16",
+      "number": 16,
+      "prompt": "Durante a leitura de um artigo sobre alimentação saudável, os alunos observaram que o autor utilizou dados estatísticos de pesquisas científicas, citações de especialistas da área da saúde e exemplos reais para fundamentar sua tese sobre os benefícios de uma dieta equilibrada. A professora explicou que, na escrita acadêmica, deve-se utilizar recursos que confiram credibilidade ao texto, permitindo que o autor dialogue com outros pesquisadores e defenda seu ponto de vista de forma consistente e ética. Considerando os elementos que caracterizam a argumentação na escrita acadêmica, qual estratégia está sendo utilizada pelo autor para sustentar sua tese no artigo sobre alimentação saudável?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Utilização de metáforas e figuras de linguagem."
+        },
+        {
+          "letter": "B",
+          "text": "Citação de fontes confiáveis."
+        },
+        {
+          "letter": "C",
+          "text": "Uso de linguagem informal."
+        },
+        {
+          "letter": "D",
+          "text": "Relato de experiências pessoais."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A citação de fontes confiáveis é uma estratégia essencial para dar credibilidade à argumentação acadêmica.",
+      "source": "Aula 6 – Língua Portuguesa"
+    },
+    {
+      "id": "q5_17",
+      "number": 17,
+      "prompt": "Ao ler uma notícia sobre o aumento da temperatura global, um aluno concluiu que o uso excessivo de combustíveis fósseis contribui para o aquecimento do planeta, mesmo que isso não estivesse escrito diretamente no texto. Qual é o nome dado à habilidade de compreender informações que não estão explicitamente escritas no texto, mas podem ser deduzidas a partir do contexto?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Leitura literal."
+        },
+        {
+          "letter": "B",
+          "text": "Inferência."
+        },
+        {
+          "letter": "C",
+          "text": "Paráfrase."
+        },
+        {
+          "letter": "D",
+          "text": "Ambiguidade."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A inferência é a capacidade de deduzir informações implícitas com base no contexto e na coerência do texto.",
+      "source": "Brasil. Uninter. Português Elementar. aula 5."
+    },
+    {
+      "id": "q5_18",
+      "number": 18,
+      "prompt": "Durante uma conversa entre colegas na saída da escola, um estudante comentou: “A gente vamos estudar para a prova amanhã.” Embora todos tenham entendido o que ele quis dizer, a construção da frase chamou atenção por apresentar um problema gramatical. Em contextos informais, esse tipo equívoco pode passar despercebido, mas em situações formais, como entrevistas, redações ou apresentações acadêmicas, o uso inadequado da norma culta pode comprometer a clareza e a credibilidade da comunicação. Esse tipo de desvio é conhecido como vício de linguagem e pode ocorrer por falta de atenção ou desconhecimento das regras gramaticais. Considerando os vícios de linguagem estudados, identifique a alternativa que apresenta corretamente qual é o vício presente na fala do estudante?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Pleonasmo vicioso."
+        },
+        {
+          "letter": "B",
+          "text": "Solecismo."
+        },
+        {
+          "letter": "C",
+          "text": "Barbarismo."
+        },
+        {
+          "letter": "D",
+          "text": "Ambiguidade."
+        }
+      ],
+      "answer": "B",
+      "explanation": "O solecismo é um erro de sintaxe, como o de concordância verbal. Na frase, o sujeito “a gente” exige o verbo no singular (“vai”), e não no plural (“vamos”).",
+      "source": "Brasil. Centro Universitário Internacional – Uninter. Português Elementar. aula 4: vícios de linguagem. disponível em: https://univirtus.Uninter.com. Acesso em: 11 nov. 2025. Cunha, Celso; Cintra, Lindley. Nova gramática do português contemporâneo. 5. ed. Rio de Janeiro: Lexikon, 2008."
+    },
+    {
+      "id": "q5_19",
+      "number": 19,
+      "prompt": "Durante uma atividade de leitura e análise sintática, a professora propôs que os alunos identificassem o número de orações presentes em diferentes frases. Um dos exemplos apresentados foi: “Maria chegou cedo.” Alguns estudantes afirmaram que se tratava de um período composto, por conter mais de uma ideia. A professora, então, explicou que a classificação correta de um período depende da quantidade de verbos ou locuções verbais presentes. Considerando os critérios de classificação de períodos, qual é a classificação correta da frase “Maria chegou cedo”? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Período simples."
+        },
+        {
+          "letter": "B",
+          "text": "Período composto por coordenação."
+        },
+        {
+          "letter": "C",
+          "text": "Período composto por subordinação."
+        },
+        {
+          "letter": "D",
+          "text": "Frase nominal."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A frase apresenta apenas uma oração, com um único verbo (“chegou”), caracterizando um período simples.",
+      "source": "Cunha, Celso; Cintra, Lindley. nova gramática do português contemporâneo. Brasil. Uninter. Português Elementar. aula 3."
+    },
+    {
+      "id": "q5_20",
+      "number": 20,
+      "prompt": "Durante uma atividade de leitura em voz alta, um estudante se deparou com a frase: “Ela tinha uma alma tão pura que parecia um anjo.” Ao pronunciar rapidamente a sequência “parecia um”, o som produzido foi interpretado pelos colegas como “pareciam”, gerando risos e confusão. Esse tipo de situação evidencia como certos encontros sonoros podem comprometer a clareza da comunicação oral. De acordo com os estudos realizados, escolha a alternativa que aponta corretamente o vício de linguagem que ocorreu na situação descrita?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Solecismo."
+        },
+        {
+          "letter": "B",
+          "text": "Pleonasmo vicioso."
+        },
+        {
+          "letter": "C",
+          "text": "Barbarismo."
+        },
+        {
+          "letter": "D",
+          "text": "Cacofonia."
+        }
+      ],
+      "answer": "D",
+      "explanation": "A cacofonia é um vício de linguagem que ocorre quando a junção de sons ou palavras gera uma sonoridade desagradável ou ambígua, como no caso de “parecia um”.",
+      "source": "Brasil. Centro Universitário Internacional – Uninter. Português Elementar. aula 4: vícios de linguagem. disponível em: https://univirtus.Uninter.com. Acesso em: 11 nov. 2025. Cunha, Celso; Cintra, Lindley. Nova gramática do português contemporâneo. 5. ed. Rio de Janeiro: Lexikon, 2008."
+    },
+    {
+      "id": "q5_21",
+      "number": 21,
+      "prompt": "Joana é professora do 6º ano e propôs aos seus alunos a leitura de uma crônica sobre o cotidiano. Após a leitura, pediu que cada estudante explicasse o que o autor quis dizer com o texto. A maioria dos alunos respondeu com frases curtas, repetindo partes do texto, sem apresentar opiniões ou interpretações pessoais. Joana percebeu que os estudantes estavam apenas tentando entender a ideia principal do autor, sem fazer conexões com suas próprias vivências. Com base na situação descrita e nos estudos sobre concepções de leitura, qual concepção foi utilizada pelos alunos?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Reconhecer as intenções do autor."
+        },
+        {
+          "letter": "B",
+          "text": "Captar a ideia do autor."
+        },
+        {
+          "letter": "C",
+          "text": "Construir sentidos a partir da interação entre leitor e texto."
+        },
+        {
+          "letter": "D",
+          "text": "Decodificar os signos linguísticos sem considerar o contexto."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Essa é a primeira concepção de leitura, em que o leitor busca entender o que o autor quis dizer, sem necessariamente interpretar ou interagir com o texto.",
+      "source": "AULA 5 – Língua Portuguesa"
+    },
+    {
+      "id": "q5_22",
+      "number": 22,
+      "prompt": "A escrita acadêmica exige do autor clareza, objetividade e domínio da norma-padrão da língua portuguesa. Além disso, é marcada por impessoalidade, uso de vocabulário técnico e ausência de marcas subjetivas. Expressões como “é possível observar que…”, “nota-se que…” e “pode-se perceber que…” são exemplos de modalização, recurso que permite ao autor apresentar ideias com cautela, evitando afirmações absolutas. Esses elementos são fundamentais para garantir a credibilidade e a coerência dos textos científicos, especialmente em ambientes universitários e de pesquisa. Com base nos estudos realizados sobre os elementos da escrita acadêmica, assinale a alternativa que apresenta uma característica essencial desse tipo de produção textual:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Utilização de linguagem informal para facilitar a comunicação com o leitor."
+        },
+        {
+          "letter": "B",
+          "text": "Impessoalidade e uso de modalizadores para evitar afirmações categóricas."
+        },
+        {
+          "letter": "C",
+          "text": "Presença de opiniões pessoais para enriquecer o conteúdo argumentativo."
+        },
+        {
+          "letter": "D",
+          "text": "Uso predominante da primeira pessoa do singular para reforçar a autoria."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A impessoalidade e a modalização são marcas da escrita acadêmica, que busca objetividade e respeito à diversidade de interpretações.",
+      "source": "aula 4 ética.pdf"
+    },
+    {
+      "id": "q5_23",
+      "number": 23,
+      "prompt": "Durante uma aula de Língua Portuguesa, um aluno leu a frase “Está chovendo canivetes!” e ficou confuso, pois não via nenhum objeto cortante caindo do céu. A professora explicou que, para entender o sentido da frase, era necessário considerar o contexto em que foi dita. Expressões idiomáticas como essa não devem ser interpretadas literalmente, pois seu significado depende da situação comunicativa e do conhecimento compartilhado entre os interlocutores. Para compreender corretamente o sentido da expressão “Está chovendo canivetes!”, o que o leitor deve considerar?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A estrutura gramatical da frase."
+        },
+        {
+          "letter": "B",
+          "text": "O contexto em que a frase foi dita."
+        },
+        {
+          "letter": "C",
+          "text": "A pontuação utilizada."
+        },
+        {
+          "letter": "D",
+          "text": "A quantidade de palavras."
+        }
+      ],
+      "answer": "B",
+      "explanation": "O contexto é essencial para interpretar expressões idiomáticas e sentidos figurados.",
+      "source": "Aula 6 – Português Elementar."
+    },
+    {
+      "id": "q5_24",
+      "number": 24,
+      "prompt": "Durante a apresentação de um artigo sobre os impactos da pandemia na educação, escrito com base em dados de 2020, um estudante foi questionado por seus colegas sobre a atualidade das informações utilizadas. A professora aproveitou a situação para explicar que, na escrita acadêmica, é essencial considerar o contexto de produção e recepção do texto. Isso inclui a atualização dos dados, a adequação à norma-padrão da língua, a impessoalidade, a clareza e a objetividade. Esses elementos são fundamentais para garantir a credibilidade, a relevância e a compreensão do texto por diferentes leitores e em diferentes momentos históricos. Com base nos estudos realizados na disciplina, responda: por que é importante considerar o contexto na produção de um texto acadêmico?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Para garantir que o texto seja mais criativo e subjetivo."
+        },
+        {
+          "letter": "B",
+          "text": "Para assegurar que o conteúdo seja relevante, claro e adequado à situação de uso."
+        },
+        {
+          "letter": "C",
+          "text": "Para permitir que o autor utilize linguagem informal e coloquial."
+        },
+        {
+          "letter": "D",
+          "text": "Para que o texto possa ser interpretado de diferentes formas, conforme o leitor."
+        }
+      ],
+      "answer": "B",
+      "explanation": "O contexto de produção e recepção é essencial para garantir a atualidade, clareza e pertinência do texto acadêmico.",
+      "source": "aula 4 ética.pdf"
+    },
+    {
+      "id": "q5_25",
+      "number": 25,
+      "prompt": "Durante uma atividade de produção textual, um estudante escreveu a seguinte frase: “Estudei bastante, mas não fui bem na prova.” Ao analisar a construção, a professora destacou que o período contém duas orações ligadas por uma conjunção que expressa oposição. Ela aproveitou o exemplo para explicar que, quando há mais de uma oração em um período, é necessário observar como elas se relacionam. Analise a estrutura sintática da frase “Estudei bastante, mas não fui bem na prova” e assinale a alternativa que classifica corretamente o tipo de período apresentado, de acordo com os estudos realizados:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Período simples."
+        },
+        {
+          "letter": "B",
+          "text": "Período composto por coordenação."
+        },
+        {
+          "letter": "C",
+          "text": "Período composto por subordinação."
+        },
+        {
+          "letter": "D",
+          "text": "Frase nominal."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A frase apresenta duas orações independentes ligadas pela conjunção “mas”, caracterizando um período composto por coordenação.",
+      "source": "Cunha, Celso; Cintra, Lindley. Nova gramática do português contemporâneo. Brasil. Uninter. Português Elementar. aula 3."
+    },
+    {
+      "id": "q5_26",
+      "number": 26,
+      "prompt": "Durante a elaboração de um trabalho de conclusão de curso (TCC), uma estudante precisou escrever uma introdução, desenvolver capítulos teóricos e apresentar uma conclusão. Ela também precisou seguir normas da ABNT e incluir referências bibliográficas. De acordo com as características descritas, identifique qual gênero textual está sendo produzido pela estudante e assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Resumo."
+        },
+        {
+          "letter": "B",
+          "text": "Resenha crítica."
+        },
+        {
+          "letter": "C",
+          "text": "Trabalho acadêmico (tcc)."
+        },
+        {
+          "letter": "D",
+          "text": "Artigo de opinião."
+        }
+      ],
+      "answer": "C",
+      "explanation": "O tcc é um gênero acadêmico que exige introdução, desenvolvimento, conclusão, normas técnicas e referências bibliográficas.",
+      "source": "Brasil. Uninter. Português Elementar. aula 6."
+    },
+    {
+      "id": "q5_27",
+      "number": 27,
+      "prompt": "Durante a produção de um artigo científico, um estudante utilizou dados estatísticos, citações de autores renomados e apresentou uma tese clara sobre os impactos da tecnologia na educação. A professora destacou que esses elementos são fundamentais para a construção de um texto argumentativo. Assim, é importante que o autor saiba apresentar e contra-argumentar ideias com credibilidade, evitando falácias e generalizações. Com base nos conteúdos estudados na disciplina, qual é o elemento essencial para garantir a credibilidade da argumentação na escrita acadêmica?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Utilizar linguagem subjetiva e emocional."
+        },
+        {
+          "letter": "B",
+          "text": "Apresentar evidências e respaldo teórico."
+        },
+        {
+          "letter": "C",
+          "text": "Fazer uso de clichês e opiniões pessoais."
+        },
+        {
+          "letter": "D",
+          "text": "Repetir ideias sem apresentar justificativas."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A argumentação acadêmica exige fundamentação em dados, teorias e fontes confiáveis.",
+      "source": "AULA 6.pdf – Tema 4: Argumentação na escrita acadêmica."
+    },
+    {
+      "id": "q5_28",
+      "number": 28,
+      "prompt": "Durante uma campanha publicitária, uma empresa de saúde utilizou a imagem da Mona Lisa, famosa obra de Leonardo da Vinci, mas sem cabelos, para representar pacientes em tratamento contra o câncer. A imagem causou impacto e gerou discussões sobre o uso de obras clássicas em novos contextos. Esse tipo de recurso é comum em textos que se apropriam de outros já existentes para criar novos sentidos, seja por meio de citações, referências ou releituras. Como se chama o recurso linguístico que ocorre quando um texto faz referência a outro, estabelecendo um diálogo entre eles?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Coerência textual."
+        },
+        {
+          "letter": "B",
+          "text": "Intertextualidade."
+        },
+        {
+          "letter": "C",
+          "text": "Ambiguidade."
+        },
+        {
+          "letter": "D",
+          "text": "Paráfrase."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A intertextualidade ocorre quando um texto faz referência a outro, criando conexões e ampliando significados.",
+      "source": "Brasil. Uninter. Português Elementar. aula 5."
+    },
+    {
+      "id": "q5_29",
+      "number": 29,
+      "prompt": "Durante uma aula de Língua Portuguesa, o professor apresentou aos alunos um texto que narrava a história de um menino que encontrou um animal ferido e cuidou dele até sua recuperação. O texto descrevia os acontecimentos em ordem cronológica, com personagens, enredo, tempo e espaço bem definidos. De acordo com os estudos realizados nesta disciplina, assinale a alternativa que apresenta a resposta correta para a seguinte pergunta: qual é o tipo textual predominante no texto apresentado pelo professor?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Narrativo."
+        },
+        {
+          "letter": "B",
+          "text": "Descritivo."
+        },
+        {
+          "letter": "C",
+          "text": "Dissertativo."
+        },
+        {
+          "letter": "D",
+          "text": "Injuntivo."
+        }
+      ],
+      "answer": "A",
+      "explanation": "O tipo narrativo é caracterizado por contar uma história com personagens, tempo e espaço definidos.",
+      "source": "Brasil. Uninter. Português Elementar. aula 6."
+    },
+    {
+      "id": "q5_30",
+      "number": 30,
+      "prompt": "Durante uma atividade de produção textual, os alunos do 7º ano foram convidados a escrever sobre o início de um dia ensolarado. Um dos estudantes escreveu: “O sol apareceu e os pássaros começaram a cantar.” A professora elogiou a construção e propôs à turma uma análise sintática da frase. Ela explicou que, para identificar o tipo de período, é necessário observar a presença de verbos e a quantidade de orações. Com base nos estudos realizados, examine e identifique a classificação do período apresentado na frase: “O sol apareceu e os pássaros começaram a cantar”:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Frase nominal."
+        },
+        {
+          "letter": "B",
+          "text": "Período simples."
+        },
+        {
+          "letter": "C",
+          "text": "Período composto."
+        },
+        {
+          "letter": "D",
+          "text": "Oração subordinada."
+        }
+      ],
+      "answer": "C",
+      "explanation": "A frase apresenta duas orações com dois verbos (“apareceu” e “começaram”), ligadas pela conjunção “e”, caracterizando um período composto.",
+      "source": "Cunha, Celso; Cintra, Lindley. Nova gramática do português contemporâneo. 5. ed. rio de janeiro: Lexikon, 2008. Brasil. Centro Universitário Internacional – Uninter. Português Elementar. aula 3: frase, oração e período. disponível em: https://univirtus.Uninter.com. Acesso em: 11 nov. 2025."
+    }
+  ]
+};
+
+
+const AULA06 = {
+  "id": "aula06",
+  "title": "Sistemas de Segurança na Informação",
+  "shortTitle": "Segurança na Informação",
+  "description": "Qualidade da informação, segurança de dados, privacidade e sistemas de proteção.",
+  "accent": "#dc2626",
+  "icon": "🔒",
+  "total": 30,
+  "passingScore": 21,
+  "questions": [
+    {
+      "id": "q6_1",
+      "number": 1,
+      "prompt": "Alguns procedimentos podem ser levados a cabo para se garantir a precisão e a confiabilidade dos dados. Há vários problemas possíveis, relacionados à coleta de grandes massas de dados de fontes variadas, como ocorre em cidades inteligentes. Nessa aplicação, potencialmente milhares de sensores coletam, constantemente, informações. Vários pontos de falhas podem perturbar a confiança nos dados, antes de seu armazenamento, para posterior consumo e transformação. Bettini et al. (2009) identificam em seus estudos os principais problemas relacionados a essas massas de dados. (Texto adaptado). Fonte: Rota de Aprendizagem 2 (Operações de conversão). De acordo com o texto acima e os estudos realizados, quais são os principais problemas relacionados às massas de dados identificados por Bettini et al. (2009)?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Imperfeição, inconsistência e discrepância."
+        },
+        {
+          "letter": "B",
+          "text": "Desorganização, falhas de sistema e erro humano."
+        },
+        {
+          "letter": "C",
+          "text": "Falta de acesso, distorção e fragmentação."
+        },
+        {
+          "letter": "D",
+          "text": "Ambiguidade, ausência de padrões e ineficiência."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A alternativa (Imperfeição, inconsistência e discrepância.) está correta, pois, de acordo com o texto, os problemas relacionados às massas de dados identificados por Bettini et al. (2009) são imperfeição, inconsistência e discrepância.",
+      "source": "Rota de Aprendizagem 2 (Operações de conversão)."
+    },
+    {
+      "id": "q6_2",
+      "number": 2,
+      "prompt": "A formação do conhecimento a partir de informações de autenticidade duvidosa, sem garantia de integridade e de disponibilidade incontrolável, certamente não resultará em construções intelectuais plenamente válidas. Por outro lado, segundo Kolbe, 2017, a capacidade de coletar as informações corretas e transformá-las em conhecimento efetivo, torna-se o grande diferencial competitivo individual ou de uma organização da IS. Fonte: Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO). De acordo com o texto acima e os estudos realizados na disciplina, escolha a alternativa que melhor reflete o ponto de vista sobre o impacto da qualidade das informações na formação do conhecimento e no diferencial competitivo.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A formação do conhecimento depende exclusivamente da integridade das informações, não sendo influenciada pela sua autenticidade ou disponibilidade."
+        },
+        {
+          "letter": "B",
+          "text": "Construções intelectuais válidas exigem informações de autenticidade garantida e integridade, enquanto o diferencial competitivo é definido pela habilidade de transformar informações corretas em conhecimento efetivo."
+        },
+        {
+          "letter": "C",
+          "text": "O diferencial competitivo de organizações na sociedade da informação (IS) é garantido pela quantidade de informações disponíveis, não pela qualidade ou transformação dessas informações."
+        },
+        {
+          "letter": "D",
+          "text": "Informações de autenticidade duvidosa são suficientes para a formação de conhecimento efetivo, desde que estejam disponíveis de forma controlada."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Construções intelectuais válidas exigem informações de autenticidade garantida e integridade, enquanto o diferencial competitivo é definido pela habilidade de transformar informações corretas em conhecimento efetivo.",
+      "source": "Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO)."
+    },
+    {
+      "id": "q6_3",
+      "number": 3,
+      "prompt": "Podemos definir banco de dados (BD) como a armazenagem organizada de dados e, eventualmente, arquivos, conservando o relacionamento mútuo que possibilite a consulta e a manipulação (Turbanet et al., 2005, p. 523). Fonte: Rota de Aprendizagem 3 (BANCO DE DADOS). Com base nos estudos ao longo da disciplina, qual foi a solução utilizada para suprir a necessidade dos primeiros bancos de dados?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Soluções não computacionais, como cadernetas de venda a prazo e listas telefônicas."
+        },
+        {
+          "letter": "B",
+          "text": "Algoritmos de aprendizado de máquina para organização manual de dados."
+        },
+        {
+          "letter": "C",
+          "text": "Computadores mecânicos e dispositivos eletrônicos primitivos."
+        },
+        {
+          "letter": "D",
+          "text": "Planilhas digitais armazenadas em servidores centrais."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A alternativa (Soluções não computacionais, como cadernetas de venda a prazo e listas telefônicas.) está correta, pois o texto menciona explicitamente que os primeiros bancos de dados foram supridos por soluções não computacionais, exemplificando as cadernetas de venda a prazo e as listas telefônicas.",
+      "source": "Rota de Aprendizagem 3 (BANCO DE DADOS)."
+    },
+    {
+      "id": "q6_4",
+      "number": 4,
+      "prompt": "Considerando a necessária padronização, no âmbito computacional, todo dado será numérico. E não apenas isso: esses números devem ser binários, ou seja, devem ser convertidos para uma sequência de zeros e uns. Essas sequências binary, são de difícil leitura para o ser humano. (Texto adaptado). Fonte: Rota de Aprendizagem 2 (Tema: DADO DIGITAL). Com base no texto fornecido, escolha a alternativa que melhor descreve a relação entre algarismos hexadecimais e a visualização de dados.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A base hexadecimal simplifica a visualização de dados, representando cada nible por um único algarismo."
+        },
+        {
+          "letter": "B",
+          "text": "A base hexadecimal não tem impacto na visualização dos dados, pois a representação continua complexa."
+        },
+        {
+          "letter": "C",
+          "text": "Cada nible em hexadecimal é representado por dois algarismos, o que melhora a compreensão."
+        },
+        {
+          "letter": "D",
+          "text": "O uso de algarismos hexadecimais é irrelevante para a visualização dos dados, pois a base binária já é suficiente."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A alternativa (A base hexadecimal simplifica a visualização de dados, representando cada nible por um único algarismo.) está correta, pois o texto, na íntegra, menciona que o uso de algarismos hexadecimais simplifica a visualização de dados, sintetizando cada nible (conjunto de 4 bits) em apenas um algarismo, tornando a visualização mais compreensível.",
+      "source": "Rota de Aprendizagem 2 (Tema: DADO DIGITAL)."
+    },
+    {
+      "id": "q6_5",
+      "number": 5,
+      "prompt": "Pixel é a menor unidade de uma imagem digital, independentemente de sua fonte. Se você pegar uma foto e fizer uma aproximação (zoom), verá uma série de quadradinhos que a compõem. Cada um desses pontos luminosos é um pixel. São milhões ou milhares deles. Fonte: O que é um pixel? Tecnoblog. Após esta avaliação, caso queira ler o artigo, acesse o link disponível em: https://tecnoblog.net/responde/o-que-e-um-pixel/. Acesso em 26/11/2024. De acordo com o material de estudos da disciplina e com base no texto fornecido acima, qual é o processo descrito para armazenar imagens em um computador?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A imagem é comprimida e armazenada como uma unidade compactada."
+        },
+        {
+          "letter": "B",
+          "text": "A imagem é transformada em uma representação vetorial, que descreve suas formas geométricas."
+        },
+        {
+          "letter": "C",
+          "text": "A imagem é dividida em cores primárias e armazenada com base nessas divisões."
+        },
+        {
+          "letter": "D",
+          "text": "A imagem é convertida em pixels, e cada pixel recebe um valor numérico baseado em sua cr ou intensidade luminosa, para posterior armazenamento."
+        }
+      ],
+      "answer": "D",
+      "explanation": "A alternativa correta explica que, ao transformar uma imagem em uma sequência de pixels, cada pixel recebe um valor numérico que corresponde à sua cor ou intensidade luminosa. Esses valores numéricos podem ser armazenados no computador.",
+      "source": "Rota de Aprendizagem 2 (Tema: DADO DIGITAL)."
+    },
+    {
+      "id": "q6_6",
+      "number": 6,
+      "prompt": "Dados quantitativos podem ser transformados em informações qualitativas. Um bom exemplo disso é a avaliação do bom ou mau desempenho de um produto baseada nos dados quantitativos de suas vendas. Fonte: Rota de Aprendizagem 2 (Tema: Informação quantitativa e informação qualitativa). Com base no texto fornecido e nos estudos anteriormente realizados na disciplina, escolha a alternativa que melhor representa o processo de transformação de dados quantitativos em informações qualitativas.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Dados quantitativos, como vendas, podem ser transformados em informações qualitativas ao avaliar o desempenho de um produto em relação a seus concorrentes ou ao histórico de vendas."
+        },
+        {
+          "letter": "B",
+          "text": "Dados qualitativos e quantitativos são sempre analisados de forma separada, sem interseção entre os dois tipos de informação."
+        },
+        {
+          "letter": "C",
+          "text": "A avaliação de desempenho de um produto com base em vendas é exclusivamente qualitativa, sem conexão com dados quantitativos."
+        },
+        {
+          "letter": "D",
+          "text": "A transformação de dados quantitativos em qualitativos é um processo desnecessário na tomada de decisão empresarial."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Dados quantitativos, como vendas, podem ser transformados em informações qualitativas ao avaliar o desempenho de um produto em relação a seus concorrentes ou ao histórico de vendas. A alternativa é a correta, pois reflete com precisão o processo descrito no texto base.",
+      "source": "Rota de Aprendizagem 2 (Tema: Informação quantitativa e informação qualitativa)."
+    },
+    {
+      "id": "q6_7",
+      "number": 7,
+      "prompt": "Uma informação para ser consumida depende de um sistema que a transforme em conhecimento. Segundo Kolbe (2017, p. 53), essa transformação se dá, em uma organização empresarial, em três níveis, definidos pela necessidade dos usuários. Fonte: Rota de Aprendizagem 1 (Tema: HIERARQUIA DOS SISTEMAS DA INFORMAÇÃO). De acordo com o texto e o conteúdo estudado, qual é a principal característica das informações no nível operacional de uma organização?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Apoiam decisões estratégicas de alta complexidade."
+        },
+        {
+          "letter": "B",
+          "text": "Precisam ser detalhadas para execução de tarefas cotidianas."
+        },
+        {
+          "letter": "C",
+          "text": "Envolvem métodos de análise, como algoritmos de IA e BI."
+        },
+        {
+          "letter": "D",
+          "text": "Envolvem métodos de análise, como algoritmos de IA e BI."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Uma informação para ser consumida depende de um sistema que a transforme em conhecimento. Segundo Kolbe (2017, p. 53), essa transformação se dá, em uma organização empresarial, em três níveis, definidos pela necessidade dos usuários. O primeiro nível é o operacional, composto pelo corpo técnico e administrativo da organização. Neste nível, as informações precisam ser detalhadas para que os colaboradores as utilizem na execução de tarefas cotidianas.",
+      "source": "Rota de Aprendizagem 1 (Tema: HIERARQUIA DOS SISTEMAS DA INFORMAÇÃO)."
+    },
+    {
+      "id": "q6_8",
+      "number": 8,
+      "prompt": "Entendemos que um dado, do ponto de vista técnico, é uma leitura do meio. A princípio, um dado não está necessariamente provido de um significado. De fato, o significado de um dado é frequentemente dito como um metadado. Um dado digital, ou digitalizado, é a representação, no meio computacional, de um dado (na verdade também de informações e conhecimento. Essa representação se dá de maneira bastante padronizada, como seria de se esperar, considerando que o computador é uma máquina eletrônica limitada. Fonte: Rota de Aprendizagem 2 (Tema: DADO DIGITAL). Com base no texto fornecido, escolha a alternativa que melhor descreve a relação entre dados digitais e sua padronização no âmbito computacional.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A padronização computacional permite que dados sejam representados em diversos formatos além do binário."
+        },
+        {
+          "letter": "B",
+          "text": "Todo dado digital é numérico e deve ser convertido em uma sequência de zeros e uns devido à padronização computacional."
+        },
+        {
+          "letter": "C",
+          "text": "Dados digitais são metadados que carregam o significado inerente ao dado original."
+        },
+        {
+          "letter": "D",
+          "text": "A representação de dados digitais no computador depende de sua leitura inicial no meio, sem a necessidade de padronização."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A alternativa é a correta porque reflete a explicação do texto base, que destaca que, no âmbito computacional, todo dado deve ser numérico e convertido para uma sequência binária (zeros e uns) devido às limitações e à padronização das máquinas eletrônicas.",
+      "source": "Rota de Aprendizagem 2 (Tema: DADO DIGITAL)."
+    },
+    {
+      "id": "q6_9",
+      "number": 9,
+      "prompt": "O acesso a um dado na internet é um processo complexo tecnicamente. Trata-se de uma complexidade translúcida. Só percebemos a debilidade do processo quando ele entra em colapso, fato que, já sabemos empiricamente, não é raro. Desta forma, seguindo ainda as conclusões de Castells, a sociedade dependente da tecnologia, resultante, transfere o poder para aqueles que geram, transmitem e processam a informação para ser consumida por esta sociedade. (Texto adaptado). Fonte: Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO). Com base no texto e no conteúdo da disciplina, identifique a alternativa que explica corretamente o conceito de \"complexidade translúcida\" e sua relação com o poder na sociedade dependente da tecnologia.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A complexidade translúcida se refere ao fato de que a maioria dos usuários percebe as falhas dos processos tecnológicos constantemente, mesmo sem colapsos."
+        },
+        {
+          "letter": "B",
+          "text": "A complexidade translúcida significa que, apesar de tecnicamente complexos, os processos tecnológicos são percebidos como simples pelos usuários, mas transferem poder para quem domina a geração e transmissão de informações."
+        },
+        {
+          "letter": "C",
+          "text": "A complexidade translúcida aponta que o acesso aos dados é simples tanto tecnicamente quanto para o usuário, garantindo um processo imune a falhas."
+        },
+        {
+          "letter": "D",
+          "text": "A complexidade translúcida implica que o poder está distribuído igualmente entre os usuários e os geradores de informação, devido à transparência dos processos tecnológicos."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A complexidade translúcida significa que, apesar de tecnicamente complexos, os processos tecnológicos são percebidos como simples pelos usuários, mas transferem poder para quem domina a geração e transmissão de informações.",
+      "source": "Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO)."
+    },
+    {
+      "id": "q6_10",
+      "number": 10,
+      "prompt": "Não é mais objeto de discussão a excessiva profusão de informações, válidas e inválidas, na qual estamos involuntariamente imersos. Qualquer tema, independentemente de sua complexidade, pode ser visitado em questão de milésimos de segundos, na rede, sob diversos aspectos, muitos, infelizmente, equivocados. Este não é um fenômeno novo, Peter Drucker, em 1966, no best-seller The Age of Discontinuity, cunha o termo “sociedade da informação” (IS, information society, em inglês). Fonte: Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO). Com base no texto acima e no conteúdo estudado na disciplina, escolha a alternativa que descreve corretamente o conceito de \"sociedade da informação\" apresentado por Peter Drucker.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Peter Drucker utilizou o termo \"sociedade da informação\" para destacar o excesso de dados inválidos e informações equivocadas na era digital."
+        },
+        {
+          "letter": "B",
+          "text": "O termo \"sociedade da informação\", cunhado por Peter Drucker, descreve a popularização iminente de todo tipo de informação, prevista ainda na década de 1960."
+        },
+        {
+          "letter": "C",
+          "text": "Peter Drucker definiu a sociedade da informação como um fenômeno recente, impulsionado pelo avanço tecnológico e marcado pela exclusividade de dados válidos."
+        },
+        {
+          "letter": "D",
+          "text": "A ideia de sociedade da informação, segundo Peter Drucker, surgiu para criticar a dificuldade de acesso a informações rápidas e diversificadas."
+        }
+      ],
+      "answer": "B",
+      "explanation": "O termo \"sociedade da informação\", cunhado por Peter Drucker, descreve a popularização iminente de todo tipo de informação, prevista ainda na década de 1960.",
+      "source": "Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E CONHECIMENTO)."
+    },
+    {
+      "id": "q6_11",
+      "number": 11,
+      "prompt": "O trânsito e o consumo da informação estão ligados intimamente à tecnologia. Não concebemos mais acessar informações que não estejam mediadas pela tecnologia. Neste exato momento, nesta etapa, estamos discutindo informações mediadas por um sistema de publicação em nuvem, acessadas por um hardware computacional e exibidas em uma tela para você. Fonte: Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E TECNOLOGIA). Com base no texto e nos estudos realizados na disciplina, identifique a principal característica do consumo de informações na era tecnológica.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "O trânsito da informação é amplamente desconectado das redes computacionais, mantendo-se perceptível ao usuário."
+        },
+        {
+          "letter": "B",
+          "text": "O consumo de informações hoje é mediado pela tecnologia, não há mais distinção perceptível entre o percurso da informação e as redes computacionais."
+        },
+        {
+          "letter": "C",
+          "text": "A tecnologia desempenha um papel irrelevante no acesso e no consumo de informações."
+        },
+        {
+          "letter": "D",
+          "text": "A mediação tecnológica torna o percurso da informação mais visível e facilmente identificável ao usuário."
+        }
+      ],
+      "answer": "B",
+      "explanation": "O consumo de informações hoje é mediado pela tecnologia, e não há mais distinção perceptível entre o percurso da informação e as redes computacionais.",
+      "source": "Rota de Aprendizagem 1 (Tema: INFORMAÇÃO E TECNOLOGIA)."
+    },
+    {
+      "id": "q6_12",
+      "number": 12,
+      "prompt": "Instituições privadas tem por finalidade o retorno financeiro sobre os investimento e esforço do empreendedor, desta forma, a evolução dos SIGs, nesses empreendimentos se deu na direção de incrementar os patamares de venda e lucratividade. Já nas primeiras implementações, verificou-se a necessidade de segregar a inteligência do algoritmo dos dados propriamente ditos. Surge então a ideia de constituir bancos de dados, reservatórios de informações que podem ser acessados por vários sistemas. Fonte: Rota de Aprendizagem 1 (Tema: Demandas por sistemas computacionais em empreendimentos privados). Qual dos seguintes sistemas busca entender o desempenho empresarial, segundo o texto e o conteúdo estudado nas aulas?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "SIGE (Sistemas Integrados de Gestão)."
+        },
+        {
+          "letter": "B",
+          "text": "BI (Business Intelligence)."
+        },
+        {
+          "letter": "C",
+          "text": "CRM (Customer Relationship Management)."
+        },
+        {
+          "letter": "D",
+          "text": "Sistema de folha de pagamento."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A integração entre os vários aspectos controlados pelos inúmeros sistemas de gestão (sistema de faturamento, sistema de folha de pagamento) criou os conhecidos ERPs (Enterprise Resource Planning) ou SIGE (Sistemas Integrados de Gestão) em português. Outros sistemas surgiram como o CRM (Custumer Relationship Management), sistema de gerenciamento do relacionamento com clientes, em português, que tem por objetivo controlar o relacionamento comercial com cada cliente e BIs (Business Inteligence), sistemas de inteligência de negócios, que buscam entender o desempenho empresarial.",
+      "source": "Rota de Aprendizagem 1 (Tema: Demandas por sistemas computacionais em empreendimentos privados)."
+    },
+    {
+      "id": "q6_13",
+      "number": 13,
+      "prompt": "Ao realizar a conversão dos dados em informações, alguns cuidados podem auxiliar na garantia de ganho de valor. Seguindo ainda o preconizado por Kolbe Júnior (2017), essas operações podem ser resumidas em cinco tópicos. (Texto adaptado). Fonte: Rota de Aprendizagem 2 (Operações de conversão). De acordo com o material de estudos da disciplina e com base no texto fornecido, quais são os cinco tópicos mencionados por Kolbe Júnior (2017) que auxiliam na conversão dos dados em informações?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Categorização, processamento, otimização, simplificação e condensação."
+        },
+        {
+          "letter": "B",
+          "text": "Cálculo, organização, interpretação, compressão e correção."
+        },
+        {
+          "letter": "C",
+          "text": "Correção, categorização, armazenamento, previsão e condensação."
+        },
+        {
+          "letter": "D",
+          "text": "Contextualização, correção, categorização, cálculo e condensação."
+        }
+      ],
+      "answer": "D",
+      "explanation": "A alternativa (Contextualização, correção, categorização, cálculo e condensação.) está correta, pois o texto menciona diretamente os cinco tópicos essenciais para a conversão dos dados em informações: contextualização, correção, categorização, cálculo e condensação.",
+      "source": "Rota de Aprendizagem 2 (Operações de conversão)."
+    },
+    {
+      "id": "q6_14",
+      "number": 14,
+      "prompt": "Um banco de dados, após criado por um DBP, tende a existir por muitos anos. Desse modo, quando um dado é armazenado em BD, o SGBD deve implementar estratégias de preservação da integridade desse dado. Nem todas as providências relacionadas à integridade dos dados são gerenciadas pelo SGBD. A redundância de gravação em disco, por exemplo, é gerenciada pelos sistemas operacionais do servidor. Fonte: Rota de Aprendizagem 3 (Preservação de dados em BDs). De acordo com o texto e com os textos das aulas, qual é a função do SGBD em relação ao banco de dados (BD)?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Gerenciar o acesso remoto ao banco de dados."
+        },
+        {
+          "letter": "B",
+          "text": "Operacionalizar algoritmos para detectar e corrigir erros no banco de dados."
+        },
+        {
+          "letter": "C",
+          "text": "Armazenar exclusivamente informações em formato de texto."
+        },
+        {
+          "letter": "D",
+          "text": "Criar automaticamente backups diários do banco de dados."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A alternativa (Operacionalizar algoritmos para detectar e corrigir erros no banco de dados.) é a correta, pois o texto destaca especificamente que cabe ao SGBD operacionalizar algoritmos para a detecção e correção de erros no BD.",
+      "source": "Rota de Aprendizagem 3 (Preservação de dados em BDs)."
+    },
+    {
+      "id": "q6_15",
+      "number": 15,
+      "prompt": "Um bom exemplo é o uso da tabela American Standard Code for Information Interchange (ASCii) ou código padrão americano para intercâmbio de informações, em português, que transforma caracteres em números binários. (Texto adaptado). Fonte: Rota de Aprendizagem 2 (Tema: DADO DIGITAL). Com base no texto fornecido e nos estudos realizados na disciplina, qual é a estratégia de conversão adotada para armazenar imagens em um computador?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "As imagens são convertidas em números binários que representam seus pixels, pequenos fragmentos da imagem."
+        },
+        {
+          "letter": "B",
+          "text": "As imagens são armazenadas como gráficos vetoriais, que não necessitam de conversão para armazenamento."
+        },
+        {
+          "letter": "C",
+          "text": "As imagens são convertidas em uma sequência de letras que representam sua composição visual."
+        },
+        {
+          "letter": "D",
+          "text": "As imagens são armazenadas como números inteiros diretamente, sem a necessidade de conversão."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A alternativa (As imagens são convertidas em números binários que representam seus pixels, pequenos fragmentos da imagem.) está correta, pois o texto da Rota de Aprendizagem 2 (Tema: DADO DIGITAL), explica que as imagens são divididas em pequenos fragmentos chamados pixels, e esses pixels são representados por números binários para seu armazenamento.",
+      "source": "Rota de Aprendizagem 2 (Tema: DADO DIGITAL)."
+    },
+    {
+      "id": "q6_16",
+      "number": 16,
+      "prompt": "Uma ferramenta importante que compõe o SGSI é o Plano Diretor de Segurança. Alguns autores defendem que esse plano deve ser a origem do SGSI. Eles propõem que a alta direção da empresa deve definir as linhas gerais de defesa dos dados, criando um plano de conteúdo generalista, que delimita a intensidade e a consistência esperada, com a direção dos esforços de proteção e a preservação das informações corporativas. Fonte: Rota de Aprendizagem 4 (Tema: Plano diretor de segurança). Sobre o Plano Diretor de um Sistema de Gestão de Segurança da Informação (SGSI), de acordo com o conteúdo estudado, qual das afirmações a seguir está correta?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "O planejamento das ações e reações a ameaças e desastres é um aspecto secundário no Plano Diretor, pois a segurança da informação se baseia apenas na prevenção."
+        },
+        {
+          "letter": "B",
+          "text": "A criação de um código de ética e de políticas de segurança são elementos que podem ser considerados opcionais no Plano Diretor de um SGSI."
+        },
+        {
+          "letter": "C",
+          "text": "O plano diretor deve definir os componentes do SGSI, incluindo um código de ética, política de segurança e diretrizes para ações diante de ameaças e desastres."
+        },
+        {
+          "letter": "D",
+          "text": "A principal função do Plano Diretor é detalhar exclusivamente os controles técnicos da organização, sem considerar aspectos estratégicos ou organizacionais."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Resposta correta: O plano diretor deve, ainda, definir os componentes do SGSI, considerando, por exemplo, a existência de um código de ética ou a criação de uma política de segurança. A definição sobre o planejamento das ações e reações em resposta a ameaças e desastres também deve estar indicada nesse plano.",
+      "source": "Rota de Aprendizagem 4 (Tema: Plano diretor de segurança)."
+    },
+    {
+      "id": "q6_17",
+      "number": 17,
+      "prompt": "Como já sabemos, cada organização terá uma sua PSI particular. Seus objetivos gerais e a sua extensão serão extraídos do plano diretor. Além do necessário alinhamento com o plano diretor de segurança e o SGSI, a PSI deve se submeter à legislação. Esse alinhamento jurídico e empresarial é chamado de compliance, ou conformidade. O compliance das ferramentas de segurança pode ser aferido por processos de auditoria independente. Essa prática de sujeição a certificações, pela análise dos procedimentos, facilita a “acreditação” da empresa em relação a entes públicos, clientes, fornecedores e a comunidade em geral. Fonte: Rota de Aprendizagem 4 (Tema: Componentes da PSI). De acordo com o texto e o conteúdo estudado, como será criada a Política de Segurança da Informação (PSI) dentro de uma organização?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A partir da consulta direta aos colaboradores para coletar sugestões sobre segurança, garantindo que todas as práticas sejam flexíveis e adaptáveis a cada indivíduo."
+        },
+        {
+          "letter": "B",
+          "text": "A partir do uso exclusivo de ferramentas tecnológicas que garantam a proteção dos dados, sem necessidade de documentos normativos."
+        },
+        {
+          "letter": "C",
+          "text": "A partir do Plano Diretor e do SGSI, a PSI pode incluir documentos como o código de conduta, termos de uso, políticas de redes sociais e regras de backup."
+        },
+        {
+          "letter": "D",
+          "text": "A partir da simples adoção de normas internacionais, sem necessidade de adequação à realidade organizacional ou integração com outros documentos internos."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Resposta correta: A PSI será criada a partir do detalhamento das orientações do plano diretor e do SGSI. Ela pode ser composta por vários documentos de orientação. Segundo Pinheiro (2020), alguns elementos possíveis são: código de conduta, termos de uso, políticas de redes sociais, regras de perfil, métodos de comunicação interna e regras de backup.",
+      "source": "Rota de Aprendizagem 4 (Tema: Componentes da PSI)."
+    },
+    {
+      "id": "q6_18",
+      "number": 18,
+      "prompt": "Podemos conceituar a vulnerabilidade a partir da ideia de exposição de um dado ou informação. Retomando ao conceito de ciclo de vida da informação, reconhecemos que um dado precisa ser resguardado, desde a sua origem até o momento de descarte. A intensidade de preservação de um dado depende de seu valor, conforme já vimos em nossas aulas. Considerando, por exemplo, a valoração em função do grau de confidencialidade do dado, a exposição indevida fará com que o dado fique vulnerável. (Texto adaptado). Fonte: Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças). Com base no conceito apresentado na disciplina Sistemas de Segurança da Informação, podemos afirmar que a vulnerabilidade ocorre quando:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "O dado é protegido imperativamente de acordo com seu nível de importância."
+        },
+        {
+          "letter": "B",
+          "text": "Existe um risco de exposição indevida do dado."
+        },
+        {
+          "letter": "C",
+          "text": "A confidencialidade do dado é mantida em todas as fases de seu ciclo de vida."
+        },
+        {
+          "letter": "D",
+          "text": "O descarte do dado ocorre seguindo normas de segurança estabelecidas pelo analista."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A vulnerabilidade está relacionada à possibilidade de exposição indevida de um dado ou informação, tornando-o suscetível a acessos não autorizados. O enunciado reforça a necessidade de proteção do dado ao longo de seu ciclo de vida, destacando que a falha nessa proteção pode levar à sua vulnerabilidade.",
+      "source": "Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças)."
+    },
+    {
+      "id": "q6_19",
+      "number": 19,
+      "prompt": "Uma das características da informação segura é a garantia de autenticidade, que permite condicionar o não repúdio a uma transação, por exemplo. Fazer os dados se acompanharem de uma assinatura daquele que assegura sua autenticidade é uma estratégia eficiente. Para que entendamos, tecnicamente, o processo de assinatura digital, precisaríamos de conceitos de criptografia com múltiplas chaves, possíveis com o uso de teoremas matemáticos avançados, ligados à aritmética modular e determinação de primacidade de grandes números. Do ponto de vista funcional, entretanto, a compreensão é relativamente simples. A esse “aval” público à assinatura eletrônica denominamos certificação digital. (Texto adaptado). Fonte: Rota de Aprendizagem 6 (Assinatura digital). De acordo com o texto acima e os estudos realizados, qual é a definição correta de certificação digital, conforme descrito no texto?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Trata-se de um método para validar transações financeiras em tempo real, vinculado à verificação de identidade por meio de biometria."
+        },
+        {
+          "letter": "B",
+          "text": "É uma técnica que vincula uma pessoa, ou entidade, aos dados por ela assinados, sendo verificável de forma independente, com a participação de uma entidade certificadora pública."
+        },
+        {
+          "letter": "C",
+          "text": "Refere-se a um sistema de monitoramento de dados em tempo real, usado para garantir que todos os sistemas sigam as diretrizes de segurança."
+        },
+        {
+          "letter": "D",
+          "text": "É uma tecnologia que permite a criptografia de dados sensíveis, com foco em proteger informações privadas em redes corporativas."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Resposta correta: É uma técnica que vincula uma pessoa, ou entidade, aos dados por ela assinados, sendo verificável de forma independente, com a participação de uma entidade certificadora pública. O texto descreve a certificação digital como uma técnica que vincula uma pessoa ou entidade aos dados assinados, e esse vínculo deve ser verificável de forma independente, com o envolvimento de uma entidade certificadora pública.",
+      "source": "Rota de Aprendizagem 6 (Assinatura digital)."
+    },
+    {
+      "id": "q6_20",
+      "number": 20,
+      "prompt": "Uma vez conceituada a ameaça, podemos passar ao conceito de risco. Basicamente, risco é uma medida estatística que avalia a possibilidade de violação de uma informação segura. Os conceitos de vulnerabilidade e ameaça são variáveis categóricas de segurança, ou seja, não são representados diretamente em números, já o risco é uma variável quantitativa. Portanto, podemos conceituar risco como a probabilidade matemática de que uma ameaça obtenha sucesso em sua ação, mudando as características da informação. (Texto adaptado). Fonte: Rota de Aprendizagem 4 (Tema: Risco e impacto). Com base no exposto e no conteúdo estudado na disciplina, qual das alternativas melhor define o conceito de risco?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A chance mensurável de que uma ameaça comprometa a segurança da informação."
+        },
+        {
+          "letter": "B",
+          "text": "Uma ameaça já concretizada que causou prejuízo a um sistema."
+        },
+        {
+          "letter": "C",
+          "text": "Um evento aleatório que não pode ser quantificado ou previsto."
+        },
+        {
+          "letter": "D",
+          "text": "Um problema exclusivamente técnico relacionado à configuração de sistemas."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A resposta correta é: A chance mensurável de que uma ameaça comprometa a segurança da informação. O enunciado define risco como uma medida estatística e uma probabilidade matemática associada ao sucesso de uma ameaça. Assim, risco é uma chance que pode ser quantificada.",
+      "source": "Rota de Aprendizagem 4 (Tema: Risco e impacto)."
+    },
+    {
+      "id": "q6_21",
+      "number": 21,
+      "prompt": "Quando avaliamos o risco de uma ameaça, devemos associá-lo ao impacto do incidente para a organização. O impacto avalia o grau de dano à segurança da informação. Esse processo de associação de uma estatística de risco e de um grau de impacto, considerando a vulnerabilidade e a ameaça, é conhecido como gestão de risco. (Texto adaptado). Fonte: Rota de Aprendizagem 4 (Tema: Risco e impacto). De acordo com o texto acima e os estudos realizados na disciplina, escolha a alternativa que melhor reflete o conceito de gestão de risco?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A criação de políticas rígidas para impedir completamente qualquer incidente de segurança."
+        },
+        {
+          "letter": "B",
+          "text": "A análise e o tratamento do risco com base em sua probabilidade e impacto."
+        },
+        {
+          "letter": "C",
+          "text": "Um processo focado apenas na detecção de ameaças, sem considerar suas consequências."
+        },
+        {
+          "letter": "D",
+          "text": "A aplicação de criptografia e outras soluções tecnológicas para garantir proteção total."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A resposta correta é: A análise e o tratamento do risco com base em sua probabilidade e impacto. O enunciado define gestão de risco como o processo de associar estatísticas de risco ao impacto de incidentes, levando em conta vulnerabilidades e ameaças.",
+      "source": "Rota de Aprendizagem 4 (Tema: Risco e impacto)."
+    },
+    {
+      "id": "q6_22",
+      "number": 22,
+      "prompt": "No seio da área de tecnologia de informação, temos uma área que recentemente ganhou maior significância, em função da importância dos dados como ativos organizacionais e das alterações nos arcabouços legais de proteção à privacidade de dados. Trata-se da área de segurança de dados (ou Security Office). Segundo Kolbe (2017, p. 109), ao ser retirada do guarda-chuva de TI, essa área recebe atribuições próprias, como o objetivo de estabelecer mecanismos de segurança alinhados com as fronteiras de autoridade, orçamento e cultura da empresa. Fonte: Rota de Aprendizagem 4 (Tema: Security Office). Conforme mencionado no texto e estudado no conteúdo das aulas, qual das afirmativas abaixo melhor descreve o impacto da separação da área de segurança de dados da TI?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A separação permite que a segurança de dados tenha autonomia para definir políticas alinhadas à realidade da organização."
+        },
+        {
+          "letter": "B",
+          "text": "A segurança de dados passou a ser uma função exclusivamente técnica, sem influência de aspectos financeiros ou culturais."
+        },
+        {
+          "letter": "C",
+          "text": "A divisão entre segurança de dados e TI reduz a necessidade de ajustes estratégicos na organização."
+        },
+        {
+          "letter": "D",
+          "text": "A retirada da segurança de dados do guarda-chuva da TI significa que ela deixou de ter relação com a tecnologia da informação."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Resposta correta: A separação permite que a segurança de dados tenha autonomia para definir políticas alinhadas à realidade da organização. O texto destaca que, ao ser retirada da TI, a segurança de dados passa a ter atribuições próprias e estabelece mecanismos alinhados com autoridade, orçamento e cultura organizacional, o que confere maior autonomia para adaptação às necessidades da empresa.",
+      "source": "Rota de Aprendizagem 4 (Tema: Security Office)."
+    },
+    {
+      "id": "q6_23",
+      "number": 23,
+      "prompt": "Comentamos que a evolução dos sistemas funcionais também se deu em direção à retirada de boa parte dos esforços de construção de conhecimento, com base nos dados empresariais, nas mãos humanas. Também já sabemos que o conhecimento é o bem mais valioso de um empreendimento. Fonte: Rota de Aprendizagem 5 (Tema: Sistemas de conhecimento). Conforme estudos realizados em aula e com o texto acima, como são os Sistemas Baseados em Conhecimento dentro de uma organização?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "São sistemas que armazenam dados sem qualquer processamento inteligente, apenas organizando informações de forma estática."
+        },
+        {
+          "letter": "B",
+          "text": "São ferramentas utilizadas apenas para análise financeira, sem aplicação em outras áreas do negócio."
+        },
+        {
+          "letter": "C",
+          "text": "São Sistemas baseados em conhecimento usam algoritmos para representar o conhecimento empresarial, como BIs, IA, sistemas especialistas, redes neurais e algoritmos evolucionários."
+        },
+        {
+          "letter": "D",
+          "text": "São soluções voltadas apenas para automação de tarefas operacionais simples, sem qualquer relação com inteligência de negócios ou inteligência artificial."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Sistemas baseados em conhecimento são algoritmos concebidos para conter partes significativas do conhecimento do negócio da empresa. Normalmente são representados por sistemas de inteligência de negócios (BIs) ou aplicações de inteligência artificial (IA), como sistemas especialistas, redes neurais e algoritmos evolucionários naturais.",
+      "source": "Rota de Aprendizagem 5 (Tema: Sistemas de conhecimento)."
+    },
+    {
+      "id": "q6_24",
+      "number": 24,
+      "prompt": "Para que um dado tenha sua confidencialidade garantida o uso de técnicas de criptografia é a estratégia indicada. Processos criptográficos podem assegurar, com bom grau de eficiência, se escolhido o processo correto, que apenas aqueles que detêm as chaves e/ou algoritmos criptográficos acessem o conteúdo da informação. Fonte: Rota de Aprendizagem 6 (Criptografia). De acordo com o material de estudos da disciplina sobre os algoritmos criptográficos, é correto afirmar que:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Eles pertencem ao domínio da matemática e podem ter diferentes níveis de complexidade, dependendo da aplicação a que se destinam."
+        },
+        {
+          "letter": "B",
+          "text": "São de fácil compreensão e aplicabilidade, sendo usados exclusivamente para proteger informações pessoais."
+        },
+        {
+          "letter": "C",
+          "text": "Sua complexidade é sempre baixa, independentemente do tipo de aplicação."
+        },
+        {
+          "letter": "D",
+          "text": "São métodos que pertencem ao domínio da física e são utilizados para monitorar a qualidade de redes de comunicação."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Resposta correta: Eles pertencem ao domínio da matemática e podem ter diferentes níveis de complexidade, dependendo da aplicação a que se destinam.",
+      "source": "Rota de Aprendizagem 6 (Criptografia)."
+    },
+    {
+      "id": "q6_25",
+      "number": 25,
+      "prompt": "Sistemas de controle e automação industriais enfrentam problemas de desatualização de maneira distinta que seus pares não fabris. Atualizar um sistema informacional qualquer depende apenas da escolha de horário, para reduzir eventuais impactos sobre usuários conectados. Sistemas de controle industrial, por sua vez, exigem paradas de máquina, que devem ser programadas com antecedência. O mesmo fenômeno ocorre com os hardwares de controle, obrigando a convivência da rede com equipamentos e aplicações antigos. Fonte: Rota de Aprendizagem 5 (Tema: Atualização de sistemas). Com base no texto fornecido e nos estudos realizados na disciplina, qual é o principal impacto das atualizações mal planejadas em sistemas operacionais e equipamentos?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "O aumento da eficiência e redução dos custos operacionais definidos exclusivamente pelo gestor."
+        },
+        {
+          "letter": "B",
+          "text": "O efeito negativo na produção e na qualidade dos produtos, caso as paradas não sejam bem planejadas."
+        },
+        {
+          "letter": "C",
+          "text": "A implementação de novas tecnologias sem necessidade de planejamento ou estudo técnico."
+        },
+        {
+          "letter": "D",
+          "text": "A otimização dos sistemas de controle sem afetar o funcionamento da produção ou a logística reversa."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Resposta correta: O efeito negativo na produção e na qualidade dos produtos, caso as paradas não sejam bem planejadas. O texto da aula, destaca que as atualizações mal planejadas podem afetar tanto a produção quanto a qualidade dos produtos.",
+      "source": "Rota de Aprendizagem 5 (Tema: Atualização de sistemas)."
+    },
+    {
+      "id": "q6_26",
+      "number": 26,
+      "prompt": "No levantamento das fraquezas, como comentamos como comentamos em nossas aulas, a ideia é investigar as fragilidades do processo de preservação da segurança, em busca de possíveis incidentes de comprometimento. Esse comprometimento é, entretanto, apenas potencial. Será necessário contar com um agente capaz de explorar a vulnerabilidade, e assim encontramos uma ameaça possível. Meditando sobre esse conceito, podemos concluir que uma ameaça pode ser voluntária, involuntária ou natural. (Texto adaptado). Fonte: Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças). Com base no texto acima e no conteúdo estudado na disciplina, análise a alternativa sobre qual das alternativas a seguir melhor define o conceito de ameaça?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A certeza de que um ataque acontecerá caso uma vulnerabilidade seja identificada."
+        },
+        {
+          "letter": "B",
+          "text": "Um risco hipotético, sem qualquer relação com a exploração real de vulnerabilidades."
+        },
+        {
+          "letter": "C",
+          "text": "A possibilidade de exploração de uma vulnerabilidade por um agente específico."
+        },
+        {
+          "letter": "D",
+          "text": "Um problema técnico que compromete diretamente a confidencialidade da informação."
+        }
+      ],
+      "answer": "C",
+      "explanation": "A resposta correta é: A possibilidade de exploração de uma vulnerabilidade por um agente específico. De acordo com o enunciado, a ameaça é a possibilidade real de exploração de uma vulnerabilidade.",
+      "source": "Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças)."
+    },
+    {
+      "id": "q6_27",
+      "number": 27,
+      "prompt": "Sabemos que vulnerabilidades são fraquezas no processo de preservação das características seguras da informação, capazes de gerar incidentes de comprometimento. A análise ou o levantamento de vulnerabilidades é uma atividade essencial para suportar os sistemas de preservação da segurança. Essa prática exige, do profissional, experiência no negócio e boa capacitação técnica. Fonte: Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças). Com base no exposto e na disciplina Sistemas de Segurança da Informação, identifique qual é o principal objetivo da análise de vulnerabilidades?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Identificar e classificar potenciais fragilidades nos sistemas e processos."
+        },
+        {
+          "letter": "B",
+          "text": "Garantir que um sistema esteja 100% seguro contra-ataques externos."
+        },
+        {
+          "letter": "C",
+          "text": "Substituir a necessidade de outras medidas de segurança, como criptografia."
+        },
+        {
+          "letter": "D",
+          "text": "Bloquear automaticamente qualquer tentativa de exploração por atacantes."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A resposta correta é: Identificar e classificar potenciais fragilidades nos sistemas e processos. A análise de vulnerabilidades tem como objetivo reconhecer e categorizar possíveis falhas que podem comprometer a segurança da informação.",
+      "source": "Rota de Aprendizagem 4 (Tema: Vulnerabilidade e ameaças)."
+    },
+    {
+      "id": "q6_28",
+      "number": 28,
+      "prompt": "Comentamos anteriormente e nossas aulas, que o entendimento de complexos conjuntos de dados, como os presentes em uma base de dados de clientes e prospects, pode ser enfrentado por algoritmos de IA. Fonte: Rota de Aprendizagem 5 (Tema: Machine Learning (ML)). Com base no texto fornecido e nos estudos anteriormente realizados na disciplina, escolha a alternativa que melhor representa o que os algoritmos inteligentes de Machine Learning (ML) são capazes de fazer?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Organizar os dados de forma a gerar relatórios de performance."
+        },
+        {
+          "letter": "B",
+          "text": "Criar uma árvore de busca ou um conjunto de regras."
+        },
+        {
+          "letter": "C",
+          "text": "Armazenar grandes volumes de dados para consultas rápidas."
+        },
+        {
+          "letter": "D",
+          "text": "Classificar os dados sem necessidade de tratamentos prévios."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A resposta correta é: Criar uma árvore de busca ou um conjunto de regras, isso para entender características dos dados tratados. De acordo com o texto da aula 05, algoritmos inteligentes de ML são capazes de criar uma árvore de busca ou um conjunto de regras com base em dados tratados para entender determinadas características destes dados.",
+      "source": "Rota de Aprendizagem 5 (Tema: Machine Learning (ML))."
+    },
+    {
+      "id": "q6_29",
+      "number": 29,
+      "prompt": "A norma NBR/ISO/IEC 27001, cujo título é Tecnologia da informação — Técnicas de segurança — Sistemas de gestão da segurança da informação — Requisitos, foi criada em 2005, no ISO, pela adaptação de um padrão britânico (BS7799) que elencava boas práticas de segurança da informação. Segundo Kolbe (2017, p. 176), o princípio geral da norma “é a adoção de um conjunto de processos, controles e requisitos que visam à gerência de riscos de uma organização”. Desta forma, a 27001 proporciona a adequação de melhores práticas na criação de um sistema de gestão de segurança de dados para cada negócio e porte empresarial. Fonte: Rota de Aprendizagem 6 (NORMA NBR/ISO/IEC 27001). Qual é a base fundamental da norma NBR/ISO/IEC 27001?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A base da norma é um procedimento comum em processos de gestão de qualidade, o ciclo de melhoria contínua, ou PDCA."
+        },
+        {
+          "letter": "B",
+          "text": "A base da norma é a criação de um plano de segurança inicial, sem foco na melhoria contínua."
+        },
+        {
+          "letter": "C",
+          "text": "A base da norma é um conjunto de regras rígidas para o controle de dados sensíveis."
+        },
+        {
+          "letter": "D",
+          "text": "A base da norma é a utilização exclusiva de criptografia avançada."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A resposta correta é: A base da norma é um procedimento comum em processos de gestão de qualidade, o ciclo de melhoria contínua, ou PDCA. A resposta correta é diretamente extraída do texto, que diz: \"tem por base um procedimento comum em processos de gestão de qualidade, o ciclo de melhoria contínua, ou PDCA.\"",
+      "source": "Rota de Aprendizagem 6 (Recomendações da Norma)."
+    },
+    {
+      "id": "q6_30",
+      "number": 30,
+      "prompt": "Standardization Organization) é uma organização não governamental que congrega a opinião técnica de profissionais voluntários na busca de padrões consensuais para os mais diversos aspectos científicos e de mercado. A ela se vinculam 167 associações nacionais voltadas a padronização de procedimentos (ISO, 2022). Fonte: Rota de Aprendizagem 6 (Normas ISO). De acordo com o texto e com os conteúdos abordados em nossas aulas, qual é a principal recomendação de todas as normas da família ISO 27000 sobre segurança da informação?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Todas as normas recomendam a criação de um sistema de gestão de segurança da informação, visando à melhoria contínua para garantir a segurança."
+        },
+        {
+          "letter": "B",
+          "text": "Todas as normas recomendam a implementação de tecnologias específicas para garantir a segurança da informação."
+        },
+        {
+          "letter": "C",
+          "text": "Todas as normas recomendam que as empresas adotem sistemas de monitoramento externo para a proteção dos dados."
+        },
+        {
+          "letter": "D",
+          "text": "Todas as normas recomendam a contratação de consultores externos para garantir a segurança das informações."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Resposta correta: Todas as normas recomendam a criação de um sistema de gestão de segurança da informação, focado na melhoria contínua, como forma de garantir a segurança das informações e sistemas, independentemente do porte ou modelo de gestão da organização.",
+      "source": "Rota de Aprendizagem 6 (Normas ISO)."
+    }
+  ]
+};
+
+
+const AULA07 = {
+  "id": "aula07",
+  "title": "Sistemas de Informações Gerenciais",
+  "shortTitle": "Sistemas Gerenciais",
+  "description": "SAD, SIG, Business Intelligence, tomada de decisão e gestão da informação.",
+  "accent": "#16a34a",
+  "icon": "📊",
+  "total": 30,
+  "passingScore": 21,
+  "questions": [
+    {
+      "id": "q7_1",
+      "number": 1,
+      "prompt": "Alguns gerentes são “super usuários” e analistas de negócios interessados, que desejam criar seus próprios relatórios e utilizar modelos e análise sofisticados para encontrar padrões nos dados, modelar cenários de negócios alternativos ou testar hipóteses específicas. LAUDON, K. C.; LAUDON, J.P. Sistemas de Informação Gerenciais. revisão técnica Belmiro do Nascimento João; [tradução Célia Taniwaki]. – São Paulo: Pearson Education do Brasil, 2014. (adaptado). Abaixo, assinale a alternativa que apresenta os sistemas que compõem a plataforma de entrega de inteligência empresarial para essa categoria de usuários.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Data Warehouse"
+        },
+        {
+          "letter": "B",
+          "text": "SAE (Sistema de Apoio à Executivos)"
+        },
+        {
+          "letter": "C",
+          "text": "B.I. (Business Intelligence)"
+        },
+        {
+          "letter": "D",
+          "text": "SAD (Sistema de Apoio à Decisão)"
+        }
+      ],
+      "answer": "D",
+      "explanation": "SAD - Sistema de Apoio à Decisão (Rota 3. Pág. 6). São softwares que permitem fazer modelagem de problemas. Com recursos para ajudar na solução de cenários complexos e com dados não estruturados.",
+      "source": "Rota 3. Pág. 6"
+    },
+    {
+      "id": "q7_2",
+      "number": 2,
+      "prompt": "Dados são coletados em grande quantidade e seu formato não é adequado para utilização direta. Para resolver esse problema, os dados devem passar por uma reformatação, de maneira que seus utilizadores os interpretem mais facilmente e consigam ser convertidos em informações úteis. Leia as frases a seguir e assinale V para verdadeiro e F para falso.\n( ) Na fase de filtragem os dados são coletados de fontes internas e externas.\n( ) No processo de reformatação dos dados são empregadas três fases: coleta, filtragem e processamento.\n( ) Na fase de processamento são realizadas as totalizações, sumarização, percentuais e médias.\nAssinale a alternativa que corresponde as respostas CORRETAS.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "V, F, V"
+        },
+        {
+          "letter": "B",
+          "text": "V, F, F"
+        },
+        {
+          "letter": "C",
+          "text": "F, V, V"
+        },
+        {
+          "letter": "D",
+          "text": "F, F, V"
+        }
+      ],
+      "answer": "A",
+      "explanation": "(V,F,V) ROTA 1, p. 10 e 11. A reformatação de dados ocorre por meio de três fases: filtragem, processamento e apresentação. Na fase de filtragem ocorre a seleção dos dados relevantes para a análise. Na fase de processamento ocorrem as totalizações, sumarização, percentuais e médias.",
+      "source": "ROTA 1, p. 10 e 11"
+    },
+    {
+      "id": "q7_3",
+      "number": 3,
+      "prompt": "O usuário necessita de senha para acessar informações e esqueceu a senha de acesso ao sistema. O sistema não pode informar a senha sem ter a certeza de que a pessoa que está perguntando é a pessoa que esqueceu a senha, porque o sistema ficaria vulnerável. Um aspecto importante a ser considerado é sobre a segurança necessária ao se tratar com guarda e disponibilização de informações. Considerando a importância das informações para as organizações, leia as frases a seguir:\nI. As informações devem circular nas empresas.\nII. Os colaboradores de áreas operacionais não necessitam de informações para executar suas tarefas.\nIII. Os sistemas de informações não devem ser transparentes para garantir a segurança das informações.\nEstão corretas as frases:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "I apenas"
+        },
+        {
+          "letter": "B",
+          "text": "II apenas"
+        },
+        {
+          "letter": "C",
+          "text": "III apenas"
+        },
+        {
+          "letter": "D",
+          "text": "II e III apenas"
+        }
+      ],
+      "answer": "A",
+      "explanation": "I. As informações devem circular nas empresas, caso contrário elas não têm sentido. II. Os colaboradores de áreas operacionais também dependem de informações para executar suas atividades. III. Os sistemas de informação devem ser eficazes e transparentes.",
+      "source": "Rota 1, página 5"
+    },
+    {
+      "id": "q7_4",
+      "number": 4,
+      "prompt": "Para administrar, era preciso informações: informações sobre cada trabalhador, suas tarefas, seus horários, sua produtividade, sobre o produto e suas características etc. Mas essa informação ainda não era fator de produção. Com a produção mecanizada, a produtividade em níveis mais altos e o custo em níveis mais baixos, o mercado passou de vendedor a comprador. Com a concorrência em alta e um consumidor mais exigente e específico, fatores antes inexistentes começaram a influenciar na produção: a qualidade do produto e os desejos e preferências do consumidor. A economia de serviço começava a ser mais importante que a economia do produto. Fonte: MIRANDA, Silvânia Vieira. Identificando competências informacionais. Ciência da informação, v. 33, n. 2, p. 112-122, 2004. Considerando as ideias do texto acima, que destaca a importância da informação para as organizações, avalie as afirmações a seguir.\nI. O volume de dados passou a crescer exponencialmente, cresce a cada dia mais. A gestão dessas informações é uma atividade simples, podendo ser realizada sem o suporte de tecnologia.\nII. Com a chegada da era da informação, a sua gestão, a gestão do conhecimento e do capital intelectual, passou a ser uma preocupação das organizações.\nIII. Muitas organizações passaram a fazer seus planejamentos estratégicos baseados na gestão da informação e nos sistemas de informação, pois trata-se de uma fator-chave de sucesso.\nÉ correto o que se afirma em:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "II, apenas"
+        },
+        {
+          "letter": "B",
+          "text": "III, apenas"
+        },
+        {
+          "letter": "C",
+          "text": "I e III"
+        },
+        {
+          "letter": "D",
+          "text": "II e III"
+        }
+      ],
+      "answer": "D",
+      "explanation": "I. FALSO. A gestão dessas informações é uma atividade complexa, necessitando do suporte de tecnologia. II. VERDADEIRO. III. VERDADEIRO.",
+      "source": "Rota 3, página 9"
+    },
+    {
+      "id": "q7_5",
+      "number": 5,
+      "prompt": "Em se tratando de informações, uma empresa precisa ter a segurança e o controle como prioridades. A segurança abarca as políticas, os procedimentos e as medidas técnicas usadas para impedir acesso não autorizado, alteração, roubo ou danos físicos a sistemas de informação. LAUDON, K. C.; LAUDON, J.P. Sistemas de Informação Gerenciais. revisão técnica Belmiro do Nascimento João ; [tradução Célia Taniwaki]. – São Paulo: Pearson Education do Brasil, 2014. (Adaptado). Considerando as ideias do texto, analise a seguinte situação hipotética. Uma empresa possui políticas que definem os critérios do acesso às informações, como exemplo de uma de suas políticas, a empresa optou por não disponibilizar para quem trabalha na linha de produção os dados dos clientes. Com base nessas informações, avalie as asserções a seguir e a relação proposta entre elas.\nI. A empresa tomou uma decisão assertiva, pois esses colaboradores não têm contato com os clientes. Informações de clientes servem para uso dos colaboradores e setores que necessitam fazer contatos com clientes.\nPORQUE\nII. Não se trata de censura ou algo do tipo, mas sim de preservar informações importantes, que devem ser divulgadas a quem interessa e no momento certo para que não prejudique as atividades e planejamento da organização.\nA respeito dessas asserções, assinale a opção correta.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I."
+        },
+        {
+          "letter": "B",
+          "text": "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa correta da I."
+        },
+        {
+          "letter": "C",
+          "text": "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa."
+        },
+        {
+          "letter": "D",
+          "text": "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Assertiva I é verdadeira. Cada colaborador precisa das informações úteis e necessárias para suas atividades, não de informações desnecessárias para que ele cumpra suas tarefas. A II justifica a I, pois as informações devem ser disponibilizadas a quem interessa e no momento certo.",
+      "source": "Rota 1, página 5 e 6"
+    },
+    {
+      "id": "q7_6",
+      "number": 6,
+      "prompt": "Um gestor, diretor ou qualquer pessoa que ocupe um cargo de comando em uma empresa, tem como atribuição tomar decisões. Considerando o processo de tomada de decisão leia as frases a seguir:\nI. As informações puras e simples são suficientes para fundamentar as decisões tomadas.\nII. As informações precisam ser analisadas para ser apresentadas aos gestores de forma correta.\nIII. As informações têm que ser disponibilizadas de maneira igual em todos níveis hierárquicos.\nIV. As atividades gerenciais involvem a busca e o tratamento das informações.\nÉ CORRETO o que se afirma em:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "II e III somente"
+        },
+        {
+          "letter": "B",
+          "text": "II e IV somente"
+        },
+        {
+          "letter": "C",
+          "text": "III e IV somente"
+        },
+        {
+          "letter": "D",
+          "text": "I, II e III"
+        }
+      ],
+      "answer": "B",
+      "explanation": "As informações pura e simples não bastam. As atividades gerenciais, nas grandes corporações ou nas pequenas e médias empresas, envolvem a busca e o tratamento de informações. As informações requerem análises prévias para que sejam apresentadas aos decisores de modo correto, a fim de que se propicie a melhor tomada de decisão possível. Quanto aos níveis de gerência: estratégico, tático e operacional. Cada um desses níveis olha e tem informações diferentes.",
+      "source": "Rota 1, página 4"
+    },
+    {
+      "id": "q7_7",
+      "number": 7,
+      "prompt": "A United Parcel Service (UPS) tornou-se a maior empresa mundial de distribuição de encomendas, por via terrestre e por via aérea. Hoje é uma organização global, com cerca de 400 mil empregados, 96 mil veículos e a nona maior companhia aérea do mundo. Manteve a liderança investindo pesado em tecnologia de informação avançada. Tudo começa com a etiqueta com código de barras colada a um pacote, que contém informações detalhadas sobre o remetente, o destino e a data prevista de entrega. Os clientes podem baixar e imprimir suas próprias etiquetas usando um software especial fornecido pela UPS ou acessando o site da empresa. As informações da etiqueta “inteligente” são transmitidas a uma das redes de computadores da UPS e enviadas ao centro de distribuição mais próximo de seu destino. Os entregadores nesses centros copiam os dados da etiqueta e utilizam um software especial para criar a rota de entrega mais eficiente para cada motorista, considerando o tráfego, as condições climáticas, bem como a localização de cada parada. As informações de rastreamento do pacote são, então, transmitidas para a rede de computadores da UPS para armazenagem e processamento. A partir daí, as informações podem ser acessadas de qualquer lugar do mundo, tanto para fornecer protocolo de entrega aos clientes quanto para responder às suas consultas. LAUDON, K. C.; LAUDON, J.P. Sistemas de Informação Gerenciais. revisão técnica Belmiro do Nascimento João ; [tradução Célia Taniwaki]. – São Paulo: Pearson Education do Brasil, 2014. Em relação a esse texto, avalie as afirmações a seguir.\nI. O sistema recebe entradas de algum ambiente (externo ou interno) e essas entradas não influenciam o sistema.\nII. O sistema compõe-se de entrada e saída, sem necessidade de realimentação.\nIII. O sistema tem elementos que processam as entradas das informações e as transformam em saídas.\nÉ correto apenas o que se afirma em:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "II somente."
+        },
+        {
+          "letter": "B",
+          "text": "III somente."
+        },
+        {
+          "letter": "C",
+          "text": "I e III."
+        },
+        {
+          "letter": "D",
+          "text": "I e II."
+        }
+      ],
+      "answer": "B",
+      "explanation": "I. O sistema recebe entradas de algum ambiente (externo ou interno) e essas entradas influenciam o sistema. II. O sistema compõe-se de entrada e saída. O sistema da UPS necessita de realimentação, que são as entradas dos dados dos clientes. III. O sistema tem elementos que processam as entradas das informações e as transformam em saídas.",
+      "source": "Rota 2, página 4"
+    },
+    {
+      "id": "q7_8",
+      "number": 8,
+      "prompt": "A necessidade de tomar decisões não estão restritas aos níveis hierárquicos superiores. Atualmente, colaboradores de níveis mais baixos são responsáveis por algumas dessas decisões na medida em que os sistemas de informação tornam os dados disponíveis para as camadas mais elementares da empresa. Cada um desses níveis tem diferentes necessidades de informação para apoiar suas decisões e é responsável por diferentes tipos de decisão. A tomada de decisão envolve o processo decisório. Segundo Herbert Simon (apud FURTADO, Rota 2), o processo decisório envolve as etapas:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Análise, testes, verificação e conclusão."
+        },
+        {
+          "letter": "B",
+          "text": "Planejamento, análise, comportamento e seleção."
+        },
+        {
+          "letter": "C",
+          "text": "Inteligência, concepção, seleção e revisão."
+        },
+        {
+          "letter": "D",
+          "text": "Análise, planejamento, seleção e execução."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Herbert Simon, em seu livro Comportamento Administrativo: um estudo do processo decisório nas organizações, afirma que o processo decisório é composto por quatro etapas: inteligência, concepção, seleção e revisão.",
+      "source": "Rota 2, p. 11 e 12"
+    },
+    {
+      "id": "q7_9",
+      "number": 9,
+      "prompt": "As TICs – Tecnologias da Informação e Comunicação - são utilizadas das mais diversas formas, na indústria (no processo de automação), no comércio (no gerenciamento, nas diversas formas de publicidade), no setor de investimentos (informação simultânea, comunicação imediata) e na educação (no processo de ensino aprendizagem, na Educação a Distância). O desenvolvimento de hardwares e softwares garante a operacionalização da comunicação e dos processos decorrentes em meios virtuais. No entanto, foi a popularização da internet que potencializou o uso das TICs em diversos campos. A democratização da informação, aliada à inclusão digital, pode se tornar um marco dessa civilização. Contudo, é necessário que se diferencie informação de conhecimento. Sem dúvida, vivemos na Era da Informação. Fonte:Thais Pacievitch. Disponível em: https://www.infoescola.com/informatica/tecnologia-da-informacao-e-comunicacao/. Acesso em: 14/02/2021. No texto acima, a autora cita as aplicações das TICs e explica que foi a popularização da internet que potencializou o uso das TICs em diversas áreas. Abaixo selecione a alternativa que é uma definição de Tecnologia da Informação e Comunicação – TIC.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Conjunto de grandes datacenters e a computação em nuvem para armazenamento das informações."
+        },
+        {
+          "letter": "B",
+          "text": "Conjunto formado por hardware, software, tecnologia de armazenamento e tecnologia de comunicações."
+        },
+        {
+          "letter": "C",
+          "text": "Conjunto formado pelos gigantes da tecnologia Google, Amazon e Microsoft."
+        },
+        {
+          "letter": "D",
+          "text": "Conjunto de tecnologias de cabeamento de redes e redes de dados."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Conjunto formado por hardware, software, tecnologia de armazenamento e tecnologia de comunicações.",
+      "source": "Rota 3, página 3"
+    },
+    {
+      "id": "q7_10",
+      "number": 10,
+      "prompt": "Conforme Laudon e Laudon (2010) e Abreu e Rezende (2013), as informações se apresentam em diferentes tipos e formatos, dependendo do Nível funcional e dos contextos de decisão vivenciadas pelos gestores. A respeito do contexto de informações, decisões e níveis gerenciais, relacione a primeira coluna com a segunda:\n(1) Nível operacional\n(2) Nível tático ou gerencial\n(3) Nível Estratégico\n( ) Empresa decide diversificar seus segmentos de negócios.\n( ) Fazer manutenção periódica num equipamento.\n( ) Projetar vendas para o próximo trimestre.\n( ) Decide a data de lançamento de modelo de carro novo.\n( ) Necessita combinar e analisar informações numéricas e qualitativas em conjunto.\n( ) Tomar decisões complexas e incertas.\n( ) Gerenciar a produção de 1.000 carros diários.\nAssinale a opção com a resposta CORRETA:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "3-1-2-2-2-3-1"
+        },
+        {
+          "letter": "B",
+          "text": "1-1-2-3-3-1-2"
+        },
+        {
+          "letter": "C",
+          "text": "3-1-1-2-2-1-3"
+        },
+        {
+          "letter": "D",
+          "text": "2-3-1-2-2-1-3"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Nos níveis operacionais, as situações são mais previsíveis, que ocorrem diariamente e as decisões costumam ter efeitos imediatos. Nesse nível as informações em geral são quantitativas... No nível médio (tático), as informações não são apenas compostas de números. É comum também que existam informações qualitativas... No nível estratégico as decisões são bem mais complexas e incertas...",
+      "source": "Rota 1, página 4 e 5"
+    },
+    {
+      "id": "q7_11",
+      "number": 11,
+      "prompt": "Sistemas baseados em relatórios apoiam a tomada de decisões rotineiras de gerentes de situações operacionais. Abaixo, assinale a alternativa que apresenta os sistemas que compõem a plataforma de entrega para essa categoria de usuários.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "SIG (Sistemas de Informações Gerenciais)"
+        },
+        {
+          "letter": "B",
+          "text": "Data Warehouse"
+        },
+        {
+          "letter": "C",
+          "text": "SAE (Sistema de Apoio à Executivos)"
+        },
+        {
+          "letter": "D",
+          "text": "B.I. (Business Intelligence)"
+        }
+      ],
+      "answer": "A",
+      "explanation": "Os SIG se destinam a gerência das situações operacionais, com base em relatórios.",
+      "source": "Rota 3. Pág. 6"
+    },
+    {
+      "id": "q7_12",
+      "number": 12,
+      "prompt": "A United Parcel Service (UPS) começou sua operação em 1907, com seu escritório em um porão do tamanho de um cubículo. Jim Casey e Claude Ryan — dois adolescentes de Seattle munidos de duas bicicletas e um telefone — prometiam “o melhor serviço e o preço mais baixo”. A UPS tem usado essa fórmula com sucesso há mais de um século para se tornar a maior empresa mundial de distribuição de encomendas, por via terrestre e por via aérea. Tudo começa com a etiqueta com código de barras colada a um pacote, que contém informações detalhadas sobre o remetente, o destino e a data prevista de entrega. Os entregadores nesses centros copiam os dados da etiqueta e utilizam um software especial para criar a rota de entrega mais eficiente para cada motorista, considerando o tráfego, as condições climáticas, bem como a localização de cada parada. As informações de rastreamento do pacote são, então, transmitidas para a rede de computadores da UPS para armazenagem e processamento. A partir daí, as informações podem ser acessadas de qualquer lugar do mundo, tanto para fornecer protocolo de entrega aos clientes quanto para responder às suas consultas. LAUDON, K. C.; LAUDON, J.P. Sistemas de Informação Gerenciais. revisão técnica Belmiro do Nascimento João ; [tradução Célia Taniwaki]. – São Paulo: Pearson Education do Brasil, 2014. Com base no texto anterior, leia as asserções a seguir e a relação proposta entre elas.\nI. A administração da UPS é responsável pelos níveis e custos dos serviços de monitoração e pela promoção da estratégia da empresa, que combina baixo custo e serviço de qualidade superior. A administração decidiu usar a automação para tornar ainda mais fácil enviar uma encomenda via UPS e para verificar a situação de entrega, reduzindo assim seus custos e aumentando as receitas de vendas. A UPS tornou-se a maior empresa mundial de distribuição de encomendas, por via terrestre e por via aérea.\nPORQUE\nII. O sucesso da UPS deve-se ao uso da tecnologia utilizada. A administração da UPS considerou a tecnologia como a única dimensão do sistema de informação.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I."
+        },
+        {
+          "letter": "B",
+          "text": "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa."
+        },
+        {
+          "letter": "C",
+          "text": "A asserção I é uma proposição falsa, e II é uma proposição verdadeira."
+        },
+        {
+          "letter": "D",
+          "text": "As asserções I e II são proposições falsas."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A asserção I é verdadeira e a asserção II é falsa. Os sistemas de informações possuem três dimensões: organizações, tecnologias e pessoas. O sucesso da UPS deve-se ao fato de a administração ter considerado as três dimensões, considerando sua cultura organizacional, os clientes, os processos envolvidos e a tecnologia necessária.",
+      "source": "Rota 3. Pág. 7"
+    },
+    {
+      "id": "q7_13",
+      "number": 13,
+      "prompt": "Os sistemas de informações devem contar com mecanismos de segurança de acesso informacional que reproduzam as políticas de acesso à informação da empresa. Essa política determina como as informações devem ser recuperadas e distribuídas, dentro e fora da organização. Fonte: FURTADO. L., 2020. Rota de Aprendizagem 1. Sistemas de Informações. Uninter. Considerando o texto acima, leias as frases abaixo:\nI. Os fluxos informacionais perpassam do nível estratégico ao nível operacional, impactando nos processos que compõe a organização.\nII. As informações informais tem regras e canais formais para acontecerem.\nIII. As informações formais devem circular conforme regras e políticas da empresa.\nEstão corretas as frases:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "II apenas"
+        },
+        {
+          "letter": "B",
+          "text": "III apenas"
+        },
+        {
+          "letter": "C",
+          "text": "II e III apenas"
+        },
+        {
+          "letter": "D",
+          "text": "I e III apenas"
+        }
+      ],
+      "answer": "D",
+      "explanation": "I. Os fluxos informacionais perpassam do nível estratégico ao nível operacional, impactando nos processos que compõe a organização. II. As informações informais não têm regras e canais formais. III. As informações formais devem circular conforme regras e políticas da empresa.",
+      "source": "Rota 1, página 7"
+    },
+    {
+      "id": "q7_14",
+      "number": 14,
+      "prompt": "O Walmart é o maior e mais bem sucedido varejista do mundo. Também é o maior vendedor de bens de consumo dos Estados Unidos. Ele criou um poderoso modelo de negócio baseado em uma excelente gestão da cadeia de fornecimento, que lhe permite manter preços baixos e gôndolas abastecidas. Seu sistema de reposição contínua de estoques envia pedidos de novas mercadorias diretamente aos fornecedores tão logo os consumidores paguem suas compras nos caixas. Ele não precisa gastar muito dinheiro em galpões, equipamentos e funcionários para estocar as grandes quantidades de produtos que são vendidos. O Walmart teve problemas com alimentos frescos, que constituíam 55% de seus negócios, em virtude desse tipo de produto necessitar de mais mão-de-obra para manuseio e estocagem, além do desperdício desse tipo de mercadoria. Para manter os preços competitivos, a gestão optou por não aumentar o quadro de pessoal. O Walmart implantou um novo sistema de gestão de estoque para os departamentos de produtos frescos em todo o país, que rastreia quantos dias um item esteve em trânsito, por quanto tempo poderá permanecer nas gôndolas e o que deve ser solicitado para repor os itens que estão sendo vendidos. O Walmart também está mudando as responsabilidades dos turnos de trabalho, de forma que alimentos frescos não sejam colocados nas gôndolas durante a noite e sinais sejam adicionados para ajudar os funcionários a identificar o que é fresco e o que não é. As lojas vão parar de expor produtos frescos em grandes quantidades, exibindo apenas quantidades reduzidas para demonstrar que novos produtos frescos estão chegando todo o tempo. LAUDON, K. C.; LAUDON, J.P. Sistemas de Informação Gerenciais. revisão técnica Belmiro do Nascimento João ; [tradução Célia Taniwaki]. – São Paulo: Pearson Education do Brasil, 2014. Com base no texto anterior, leia as asserções a seguir e a relação proposta entre elas.\nI. A implantação de um sistema de reposição contínua do Walmart possibilita à empresa ter operações eficientes e manter os custos de estoque os mais baixos possíveis.\nPORQUE\nII. Um sistema é um conjunto de elementos que interagem entre si, a fim de produzir um resultado específico.\nA respeito dessas asserções, assinale a opção correta.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I."
+        },
+        {
+          "letter": "B",
+          "text": "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa."
+        },
+        {
+          "letter": "C",
+          "text": "A asserção I é uma proposição falsa, e II é uma proposição verdadeira."
+        },
+        {
+          "letter": "D",
+          "text": "As asserções I e II são proposições falsas."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Um sistema é um conjunto de elementos que interagem entre si, a fim de produzir um resultado específico. No caso do supermercado Walmart, é manter a liderança, ser competitivo, atender os clientes de forma ágil e com eficiência.",
+      "source": "Rota 2, página 4"
+    },
+    {
+      "id": "q7_15",
+      "number": 15,
+      "prompt": "Uma empresa do ramo do varejo elabora uma planilha de suas vendas. Identifica a equipe de vendas. Identifica os produtos, as metas de vendas. Apresentam informações das vendas mensais, de produtos que atingiram metas de vendas e dos que não atingiram. Realiza o tratamento de erros eventuais na planilha. Para a diretoria de vendas, informa que as vendas aumentaram 5% em relação ao mês anterior. Encaminha relatórios para os gestores das áreas pertinentes às vendas. Esse contexto apresenta ações de processamento de dados, que transformam dados em informações, que envolvem várias fases como filtragem, processamento e apresentação. As fases envolvem ações como contextualização, categorização, cálculo, correção, condensação, sumarização e roteamento. Nesse contexto leia as frases a seguir e assinale V para verdadeiro e F para falso.\n( ) Ao identificar os produtos que atingiram as metas, foi realizado uma categorização de dados.\n( ) Ao informar que as vendas aumentaram 10%, foi realizada uma contextualização de dados.\n( ) Ao realizar os cálculos necessários, como por exemplo o total de vendas de produtos, foi realizada o processamento de dados.\n( ) Ao realizar todos os cálculos da planilha foi realizado a sumarização da informação.\n( ) Ao encaminhar os relatórios para os gestores das áreas pertinentes às área de vendas, foi realizado o roteamento.\nAssinale a alternativa com as respostas CORRETAS.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "V, F, V, F, F"
+        },
+        {
+          "letter": "B",
+          "text": "V, F, V, F, V"
+        },
+        {
+          "letter": "C",
+          "text": "F, V, V, V, F"
+        },
+        {
+          "letter": "D",
+          "text": "F, F, V, V, F"
+        }
+      ],
+      "answer": "B",
+      "explanation": "Ao identificar os produtos que atingiram as metas, foi realizado uma categorização de dados. Verdadeiro. Ao informar que as vendas aumentaram 10%, foi realizada uma contextualização de dados. Falso. ( ) Ao realizar os cálculos necessários... Verdadeiro. ( ) Ao realizar todos os cálculos da planilha foi realizado a sumarização da informação. Falso. ( ) Ao encaminhar os relatórios... Verdadeiro.",
+      "source": "ROTA 1, p. 10 a 13"
+    },
+    {
+      "id": "q7_16",
+      "number": 16,
+      "prompt": "A Pitt Ohio, uma empresa de frete de US$ 700 milhões, se acostumou a pegar frete e entregá-lo aos clientes no dia seguinte. Mas graças à Amazon, os clientes esperam a entrega no mesmo dia. E eles esperam mais informações sobre seus pacotes. Usando dados históricos, análise preditiva e algoritmos que calculam uma variedade de peso de carga, distância de condução e outros fatores, em tempo real, a Pitt Ohio pode estimar o tempo que o motorista levará para chegar a um destino de entrega com uma taxa de precisão de 99%. A empresa estima que aumentou a receita por meio de pedidos repetidos (estimados em US$ 50.000 por ano) e reduziu o risco de perda de clientes (estimado em US$ 60.000 por ano). \"Há muitos dados em suas quatro paredes - seja inovador e procure maneiras desafiadoras de usá-los\", disse Sullivan. Disponível em: https://www.veradata.com.br/pt-br/blog/5-cases-de-sucesso-com-analise-de-dados-e-machine-learning. Acesso em 12/02/2021 (Adaptado). Tendo esse texto como referência e considerando a relação entre tecnologia e processos de trabalho, avalie as seguintes asserções e a relação proposta entre elas.\nI. A Pitt Ohio, para corresponder às expectativas dos clientes, optou por utilizar recursos tecnológicos: conectividade, análise de dados e aprendizagem de máquina, tornando seu serviço autômato.\nPORQUE\nII. Adotando a modernização na dinâmica do trabalho, garante maior sustentabilidade e coloca o cliente em primeiro lugar.\nA respeito dessas asserções, assinale a opção correta.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I."
+        },
+        {
+          "letter": "B",
+          "text": "As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa correta da I."
+        },
+        {
+          "letter": "C",
+          "text": "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa."
+        },
+        {
+          "letter": "D",
+          "text": "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira."
+        }
+      ],
+      "answer": "A",
+      "explanation": "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
+      "source": "Rota 5 , pgs 2 e 3"
+    },
+    {
+      "id": "q7_17",
+      "number": 17,
+      "prompt": "Um sistema de informação (SI) pode ser definido tecnicamente como um conjunto de componentes inter-relacionados que coletam (ou recuperam), processam, armazenam e distribuem informações destinadas a apoiar a tomada de decisões, a coordenação e o controle em uma organização. Além disso, os sistemas de informação também auxiliam os gerentes e trabalhadores a analisar problemas, visualizar assuntos complexos e criar produtos. LAUDON, K. C.; LAUDON, J.P. Sistemas de Informação Gerenciais. revisão técnica Belmiro do Nascimento João; [tradução Célia Taniwaki]. – São Paulo: Pearson Education do Brasil, 2014. Com base no texto, analise a seguinte situação real: A Volkswagen México tinha em mãos o desafio de projetar e instalar a linha de montagem do novo Jetta, com $3,3 milhões, e um prazo de 21 meses. A solução para obter sucesso e atingir os objetivos, dentro do orçamento e prazo estabelecidos, seria empregar o uso de recursos tecnológicos. Fonte: Juliana Martins. Disponível em: https://vendasmarketing.wordpress.com/2015/03/15/gerenciamento-de-projetos-casos-de-sucesso/ Acesso em 25/3/2021 (adaptado). Com base nessas informações, avalie as asserções a seguir e a relação proposta entre elas.\nI. A Volkswagem deve utilizar um SIG para gestão de projetos. São sistemas que apoiam os gerentes e equipes de projetos, garantirão êxito da iniciativa e diminuirão a chance de fracassos.\nPORQUE\nII. Os SIGs utilizados para realizar a gestão de projetos permitem integrar a gestão de tarefas, e a gestão do orçamento com a gestão de colaboração, controles fundamentais para o êxito do projeto.\nA respeito dessas asserções, assinale a opção correta.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I."
+        },
+        {
+          "letter": "B",
+          "text": "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa."
+        },
+        {
+          "letter": "C",
+          "text": "A asserção I é uma proposição falsa, e a II é uma proposição verdadeira."
+        },
+        {
+          "letter": "D",
+          "text": "As asserções I e II são proposições falsas."
+        }
+      ],
+      "answer": "A",
+      "explanation": "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I.",
+      "source": "Rota 6, página 13"
+    },
+    {
+      "id": "q7_18",
+      "number": 18,
+      "prompt": "Os sistemas de informação vêm evoluindo, acompanhando o progresso da tecnologia da informação. Segundo Hirschheum e Klein (2012, p. 196), os SI tiveram até quatro gerações, cada uma influenciou as empresas na condução dos negócios. Sobre o estágio da “pré-adolescência” dos sistemas de informações, assinale a alternativa correta: Fonte: FURTADO. L., 2020. Rota de Aprendizagem 5. Sistemas de Informações. Uninter.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Neste estágio, surgiram os minicomputadores e computadores pessoais (PC). O hardware e o software ficam mais baratos e empresas de menor porte podem ter acesso à tecnologia."
+        },
+        {
+          "letter": "B",
+          "text": "Neste estágio, o objetivo era a automação dos processos financeiros, contábeis e engenharia."
+        },
+        {
+          "letter": "C",
+          "text": "Neste estágio, se popularizam as redes corporativas de dados, grande desenvolvimento de softwares, hardwares e equipamentos de telecomunicações."
+        },
+        {
+          "letter": "D",
+          "text": "Neste estágio, os bancos de dados são armazenados em servidores diversos, independente de local físico."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Neste estágio, surgiram os minicomputadores e computadores pessoais (PC). O hardware e o software ficam mais baratos e empresas de menor porte podem ter acesso à tecnologia.",
+      "source": "Rota 5, página 7"
+    },
+    {
+      "id": "q7_19",
+      "number": 19,
+      "prompt": "Os sistemas de informação vêm evoluindo, acompanhando o progresso da tecnologia da informação. Segundo Hirschheum e Klein (2012, p. 196), os SI tiveram até quatro gerações, cada uma influenciou as empresas na condução dos negócios. Sobre o estágio da “adolescência” dos sistemas de informações, assinale a alternativa correta: Fonte: FURTADO. L., 2020. Rota de Aprendizagem 5. Sistemas de Informações. Uninter.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Neste estágio, surgiram os minicomputadores e computadores pessoais (PC). O hardware e o software ficam mais baratos e empresas de menor porte podem ter acesso à tecnologia."
+        },
+        {
+          "letter": "B",
+          "text": "Neste estágio, o objetivo era a automação dos processos financeiros, contábeis e engenharia."
+        },
+        {
+          "letter": "C",
+          "text": "Neste estágio, se popularizam as redes corporativas de dados, grande desenvolvimento de softwares, hardwares e equipamentos de telecomunicações."
+        },
+        {
+          "letter": "D",
+          "text": "Neste estágio, os bancos de dados são armazenados em servidores diversos, independente de local físico."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Neste estágio, se popularizam as redes corporativas de dados, grande desenvolvimento de softwares, hardwares e equipamentos de telecomunicações.",
+      "source": "Rota 5, página 7"
+    },
+    {
+      "id": "q7_20",
+      "number": 20,
+      "prompt": "Os bancos de dados Não Relacionais podem ser encontrados em empresas como Amazon, Google, Netflix e Facebook. Porém, grandes sites geralmente usam uma variedade de bancos de dados, porque bancos de dados diferentes têm finalidades diferentes. Um levantamento, divulgado recentemente pelo International Data Corporation (IDC), afirma que a produção de dados dobra a cada dois anos, fato que afeta as empresas de tecnologias. Fonte: canaltech.com.br. Com base no texto anterior, leia as asserções a seguir e a relação proposta entre elas.\nI. Empresas como a Amazon, Google, Netflix e Facebook armazenam grandes quantidades de dados, com crescimento exponencial anual, por isso utilizam Banco de Dados Não Relacional.\nPORQUE\nII. Bancos de dados Não Relacionais não possuem um relacionamento rígido entre as tabelas de dados, assim são mais rápidos e trabalham com dados de vários tipos.\nA respeito dessas asserções, assinale a opção correta.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "As asserções I e II são proposições verdadeiras, e a II é uma justificativa correta da I."
+        },
+        {
+          "letter": "B",
+          "text": "A asserção I é uma proposição verdadeira, e a II é uma proposição falsa."
+        },
+        {
+          "letter": "C",
+          "text": "A asserção I é uma proposição falsa, e II é uma proposição verdadeira."
+        },
+        {
+          "letter": "D",
+          "text": "As asserções I e II são proposições falsas."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Assertiva verdadeira, extraída do enunciado da questão. A II também é uma assertiva verdadeira e justifica a I.",
+      "source": "Rota 4, página 7"
+    },
+    {
+      "id": "q7_21",
+      "number": 21,
+      "prompt": "Os gerentes operacionais precisam de sistemas que monitorem as transações e as atividades básicas da organização, como vendas, recebimentos, depósitos em dinheiro, folhas de pagamento, decisões de crédito ou fluxo de materiais em uma fábrica. LAUDON, K. C.; LAUDON, J.P.Sistemas de Informação Gerenciais. revisão técnica Belmiro do Nascimento João; [tradução Célia Taniwaki]. – São Paulo: Pearson Education do Brasil, 2014. O exemplo acima se refere a um tipo de sistema específico, cuja sigla é:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "SAE"
+        },
+        {
+          "letter": "B",
+          "text": "SAD"
+        },
+        {
+          "letter": "C",
+          "text": "SPT"
+        },
+        {
+          "letter": "D",
+          "text": "B.I."
+        }
+      ],
+      "answer": "C",
+      "explanation": "O exemplo se refere ao SPT (Sistemas de Processamento de Transações).",
+      "source": "Rota 6, páginas 3 e 4"
+    },
+    {
+      "id": "q7_22",
+      "number": 22,
+      "prompt": "Uma grande rede de mercados norte-americana descobriu que um número razoável de compradores de fralda também comprava cerveja na véspera de finais de semana. Por meio de uma análise das transações de compra, os analistas de dados puderam perceber que os compradores eram homens que, ao comprarem fraldas para seus filhos, compravam também cerveja para consumo enquanto cuidavam das crianças e assistiam aos jogos na televisão durante o final de semana. Este exemplo ilustra a associação entre fraldas e cervejas. De acordo com a história, essa empresa utilizou o novo conhecimento para aproximar as gôndolas de fraldas e cervejas na rede de mercados, incrementando assim a venda conjunta dos dois produtos. Fonte: Ronaldo Goldschmidt e Eduardo Bezerra. Diversas técnicas são empregadas para o reconhecimento de padrões. O caso acima exposto é um exemplo do reconhecimento de um padrão de consumo. A respeito das tecnologias disponíveis, avalie as afirmações abaixo:\nI. Data Warehouse (DW) extrai dados do banco de dados interno da empresa unicamente.\nII. O OLAP analisa os dados do DW dinamicamente e de maneira multidimensional.\nIII. Data Mining explora os dados para encontrar padrões nesses dados.\nIV. O Banco de Dados relacional é multidimensional.\nÉ correto o que se afirma em:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "II e III apenas"
+        },
+        {
+          "letter": "B",
+          "text": "I e III apenas"
+        },
+        {
+          "letter": "C",
+          "text": "II e IV apenas"
+        },
+        {
+          "letter": "D",
+          "text": "III e IV apenas"
+        }
+      ],
+      "answer": "A",
+      "explanation": "I. ERRADO. O DW extrai dados de diversas fontes, internas e externas. II. CORRETO. III. CORRETO. IV. ERRADO. O Banco de Dados relacional possui apenas duas dimensões.",
+      "source": "Rota 5, páginas 14 e 15"
+    },
+    {
+      "id": "q7_23",
+      "number": 23,
+      "prompt": "A Samsung anunciou em 2019 a Family Hub, uma geladeira inteligente equipada com Tizen 4.0, que permite ao usuário conferir a qualquer momento o que tem dentro do eletrodoméstico, qual é a data de validade dos produtos e, além disso, criar uma programação para saber quais alimentos devem ser consumidos primeiro. O refrigerador conta com câmeras internas do recurso View Inside para que o usuário veja seu conteúdo, a posição de cada alimento e a validade, tudo isso diretamente do smartphone. Assim, o usuário pode conferir essas informações de qualquer lugar, inclusive quando estiver dentro do mercado, no momento das compras. Ao todo são três câmeras posicionadas na porta da geladeira, que fazem registros internos toda vez em que ela é aberta ou fechada. Ainda é possível conferir um histórico de alterações, que também pode ser consultado à distância. Fonte: Canal Tech. O tipo de tecnologia descrito acima que envolve refrigerador, utiliza algum tipo de sistema de informação e é conectado via web, possui o conceito:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Sistemas Especialistas."
+        },
+        {
+          "letter": "B",
+          "text": "IoT (Internet of Thinks – Internet das Coisas)."
+        },
+        {
+          "letter": "C",
+          "text": "Sistemas de Apoio Residenciais."
+        },
+        {
+          "letter": "D",
+          "text": "Sistema de Gerenciamento de Banco de Dados."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Refere-se à IoT (Internet of Thinks – Internet das Coisas).",
+      "source": "Rota 4, página 11"
+    },
+    {
+      "id": "q7_24",
+      "number": 24,
+      "prompt": "O início da construção de um banco de dados começa com a modelagem de dados. A modelagem é a fase da definição de vários parâmetros. A respeito do modelo de dados apresentado no material da disciplina, que organiza os dados em tabelas bidimensionais contendo colunas e linhas, escolha a alternativa CORRETA:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "O modelo de dados corresponde ao Banco de Dados em Rede."
+        },
+        {
+          "letter": "B",
+          "text": "O modelo de dados corresponde ao Banco de Dados Hierárquico."
+        },
+        {
+          "letter": "C",
+          "text": "O modelo de dados corresponde ao Banco de Dados em Grafos."
+        },
+        {
+          "letter": "D",
+          "text": "O modelo de dados corresponde ao Banco de Dados Relacional."
+        }
+      ],
+      "answer": "D",
+      "explanation": "O modelo de dados que organiza os dados em tabelas bidimensionais contendo colunas e linhas corresponde ao Banco de Dados Relacional.",
+      "source": "Rota 4, página 12"
+    },
+    {
+      "id": "q7_25",
+      "number": 25,
+      "prompt": "“A Petrobras concluiu a integração de suas áreas com o software de gestão da empresa alemã SAP, superando os obstáculos na jornada. Os cinco anos do processo de implementação custaram 260 milhões de dólares à empresa, que devem agora ser recompensados com uma economia estimada de 450 milhões de dólares (projeção para cinco anos). De acordo com a assessoria da estatal, a economia virá de substancial redução da burocracia interna e aquisições mais baratas.” O texto acima fala da experiência bem-sucedida da Petrobrás, na utilização de:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Investimentos em treinamentos."
+        },
+        {
+          "letter": "B",
+          "text": "Sistemas integrados de gestão – ERP."
+        },
+        {
+          "letter": "C",
+          "text": "Terceirização de serviços."
+        },
+        {
+          "letter": "D",
+          "text": "Desfazimento de bens inservíveis."
+        }
+      ],
+      "answer": "B",
+      "explanation": "O texto fala da experiência bem-sucedida na utilização de Sistemas integrados de gestão – ERP.",
+      "source": "Rota 6, página 14"
+    },
+    {
+      "id": "q7_26",
+      "number": 26,
+      "prompt": "“Parcerias público-privadas, as famosas PPPs, são acordos entre os setores público e privado para a realização conjunta de determinado serviço ou obra de interesse da população. Em uma PPP, a empresa normalmente fica responsável pelo projeto, assim como seu financiamento, execução e operação. O Estado, em contrapartida, paga a empresa de acordo com o desempenho do serviço prestado. Uma vez vencido o contrato, tudo o que foi construído é do governo.” Com base no conceito acima, o Governo do Estado da Bahia contratou, em 2013, a Companhia do Metrô de Salvador, para a construção de duas linhas metroviárias no Estado, com 22 (vinte e duas) estações. Considerando que esta Companhia usará um sistema de informações gerenciais em projetos, para facilitar o acompanhamento da construção, este sistema precisará implementar:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Gestão de tarefas, orçamento e colaboração."
+        },
+        {
+          "letter": "B",
+          "text": "Gestão de marketing e vendas."
+        },
+        {
+          "letter": "C",
+          "text": "Gestão de infraestrutura de redes."
+        },
+        {
+          "letter": "D",
+          "text": "Gestão de banco de dados."
+        }
+      ],
+      "answer": "A",
+      "explanation": "O sistema precisará implementar gestão de tarefas, orçamento e colaboração.",
+      "source": "Rota 6, página 13"
+    },
+    {
+      "id": "q7_27",
+      "number": 27,
+      "prompt": "Quando um cliente faz um pedido, por exemplo, os dados fluem automaticamente para as partes da empresa que serão afetadas. A transação de pedido dispara uma ordem para que o depósito separe os produtos pedidos e programe o envio. O depósito, por sua vez, solicita à fábrica que reponha o que foi retirado. O departamento de contabilidade é notificado para enviar uma fatura ao cliente. A cada um desses passos, os representantes do serviço de atendimento ao cliente monitoram o andamento do pedido para manter os clientes informados. Os gerentes podem usar a informação integrada para tomar decisões mais precisas no momento apropriado com relação às operações diárias e ao planejamento a longo prazo. LAUDON, K. C.; LAUDON, J.P. Sistemas de Informação Gerenciais. O cenário acima só é possível de acontecer com o sistema:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "SAE"
+        },
+        {
+          "letter": "B",
+          "text": "SAD"
+        },
+        {
+          "letter": "C",
+          "text": "SPT"
+        },
+        {
+          "letter": "D",
+          "text": "ERP"
+        }
+      ],
+      "answer": "D",
+      "explanation": "O cenário acima só é possível de acontecer com o sistema ERP.",
+      "source": "Rota 6, páginas 14"
+    },
+    {
+      "id": "q7_28",
+      "number": 28,
+      "prompt": "Um sistema de CRM integra tecnologia e processos de negócios, para satisfazer as necessidades de clientes em qualquer interação, envolvendo a aquisição, análise e uso do conhecimento de clientes para venda mais eficiente de produtos e serviços. (Fonte: Madruga, 2010 apud FURTADO. L., 2020. Rota de Aprendizagem 6. Sistemas de Informações. Uninter.) Um sistema CRM abrange:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Marketing, vendas e atendimento."
+        },
+        {
+          "letter": "B",
+          "text": "Ofertas, atendimento e base de dados."
+        },
+        {
+          "letter": "C",
+          "text": "Atendimento, compras e clientes."
+        },
+        {
+          "letter": "D",
+          "text": "Vendas, estoque e produção."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Um sistema CRM abrange marketing, vendas e atendimento.",
+      "source": "Rota 6, página 10"
+    },
+    {
+      "id": "q7_29",
+      "number": 29,
+      "prompt": "Os SIGs para manufatura são encontrados em indústrias. Auxiliam nas tarefas de planejamento e controle do processo de produção. São descendentes diretos dos sistemas MRP e MRP-II. A respeito dos SIGs de manufatura, avalie as assertivas abaixo:\nI. SiGs de manufatura, normalmente são módulos de sistemas ERP.\nII. O subsistema Treinamento e Desenvolvimento compõem o SIG de Manufatura.\nIII. SIGs de manufatura gerenciam também as instruções/especificação de trabalho e instalações.\nÉ correto o que se afirma em:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "I apenas"
+        },
+        {
+          "letter": "B",
+          "text": "II apenas"
+        },
+        {
+          "letter": "C",
+          "text": "III apenas"
+        },
+        {
+          "letter": "D",
+          "text": "I e III apenas"
+        }
+      ],
+      "answer": "D",
+      "explanation": "I e III apenas. Os SiGs de manufatura normalmente são módulos de sistemas ERP e gerenciam instruções de trabalho e instalações.",
+      "source": "Rota 6, páginas 11 e 12"
+    },
+    {
+      "id": "q7_30",
+      "number": 30,
+      "prompt": "Os Sistemas de Informações podem ser classificados por diversos critérios. Os mais utilizados são a abrangência e o nível decisório. No primeiro, são considerados os setores da empresa atendidos pelo sistema. No segundo critério, o sistema é classificado conforme o nível organizacional no qual ele será utilizado. Fonte: FURTADO. L., 2020. Rota de Aprendizagem 5. Sistemas de Informações. Uninter. A respeito do nível decisório dos sistemas de informações, avalie as afirmações a seguir:\nI. Os Sistemas de Processamento de Transações fornecem relatórios gerenciais, um exemplo é um sistema de vendas, onde os gerentes podem observar o desempenho de vendedores e tomar decisões sobre o time de vendas ou sobre os produtos.\nII. Um exemplo de decisão de um Sistema de Informação Gerencial é a decisão de construir uma nova fábrica.\nIII. Os Sistemas de Apoio Executivo utilizam dados externos à empresa.\nIV. Os Sistemas de Apoio à Decisão utilizam soluções computacionais para das suporte às decisões complexas.\nÉ correto o que se afirma em:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "II e III apenas"
+        },
+        {
+          "letter": "B",
+          "text": "I e III apenas"
+        },
+        {
+          "letter": "C",
+          "text": "II e IV apenas"
+        },
+        {
+          "letter": "D",
+          "text": "III e IV apenas"
+        }
+      ],
+      "answer": "D",
+      "explanation": "III e IV apenas. Os Sistemas de Apoio Executivo utilizam dados externos à empresa. Os Sistemas de Apoio à Decisão utilizam soluções computacionais para das suporte às decisões complexas.",
+      "source": "Rota 5, página 13"
+    }
+  ]
+};
+
+
+const AULA08 = {
+  "id": "aula08",
+  "title": "Tecnologias Digitais para Segurança Cibernética",
+  "shortTitle": "Tecnologias Digitais",
+  "description": "Certificados digitais, criptografia, redes seguras e tecnologias de proteção.",
+  "accent": "#7c3aed",
+  "icon": "💻",
+  "total": 30,
+  "passingScore": 21,
+  "questions": [
+    {
+      "id": "q8_1",
+      "number": 1,
+      "prompt": "“Um certificado digital é uma prova de identidade no meio virtual. Podemos, desta forma, entendê-lo como uma “carteira de identidade” virtual. Esta analogia, no entanto, nos induz ao erro de imaginarmos que os certificados estariam vinculados somente a pessoas, mas, de fato, podem ser emitidos também para computadores, softwares ou empresas”. Fonte: Texto da Rota de Aprendizagem 3 (Tema: CERTIFICADOS DIGITAIS). Com base no que foi estudado na disciplina, como podemos descrever um certificado digital?",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Um certificado digital é um documento físico impresso que contém a assinatura de um notário público."
+        },
+        {
+          "letter": "B",
+          "text": "Um certificado digital é um código de acesso temporário gerado para acesso a redes sociais e e-mails."
+        },
+        {
+          "letter": "C",
+          "text": "Um certificado digital é uma senha de uso único para autenticação em sistemas bancários off-line."
+        },
+        {
+          "letter": "D",
+          "text": "Podemos descrever um certificado digital como uma chave criptográfica a qual são associadas determinadas informações de validade."
+        }
+      ],
+      "answer": "D",
+      "explanation": "De maneira simplista, podemos descrever um certificado digital como uma chave criptográfica a qual são associadas determinadas informações de validade. Estas informações são importantes para que que o detentor do certificado tenha segurança quanto a vida útil de sua chave (lembre-se toda chave um dia será quebrada), assim como para que seja possível o controle da utilidade que se fará dos dados por ele certificados.",
+      "source": "Texto da Rota de Aprendizagem 3 (Tema: CERTIFICADOS DIGITAIS)."
+    },
+    {
+      "id": "q8_2",
+      "number": 2,
+      "prompt": "“Há poucas décadas a comunicação a distância se fazia parcamente por sistemas de radiocomunicação ou, quando necessária a transmissão de documentos, um fac simile (fax) podia ser usado. Estas primeiras comunicações digitais eram realizadas a taxas de transmissão inimagináveis na atualidade. Eram frequentes canais de comunicação, considerados de alto desempenho, com velocidade limitada a menos de um milésimo daquela que hoje temos disponível em nossos aparelhos celulares. Fenômeno equivalente ocorreu com a capacidade de processamento”. Fonte: Rota de Aprendizagem 1 (Tema: Tecnologia e Segurança). Considerando o conteúdo estudado em aula, assinale a alternativa que aponta corretamente a denominação do primeiro computador comercial:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "O primeiro computador comercial, denominado Eniac, ocupava um andar inteiro de um prédio."
+        },
+        {
+          "letter": "B",
+          "text": "O primeiro computador comercial, denominado Apple iMac G3, ocupava um andar inteiro de um prédio."
+        },
+        {
+          "letter": "C",
+          "text": "O primeiro computador comercial, denominado Compaq Presario 5170, ocupava um andar inteiro de um prédio."
+        },
+        {
+          "letter": "D",
+          "text": "O primeiro computador comercial, denominado IBM ThinkPad 600, ocupava um andar inteiro de um prédio."
+        }
+      ],
+      "answer": "A",
+      "explanation": "O primeiro computador comercial, denominado Eniac, ocupava um andar inteiro de um prédio.",
+      "source": "Rota de Aprendizagem 1 (Tema: Tecnologia e Segurança)."
+    },
+    {
+      "id": "q8_3",
+      "number": 3,
+      "prompt": "Naturalmente, você já ouviu falar da memória disponível em dispositivos microprocessados, como um aparelho de telefonia celular digital. Uma memória de acesso randômico com algumas dezenas de gigabytes (GB) é um bom indicativo de que há espaço suficiente para armazenar suas informações no equipamento. (Texto adaptado). Fonte: Texto da Rota de Aprendizagem 2 (Tema: REPRESENTAÇÃO DE NÚMEROS EM MÁQUINAS COMPUTACIONAIS). Considerando o conteúdo estudado em aula, assinale a alternativa que indica corretamente o termo técnico utilizado para se referir à memória disponível em um dispositivo microprocessado, como um celular digital:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "SDS - Solid State Drive."
+        },
+        {
+          "letter": "B",
+          "text": "RAM - Random Access Memory."
+        },
+        {
+          "letter": "C",
+          "text": "GPU - Graphics Processing Unit."
+        },
+        {
+          "letter": "D",
+          "text": "HDR - Hard Disk Drive."
+        }
+      ],
+      "answer": "B",
+      "explanation": "De acordo com o conteúdo estudado em aula, uma memória disponível (tecnicamente chamada de RAM – Randomic Access Memory, ou memória de acesso randômico) de algumas dezenas de gigabytes (GB) é um indicativo de bom espaço para guardar suas informações no equipamento.",
+      "source": "Texto da Rota de Aprendizagem 2 (Tema: REPRESENTAÇÃO DE NÚMEROS EM MÁQUINAS COMPUTACIONAIS)."
+    },
+    {
+      "id": "q8_4",
+      "number": 4,
+      "prompt": "Como evidenciamos durante as nossas aulas, no que se refere a manutenção das características seguras da informação, a criptografia é uma boa forma de manter a confidencialidade e privacidade, da mesma forma que técnicas hash permitem conservar a autenticidade e integridade. A assinatura eletrônica é uma ferramenta importante para garantir o não repúdio à mensagem. (Texto adaptado). Fonte: Texto da Rota de Aprendizagem 3 (Tema: HASH, CRIPTOGRAFIA E ASSINATURA ELETRÔNICA). De acordo com o texto acima e com os estudos realizados na disciplina, assinale a alternativa correta acerca da assinatura eletrônica:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Podemos descrever a assinatura eletrônica como uma cifra (ou mesmo um hash) obtida por operação matemática entre os dados, a serem assinados, e uma chave."
+        },
+        {
+          "letter": "B",
+          "text": "A assinatura eletrônica é uma cifra gerada sem utilizar qualquer tipo de chave ou operação matemática com os dados a serem assinados."
+        },
+        {
+          "letter": "C",
+          "text": "A assinatura eletrônica é um método que simplesmente adiciona uma etiqueta visual aos documentos sem utilizar operações matemáticas ou chaves."
+        },
+        {
+          "letter": "D",
+          "text": "A assinatura eletrônica é obtida através da combinação física dos dados com uma chave de segurança, sem o uso de operações matemáticas ou algoritmos."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Podemos descrever a assinatura eletrônica como uma cifra (ou mesmo um hash) obtida por operação matemática entre os dados, a serem assinados, e uma chave. Esta chave, geralmente, permanecerá conhecida somente pelo signatário. O destinatário, por sua vez, receberá uma segunda chave de decodificação da mensagem. Se a decodificação for possível, o receptor terá, além do acesso à mensagem, também a segurança de que a mensagem pertence ao remetente.",
+      "source": "Texto da Rota de Aprendizagem 3 (Tema: HASH, CRIPTOGRAFIA E ASSINATURA ELETRÔNICA)."
+    },
+    {
+      "id": "q8_5",
+      "number": 5,
+      "prompt": "“As técnicas criptográficas são procedimentos eminentemente matemáticos que transformam os dados pelo uso de algoritmos, que os combinam com senhas (ditas chaves criptográficas) de maneira complexa. Essa combinação torna os dados originais (chamados de texto plano em criptografia) ininteligíveis para aqueles que desconhecem o algoritmo e a chave”. Fonte: Texto da Rota de Aprendizagem 2 (Tema: INTRODUÇÃO À CRIPTOGRAFIA). Com base nos estudos realizados em aula, qual é o termo utilizado para descrever o processo de decodificação realizado à revelia dos proprietários da informação, seja de forma maliciosa ou não? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Descriptografia autorizada."
+        },
+        {
+          "letter": "B",
+          "text": "Cifragem maliciosa."
+        },
+        {
+          "letter": "C",
+          "text": "Criação de novas chaves de criptografia."
+        },
+        {
+          "letter": "D",
+          "text": "Quebra da criptografia."
+        }
+      ],
+      "answer": "D",
+      "explanation": "O processo oposto à cifragem, quando regularmente realizado, é denominado decifragem (ou descriptografia, decodificação ou descriptação). Se a decodificação ocorrer à revelia dos proprietários da informação, seja de forma maliciosa ou não, receberá a denominação de quebra da criptografia.",
+      "source": "Texto da Rota de Aprendizagem 2 (Tema: INTRODUÇÃO À CRIPTOGRAFIA)."
+    },
+    {
+      "id": "q8_6",
+      "number": 6,
+      "prompt": "“Com a evolução da computação, que permite a realização quase que instantânea de cálculos matemáticos de certa complexidade, a criptografia ganhou contornos menos simplistas. Atualmente, as técnicas criptográficas não são criadas para que permaneçam sigilosas. Abandonamos, portanto, a ideia de criptografia imune a quebra. Sabemos, agora, que todo algoritmo é, ou será, público, e toda cifra será, em dado momento, quebrada”. Fonte: Texto da Rota de Aprendizagem 2 (CRIPTOGRAFIA NA ATUALIDADE). De acordo com o estudado na disciplina, qual é o objetivo principal dos criptógrafos da atualidade ao desenvolver novas cifras? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Produzir cifras que nunca possam ser quebradas."
+        },
+        {
+          "letter": "B",
+          "text": "Produzir cifras que sejam quebráveis em um tempo suficientemente longo."
+        },
+        {
+          "letter": "C",
+          "text": "Produzir cifras que possam ser quebradas por qualquer pessoa."
+        },
+        {
+          "letter": "D",
+          "text": "Produzir cifras que não possam ser decifradas nem pelos proprietários dos dados."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Partindo dos novos paradigmas, os criptógrafos da atualidade buscam produzir cifras que sejam quebráveis em um tempo suficientemente longo. Dito de outra forma, o processo ideal é aquele no qual a quebra da cifra se dará quando os dados cifrados perderem seu valor para seus proprietários ou para o agente malicioso.",
+      "source": "Texto da Rota de Aprendizagem 2 (CRIPTOGRAFIA NA ATUALIDADE)."
+    },
+    {
+      "id": "q8_7",
+      "number": 7,
+      "prompt": "“Barreto et al. (2018, p. 24) nos ensina que o ciclo de vida é, de fato, um histórico da informação, desde o momento de sua criação até sua morte. Segundo os autores, o ciclo de vida descreve, entre  outros eventos, as mudanças quanto à relevância da informação para seus detentores, identificando a perda de valor e a necessidade de eventual descarte”. Fonte: Texto da Rota de Aprendizagem 3 (CICLO DE VIDA DA INFORMAÇÃO). Considerando o conteúdo estudado em aula e o texto da rota de aprendizagem, assinale a alternativa correta acerca da fase de Descarte:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "O dado armazenado pode ser solicitado para vários ciclos de consumo. Alguns destes consumos podem gerar novos dados de maior sutileza ou grau de análise. Haverá um momento, entretanto, no qual o dado não terá mais utilidade para seu proprietário."
+        },
+        {
+          "letter": "B",
+          "text": "O dado, após transitar pela rede, será entregue para a máquina que o solicitou para que o processe. Esse processamento é chamado, tecnicamente, de Descarte."
+        },
+        {
+          "letter": "C",
+          "text": "Quando um dado for demandado, será necessário localizá-lo no depositário em que se encontrar e fazê-lo transitar, pela rede, até que se encontre o demandante; o nome desse processo é descarte."
+        },
+        {
+          "letter": "D",
+          "text": "Adquirido o dado, ou criado por manipulação, deverá ele ser arquivado, fisicamente, para uso futuro; o nome desse processo é descarte."
+        }
+      ],
+      "answer": "A",
+      "explanation": "O dado armazenado pode ser solicitado para vários ciclos de consumo. Alguns destes consumos podem gerar novos dados de maior sutileza ou grau de análise. Haverá um momento, entretanto, no qual o dado não terá mais utilidade para seu proprietário.",
+      "source": "Texto da Rota de Aprendizagem 3 (CICLO DE VIDA DA INFORMAÇÃO)."
+    },
+    {
+      "id": "q8_8",
+      "number": 8,
+      "prompt": "“O uso de nibles, com o meteórico crescimento da capacidade computacional, havia caído em absoluto desuso, mas a internet das coisas (IoT) com seus dispositivos de baixo custo e eletrônica reduzida, fomentaram sua ressurreição”. Fonte: Rota de Aprendizagem 1 (Tema: NIBLE, BYTE, WORD...). De acordo com o material estudado em aula, assinale a alternativa correta acerca do tamanho de um nible:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Um nible é formado por 4 bits."
+        },
+        {
+          "letter": "B",
+          "text": "Um nible é formado por 8 bits."
+        },
+        {
+          "letter": "C",
+          "text": "Um nible é formado por 16 bits."
+        },
+        {
+          "letter": "D",
+          "text": "Um nible é formado por 32 bits."
+        }
+      ],
+      "answer": "A",
+      "explanation": "O menor conjunto considerado é o nible, formado pela associação de 4 bits.",
+      "source": "Rota de Aprendizagem 1 (Tema: NIBLE, BYTE, WORD...)."
+    },
+    {
+      "id": "q8_9",
+      "number": 9,
+      "prompt": "“Um dos primeiros sistemas criptográficos de chave pública é o algoritmo de Rivest, Shamir e Adleman, conhecido pelas iniciais de seus idealizadores, RSA. Esse algoritmo ainda é bastante utilizado em transmissão de dados, por ser relativamente rápido”. Fonte: Texto da Rota de Aprendizagem 2 (Tema: ALGORITMO ASSIMÉTRICO RSA). Com base no material estudado em aula, julgue as afirmativas abaixo como V (verdadeiras) ou F (falsas) quanto o algoritmo RSA:\n( ) A base do sistema repousa sobre aritmética modular, que é uma releitura das operações aritméticas de forma cíclica.\n( ) Em aritmética modular, não temos igualdades, mas congruências.\n( ) Sempre que existir outro inteiro que multiplicado n e somado com y resulte em x, a congruência será satisfeita.\n( ) Mesmo divulgando a chave pública, a decodificação da cifra não seja unívoca, existirão vários textos planos possíveis.\nAssinale a alternativa que corresponde à sequência correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "V – V – V – V."
+        },
+        {
+          "letter": "B",
+          "text": "V – V – F – V."
+        },
+        {
+          "letter": "C",
+          "text": "F – F – F – F."
+        },
+        {
+          "letter": "D",
+          "text": "V – F – V – F."
+        }
+      ],
+      "answer": "A",
+      "explanation": "A base do sistema repousa sobre aritmética modular, que é uma releitura das operações aritméticas de forma cíclica. Apenas para exemplificar, em aritmética modular, não temos igualdades, mas congruências. Dizemos que x e y são congruentes módulo n (escreve-se x=y mod(n)) se ´x´ e ´y´ são inteiros; além disso `n` também deverá ser inteiro, positivo, e parte do conjunto {0,...,n1}. Sempre que existir outro inteiro que multiplicado n e somado com y resulte em x, a congruência será satisfeita. Por essa definição, podemos ter congruências como 5= 1mod(2), mas também 21= 1 mod(20), ou seja, vários inteiros podem satisfazer a equação modular. Esse fato permite que, mesmo divulgando a chave pública, a decodificação da cifra não seja unívoca, ou seja, existirão vários textos planos possíveis.",
+      "source": "Texto da Rota de Aprendizagem 2 (Tema: ALGORITMO ASSIMÉTRICO RSA)."
+    },
+    {
+      "id": "q8_10",
+      "number": 10,
+      "prompt": "“Como já sabemos, a máquina computacional opera apenas com zeros e uns. Utiliza, portanto, unicamente, o sistema binário. Longas sequências binárias são bastante comuns e tornam-se de difícil leitura para nós, humanos. Apenas para ilustrar o decimal 8217,44, precisa de 48 bits para ser representado no sistema binário: 8217,44 = (0010 0000 0001 1001,0111 0011) ². Para tornar a visualização um pouco mais simples e concisa, costuma-se apresentar os binários em uma outra base numérica, a hexadecimal”. Fonte: Texto da Rota de Aprendizagem 1 (Tema: SISTEMAS DE NUMERAÇÃO). Com base no estudado em aula, responda: por que os binários são frequentemente apresentados em base hexadecimal? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Porque a base hexadecimal permite representar cada nible com apenas um algarismo."
+        },
+        {
+          "letter": "B",
+          "text": "Porque a base hexadecimal é mais difícil de ler do que a binária."
+        },
+        {
+          "letter": "C",
+          "text": "Porque a base hexadecimal representa binários com números de 0 a 15."
+        },
+        {
+          "letter": "D",
+          "text": "Porque a base hexadecimal é usada para codificar caracteres especiais."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Conforme abordamos durante as nossas aulas, a máquina computacional opera apenas com zeros e uns. Utiliza, portanto, unicamente, o sistema binário. Longas sequências binárias são bastante comuns e tornam-se de difícil leitura para nós, humanos. Apenas para ilustrar o decimal 8217,44, precisa de 48 bits para ser representado no sistema binário: 8217,44 = (0010 0000 0001 1001,0111 0011)². Para tornar a visualização um pouco mais simples e concisa, costuma-se apresentar os binários em uma outra base numérica, a hexadecimal. Neste sistema, cada nible será representado por apenas um algarismo.",
+      "source": "Texto da Rota de Aprendizagem 1 (Tema: SISTEMAS DE NUMERAÇÃO)."
+    },
+    {
+      "id": "q8_11",
+      "number": 11,
+      "prompt": "Cada processo de conversão de dados segue regras rigorosas para garantir a consistência e a interoperabilidade entre diferentes máquinas computacionais. A padronização desses processos permite o compartilhamento eficaz de dados digitalizados entre sistemas distintos. No caso específico da conversão de letras, palavras e textos, o padrão de 8 bits, conhecido como byte, foi desenvolvido para incluir uma tabela de conversão que mapeia caracteres e símbolos para padrões binários, esse padrão é conhecido como ASCII. (Texto adaptado). Fonte: Texto da Rota de Aprendizagem. Considerando os conteúdos estudados em aula, assinale a alternativa que apresenta, corretamente, o significado da sigla ASCII no contexto de padrões de codificação de caracteres:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "American Standard Code for Information Interchange."
+        },
+        {
+          "letter": "B",
+          "text": "Automated Standard Code for Information Interchange."
+        },
+        {
+          "letter": "C",
+          "text": "American System for Code Integration."
+        },
+        {
+          "letter": "D",
+          "text": "Advanced Standard Code for Information Integration."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Cada processo de conversão de dados segue regras rigorosas para garantir a consistência e a interoperabilidade entre diferentes máquinas computacionais. A padronização desses processos permite o compartilhamento eficaz de dados digitalizados entre sistemas distintos. No caso específico da conversão de letras, palavras e textos, o padrão de 8 bits, conhecido como byte, foi desenvolvido para incluir uma tabela de conversão que mapeia caracteres e símbolos para padrões binários. Esse padrão é conhecido como ASCII (American Standard Code for Information Interchange), ou Código Padrão Americano para Intercâmbio de Informações em português. O ASCII associa cada caractere a um byte de forma unívoca, garantindo uma representação consistente de texto em sistemas computacionais.",
+      "source": "Texto da Rota de Aprendizagem 1 (Tema: CONVERSÃO DA REALIDADE PARA INFORMAÇÃO DIGITAL)."
+    },
+    {
+      "id": "q8_12",
+      "number": 12,
+      "prompt": "Quando pensamos em informação, mesmo do ponto de vista leigo, imaginamos um dado útil sobre um fenômeno qualquer. Mas, qual seria a menor unidade de informação possível? Quando as máquinas computacionais foram idealizadas, optou-se por dotá-las de uma característica, devido à facilidade de construção eletrônica. (Texto adaptado). Fonte: Rota de Aprendizagem 1 (Tema: O BIT, A INFORMAÇÃO ELEMENTAR). Com base no conteúdo estudado em aula e no fragmento acima, assinale a alternativa que define corretamente o termo \"bit\".",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Bit é uma unidade de processamento em computadores."
+        },
+        {
+          "letter": "B",
+          "text": "Bit é um termo usado para descrever a largura de banda da internet."
+        },
+        {
+          "letter": "C",
+          "text": "Bit é uma unidade de medida de armazenamento de dados equivalente a 1024 bytes."
+        },
+        {
+          "letter": "D",
+          "text": "Bit é uma sigla para BInary digiT, ou dígito binário."
+        }
+      ],
+      "answer": "D",
+      "explanation": "De acordo com os conteúdos abordados em nossas aulas, segundo Manzano (2009, p. 97), bit é, de fato, uma sigla para BInary digiT, ou dígito binário. Dígito por se tratar de um numeral e binário porque cada dígito pode assumir somente dois valores: “0”, que representa o estado desligado, e “1”, que representa o estado ligado.",
+      "source": "Rota de Aprendizagem 1 (Tema: O BIT, A INFORMAÇÃO ELEMENTAR)."
+    },
+    {
+      "id": "q8_13",
+      "number": 13,
+      "prompt": "“Byte, trata-se da associação de dois nibles, ou seja, oito bits. O byte “ganhou notoriedade” porque permite a representação de 256 estados (28 = 256). Hoje as dimensões de memória computacional utilizam o byte, representado pela letra “B” maiúscula, como balizador. Já velocidade de processamento ou de transmissão de dados utilizam o bit, representado pela letra “b” (minúscula). Desta forma escrevemos, por exemplo, memória de 32 GB e velocidade de 128 Mb por segundo ou 128 Mbps”. Fonte: Rota de Aprendizagem 1 (Tema: NIBLE, BYTE, WORD...). Com base nos estudos realizados em aula, assinale a alternativa que apresenta, corretamente, qual é a principal função do byte na representação de dados.",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Representar todos os caracteres especiais e letras do alfabeto inglês."
+        },
+        {
+          "letter": "B",
+          "text": "Medir a velocidade de processamento de dados."
+        },
+        {
+          "letter": "C",
+          "text": "Representar uma unidade de medida de transmissão de dados."
+        },
+        {
+          "letter": "D",
+          "text": "Representar apenas caracteres de taquigrafia."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Byte, trata-se da associação de dois nibles, ou seja, oito bits. O byte “ganhou notoriedade” porque permite a representação de 256 estados (28 = 256), esta quantidade de estados permitia representar todas as letras e caracteres especiais presentes nos teclados do idioma inglês acrescentados de outros caracteres de uso em telegrafia, como início de mensagem, quebra de texto, sucesso na recepção, fim de mensagem etc. Por este motivo tornou-se o conjunto padrão de números binários (Manzano, 2009, p. 98). Hoje as dimensões de memória computacional utilizam o byte, representado pela letra “B” maiúscula, como balizador. Já velocidade de processamento ou de transmissão de dados utilizam o bit, representado pela letra “b” (minúscula). Desta forma escrevemos, por exemplo, memória de 32 GB e velocidade de 128 Mb por segundo ou 128 Mbps.",
+      "source": "Rota de Aprendizagem 1 (Tema: NIBLE, BYTE, WORD...)."
+    },
+    {
+      "id": "q8_14",
+      "number": 14,
+      "prompt": "“Segundo Machado (2014, p. 154), o hash pode ser utilizado para “verificar a integridade de um arquivo armazenado em um computador, mensagem ou arquivos de backups, verificar a integridade de um arquivo obtido da internet ou gerar assinaturas digitais”.” Fonte: Texto da Rota de Aprendizagem 3 (Tema: HASH). Considerando o conteúdo estudado em aula, assinale a alternativa correta sobre a função do hashing:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A função de hashing criptografa os registros de um arquivo contendo vírus, por meio de uma chave física, que será determinada por um conjunto de campos."
+        },
+        {
+          "letter": "B",
+          "text": "A função de hashing duplica os registros de um arquivo, por meio de uma chave, que será determinada exclusivamente por um campo."
+        },
+        {
+          "letter": "C",
+          "text": "A função de hashing exclui os registros de um arquivo, por meio de uma chave, que será determinada por um campo, ou conjunto de campos."
+        },
+        {
+          "letter": "D",
+          "text": "A função de hashing mapeia os registros de um arquivo, por meio de uma chave, que será determinada por um campo, ou conjunto de campos."
+        }
+      ],
+      "answer": "D",
+      "explanation": "A função de hashing mapeia os registros de um arquivo, por meio de uma chave, que será determinada por um campo, ou conjunto de campos. Este campo deve possuir características que permitam a identificação inequívoca do registro.",
+      "source": "Texto da Rota de Aprendizagem 3 (Tema: HASH)."
+    },
+    {
+      "id": "q8_15",
+      "number": 15,
+      "prompt": "Quando tomamos contato com o conceito de criptografia, principalmente ao considerarmos o uso de chaves criptográficas associadas aos algoritmos, de forma a dificultar a quebra, normalmente imaginamos um método chamado de simétrico, no qual tanto emissor quanto receptor conhecem e compartilham a mesma chave. Você deve estar pensando que não há outra forma de criptografar e decodificar senão pelo compartilhamento secreto de uma chave, não é? Na verdade, essa é apenas uma das formas, a mais simples e rápida, mas também a de menor segurança, assim, existem dois tipos de criptografia. (Texto adaptado). Fonte: Texto da Rota de Aprendizagem 2 (Tema: TIPOS DE CRIPTOGRAFIA). Tomando por base o conteúdo estudado em aula, marque a alternativa correta a respeito método assimétrico:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Na criptografia assimétrica, o algoritmo matemático de codificação do texto plano não é reversível, ou seja, não é possível decodificar a cifra com base na inversão do algoritmo de codificação, como na criptografia simétrica."
+        },
+        {
+          "letter": "B",
+          "text": "Na criptografia assimétrica, o algoritmo matemático de codificação do texto plano é reversível, permitindo decodificar a cifra com base na inversão do algoritmo de codificação."
+        },
+        {
+          "letter": "C",
+          "text": "Na criptografia assimétrica, tanto a codificação quanto a decodificação utilizam a mesma chave."
+        },
+        {
+          "letter": "D",
+          "text": "Na criptografia assimétrica, o texto plano pode ser decodificado diretamente sem o uso de nenhum algoritmo matemático."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Na criptografia assimétrica, o algoritmo matemático de codificação do texto plano não é reversível, ou seja, não é possível decodificar a cifra com base na inversão do algoritmo de codificação, como na criptografia simétrica.",
+      "source": "Texto da Rota de Aprendizagem 2 (Tema: TIPOS DE CRIPTOGRAFIA)."
+    },
+    {
+      "id": "q8_16",
+      "number": 16,
+      "prompt": "“Quando precisamos conectar ou comunicar duas máquinas computacionais, necessitamos criar uma estrutura capaz de possibilitar essa conexão. Se são apenas duas máquinas, essa solução pode ser obtida pela mera conexão, com interface adequada, entre as máquinas.” Fonte: Rota de Aprendizagem 4 (Tema: Redes de computadores e comunicação entre redes (Internet Communication). Com base no texto enunciado da questão, responda: como é chamada a conexão de rede dinâmica e descentralizada que envolve múltiplos dispositivos? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Rede sem fio (WLAN)."
+        },
+        {
+          "letter": "B",
+          "text": "Rede ad hoc."
+        },
+        {
+          "letter": "C",
+          "text": "Rede de área ampla (WAN)."
+        },
+        {
+          "letter": "D",
+          "text": "Rede de área pessoal (PAN)."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Quando precisamos conectar, ou comunicar, duas máquinas computacionais, necessitamos criar uma estrutura capaz de possibilitar essa conexão. Se são apenas duas máquinas, essa solução pode ser obtida pela mera conexão, com interface adequada, entre as máquinas. Essa conexão é chamada de rede ad hoc. Um exemplo desse tipo de rede se dá quando conectamos nosso aparelho celular em um computador, com o uso de um cabo USB, ou pela interface rádio bluetooth.",
+      "source": "Rota de Aprendizagem 4 (Tema: Redes de computadores e comunicação entre redes (Internet Communication)."
+    },
+    {
+      "id": "q8_17",
+      "number": 17,
+      "prompt": "“Há um terceiro modelo, semelhante ao PTM, no qual a comunicação direta entre assinantes é possível. As redes MTM (multiponto-para-multiponto), ou mesh, permitem a comunicação de um nó com o outro sem a necessidade de um gerenciamento central. Naturalmente esse modelo de redes exigirá capacidade de processamento e de roteamento em cada nó, restringindo o desempenho.” Fonte: Rota de Aprendizagem 4 (Tema: Comunicação multiponto – multiponto). Com base no conteúdo estudado em aula e no fragmento acima, qual é a principal vantagem das redes MTM (multiponto-para-multiponto) ou mesh? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Redução na capacidade de processamento dos nós."
+        },
+        {
+          "letter": "B",
+          "text": "Simplicidade na configuração inicial."
+        },
+        {
+          "letter": "C",
+          "text": "Maior flexibilidade e resiliência."
+        },
+        {
+          "letter": "D",
+          "text": "Desempenho otimizado em todos os nós."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Conforme os conteúdos abordados em nossas aulas a vantagem dessa topologia se dão pela maior flexibilidade e resiliência.",
+      "source": "Rota de Aprendizagem 4 (Tema: Comunicação multiponto – multiponto)."
+    },
+    {
+      "id": "q8_18",
+      "number": 18,
+      "prompt": "“As primeiras Fibras ópticas (FOs) comerciais utilizavam dois cilindros concêntricos de sílica com índices de refração diferentes, chamados núcleo (ou core, em inglês) e casca (ou cladding). Após a casca, deposita-se acrilato e resina silicônica para conferir resistência mecânica e certa flexibilidade ao conjunto. Várias dessas fibras são então agrupadas em um cabo que terá elementos extras para sustentação e resistência a cisalhamento e pressão.” Fonte: Rota de Aprendizagem 5 (Tema: TRANSMISSÃO ÓPTICA). Considerando o conteúdo estudado em aula e o texto da rota de aprendizagem, assinale a alternativa correta acerca da característica das fibras ópticas que originou sua denominação como \"fibras multimodo\":",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "A capacidade de suportar diferentes comprimentos de onda de luz."
+        },
+        {
+          "letter": "B",
+          "text": "A propagação de vários feixes de luz com ângulos de inserção diferentes."
+        },
+        {
+          "letter": "C",
+          "text": "A capacidade de transmitir dados a longas distâncias sem amplificação."
+        },
+        {
+          "letter": "D",
+          "text": "A combinação de diferentes materiais ópticos na construção da fibra."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A denominação \"fibras multimodo\" origina-se da capacidade dessas fibras ópticas de permitir a propagação de vários feixes de luz, cada um com um ângulo de inserção diferente. Isso resulta em múltiplos caminhos de propagação, caracterizando as fibras como multimodo.",
+      "source": "Rota de Aprendizagem 5 (Tema: TRANSMISSÃO ÓPTICA)."
+    },
+    {
+      "id": "q8_19",
+      "number": 19,
+      "prompt": "Quando a rede que interconecta nossos usuários é a internet, de topologia PTM, precisamos padronizar a forma de endereçar as várias máquinas assinantes da rede. A primeira padronização que entrou em operação, após a popularização da internet, foi o protocolo de internet que se trata de endereçamento binário composto por 32 bits, o que permite em torno de 4,3 bilhões de endereços distintos (ditos válidos). Fonte: Rota de Aprendizagem 4 (Tema: Endereçamento). (Texto adaptado). Com base nos estudos realizados em aula, assinale a alternativa que apresenta, corretamente, como se denomina o protocolo de endereçamento que utiliza um esquema binário de 32 bits e permite aproximadamente 4,3 bilhões de endereços distintos:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "IPv4."
+        },
+        {
+          "letter": "B",
+          "text": "IPv6."
+        },
+        {
+          "letter": "C",
+          "text": "IPX."
+        },
+        {
+          "letter": "D",
+          "text": "TCP/IP."
+        }
+      ],
+      "answer": "A",
+      "explanation": "De acordo com o texto base, o protocolo de internet versão 4 (IPv4) utiliza um esquema de endereçamento binário composto por 32 bits. Este protocolo, que foi a primeira padronização em operação após a popularização da internet, permite cerca de 4,3 bilhões de endereços distintos, conhecidos como endereços válidos.",
+      "source": "Rota de Aprendizagem 4 (Tema: Endereçamento)."
+    },
+    {
+      "id": "q8_20",
+      "number": 20,
+      "prompt": "“Se pensarmos em uma operação PTM ou MTM, com vários usuários, percebemos que será necessário ao originador da mensagem identificar a quem deseja que a mensagem seja entregue. Essa informação não é necessária em uma comunicação PTP, já que há apenas um destinatário possível. ” Fonte: Rota de Aprendizagem 4 (Tema: Endereçamento). De acordo com o material estudado em aula, em uma operação PTM ou MTM, qual é a identificação necessária para que o próximo nó ou roteador saiba para onde a mensagem deve ser entregue, especialmente quando há múltiplos destinatários habilitados? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Endereço de rede."
+        },
+        {
+          "letter": "B",
+          "text": "Endereço de destino."
+        },
+        {
+          "letter": "C",
+          "text": "Identificação do nó."
+        },
+        {
+          "letter": "D",
+          "text": "Identificação do roteador."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Conforme o texto base, em uma operação PTM ou MTM com múltiplos destinatários, é necessário informar ao próximo nó (no caso de uma rede MTM) ou ao roteador (no modelo PTM) a identificação do destino para garantir que a mensagem seja entregue corretamente. Essa identificação é denominada endereço de destino.",
+      "source": "Rota de Aprendizagem 4 (Tema: Endereçamento)."
+    },
+    {
+      "id": "q8_21",
+      "number": 21,
+      "prompt": "“A comunicação por rádio se baseia nas emissões controladas de ondas eletromagnéticas (OEM) pelo ar (ou vácuo). Em outras palavras, a transmissão de rádio é possível graças à capacidade de emitir OEMs no espaço livre, capazes de alcançar o destino almejado. A mera emissão de OEMs, por outro lado, seria inútil se não fosse possível controlá-las em função do sinal de dados que desejamos transmitir.” Fonte: Rota de Aprendizagem 5 (Tema: CONCEITOS RUDIMENTARES DE TELECOMUNICAÇÕES). Com base nos estudos realizados em aula, como chamamos o processo de controle das ondas eletromagnéticas para transmitir um sinal de dados em comunicação por rádio? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Modulação."
+        },
+        {
+          "letter": "B",
+          "text": "Codificação."
+        },
+        {
+          "letter": "C",
+          "text": "Multiplexação."
+        },
+        {
+          "letter": "D",
+          "text": "Decodificação."
+        }
+      ],
+      "answer": "A",
+      "explanation": "De acordo com o texto base, o processo de controle das ondas eletromagnéticas para transmitir um sinal de dados é chamado de modulação. A modulação é essencial para que as ondas eletromagnéticas possam carregar as informações desejadas de forma eficaz. As outras opções mencionadas, como amplificação, codificação decodificação e multiplexação, desempenham papéis diferentes na comunicação, mas não se referem especificamente ao controle das ondas para a transmissão de dados.",
+      "source": "Rota de Aprendizagem 5 (Tema: CONCEITOS RUDIMENTARES DE TELECOMUNICAÇÕES)."
+    },
+    {
+      "id": "q8_22",
+      "number": 22,
+      "prompt": "Na aula 04, comentamos que existem entidades que gerenciam o processo de associação dos dados digitais a seu significado, propósito e destino. De fato, a literatura científica prefere descrever esse processo todo (entidades + comunicação) como camadas de um modelo padronizado de comunicação entre redes. (Texto adaptado pelo elaborador da questão). Fonte: Rota de Aprendizagem 4 (Tema: Camadas). Qual camada do modelo de comunicação é responsável pela adequação do bloco de dados encapsulados ao meio de transmissão, tratando suas especificidades mecânicas e elétricas? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Camada de Apresentação."
+        },
+        {
+          "letter": "B",
+          "text": "Camada Física."
+        },
+        {
+          "letter": "C",
+          "text": "Camada de Sessão."
+        },
+        {
+          "letter": "D",
+          "text": "Camada de Gerenciamento."
+        }
+      ],
+      "answer": "B",
+      "explanation": "De acordo com o texto base, a camada física é responsável por garantir que o bloco de dados encapsulados seja adequado ao meio de transmissão, tratando de aspectos mecânicos e elétricos. As outras camadas mencionadas (como Aplicação, Apresentação e Sessão) estão relacionadas a funções mais abstratas e de alto nível no processo de comunicação de dados, e a \"Camada de Gerenciamento\" não é uma camada reconhecida no modelo OSI.",
+      "source": "Rota de Aprendizagem 4 (Tema: Camadas)."
+    },
+    {
+      "id": "q8_23",
+      "number": 23,
+      "prompt": "Na aula 05, exploramos os três principais meios físicos de transmissão: metálico, óptico e propagação livre por radiocomunicação. Analisamos as tecnologias associadas a cada um desses meios e discutimos suas aplicações mais adequadas. Além disso, abordamos as vantagens e desvantagens de cada opção, ajudando a compreender qual meio é mais eficaz para diferentes situações. (Texto elaborado pelo autor da questão). Fonte: Texto da Rota de Aprendizagem 5 (Tema: A CORRETA ESCOLHA DO MEIO). Com base no material estudado em aula, julgue as afirmativas abaixo como V (verdadeiras) ou F (falsas):\n( ) O meio metálico oferece vantagens como baixo custo, facilidade de implementação e manutenção, mas é suscetível a ruídos, interferências e furtos. Além disso, técnicas para minimizar essas desvantagens podem aumentar o custo das instalações.\n( ) A transmissão óptica oferece imunidade a ruídos, baixa suscetibilidade a invasões e menor valor comercial da sucata, mas enfrenta desafios como baixa resistência mecânica, complexidade de projeto, e alto custo de manutenção e instalação.\n( ) A radiopropagação equilibra custo e resistência à interferência entre as soluções metálica e óptica, oferecendo flexibilidade e viabilidade para longas distâncias, mas é mais suscetível a interferências intensas como descargas atmosféricas.\n( ) O meio metálico oferece vantagens como alta imunidade a interferências e segurança contra invasões, sendo altamente resistente a ruídos e furtos. Sua implementação é complexa e exige manutenção constante, o que pode tornar esse meio mais caro a longo prazo, mas técnicas simples e acessíveis podem facilmente mitigar qualquer desvantagem.\nAssinale a alternativa que corresponde à sequência correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "V – V – V – F."
+        },
+        {
+          "letter": "B",
+          "text": "V – V – F – V."
+        },
+        {
+          "letter": "C",
+          "text": "F – F – F – F."
+        },
+        {
+          "letter": "D",
+          "text": "V – F – V – F."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Meio metálico: Basicamente, o uso de cabos metálicos tem como vantagens o baixo custo de aquisição, facilidade de implementação, facilidade de manutenção, baixo custo de manutenção, flexibilidade relativa para mudanças de projeto e universalidade de interface. Como desvantagens, temos a susceptibilidade a ruídos, interferências e descargas atmosféricas, facilidade de invasão, restrições de rota devido à presença de cabos energizados ou radiações intensas e alto valor da sucata, incentivando furtos para venda. Transmissão óptica: imunidade a ruídos e interferências externas, baixo valor comercial da sucata e menor facilidade de invasão. Como desvantagens: restrições de rota, devido à baixa resistência mecânica e sensibilidade a curvaturas, maior complexidade de projeto. Radiopropagação: o custo de aquisição de um enlace de rádio situa-se entre o baixo custo dos cabos metálicos e os altos custos das implementações ópticas. As transmissões de rádio resistem bem a campos magnéticos de média intensidade, mas são mais suscetíveis a campos intensos, como descargas atmosféricas.",
+      "source": "Texto da Rota de Aprendizagem 5 (Tema: A CORRETA ESCOLHA DO MEIO)."
+    },
+    {
+      "id": "q8_24",
+      "number": 24,
+      "prompt": "“A ideia de tornar o PTM bidirecional demorou a surgir, mas hoje está presente no sistema de telefonia celular. Controlada por estações rádio base (ERB), conhecidas pelo público leigo como antenas de celular, a comunicação se dá sempre com a gestão da ERB, e não ocorre, efetivamente, a conexão real, direta, entre dois assinantes. A ERB escuta a todos os smarphones e faz a comutação, conectando virtualmente dois smartphones.” Fonte: Rota de Aprendizagem 4 (Tema: Comunicação ponto – multiponto). De acordo com os estudos realizados nas aulas da disciplina, qual foi o contexto inicial em que surgiu a ideia da comunicação ponto-multiponto (PTM)? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Nas primeiras experiências com internet."
+        },
+        {
+          "letter": "B",
+          "text": "Com o advento da televisão a cabo."
+        },
+        {
+          "letter": "C",
+          "text": "Com as primeiras experiências de radiodifusão."
+        },
+        {
+          "letter": "D",
+          "text": "No desenvolvimento das redes de computadores."
+        }
+      ],
+      "answer": "C",
+      "explanation": "A ideia da comunicação ponto-multiponto (PTM) surgiu no contexto das primeiras experiências de radiodifusão, onde o objetivo era estabelecer um canal unidirecional entre uma estação de radiotransmissão e vários receptores localizados nas residências. Esse conceito foi fundamental para o desenvolvimento das tecnologias de comunicação em massa.",
+      "source": "Rota de Aprendizagem 4 (Tema: Comunicação ponto – multiponto)."
+    },
+    {
+      "id": "q8_25",
+      "number": 25,
+      "prompt": "Ao estudarmos os códigos binários, as máquinas computacionais, para que seja possível a portabilidade dos dados, devem ter alto grau de padronização. Por esse motivo, devemos esperar a mesma padronização quando tratamos dos protocolos de comunicação entre máquinas. Esses protocolos definirão o encapsulamento gradativo dos dados de forma a garantir que a máquina remota seja absolutamente capaz de ler e interpretar convenientemente a mensagem recebida. Vários padrões foram propostos para esse fim. (Texto adaptado pelo elaborador da questão). Fonte: Rota de Aprendizagem 4 (Camadas padronizadas). Considerando o conteúdo estudado em aula, responda: Qual é o padrão de comunicação entre máquinas que ganhou universalidade por definir o encapsulamento gradativo dos dados, garantindo a correta interpretação das mensagens recebidas? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "TCP/IP (Transmission Control Protocol/Internet Protocol)."
+        },
+        {
+          "letter": "B",
+          "text": "FTP (File Transfer Protocol)."
+        },
+        {
+          "letter": "C",
+          "text": "Modelo OSI (Open System Interconnection)."
+        },
+        {
+          "letter": "D",
+          "text": "HTML (Hypertext Markup Language)."
+        }
+      ],
+      "answer": "C",
+      "explanation": "Conforme o texto base, o modelo OSI (Open System Interconnection) é o padrão que ganhou universalidade para a padronização dos protocolos de comunicação entre máquinas. Esse modelo define o encapsulamento gradativo dos dados, garantindo que a máquina remota possa ler e interpretar as mensagens recebidas de maneira correta. As outras opções, embora sejam termos relacionados à comunicação e redes, não se referem a um modelo de padronização de comunicação como o modelo OSI.",
+      "source": "Rota de Aprendizagem 4 (Camadas padronizadas)."
+    },
+    {
+      "id": "q8_26",
+      "number": 26,
+      "prompt": "“Comunicação ponto a ponto trata-se do tipo elementar de comunicação. Neste paradigma temos uma conexão transmissor (TX) de um lado, e receptor (RX) de outro.” Fonte: Rota de Aprendizagem 4 (Tema: Comunicação ponto a ponto). Qual das alternativas abaixo descreve corretamente o conceito de comunicação ponto a ponto? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Comunicação ponto a ponto só permite a comunicação em um único sentido."
+        },
+        {
+          "letter": "B",
+          "text": "Comunicação ponto a ponto é a comunicação elementar entre dois pontos, permitindo tanto a comunicação unidirecional quanto bidirecional."
+        },
+        {
+          "letter": "C",
+          "text": "Comunicação ponto a ponto se aplica exclusivamente aos sistemas de radiofrequência."
+        },
+        {
+          "letter": "D",
+          "text": "Comunicação ponto a ponto é um tipo de conexão que ocorre exclusivamente em sistemas unidimensionais."
+        }
+      ],
+      "answer": "B",
+      "explanation": "A comunicação ponto a ponto refere-se à conexão direta entre dois pontos, transmissor (TX) e receptor (RX). Essa comunicação pode ser unidirecional, onde a informação flui apenas em um sentido, ou bidirecional, permitindo a troca de informações entre os dois pontos. O exemplo clássico de comunicação ponto a ponto bidirecional é o interfone de uma residência singular, onde há comunicação direta entre duas partes. As demais alternativas estão incorretas pois se referem a conceitos diferentes ou errôneos sobre o paradigma ponto a ponto.",
+      "source": "Rota de Aprendizagem 4 (Tema: Comunicação ponto a ponto)."
+    },
+    {
+      "id": "q8_27",
+      "number": 27,
+      "prompt": "“Um enlace de rádio ponto a ponto consiste basicamente em dois transceptores operando na mesma frequência de portadora, conectados a antenas adequada. A escolha dos equipamentos e da técnica de modulação dependerá da qualidade e das características exigidas para a comunicação. O problema comum nos enlaces ponto a ponto são os altos custos de sistemas de rádio com alta estabilidade. Esse problema, na maioria dos casos, pode ser enfrentado pela adaptação de uma técnica utilizada em rádios militares, chamada de spread-spectrum.” Fonte: Texto da Rota de Aprendizagem 5 (Tema: Enlaces de rádio ponto a ponto). Considerando o conteúdo estudado em aula, qual é a característica principal dos rádios spread-spectrum? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Rádios spread-spectrum espalham intencionalmente o sinal em um espectro de frequências maior do que o necessário."
+        },
+        {
+          "letter": "B",
+          "text": "Rádios spread-spectrum utilizam apenas uma frequência fixa para transmissão."
+        },
+        {
+          "letter": "C",
+          "text": "Rádios spread-spectrum modulam o sinal para evitar interferências."
+        },
+        {
+          "letter": "D",
+          "text": "Rádios spread-spectrum alternam entre diferentes frequências para evitar detecção."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Rádios spread-spectrum são caracterizados por espalharem intencionalmente o sinal em um espectro de frequências maior do que o necessário. Essa técnica aumenta a resiliência da transmissão, permitindo que as comunicações sejam de baixo custo e alta qualidade, pois é menos suscetível a interferências e a detecção. As outras alternativas não representam corretamente o princípio de operação dos rádios spread-spectrum.",
+      "source": "Texto da Rota de Aprendizagem 5 (Tema: Enlaces de rádio ponto a ponto)."
+    },
+    {
+      "id": "q8_28",
+      "number": 28,
+      "prompt": "“A estabilidade da conexão, com uso da internet, dependerá da disponibilidade de uma rede administrada por vários operadores independentes. Nesta solução não controlamos nem podemos influenciar na qualidade da conexão. Do ponto de vista de segurança, para o uso dessa solução, será necessário implementar recursos de isolamento e monitoração do tráfego de rede.” Fonte: Rota de Aprendizagem 4 (Tema: Redes de computadores e comunicação entre redes (Internet Communication). Considerando os conteúdos estudados em aula, assinale a alternativa que apresenta, corretamente, qual dos recursos a seguir, é necessário implementar para garantir a segurança ao utilizar uma rede administrada por vários operadores independentes:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Sistemas de backup."
+        },
+        {
+          "letter": "B",
+          "text": "Firewalls."
+        },
+        {
+          "letter": "C",
+          "text": "Atualizações de software."
+        },
+        {
+          "letter": "D",
+          "text": "Compressão de arquivos."
+        }
+      ],
+      "answer": "B",
+      "explanation": "De acordo com o texto base abordado na aula 04, para garantir a segurança ao utilizar uma rede administrada por vários operadores independentes, é necessário implementar recursos de isolamento e monitoração do tráfego de rede. O uso de firewalls é essencial nesse contexto, pois eles atuam controlando e filtrando o tráfego de rede, protegendo os sistemas contra acessos não autorizados. As outras opções, embora úteis em diferentes aspectos de TI, não desempenham o papel específico de isolamento e monitoração do tráfego de rede como os firewalls.",
+      "source": "Rota de Aprendizagem 4 (Tema: Redes de computadores e comunicação entre redes (Internet Communication)."
+    },
+    {
+      "id": "q8_29",
+      "number": 29,
+      "prompt": "Tratamos durante a nossa disciplina do conceito básico da comutação de pacotes. Como nos ensina Comer (2016, p. 6), esse método “mudou as redes de maneira fundamental e forneceu a base da Internet moderna” por permitir a circulação de dados de múltiplas origens sobre uma rede compartilhada. Sabemos que essa comunicação é viabilizada pela justaposição de endereços que identificam origem e destino do pacote. Seguindo os estudos do mesmo autor, a comunicação de dados baseada em comutação de pacotes pode ser entendida a partir de três propriedades gerais. (Texto adaptado pelo autor da questão) Fonte: Texto da Rota de Aprendizagem 6 (Tema: COMUTAÇÃO DE PACOTES E COMUNICAÇÃO ENTRE REDES). Seguindo os estudos de Comer (2016), quais são as três propriedades gerais da comunicação de dados baseada em comutação de pacotes? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Comunicação assíncrona, comunicação sem inicialização e compartilhamento estocástico da rede."
+        },
+        {
+          "letter": "B",
+          "text": "Comunicação síncrona, comunicação sem sinalização e divisão determinística de rede."
+        },
+        {
+          "letter": "C",
+          "text": "Comunicação paralela, comunicação com sincronização e alocação dedicada de rede."
+        },
+        {
+          "letter": "D",
+          "text": "Comunicação síncrona, comunicação com configuração e compartilhamento exclusivo da rede."
+        }
+      ],
+      "answer": "A",
+      "explanation": "Seguindo os estudos de Comer (2016), a comunicação de dados baseada em comutação de pacotes pode ser entendida a partir de três propriedades gerais: comunicação assíncrona, comunicação sem inicialização e compartilhamento estocástico da rede.",
+      "source": "Texto da Rota de Aprendizagem 6 (Tema: COMUTAÇÃO DE PACOTES E COMUNICAÇÃO ENTRE REDES)."
+    },
+    {
+      "id": "q8_30",
+      "number": 30,
+      "prompt": "“Quando apresentamos o modelo IPSec na aula 06, comentamos que esse acréscimo de segurança ocorreu para evitar que agentes maliciosos se fizessem passar por atores legítimos da comunicação entre máquinas.” Fonte: Texto da Rota de Aprendizagem 6 (Tema: IPSec E SEGURANÇA EM TCP/IP). Como é denominado esse tipo de ataque feito por agentes maliciosos? Assinale a alternativa correta:",
+      "alternatives": [
+        {
+          "letter": "A",
+          "text": "Spooling."
+        },
+        {
+          "letter": "B",
+          "text": "Spoofing."
+        },
+        {
+          "letter": "C",
+          "text": "Siffing."
+        },
+        {
+          "letter": "D",
+          "text": "Hiacking."
+        }
+      ],
+      "answer": "B",
+      "explanation": "Spoofing é o tipo de ataque onde um agente malicioso falsifica sua identidade (como um endereço IP, por exemplo) para se passar por um ator legítimo na rede. O modelo IPSec adiciona camadas de autenticação e criptografia justamente para prevenir esse tipo de fraude na comunicação entre máquinas.",
+      "source": "Texto da Rota de Aprendizagem 6 (Tema: IPSec E SEGURANÇA EM TCP/IP)."
+    }
+  ]
+};
+
+
+  const aulas = [AULA01, AULA02, AULA03, AULA04, AULA05, AULA06, AULA07, AULA08];
 
   for (const aula of aulas) {
     console.log(`📚 Inserindo tema: ${aula.title}`);
