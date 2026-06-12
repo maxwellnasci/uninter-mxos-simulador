@@ -105,10 +105,15 @@ uninter-mxos-simulador/
 
 ## Fluxo de trabalho
 
-- **Claude** → estrategista, planeja, estrutura prompts e decisões
-- **Gemini no Antigravity** → executor local (código, git, arquivos na máquina)
-- **Você no PowerShell** → comandos pontuais no servidor quando necessário
-- **GitHub Actions** → deploy automático após cada push
+| Agente | Onde | Uso ideal |
+|--------|------|-----------|
+| **Claude** | claude.ai | Estratégia, planejamento, prompts, decisões de arquitetura |
+| **Gemini 3.1 Pro High** | Antigravity | Executor — código, git, arquivos, terminal |
+| **DeepSeek V4 Flash Pensamento Profundo** | Antigravity | Análise de código, lógica, bugs, revisão técnica |
+| **Sonnet 4.6 Think** | Antigravity (bônus semanal) | Análises profundas pontuais |
+| **Opus 4.6 Think** | Antigravity (bônus semanal) | Decisões arquiteturais complexas |
+
+> Quando o Gemini 3.5 Pro for lançado, atualizar esta tabela.
 
 ---
 
