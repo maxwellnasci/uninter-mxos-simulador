@@ -97,6 +97,13 @@ uninter-mxos-simulador/
 
 - [x] Trocar `pm2 restart` por `pm2 reload` no deploy.yml para zero downtime ✅
 - [x] Adicionar 4 novas matérias do módulo ✅
+- [x] Corrigir 6 vulnerabilidades de segurança no responder.js ✅
+  - Divisão por zero na nota
+  - typeof aceita arrays
+  - Whitelist em alternativa_letra
+  - Bug de chave número vs string
+  - Submissões duplicadas no /finalizar
+  - Confirmado passingScore correto no schema
 - [ ] Painel de histórico de simulados por aluno
 - [ ] Ranking de pontuações
 - [ ] Exportar resultado em PDF
@@ -130,3 +137,12 @@ uninter-mxos-simulador/
 4. GitHub Actions faz o deploy automaticamente
 5. Rodar o seed no servidor:
    `ssh -i C:\Users\maxwe\.ssh\id_ed25519 root@158.220.125.233 "cd /root/mxos-simulador/uninter-mxos-simulador/backend && node seed.js"`
+
+
+---
+
+## Análise de segurança — histórico
+
+| Data | Arquivo | Ferramenta | Resultado |
+|------|---------|------------|-----------|
+| 2026-06 | backend/routes/responder.js | Claude (sub-agente) | 6 vulnerabilidades corrigidas |
