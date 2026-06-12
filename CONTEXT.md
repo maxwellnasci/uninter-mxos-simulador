@@ -78,21 +78,25 @@ uninter-mxos-simulador/
 
 ---
 
-## Simulados atuais (Módulo atual)
+## Simulados disponíveis (8 no total — 240 questões)
 
-| # | Tema | Questões |
-|---|------|----------|
-| 1 | Certificações em Segurança Cibernética | 30 |
-| 2 | Formação Cidadã Contemporânea | 30 |
-| 3 | Formação Inicial em Educação a Distância | 30 |
-| 4 | Segurança de Redes e Comunicações | 30 |
+| # | Tema | ID | Cor |
+|---|------|----|-----|
+| 1 | Certificações em Segurança Cibernética | aula01 | #7c3aed |
+| 2 | Formação Cidadã Contemporânea | aula02 | #d97706 |
+| 3 | Formação Inicial em Educação a Distância | aula03 | #0891b2 |
+| 4 | Segurança de Redes e Comunicações | aula04 | #16a34a |
+| 5 | Português Elementar | aula05 | #0891b2 |
+| 6 | Sistemas de Segurança na Informação | aula06 | #dc2626 |
+| 7 | Sistemas de Informações Gerenciais | aula07 | #16a34a |
+| 8 | Tecnologias Digitais para Segurança Cibernética | aula08 | #7c3aed |
 
 ---
 
 ## Melhorias anotadas (backlog)
 
 - [x] Trocar `pm2 restart` por `pm2 reload` no deploy.yml para zero downtime ✅
-- [ ] Adicionar 4 novas matérias do próximo módulo
+- [x] Adicionar 4 novas matérias do módulo ✅
 - [ ] Painel de histórico de simulados por aluno
 - [ ] Ranking de pontuações
 - [ ] Exportar resultado em PDF
@@ -109,6 +113,11 @@ uninter-mxos-simulador/
 ---
 
 ## Como adicionar novas questões
+
+> ⚠️ **ATENÇÃO:** Após o deploy, sempre rodar o seed manualmente no servidor:
+> `ssh -i C:\Users\maxwe\.ssh\id_ed25519 root@158.220.125.233 "cd /root/mxos-simulador/uninter-mxos-simulador/backend && node seed.js"`
+> O deploy (GitHub Actions) copia os arquivos mas NÃO roda o seed automaticamente.
+
 
 1. Preparar os dados no formato correto (ver seed.js)
 2. Atualizar o seed.js com as novas questões
