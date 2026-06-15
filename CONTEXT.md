@@ -39,7 +39,9 @@ uninter-mxos-simulador/
 │       ├── auth.js        → Login por RU
 │       ├── temas.js       → Lista simulados disponíveis
 │       ├── questoes.js    → Retorna questões sem gabarito
-│       └── responder.js   → Valida resposta (gabarito protegido)
+│       ├── responder.js   → Valida resposta (gabarito protegido)
+│       ├── historico.js   → GET /api/simulado/historico
+│       └── ranking.js     → GET /api/simulado/ranking/:topicId
 ├── frontend/
 │   └── index.html         → SPA completa (CSS e JS embutidos)
 ├── .github/
@@ -61,6 +63,8 @@ uninter-mxos-simulador/
 | GET | /api/simulado/temas/:id/questoes | Retorna questões sem gabarito |
 | POST | /api/simulado/responder | Valida resposta — retorna { isCorrect, explanation, source } |
 | POST | /api/simulado/finalizar | Finaliza simulado — retorna resultado completo |
+| GET | /api/simulado/historico | Retorna histórico de simulados do aluno logado |
+| GET | /api/simulado/ranking/:topicId | Retorna top 10 alunos por tema |
 
 ---
 
@@ -129,8 +133,12 @@ uninter-mxos-simulador/
   - CORS restrito para simulado.mxos.com.br
   - Payload limitado a 100kb via config.js
   - Double require corrigido no server.js
-- [ ] Painel de histórico de simulados por aluno
-- [ ] Ranking de pontuações
+- [x] 10 questões aleatórias por simulado ✅
+- [x] sessionQuestionIds — validação segura no /finalizar ✅
+- [x] Histórico de simulados por aluno ✅
+- [x] Ranking top 10 por matéria ✅
+- [x] Índices de performance no banco ✅
+- [x] salvarDebounced para concorrência ✅
 - [ ] Exportar resultado em PDF
 
 ---
