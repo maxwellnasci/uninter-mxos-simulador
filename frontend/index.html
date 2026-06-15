@@ -902,6 +902,43 @@
     .btn-logout:hover { border-color: var(--bad); color: var(--bad); }
 
     /* ============================================================
+       HISTÓRICO
+       ============================================================ */
+    .history-list { display: grid; gap: 10px; }
+    .history-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; flex-wrap: wrap; }
+    .history-item-left { flex: 1; min-width: 180px; }
+    .history-item-left h4 { margin: 0 0 4px; font-size: 0.95rem; }
+    .history-item-left p  { margin: 0; color: var(--muted); font-size: 0.8rem; }
+    .history-item-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+    .history-score { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+    .history-meta { font-size: 0.8rem; color: var(--muted); text-align: right; line-height: 1.7; }
+    .status-pill { padding: 4px 12px; border-radius: 999px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em; }
+    .status-pill.approved { background: var(--ok-bg); color: var(--ok); }
+    .status-pill.reproved { background: var(--bad-bg); color: var(--bad); }
+    .history-empty { padding: 40px 24px; text-align: center; color: var(--muted); font-size: 0.9rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+    .btn-history { padding: 6px 12px; border-radius: var(--radius-sm); background: transparent; border: 1px solid var(--line); color: var(--muted); font-size: 0.78rem; font-weight: 600; transition: border var(--transition), color var(--transition); }
+    .btn-history:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ============================================================
+       RANKING
+       ============================================================ */
+    .ranking-list { display: grid; gap: 8px; }
+    .ranking-item { display: flex; align-items: center; gap: 16px; padding: 14px 20px; transition: background var(--transition); }
+    .ranking-item:hover { background: var(--surface-hover); }
+    .rank-pos { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 0.9rem; flex-shrink: 0; background: var(--surface-soft); border: 2px solid var(--line); color: var(--muted); }
+    .rank-pos.gold   { background: rgba(245,158,11,0.15); border-color: #f59e0b; color: #f59e0b; }
+    .rank-pos.silver { background: rgba(148,163,184,0.15); border-color: #94a3b8; color: #94a3b8; }
+    .rank-pos.bronze { background: rgba(180,120,80,0.15); border-color: #b47850; color: #b47850; }
+    .rank-info { flex: 1; min-width: 0; }
+    .rank-info h4 { margin: 0 0 2px; font-size: 0.92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .rank-info p  { margin: 0; color: var(--muted); font-size: 0.78rem; }
+    .rank-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .rank-score { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; }
+    .theme-card-actions { display: flex; gap: 8px; margin-top: auto; }
+    .btn-rank { padding: 7px 14px; border-radius: var(--radius-sm); font-size: 0.78rem; font-weight: 700; background: var(--surface-soft); border: 1px solid var(--line); color: var(--muted); transition: all var(--transition); white-space: nowrap; }
+    .btn-rank:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ============================================================
        RESPONSIVO
        ============================================================ */
     @media (max-width: 860px) {
@@ -1105,6 +1142,34 @@
         <div class="review-list" id="reviewList"></div>
       </div>
     </section>
+
+    <!-- ============================================================
+         HISTÓRICO
+         ============================================================ -->
+    <section class="view" id="historyView" hidden>
+      <div class="panel themes-header">
+        <div>
+          <h2>📚 Meu Histórico</h2>
+          <p>Todos os simulados que você finalizou</p>
+        </div>
+        <button class="btn btn-ghost" type="button" id="backFromHistory">← Voltar</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </section>
+
+    <!-- ============================================================
+         RANKING
+         ============================================================ -->
+    <section class="view" id="rankingView" hidden>
+      <div class="panel themes-header">
+        <div>
+          <h2>🏆 Ranking</h2>
+          <p id="rankingSubtitle">Top 10 — carregando...</p>
+        </div>
+        <button class="btn btn-ghost" type="button" id="backFromRanking">← Voltar</button>
+      </div>
+      <div id="rankingList" class="ranking-list"></div>
+    </section>
   </main>
 
   <script>
@@ -1150,7 +1215,8 @@
       timerInterval: null,
       timerSeconds: 1800,
       isCompleted: false,
-      feedbackVisible: false
+      feedbackVisible: false,
+      sessionQuestionIds: []
     };
 
     const $ = (id) => document.getElementById(id);
@@ -1159,7 +1225,9 @@
       landing: $('landingView'),
       themes: $('themesView'),
       quiz: $('quizView'),
-      result: $('resultView')
+      result: $('resultView'),
+      history: $('historyView'),
+      ranking: $('rankingView')
     };
 
     /* ================================================================
@@ -1192,6 +1260,7 @@
       infoDiv.innerHTML = `
         <div class="user-avatar">${USUARIO.name.charAt(0).toUpperCase()}</div>
         <span>${USUARIO.ru}</span>
+        <button class="btn-history" id="historyBtn">📚 Histórico</button>
         <button class="btn-logout" id="logoutBtn">Sair</button>
       `;
 
@@ -1202,6 +1271,7 @@
       actions.insertBefore(infoDiv, actions.firstChild);
 
       $('logoutBtn').addEventListener('click', logout);
+      $('historyBtn').addEventListener('click', () => showHistory());
     }
 
     function logout() {
@@ -1275,6 +1345,94 @@
     }
 
     /* ================================================================
+       HISTÓRICO
+       ================================================================ */
+    async function showHistory() {
+      try {
+        const data = await apiRequest('/api/simulado/historico');
+        renderHistory(data.history);
+        showView('history');
+      } catch (err) {
+        console.error('Erro ao carregar histórico:', err);
+        alert('Erro ao carregar histórico.');
+      }
+    }
+
+    function renderHistory(history) {
+      const list = $('historyList');
+      if (!history || history.length === 0) {
+        list.innerHTML = '<div class="history-empty">📭 Nenhum simulado finalizado ainda.</div>';
+        return;
+      }
+      list.innerHTML = history.map(h => {
+        const date = new Date(h.createdAt).toLocaleDateString('pt-BR', {
+          day: '2-digit', month: '2-digit', year: 'numeric'
+        });
+        const approved = h.status === 'APROVADO';
+        return `
+          <div class="history-item panel">
+            <div class="history-item-left">
+              <h4>${h.topicTitle}</h4>
+              <p>${date}</p>
+            </div>
+            <div class="history-item-right">
+              <div>
+                <div class="history-score" style="color: ${approved ? 'var(--ok)' : 'var(--bad)'}">${h.score.toFixed(1)}</div>
+                <div style="font-size:0.7rem; color:var(--muted); text-align:center">nota</div>
+              </div>
+              <div class="history-meta">
+                <div>✅ ${h.correct} acertos</div>
+                <div>❌ ${h.wrong} erros</div>
+              </div>
+              <span class="status-pill ${approved ? 'approved' : 'reproved'}">${h.status}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    /* ================================================================
+       RANKING
+       ================================================================ */
+    async function showRanking(topicId) {
+      try {
+        const data = await apiRequest(`/api/simulado/ranking/${topicId}`);
+        $('rankingSubtitle').textContent = `Top 10 — ${data.topicTitle}`;
+        renderRanking(data.ranking);
+        showView('ranking');
+      } catch (err) {
+        console.error('Erro ao carregar ranking:', err);
+        alert('Erro ao carregar ranking.');
+      }
+    }
+
+    function renderRanking(ranking) {
+      const list = $('rankingList');
+      if (!ranking || ranking.length === 0) {
+        list.innerHTML = '<div class="history-empty">📭 Nenhum resultado ainda para este tema.</div>';
+        return;
+      }
+      const medals = ['gold', 'silver', 'bronze'];
+      list.innerHTML = ranking.map(r => {
+        const approved = r.status === 'APROVADO';
+        const medalClass = medals[r.position - 1] || '';
+        return `
+          <div class="ranking-item panel">
+            <div class="rank-pos ${medalClass}">${r.position}</div>
+            <div class="rank-info">
+              <h4>${r.name}</h4>
+              <p>RU: ${r.ru} · ${r.correct} acertos</p>
+            </div>
+            <div class="rank-right">
+              <div class="rank-score" style="color: ${approved ? 'var(--ok)' : 'var(--bad)'}">${r.score.toFixed(1)}</div>
+              <span class="status-pill ${approved ? 'approved' : 'reproved'}">${r.status}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    /* ================================================================
        LANDING
        ================================================================ */
     $('startBtn').addEventListener('click', () => {
@@ -1300,14 +1458,21 @@
           <h3>${t.title}</h3>
           <p>${t.description}</p>
           <div class="theme-meta">
-            <span>${t.total} questões</span>
-            <span class="theme-badge" style="color: ${t.accent}">Nota mín: ${t.passingScore}</span>
+            <span>10 questões</span>
+            <span class="theme-badge" style="color: ${t.accent}">Nota mín: 7</span>
+          </div>
+          <div class="theme-card-actions">
+            <button class="btn btn-primary" style="flex:1" data-start="${t.id}">Iniciar →</button>
+            <button class="btn-rank" data-ranking="${t.id}">🏆 Ranking</button>
           </div>
         </div>
       `).join('');
 
-      grid.querySelectorAll('.theme-card').forEach(card => {
-        card.addEventListener('click', () => startQuiz(card.dataset.id));
+      grid.querySelectorAll('[data-start]').forEach(btn => {
+        btn.addEventListener('click', (e) => { e.stopPropagation(); startQuiz(btn.dataset.start); });
+      });
+      grid.querySelectorAll('[data-ranking]').forEach(btn => {
+        btn.addEventListener('click', (e) => { e.stopPropagation(); showRanking(btn.dataset.ranking); });
       });
     }
 
@@ -1322,8 +1487,9 @@
         // Carregar questões do backend
         const data = await apiRequest(`/api/simulado/temas/${themeId}/questoes`);
         state.questoes = data.questions;
+        state.sessionQuestionIds = data.sessionQuestionIds;
 
-        state.currentTheme = theme;
+        state.currentTheme = { ...theme, ...data.topic };
         state.currentIndex = 0;
         state.answers = {};
         state.questoesFinais = [];
@@ -1440,7 +1606,7 @@
       map.querySelectorAll('.map-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const idx = parseInt(btn.dataset.index);
-          if (idx >= 0 && idx < theme.total) {
+          if (idx >= 0 && idx < state.questoes.length) {
             state.currentIndex = idx;
             state.feedbackVisible = state.answers[state.questoes[idx]?.id] != null;
             renderQuestion();
@@ -1574,7 +1740,8 @@
           method: 'POST',
           body: JSON.stringify({
             topicId: theme.id,
-            answers: state.answers
+            answers: state.answers,
+            sessionQuestionIds: state.sessionQuestionIds
           })
         });
 
@@ -1707,6 +1874,9 @@
       showView('themes');
       renderThemes();
     });
+
+    $('backFromHistory').addEventListener('click', () => showView('landing'));
+    $('backFromRanking').addEventListener('click', () => { showView('themes'); renderThemes(); });
 
     /* ================================================================
        INICIALIZAÇÃO
