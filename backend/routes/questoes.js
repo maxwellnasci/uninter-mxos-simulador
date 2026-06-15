@@ -1,10 +1,9 @@
 /* ================================================================
-   MXOS — Rota de Questões (SEM gabarito!)
+   MXOS — Rota de Questões (SEM gabarito!) — Otimizado com JOIN
    ================================================================ */
 const express = require('express');
 const { dbAll, dbGet } = require('../database');
 const { autenticar } = require('../middleware/auth');
-
 const router = express.Router();
 
 router.get('/:id/questoes', autenticar, (req, res) => {
@@ -14,26 +13,37 @@ router.get('/:id/questoes', autenticar, (req, res) => {
       return res.status(404).json({ error: 'Tema não encontrado.' });
     }
 
-    const questoes = dbAll(
-      'SELECT id, numero, pergunta FROM questoes WHERE tema_id = ? ORDER BY numero ASC',
+    // Query única com JOIN — substitui N+1 queries por 1 query só
+    const rows = dbAll(
+      `SELECT q.id, q.numero, q.pergunta,
+              a.letra, a.texto
+       FROM questoes q
+       LEFT JOIN alternativas a ON a.questao_id = q.id
+       WHERE q.tema_id = ?
+       ORDER BY q.numero ASC, a.letra ASC`,
       [req.params.id]
     );
 
-    const questoesComAlternativas = questoes.map(q => {
-      const alternativas = dbAll(
-        'SELECT letra, texto FROM alternativas WHERE questao_id = ? ORDER BY letra ASC',
-        [q.id]
-      ).map(a => ({
-        letter: a.letra,
-        text: a.texto
-      }));
-      return {
-        id: q.id,
-        number: q.numero,
-        prompt: q.pergunta,
-        alternatives: alternativas
-      };
-    });
+    // Agrupa alternativas por questão
+    const questoesMap = new Map();
+    for (const row of rows) {
+      if (!questoesMap.has(row.id)) {
+        questoesMap.set(row.id, {
+          id: row.id,
+          number: row.numero,
+          prompt: row.pergunta,
+          alternatives: []
+        });
+      }
+      if (row.letra) {
+        questoesMap.get(row.id).alternatives.push({
+          letter: row.letra,
+          text: row.texto
+        });
+      }
+    }
+
+    const questoes = Array.from(questoesMap.values());
 
     return res.json({
       tema: {
@@ -43,7 +53,7 @@ router.get('/:id/questoes', autenticar, (req, res) => {
         total: tema.total,
         passingScore: tema.passingScore
       },
-      questoes: questoesComAlternativas
+      questoes
     });
 
   } catch (err) {
