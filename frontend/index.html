@@ -1113,7 +1113,12 @@
        ================================================================ */
     const API_BASE = window.location.origin;
     let TOKEN = localStorage.getItem('mxos-token');
-    let USUARIO = JSON.parse(localStorage.getItem('mxos-user') || 'null');
+    const _usuarioSalvo = JSON.parse(localStorage.getItem('mxos-user') || 'null');
+    let USUARIO = (_usuarioSalvo && _usuarioSalvo.name) ? _usuarioSalvo : null;
+    if (!USUARIO && _usuarioSalvo) {
+      localStorage.removeItem('mxos-user');
+      localStorage.removeItem('mxos-token');
+    }
 
     async function apiRequest(endpoint, options = {}) {
       const headers = { 'Content-Type': 'application/json' };
