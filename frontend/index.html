@@ -1185,7 +1185,7 @@
       infoDiv.className = 'user-info';
       infoDiv.id = 'userInfo';
       infoDiv.innerHTML = `
-        <div class="user-avatar">${USUARIO.nome.charAt(0).toUpperCase()}</div>
+        <div class="user-avatar">${USUARIO.name.charAt(0).toUpperCase()}</div>
         <span>${USUARIO.ru}</span>
         <button class="btn-logout" id="logoutBtn">Sair</button>
       `;
@@ -1233,7 +1233,7 @@
         });
 
         TOKEN = data.token;
-        USUARIO = data.aluno;
+        USUARIO = data.student;
 
         localStorage.setItem('mxos-token', TOKEN);
         localStorage.setItem('mxos-user', JSON.stringify(USUARIO));
@@ -1263,7 +1263,7 @@
     async function carregarTemas() {
       try {
         const data = await apiRequest('/api/simulado/temas');
-        state.temas = data.temas;
+        state.temas = data.topics;
       } catch (err) {
         console.error('Erro ao carregar temas:', err);
       }
@@ -1316,7 +1316,7 @@
       try {
         // Carregar questões do backend
         const data = await apiRequest(`/api/simulado/temas/${themeId}/questoes`);
-        state.questoes = data.questoes;
+        state.questoes = data.questions;
 
         state.currentTheme = theme;
         state.currentIndex = 0;
@@ -1460,16 +1460,16 @@
       try {
         const result = await apiRequest('/api/simulado/responder', {
           method: 'POST',
-          body: JSON.stringify({ questao_id: q.id, alternativa_letra: letter })
+          body: JSON.stringify({ questionId: q.id, answerLetter: letter })
         });
 
         // Salvar resultado
         if (!state.questoesFinais) state.questoesFinais = [];
         state.questoesFinais[state.currentIndex] = {
-          correta: result.correta ? letter : null,
-          resposta_correta_letra: result.resposta_correta_letra,
-          explicacao: result.explicacao,
-          fonte: result.fonte
+          correta: result.isCorrect ? letter : null,
+          resposta_correta_letra: result.correctAnswerLetter,
+          explicacao: result.explanation,
+          fonte: result.source
         };
 
         state.feedbackVisible = true;
@@ -1568,8 +1568,8 @@
         const result = await apiRequest('/api/simulado/finalizar', {
           method: 'POST',
           body: JSON.stringify({
-            tema_id: theme.id,
-            respostas: state.answers
+            topicId: theme.id,
+            answers: state.answers
           })
         });
 
@@ -1584,21 +1584,21 @@
        RESULTADO
        ================================================================ */
     function showResult(result) {
-      $('resultTitle').textContent = result.tema_title;
-      $('resultSubtitle').textContent = `${result.acertos} acertos de ${result.total} questões`;
+      $('resultTitle').textContent = result.topicTitle;
+      $('resultSubtitle').textContent = `${result.correct} acertos de ${result.total} questões`;
 
       $('resultMetrics').innerHTML = `
         <div class="metric">
           <span>✅ Acertos</span>
-          <strong>${result.acertos}</strong>
+          <strong>${result.correct}</strong>
         </div>
         <div class="metric">
           <span>❌ Erros</span>
-          <strong>${result.erros}</strong>
+          <strong>${result.wrong}</strong>
         </div>
         <div class="metric">
           <span>📊 Nota</span>
-          <strong>${result.nota.toFixed(1)}</strong>
+          <strong>${result.score.toFixed(1)}</strong>
         </div>
         <div class="metric">
           <span>🏆 Status</span>
@@ -1606,25 +1606,25 @@
         </div>
       `;
 
-      drawChart(result.acertos, result.erros);
+      drawChart(result.correct, result.wrong);
 
-      $('reviewList').innerHTML = result.detalhes.map(d => `
-        <div class="review-item ${d.correto ? 'correct' : 'wrong'}">
+      $('reviewList').innerHTML = result.details.map(d => `
+        <div class="review-item ${d.isCorrect ? 'correct' : 'wrong'}">
           <div class="review-top">
-            <strong>Q${d.numero}</strong>
-            <span class="review-badge ${d.correto ? 'correct' : 'wrong'}">
-              ${d.correto ? '✅ Correto' : '❌ Incorreto'}
+            <strong>Q${d.number}</strong>
+            <span class="review-badge ${d.isCorrect ? 'correct' : 'wrong'}">
+              ${d.isCorrect ? '✅ Correto' : '❌ Incorreto'}
             </span>
           </div>
           <p class="review-line">
-            <strong>Sua resposta:</strong> ${d.sua_resposta || '(sem resposta)'}
+            <strong>Sua resposta:</strong> ${d.yourAnswer || '(sem resposta)'}
           </p>
           <p class="review-line">
-            <strong>Resposta correta:</strong> ${d.resposta_correta}
+            <strong>Resposta correta:</strong> ${d.correctAnswer}
           </p>
           <div class="review-explanation">
-            ${d.explicacao}
-            <div class="review-source">${d.fonte}</div>
+            ${d.explanation}
+            <div class="review-source">${d.source}</div>
           </div>
         </div>
       `).join('');

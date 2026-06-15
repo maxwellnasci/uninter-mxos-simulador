@@ -46,14 +46,14 @@ router.get('/:id/questoes', autenticar, (req, res) => {
     const questoes = Array.from(questoesMap.values());
 
     return res.json({
-      tema: {
+      topic: {
         id: tema.id,
         title: tema.title,
         shortTitle: tema.shortTitle,
         total: tema.total,
         passingScore: tema.passingScore
       },
-      questoes
+      questions: questoes
     });
 
   } catch (err) {

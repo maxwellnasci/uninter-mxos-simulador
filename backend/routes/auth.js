@@ -25,17 +25,17 @@ router.post('/login', (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: aluno.id, ru: aluno.ru, nome: aluno.nome },
+      { id: aluno.id, ru: aluno.ru, name: aluno.nome },
       JWT_SECRET,
       { expiresIn: JWT_EXPIRES_IN }
     );
 
     return res.json({
       token,
-      aluno: {
+      student: {
         id: aluno.id,
         ru: aluno.ru,
-        nome: aluno.nome
+        name: aluno.nome
       }
     });
 

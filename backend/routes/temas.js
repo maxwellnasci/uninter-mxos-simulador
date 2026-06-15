@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   try {
     const temas = dbAll('SELECT * FROM temas ORDER BY id');
-    return res.json({ temas });
+    return res.json({ topics: temas });
   } catch (err) {
     console.error('Erro ao listar temas:', err);
     return res.status(500).json({ error: 'Erro interno do servidor.' });

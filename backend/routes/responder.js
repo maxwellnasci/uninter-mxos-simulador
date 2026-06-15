@@ -9,32 +9,32 @@ const router = express.Router();
 
 router.post('/responder', autenticar, (req, res) => {
   try {
-    const { questao_id, alternativa_letra } = req.body;
+    const { questionId, answerLetter } = req.body;
 
-    if (!questao_id || !alternativa_letra) {
-      return res.status(400).json({ error: 'questao_id e alternativa_letra são obrigatórios.' });
+    if (!questionId || !answerLetter) {
+      return res.status(400).json({ error: 'questionId e answerLetter são obrigatórios.' });
     }
 
-    const questao = dbGet('SELECT * FROM questoes WHERE id = ?', [questao_id]);
+    const questao = dbGet('SELECT * FROM questoes WHERE id = ?', [questionId]);
 
     if (!questao) {
       return res.status(404).json({ error: 'Questão não encontrada.' });
     }
 
-    const letraUpper = alternativa_letra.toUpperCase().trim();
+    const letraUpper = answerLetter.toUpperCase().trim();
     if (!/^[A-E]$/.test(letraUpper)) {
       return res.status(400).json({ error: 'Alternativa inválida.' });
     }
     const correta = letraUpper === questao.resposta_correta;
 
         const resposta = {
-      questao_id: questao.id,
-      correta: correta,
-      explicacao: questao.explicacao,
-      fonte: questao.fonte
+      questionId: questao.id,
+      isCorrect: correta,
+      explanation: questao.explicacao,
+      source: questao.fonte
     };
     if (correta) {
-      resposta.resposta_correta_letra = questao.resposta_correta;
+      resposta.correctAnswerLetter = questao.resposta_correta;
     }
     return res.json(resposta);
 
@@ -46,25 +46,25 @@ router.post('/responder', autenticar, (req, res) => {
 
 router.post('/finalizar', autenticar, (req, res) => {
   try {
-    const { tema_id, respostas } = req.body;
+    const { topicId, answers } = req.body;
 
-    if (!tema_id || !respostas || Array.isArray(respostas) || typeof respostas !== 'object') {
-      return res.status(400).json({ error: 'tema_id e respostas são obrigatórios.' });
+    if (!topicId || !answers || Array.isArray(answers) || typeof answers !== 'object') {
+      return res.status(400).json({ error: 'topicId e answers são obrigatórios.' });
     }
 
-    const tema = dbGet('SELECT * FROM temas WHERE id = ?', [tema_id]);
+    const tema = dbGet('SELECT * FROM temas WHERE id = ?', [topicId]);
     if (!tema) {
       return res.status(404).json({ error: 'Tema não encontrado.' });
     }
 
-    const questoes = dbAll('SELECT * FROM questoes WHERE tema_id = ?', [tema_id]);
+    const questoes = dbAll('SELECT * FROM questoes WHERE tema_id = ?', [topicId]);
 
     let acertos = 0;
     let erros = 0;
     const detalhes = [];
 
     for (const q of questoes) {
-      const respostaAluno = (respostas[String(q.id)] || '').toUpperCase().trim();
+      const respostaAluno = (answers[String(q.id)] || '').toUpperCase().trim();
       const correto = respostaAluno === q.resposta_correta;
 
       if (respostaAluno === '') {
@@ -76,17 +76,17 @@ router.post('/finalizar', autenticar, (req, res) => {
       }
 
       detalhes.push({
-        questao_id: q.id,
-        numero: q.numero,
-        sua_resposta: respostaAluno || '(sem resposta)',
-        correto: correto,
-        resposta_correta: q.resposta_correta,
-        explicacao: q.explicacao,
-        fonte: q.fonte
+        questionId: q.id,
+        number: q.numero,
+        yourAnswer: respostaAluno || '(sem resposta)',
+        isCorrect: correto,
+        correctAnswer: q.resposta_correta,
+        explanation: q.explicacao,
+        source: q.fonte
       });
     }
 
-    const jaFinalizado = dbGet('SELECT id FROM resultados WHERE aluno_id = ? AND tema_id = ?', [req.usuario.id, tema_id]);
+    const jaFinalizado = dbGet('SELECT id FROM resultados WHERE aluno_id = ? AND tema_id = ?', [req.usuario.id, topicId]);
     if (jaFinalizado) {
       return res.status(400).json({ error: 'Simulado já finalizado anteriormente.' });
     }
@@ -101,20 +101,20 @@ router.post('/finalizar', autenticar, (req, res) => {
     const alunoId = req.usuario.id;
     dbRun(
       'INSERT INTO resultados (aluno_id, tema_id, acertos, erros, total, nota, status, respostas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-      [alunoId, tema_id, acertos, erros, total, nota, status, JSON.stringify(respostas)]
+      [alunoId, topicId, acertos, erros, total, nota, status, JSON.stringify(answers)]
     );
 
     return res.json({
-      tema_id,
-      tema_title: tema.title,
-      acertos,
-      erros,
+      topicId,
+      topicTitle: tema.title,
+      correct: acertos,
+      wrong: erros,
       total,
-      nota,
-      nota_minima: tema.passingScore,
-      percentual: parseFloat(((acertos / total) * 100).toFixed(1)),
+      score: nota,
+      passingScore: tema.passingScore,
+      percentage: parseFloat(((acertos / total) * 100).toFixed(1)),
       status,
-      detalhes
+      details: detalhes
     });
 
   } catch (err) {
