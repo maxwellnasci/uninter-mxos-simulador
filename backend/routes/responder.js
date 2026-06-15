@@ -46,10 +46,14 @@ router.post('/responder', autenticar, (req, res) => {
 
 router.post('/finalizar', autenticar, (req, res) => {
   try {
-    const { topicId, answers } = req.body;
+    const { topicId, answers, sessionQuestionIds } = req.body;
 
     if (!topicId || !answers || Array.isArray(answers) || typeof answers !== 'object') {
       return res.status(400).json({ error: 'topicId e answers são obrigatórios.' });
+    }
+
+    if (!sessionQuestionIds || !Array.isArray(sessionQuestionIds) || sessionQuestionIds.length !== 10) {
+      return res.status(400).json({ error: 'sessionQuestionIds inválido.' });
     }
 
     const tema = dbGet('SELECT * FROM temas WHERE id = ?', [topicId]);
@@ -57,7 +61,18 @@ router.post('/finalizar', autenticar, (req, res) => {
       return res.status(404).json({ error: 'Tema não encontrado.' });
     }
 
-    const questoes = dbAll('SELECT * FROM questoes WHERE tema_id = ?', [topicId]);
+    const idsValidos = dbAll(
+      `SELECT id FROM questoes WHERE tema_id = ? AND id IN (${sessionQuestionIds.map(() => '?').join(',')})`,
+      [topicId, ...sessionQuestionIds]
+    );
+    if (idsValidos.length !== 10) {
+      return res.status(400).json({ error: 'sessionQuestionIds contém questões inválidas.' });
+    }
+
+    const questoes = dbAll(
+      `SELECT * FROM questoes WHERE id IN (${sessionQuestionIds.map(() => '?').join(',')})`,
+      sessionQuestionIds
+    );
 
     let acertos = 0;
     let erros = 0;
@@ -91,17 +106,15 @@ router.post('/finalizar', autenticar, (req, res) => {
       return res.status(400).json({ error: 'Simulado já finalizado anteriormente.' });
     }
 
-    const total = tema.total;
-    if (!total || total === 0) {
-      return res.status(400).json({ error: 'Tema sem questões.' });
-    }
+    const total = 10;
+    const passingScore = 7;
     const nota = parseFloat(((acertos / total) * 10).toFixed(1));
-    const status = acertos >= tema.passingScore ? 'APROVADO' : 'REPROVADO';
+    const status = acertos >= passingScore ? 'APROVADO' : 'REPROVADO';
 
     const alunoId = req.usuario.id;
     dbRun(
       'INSERT INTO resultados (aluno_id, tema_id, acertos, erros, total, nota, status, respostas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-      [alunoId, topicId, acertos, erros, total, nota, status, JSON.stringify(answers)]
+      [alunoId, topicId, acertos, erros, 10, nota, status, JSON.stringify(answers)]
     );
 
     return res.json({
@@ -109,9 +122,9 @@ router.post('/finalizar', autenticar, (req, res) => {
       topicTitle: tema.title,
       correct: acertos,
       wrong: erros,
-      total,
+      total: 10,
       score: nota,
-      passingScore: tema.passingScore,
+      passingScore: 7,
       percentage: parseFloat(((acertos / total) * 100).toFixed(1)),
       status,
       details: detalhes

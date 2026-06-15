@@ -37,6 +37,12 @@ function salvar() {
   fs.writeFileSync(DB_PATH, buffer);
 }
 
+let _saveTimer = null;
+function salvarDebounced() {
+  if (_saveTimer) clearTimeout(_saveTimer);
+  _saveTimer = setTimeout(() => { salvar(); _saveTimer = null; }, 500);
+}
+
 function criarTabelas() {
   db.run(`CREATE TABLE IF NOT EXISTS alunos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -87,6 +93,9 @@ function criarTabelas() {
     FOREIGN KEY (aluno_id) REFERENCES alunos(id),
     FOREIGN KEY (tema_id) REFERENCES temas(id)
   )`);
+  db.run(`CREATE INDEX IF NOT EXISTS idx_resultados_aluno ON resultados(aluno_id)`);
+  db.run(`CREATE INDEX IF NOT EXISTS idx_resultados_tema ON resultados(tema_id)`);
+  db.run(`CREATE INDEX IF NOT EXISTS idx_resultados_nota ON resultados(tema_id, nota DESC)`);
 }
 
 // ================================================================
@@ -111,7 +120,7 @@ function dbGet(sql, params = []) {
 
 function dbRun(sql, params = []) {
   db.run(sql, params);
-  salvar();
+  salvarDebounced();
 }
 
 function closeDatabase() {
@@ -122,4 +131,4 @@ function closeDatabase() {
   }
 }
 
-module.exports = { getDatabase, closeDatabase, salvar, dbAll, dbGet, dbRun };
+module.exports = { getDatabase, closeDatabase, salvar, salvarDebounced, dbAll, dbGet, dbRun };

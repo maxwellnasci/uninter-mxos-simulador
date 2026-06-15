@@ -15,11 +15,9 @@ router.get('/:id/questoes', autenticar, (req, res) => {
 
     // Query única com JOIN — substitui N+1 queries por 1 query só
     const rows = dbAll(
-      `SELECT q.id, q.numero, q.pergunta,
-              a.letra, a.texto
-       FROM questoes q
+      `SELECT q.id, q.numero, q.pergunta, a.letra, a.texto
+       FROM (SELECT * FROM questoes WHERE tema_id = ? ORDER BY RANDOM() LIMIT 10) q
        LEFT JOIN alternativas a ON a.questao_id = q.id
-       WHERE q.tema_id = ?
        ORDER BY q.numero ASC, a.letra ASC`,
       [req.params.id]
     );
@@ -50,10 +48,11 @@ router.get('/:id/questoes', autenticar, (req, res) => {
         id: tema.id,
         title: tema.title,
         shortTitle: tema.shortTitle,
-        total: tema.total,
-        passingScore: tema.passingScore
+        total: 10,
+        passingScore: 7
       },
-      questions: questoes
+      questions: questoes,
+      sessionQuestionIds: Array.from(questoesMap.keys())
     });
 
   } catch (err) {

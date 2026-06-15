@@ -13,6 +13,8 @@ const authRoutes = require('./routes/auth');
 const temasRoutes = require('./routes/temas');
 const questoesRoutes = require('./routes/questoes');
 const responderRoutes = require('./routes/responder');
+const historicoRoutes = require('./routes/historico');
+const rankingRoutes = require('./routes/ranking');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -37,6 +39,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/simulado/temas', temasRoutes);
 app.use('/api/simulado/temas', questoesRoutes);
 app.use('/api/simulado', responderRoutes);
+app.use('/api/simulado', historicoRoutes);
+app.use('/api/simulado', rankingRoutes);
 
 // ================================================================
 // Health check
