@@ -33,10 +33,10 @@ app.use(express.static(path.join(__dirname, '..', 'frontend')));
 // ================================================================
 // Rotas da API
 // ================================================================
-app.use('/api', authRoutes);
-app.use('/api/temas', temasRoutes);
-app.use('/api/temas', questoesRoutes);
-app.use('/api', responderRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/simulado/temas', temasRoutes);
+app.use('/api/simulado/temas', questoesRoutes);
+app.use('/api/simulado', responderRoutes);
 
 // ================================================================
 // Health check
