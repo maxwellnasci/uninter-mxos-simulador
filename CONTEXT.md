@@ -52,6 +52,19 @@ uninter-mxos-simulador/
 
 ---
 
+## Rotas da API
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| POST | /api/auth/login | Login por RU |
+| GET | /api/simulado/temas | Lista todos os simulados |
+| GET | /api/simulado/temas/:id/questoes | Retorna questões sem gabarito |
+| POST | /api/simulado/responder | Valida resposta — retorna { isCorrect, explanation, source } |
+| POST | /api/simulado/finalizar | Finaliza simulado — retorna resultado completo |
+
+---
+
+
 ## Servidor — informações importantes
 
 - **Acesso SSH:** `ssh -i C:\Users\maxwe\.ssh\id_ed25519 root@158.220.125.233`
@@ -99,6 +112,10 @@ uninter-mxos-simulador/
 - [x] Trocar `pm2 restart` por `pm2 reload` no deploy.yml para zero downtime ✅
 - [x] Adicionar 4 novas matérias do módulo ✅
 - [x] Corrigir 6 vulnerabilidades de segurança no responder.js ✅
+- [x] Corrige N+1 Queries em questoes.js com LEFT JOIN ✅
+- [x] Reorganiza namespace das rotas — /api/auth e /api/simulado ✅
+- [x] Padroniza todas as chaves JSON para inglês camelCase ✅
+- [x] Proteção contra cache antigo do localStorage ✅
   - Divisão por zero na nota
   - typeof aceita arrays
   - Whitelist em alternativa_letra
@@ -155,3 +172,5 @@ uninter-mxos-simulador/
 |------|---------|------------|-----------|
 | 2026-06 | backend/routes/responder.js | Claude (sub-agente) | 6 vulnerabilidades corrigidas |
 | 2026-06 | backend/ (todos os arquivos) | Claude (sub-agente) | Análise de qualidade — 10 melhorias mapeadas, 6 aplicadas |
+| 2026-06 | backend/routes/questoes.js | Gemini 3.1 Pro | N+1 Queries corrigido com LEFT JOIN |
+| 2026-06 | Todos os arquivos | Sonnet 4.6 Think | Padronização JSON camelCase — 41 pontos migrados |
