@@ -45,6 +45,7 @@ uninter-mxos-simulador/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml     → CI/CD GitHub Actions
+│   ├── config.js          → Configurações centralizadas (JWT, porta, payload)
 ├── .gitignore
 ├── README.md
 └── CONTEXT.md             → Este arquivo
@@ -104,6 +105,13 @@ uninter-mxos-simulador/
   - Bug de chave número vs string
   - Submissões duplicadas no /finalizar
   - Confirmado passingScore correto no schema
+- [x] Refatoração de qualidade — análise completa do backend ✅
+  - Padronizado error (inglês) em todas as rotas
+  - JWT_SECRET centralizado em config.js
+  - Check de duplicata movido para antes dos cálculos
+  - CORS restrito para simulado.mxos.com.br
+  - Payload limitado a 100kb via config.js
+  - Double require corrigido no server.js
 - [ ] Painel de histórico de simulados por aluno
 - [ ] Ranking de pontuações
 - [ ] Exportar resultado em PDF
@@ -146,3 +154,4 @@ uninter-mxos-simulador/
 | Data | Arquivo | Ferramenta | Resultado |
 |------|---------|------------|-----------|
 | 2026-06 | backend/routes/responder.js | Claude (sub-agente) | 6 vulnerabilidades corrigidas |
+| 2026-06 | backend/ (todos os arquivos) | Claude (sub-agente) | Análise de qualidade — 10 melhorias mapeadas, 6 aplicadas |
