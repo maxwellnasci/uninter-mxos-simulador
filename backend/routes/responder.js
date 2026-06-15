@@ -23,7 +23,7 @@ router.post('/responder', autenticar, (req, res) => {
 
     const letraUpper = alternativa_letra.toUpperCase().trim();
     if (!/^[A-E]$/.test(letraUpper)) {
-      return res.status(400).json({ erro: 'Alternativa inválida.' });
+      return res.status(400).json({ error: 'Alternativa inválida.' });
     }
     const correta = letraUpper === questao.resposta_correta;
 
@@ -86,17 +86,17 @@ router.post('/finalizar', autenticar, (req, res) => {
       });
     }
 
+    const jaFinalizado = dbGet('SELECT id FROM resultados WHERE aluno_id = ? AND tema_id = ?', [req.usuario.id, tema_id]);
+    if (jaFinalizado) {
+      return res.status(400).json({ error: 'Simulado já finalizado anteriormente.' });
+    }
+
     const total = tema.total;
     if (!total || total === 0) {
-      return res.status(400).json({ erro: 'Tema sem questões.' });
+      return res.status(400).json({ error: 'Tema sem questões.' });
     }
     const nota = parseFloat(((acertos / total) * 10).toFixed(1));
     const status = acertos >= tema.passingScore ? 'APROVADO' : 'REPROVADO';
-
-    const jaFinalizado = dbGet('SELECT id FROM resultados WHERE aluno_id = ? AND tema_id = ?', [req.usuario.id, tema_id]);
-    if (jaFinalizado) {
-      return res.status(400).json({ erro: 'Simulado já finalizado anteriormente.' });
-    }
 
     const alunoId = req.usuario.id;
     dbRun(

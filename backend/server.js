@@ -3,6 +3,7 @@
    ================================================================ */
 const express = require('express');
 const cors = require('cors');
+const { PAYLOAD_LIMIT } = require('./config');
 const path = require('path');
 
 // ================================================================
@@ -19,8 +20,12 @@ const PORT = process.env.PORT || 4000;
 // ================================================================
 // Middlewares
 // ================================================================
-app.use(cors());
-app.use(express.json({ limit: '5mb' }));
+app.use(cors({
+  origin: ['https://simulado.mxos.com.br', 'http://localhost:4000'],
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.use(express.json({ limit: PAYLOAD_LIMIT }));
 
 // Servir arquivos estáticos do frontend
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
@@ -51,13 +56,13 @@ app.get('/', (req, res) => {
 // Inicializar banco e servidor
 // ================================================================
 async function iniciar() {
-  const { getDatabase } = require('./database');
+  const { getDatabase, dbGet } = require('./database');
 
   // Inicializar banco (async)
   await getDatabase();
   console.log('📦 Banco SQLite inicializado');
 
-  const { dbGet } = require('./database');
+  
   const resultado = dbGet('SELECT COUNT(*) as total FROM temas');
   const qtdTemas = resultado ? resultado.total : 0;
 

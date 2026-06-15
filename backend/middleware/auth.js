@@ -3,7 +3,7 @@
    ================================================================ */
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'mxos-secret-key-dev';
+const { JWT_SECRET } = require('../config');
 
 function autenticar(req, res, next) {
   const authHeader = req.headers.authorization;

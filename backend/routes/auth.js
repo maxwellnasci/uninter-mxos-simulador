@@ -7,7 +7,7 @@ const { dbGet } = require('../database');
 
 const router = express.Router();
 
-const JWT_SECRET = process.env.JWT_SECRET || 'mxos-secret-key-dev';
+const { JWT_SECRET } = require('../config');
 const JWT_EXPIRES_IN = '8h';
 
 router.post('/login', (req, res) => {
