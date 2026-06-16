@@ -139,6 +139,8 @@ uninter-mxos-simulador/
 - [x] Ranking top 10 por matéria ✅
 - [x] Índices de performance no banco ✅
 - [x] salvarDebounced para concorrência ✅
+- [x] README profissional com screenshots reais do projeto ✅
+- [x] Arquivo APRESENTACAO.md criado com roteiro para entrevistas ✅
 - [ ] Exportar resultado em PDF
 
 ---
@@ -182,3 +184,21 @@ uninter-mxos-simulador/
 | 2026-06 | backend/ (todos os arquivos) | Claude (sub-agente) | Análise de qualidade — 10 melhorias mapeadas, 6 aplicadas |
 | 2026-06 | backend/routes/questoes.js | Gemini 3.1 Pro | N+1 Queries corrigido com LEFT JOIN |
 | 2026-06 | Todos os arquivos | Sonnet 4.6 Think | Padronização JSON camelCase — 41 pontos migrados |
+
+---
+
+## Lições aprendidas
+
+### Git — push pendente não detectado
+Em 2026-06-16, após commitar o README atualizado localmente, o GitHub
+continuou mostrando o conteúdo antigo. O problema era que o push não
+havia sido executado (branch local à frente de origin/main por 1 commit).
+Solução: sempre rodar git status antes de confirmar que o GitHub foi atualizado.
+Prevenção: após qualquer commit, verificar com git status se a branch
+local está sincronizada com origin/main antes de considerar a tarefa concluída.
+
+### README com imagens
+Imagens no README do GitHub precisam estar commitadas no repositório
+e referenciadas com caminho relativo correto (docs/screenshots/nome.png).
+O Gemini deve sempre verificar se as imagens foram commitadas antes
+de confirmar que o README está pronto.
