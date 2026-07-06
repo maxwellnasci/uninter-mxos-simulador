@@ -1,6 +1,8 @@
 /* ================================================================
    MXOS v2 — Servidor Principal
    ================================================================ */
+/* Carrega variáveis de ambiente do .env */
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { PAYLOAD_LIMIT } = require('./config');
@@ -14,7 +16,8 @@ const temasRoutes = require('./routes/temas');
 const questoesRoutes = require('./routes/questoes');
 const responderRoutes = require('./routes/responder');
 const historicoRoutes = require('./routes/historico');
-const rankingRoutes = require('./routes/ranking');
+const rankingRoutes   = require('./routes/ranking');
+const tutorRoutes     = require('./routes/tutor');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -41,6 +44,7 @@ app.use('/api/simulado/temas', questoesRoutes);
 app.use('/api/simulado', responderRoutes);
 app.use('/api/simulado', historicoRoutes);
 app.use('/api/simulado', rankingRoutes);
+app.use('/api/simulado', tutorRoutes);
 
 // ================================================================
 // Health check
