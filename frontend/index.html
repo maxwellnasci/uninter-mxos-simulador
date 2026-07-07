@@ -2026,14 +2026,25 @@
       const tutorInput = document.getElementById('tutorInput');
       const tutorSend  = document.getElementById('tutorSendBtn');
       const tutorMsgs  = document.getElementById('tutorMessages');
+      let tutorHistory = [];
 
       const quizView = document.getElementById('quizView');
       const observer = new MutationObserver(() => {
         const quizVisible = quizView && !quizView.hidden;
         tutorBtn.classList.toggle('visible', quizVisible);
-        if (!quizVisible) tutorChat.classList.remove('open');
+        if (!quizVisible) {
+          tutorChat.classList.remove('open');
+          tutorHistory = [];
+        }
       });
       if (quizView) observer.observe(quizView, { attributes: true, attributeFilter: ['hidden'] });
+
+      // Reseta histórico quando muda de questão
+      const questionEl = document.getElementById('questionText');
+      if (questionEl) {
+        new MutationObserver(() => { tutorHistory = []; })
+          .observe(questionEl, { childList: true, characterData: true, subtree: true });
+      }
 
       tutorBtn.addEventListener('click', () => {
         tutorChat.classList.toggle('open');
@@ -2087,11 +2098,14 @@
               question: ctx.questionText,
               alternatives: ctx.alternatives,
               subject: ctx.subject,
-              studentQuestion: pergunta
+              studentQuestion: pergunta,
+              history: tutorHistory
             })
           });
           typing.remove();
           addMsg(res.answer, 'bot');
+          tutorHistory.push({ role: 'user', content: pergunta });
+          tutorHistory.push({ role: 'model', content: res.answer });
         } catch (err) {
           typing.remove();
           addMsg('Ops! Não consegui processar sua dúvida agora. Tente de novo em instantes. 😕', 'bot');

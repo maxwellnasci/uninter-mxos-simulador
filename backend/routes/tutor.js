@@ -1,45 +1,29 @@
 /* ================================================================
-   MXOS — Rota do Agente Tutor IA (Gemini Flash)
+   MXOS — Rota do Agente Tutor IA (Gemini 2.5 Flash) com memória
    ================================================================ */
 const express = require('express');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const { autenticar } = require('../middleware/auth');
-
 const router = express.Router();
 
-// Inicializa o cliente Gemini com a chave do .env
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-/* ----------------------------------------------------------------
-   PROMPT DO SISTEMA — Personalidade do tutor
-   ---------------------------------------------------------------- */
-const SYSTEM_PROMPT = `Você é o MXOS Tutor, um assistente educacional especializado em ajudar alunos da UNINTER a estudar e entender o conteúdo das disciplinas do curso de Segurança da Informação e áreas relacionadas.
+const SYSTEM_PROMPT = `Você é o MXOS Tutor, um assistente educacional Socrático para alunos de Segurança da Informação da UNINTER.
 
-SUAS REGRAS ABSOLUTAS:
-1. NUNCA revele a resposta correta diretamente. Sua missão é guiar o aluno ao raciocínio certo.
-2. Explique sempre com linguagem simples, clara e acessível — como se estivesse conversando com um amigo.
-3. Use exemplos do dia a dia para ilustrar conceitos técnicos.
-4. Seja sempre encorajador, paciente e positivo. Nunca faça o aluno se sentir burro.
-5. Responda SEMPRE em português do Brasil.
-6. Se o aluno perguntar algo fora do contexto da questão, redirecione gentilmente para o tema.
-7. Seja conciso — respostas entre 3 e 8 linhas são ideais. Evite textos longos demais.
-8. Use emojis com moderação para tornar a conversa mais amigável (máximo 2 por resposta).
+REGRAS ABSOLUTAS:
+1. NUNCA dê a resposta correta diretamente. Jamais diga "a resposta é a letra X".
+2. SEJA SOCRÁTICO: Responda perguntas com outras perguntas reflexivas que guiem o aluno à resposta.
+3. DICAS PROGRESSIVAS: Analise o histórico da conversa. Se o aluno estiver no início da dúvida, dê apenas um pequeno empurrão conceitual. Se o histórico mostrar que o aluno já errou ou está muito confuso após várias trocas, dê dicas mais fortes e diretas — mas ainda exija que ele conecte os pontos finais.
+4. LINGUAGEM: Use linguagem simples, empática e amigável. Use metáforas do dia a dia.
+5. CONCISÃO: Suas respostas devem ser curtas (2 a 5 linhas). Evite paredes de texto.
+6. FOCO: Você tem acesso ao histórico de toda a sessão do simulado. Use esse contexto para adaptar suas respostas.
+7. Quando o aluno demonstrar que entendeu a lógica, parabenize-o e reforce o conceito principal de forma resumida.
+8. Responda SEMPRE em português do Brasil.`;
 
-SEU ESTILO:
-- Tom: amigável, encorajador, como um colega mais experiente
-- Linguagem: simples, sem jargão desnecessário
-- Quando o aluno errar: explique o porquê do erro e aponte o caminho certo SEM dar a resposta
-- Quando o aluno acertar: celebre e aprofunde o conceito para fixar o aprendizado`;
-
-/* ----------------------------------------------------------------
-   POST /api/simulado/tutor
-   Body: { question, alternatives, subject, studentQuestion }
-   ---------------------------------------------------------------- */
 router.post('/tutor', autenticar, async (req, res) => {
   try {
-    const { question, alternatives, subject, studentQuestion } = req.body;
+    const { question, alternatives, subject, studentQuestion, history } = req.body;
 
-    // Validação dos campos obrigatórios
     if (!question || typeof question !== 'string' || question.trim() === '') {
       return res.status(400).json({ error: 'O campo question é obrigatório.' });
     }
@@ -50,12 +34,10 @@ router.post('/tutor', autenticar, async (req, res) => {
       return res.status(400).json({ error: 'O campo subject é obrigatório.' });
     }
 
-    // Limitar tamanho das entradas para segurança
-    const questionTrim  = question.trim().slice(0, 1000);
-    const studentTrim   = studentQuestion.trim().slice(0, 500);
-    const subjectTrim   = (subject || '').trim().slice(0, 100);
+    const questionTrim = question.trim().slice(0, 1000);
+    const studentTrim = studentQuestion.trim().slice(0, 500);
+    const subjectTrim = subject.trim().slice(0, 100);
 
-    // Formatar as alternativas para o contexto
     let alternativesText = '';
     if (Array.isArray(alternatives) && alternatives.length > 0) {
       alternativesText = alternatives
@@ -63,36 +45,39 @@ router.post('/tutor', autenticar, async (req, res) => {
         .join('\n');
     }
 
-    // Montar o contexto completo para o Gemini
-    const contextMessage = `
-CONTEXTO DA QUESTÃO ATUAL:
-Matéria: ${subjectTrim}
-Enunciado:
-"${questionTrim}"
-${alternativesText ? `Alternativas:\n${alternativesText}\n` : ''}
-PERGUNTA DO ALUNO:
-"${studentTrim}"
-Responda como o MXOS Tutor, seguindo todas as suas regras.`.trim();
+    // Mapeia o histórico para o formato do Gemini
+    const formattedHistory = Array.isArray(history) ? history.map(msg => ({
+      role: msg.role === 'model' ? 'model' : 'user',
+      parts: [{ text: msg.content }]
+    })) : [];
 
-    // Chamar o Gemini Flash
+    // System instruction dinâmica com contexto da questão atual
+    const systemInstruction = `${SYSTEM_PROMPT}
+
+QUESTÃO ATUAL (NUNCA REVELE A RESPOSTA):
+Matéria: ${subjectTrim}
+Enunciado: "${questionTrim}"
+${alternativesText ? `Alternativas:\n${alternativesText}` : ''}`;
+
     const model = genAI.getGenerativeModel({
       model: 'gemini-2.5-flash',
-      systemInstruction: SYSTEM_PROMPT,
+      systemInstruction: systemInstruction,
     });
 
-    const result = await model.generateContent(contextMessage);
+    const chat = model.startChat({
+      history: formattedHistory
+    });
+
+    const result = await chat.sendMessage(studentTrim);
     const answer = result.response.text();
 
     return res.json({ answer });
 
   } catch (err) {
     console.error('Erro no tutor IA:', err);
-
-    // Erro de API key inválida ou cota esgotada
     if (err.message && err.message.includes('API_KEY')) {
-      return res.status(503).json({ error: 'Tutor temporariamente indisponível. Tente novamente.' });
+      return res.status(503).json({ error: 'Tutor temporariamente indisponível.' });
     }
-
     return res.status(500).json({ error: 'Erro ao processar sua pergunta. Tente novamente.' });
   }
 });
