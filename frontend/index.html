@@ -978,12 +978,31 @@
     #tutorBtn.visible { display: flex; }
     #tutorChat {
       position: fixed; bottom: 96px; right: 28px;
-      width: 360px; max-height: 520px;
+      width: var(--tutor-w, 360px);
+      height: var(--tutor-h, 520px);
+      min-width: 300px;
+      min-height: 400px;
+      max-width: 600px;
+      max-height: 700px;
       background: var(--surface); border: 1px solid var(--line);
       border-radius: 18px; box-shadow: var(--shadow);
       display: none; flex-direction: column;
       z-index: 999; overflow: hidden;
       animation: tutor-slide-in 0.25s ease;
+    }
+    #tutorResizeHandle {
+      position: absolute; top: 0; left: 0;
+      width: 18px; height: 18px;
+      cursor: nw-resize;
+      z-index: 10;
+    }
+    #tutorResizeHandle::before {
+      content: '';
+      position: absolute; top: 4px; left: 4px;
+      width: 8px; height: 8px;
+      border-top: 2px solid rgba(255,255,255,0.4);
+      border-left: 2px solid rgba(255,255,255,0.4);
+      border-radius: 1px;
     }
     #tutorChat.open { display: flex; }
     @keyframes tutor-slide-in {
@@ -1272,7 +1291,8 @@
          ============================================================ -->
     <button id="tutorBtn" type="button" title="Tirar dúvida com o Tutor IA" aria-label="Abrir tutor IA">🤖</button>
 
-    <div id="tutorChat" role="dialog" aria-label="Tutor IA MXOS">
+    <div id="tutorChat" role="dialog" aria-label="Tutor IA MXOS" aria-hidden="true">
+      <div id="tutorResizeHandle" aria-hidden="true"></div>
       <div class="tutor-header">
         <div class="tutor-avatar">🎓</div>
         <div class="tutor-header-info">
@@ -2028,6 +2048,37 @@
       const tutorMsgs  = document.getElementById('tutorMessages');
       let tutorHistory = [];
 
+      // Carrega tamanho salvo
+      const savedW = localStorage.getItem('mxos-tutor-w');
+      const savedH = localStorage.getItem('mxos-tutor-h');
+      if (savedW) tutorChat.style.width = savedW;
+      if (savedH) tutorChat.style.height = savedH;
+
+      // Resize drag
+      const resizeHandle = document.getElementById('tutorResizeHandle');
+      let isResizing = false, startX, startY, startW, startH;
+      resizeHandle.addEventListener('mousedown', (e) => {
+        isResizing = true;
+        startX = e.clientX; startY = e.clientY;
+        startW = tutorChat.offsetWidth; startH = tutorChat.offsetHeight;
+        e.preventDefault();
+      });
+      document.addEventListener('mousemove', (e) => {
+        if (!isResizing) return;
+        const dw = startX - e.clientX;
+        const dh = startY - e.clientY;
+        const newW = Math.min(600, Math.max(300, startW + dw));
+        const newH = Math.min(700, Math.max(400, startH + dh));
+        tutorChat.style.width = newW + 'px';
+        tutorChat.style.height = newH + 'px';
+      });
+      document.addEventListener('mouseup', () => {
+        if (!isResizing) return;
+        isResizing = false;
+        localStorage.setItem('mxos-tutor-w', tutorChat.style.width);
+        localStorage.setItem('mxos-tutor-h', tutorChat.style.height);
+      });
+
       const quizView = document.getElementById('quizView');
       const observer = new MutationObserver(() => {
         const quizVisible = quizView && !quizView.hidden;
@@ -2091,7 +2142,8 @@
           text: btn.querySelector('span:last-child')?.textContent || ''
         }));
         const subject = state?.currentTheme?.title || '';
-        return { questionText, alternatives, subject };
+        const questionId = state?.questoes?.[state?.currentIndex]?.id || null;
+        return { questionText, alternatives, subject, questionId };
       }
 
       async function enviarPergunta(mensagemOculta = null) {
@@ -2118,7 +2170,8 @@
               alternatives: ctx.alternatives,
               subject: ctx.subject,
               studentQuestion: pergunta,
-              history: tutorHistory
+              history: tutorHistory,
+              questionId: ctx.questionId
             })
           });
           typing.remove();
