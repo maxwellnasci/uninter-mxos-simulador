@@ -2067,7 +2067,7 @@
           letter: btn.dataset.letter,
           text: btn.querySelector('span:last-child')?.textContent || ''
         }));
-        const subject = window.state?.currentTheme?.title || '';
+        const subject = state?.currentTheme?.title || '';
         return { questionText, alternatives, subject };
       }
 
