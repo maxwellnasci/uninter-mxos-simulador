@@ -101,49 +101,27 @@ router.post('/finalizar', autenticar, (req, res) => {
       });
     }
 
-    const jaFinalizado = dbGet(
-      'SELECT * FROM resultados WHERE aluno_id = ? AND tema_id = ?',
-      [req.usuario.id, topicId]
-    );
-    if (jaFinalizado) {
-      const respostasAntigas = JSON.parse(jaFinalizado.respostas || '{}');
-      const todasQuestoes = dbAll('SELECT * FROM questoes WHERE tema_id = ?', [topicId]);
-      const detalhes = todasQuestoes
-        .filter(q => respostasAntigas[String(q.id)] !== undefined)
-        .map(q => ({
-          questionId: q.id,
-          number: q.numero,
-          yourAnswer: respostasAntigas[String(q.id)] || '(sem resposta)',
-          isCorrect: respostasAntigas[String(q.id)] === q.resposta_correta,
-          correctAnswer: q.resposta_correta,
-          explanation: q.explicacao,
-          source: q.fonte
-        }));
-      return res.json({
-        topicId,
-        topicTitle: tema.title,
-        correct: jaFinalizado.acertos,
-        wrong: jaFinalizado.erros,
-        total: jaFinalizado.total,
-        score: jaFinalizado.nota,
-        passingScore: tema.passingScore || 7,
-        percentage: parseFloat(((jaFinalizado.acertos / jaFinalizado.total) * 100).toFixed(1)),
-        status: jaFinalizado.status,
-        details: detalhes,
-        fromCache: true
-      });
-    }
-
     const total = 10;
     const passingScore = 7;
     const nota = parseFloat(((acertos / total) * 10).toFixed(1));
     const status = acertos >= passingScore ? 'APROVADO' : 'REPROVADO';
 
     const alunoId = req.usuario.id;
-    dbRun(
-      'INSERT INTO resultados (aluno_id, tema_id, acertos, erros, total, nota, status, respostas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-      [alunoId, topicId, acertos, erros, 10, nota, status, JSON.stringify(answers)]
+    const existente = dbGet(
+      'SELECT id FROM resultados WHERE aluno_id = ? AND tema_id = ?',
+      [alunoId, topicId]
     );
+    if (existente) {
+      dbRun(
+        `UPDATE resultados SET acertos = ?, erros = ?, total = ?, nota = ?, status = ?, respostas = ?, created_at = datetime('now') WHERE id = ?`,
+        [acertos, erros, 10, nota, status, JSON.stringify(answers), existente.id]
+      );
+    } else {
+      dbRun(
+        'INSERT INTO resultados (aluno_id, tema_id, acertos, erros, total, nota, status, respostas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [alunoId, topicId, acertos, erros, 10, nota, status, JSON.stringify(answers)]
+      );
+    }
 
     return res.json({
       topicId,
