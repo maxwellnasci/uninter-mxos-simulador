@@ -122,6 +122,9 @@ uninter-mxos-simulador/
 - [x] Método socrático com dicas progressivas ✅
 - [x] Tutor proativo — lê a questão automaticamente ao abrir o chat ✅
 - [x] Tutor detecta mudança de questão e comenta automaticamente ✅
+- [x] Tutor com gabarito completo — sabe a resposta e explica quando pedido ✅
+- [x] Professor direto — se adapta ao ritmo do aluno ✅
+- [x] Chat redimensionável — botão ⤡ no canto inferior esquerdo ✅
 - [ ] Melhorar personalidade do tutor — mais natural e menos robótico
 - [x] Trocar `pm2 restart` por `pm2 reload` no deploy.yml para zero downtime ✅
 - [x] Adicionar 4 novas matérias do módulo ✅
@@ -198,6 +201,13 @@ uninter-mxos-simulador/
 ---
 
 ## Lições aprendidas
+
+### Tutor IA — overflow: hidden quebra o resize
+O resize do chat não funcionava porque o overflow: hidden do #tutorChat
+cortava o handle de redimensionamento. 
+Solução: mudar o #tutorChat para overflow: visible e criar um wrapper
+interno .tutor-chat-inner com overflow: hidden para manter as bordas.
+O handle deve ficar FORA do wrapper interno para ser visível.
 
 ### Tutor IA — SYSTEM_INIT_PROACTIVE
 Para fazer o tutor iniciar a conversa automaticamente sem mostrar
