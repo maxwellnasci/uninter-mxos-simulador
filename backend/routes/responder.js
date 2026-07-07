@@ -1,4 +1,4 @@
-﻿/* ================================================================
+/* ================================================================
    MXOS — Rota para Responder e Validar Questões
    ================================================================ */
 const express = require('express');
@@ -101,9 +101,37 @@ router.post('/finalizar', autenticar, (req, res) => {
       });
     }
 
-    const jaFinalizado = dbGet('SELECT id FROM resultados WHERE aluno_id = ? AND tema_id = ?', [req.usuario.id, topicId]);
+    const jaFinalizado = dbGet(
+      'SELECT * FROM resultados WHERE aluno_id = ? AND tema_id = ?',
+      [req.usuario.id, topicId]
+    );
     if (jaFinalizado) {
-      return res.status(400).json({ error: 'Simulado já finalizado anteriormente.' });
+      const respostasAntigas = JSON.parse(jaFinalizado.respostas || '{}');
+      const todasQuestoes = dbAll('SELECT * FROM questoes WHERE tema_id = ?', [topicId]);
+      const detalhes = todasQuestoes
+        .filter(q => respostasAntigas[q.id] !== undefined)
+        .map(q => ({
+          questionId: q.id,
+          number: q.numero,
+          yourAnswer: respostasAntigas[q.id] || '(sem resposta)',
+          isCorrect: respostasAntigas[q.id] === q.resposta_correta,
+          correctAnswer: q.resposta_correta,
+          explanation: q.explicacao,
+          source: q.fonte
+        }));
+      return res.json({
+        topicId,
+        topicTitle: tema.title,
+        correct: jaFinalizado.acertos,
+        wrong: jaFinalizado.erros,
+        total: jaFinalizado.total,
+        score: jaFinalizado.nota,
+        passingScore: tema.passingScore || 7,
+        percentage: parseFloat(((jaFinalizado.acertos / jaFinalizado.total) * 100).toFixed(1)),
+        status: jaFinalizado.status,
+        details: detalhes,
+        fromCache: true
+      });
     }
 
     const total = 10;

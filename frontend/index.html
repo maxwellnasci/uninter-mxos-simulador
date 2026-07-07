@@ -1899,11 +1899,16 @@
             sessionQuestionIds: state.sessionQuestionIds
           })
         });
-
         showResult(result);
       } catch (err) {
         console.error('Erro ao finalizar:', err);
-        alert('Erro ao finalizar simulado.');
+        state.isCompleted = false;
+        $('submitBtn').disabled = false;
+        if (err.message && err.message.includes('já finalizado')) {
+          alert('Você já finalizou este simulado anteriormente. Acesse o Histórico para ver o resultado.');
+        } else {
+          alert('Erro ao finalizar simulado. Tente novamente.');
+        }
       }
     }
 
