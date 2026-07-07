@@ -41,7 +41,8 @@ uninter-mxos-simulador/
 │       ├── questoes.js    → Retorna questões sem gabarito
 │       ├── responder.js   → Valida resposta (gabarito protegido)
 │       ├── historico.js   → GET /api/simulado/historico
-│       └── ranking.js     → GET /api/simulado/ranking/:topicId
+│       ├── ranking.js     → GET /api/simulado/ranking/:topicId
+│       └── tutor.js       → POST /api/simulado/tutor (Gemini 2.5 Flash)
 ├── frontend/
 │   └── index.html         → SPA completa (CSS e JS embutidos)
 ├── .github/
@@ -65,6 +66,7 @@ uninter-mxos-simulador/
 | POST | /api/simulado/finalizar | Finaliza simulado — retorna resultado completo |
 | GET | /api/simulado/historico | Retorna histórico de simulados do aluno logado |
 | GET | /api/simulado/ranking/:topicId | Retorna top 10 alunos por tema |
+| POST | /api/simulado/tutor | Agente tutor IA — recebe dúvida + contexto e responde com Gemini |
 
 ---
 
@@ -113,6 +115,10 @@ uninter-mxos-simulador/
 
 ## Melhorias anotadas (backlog)
 
+- [x] Agente Tutor IA com Gemini 2.5 Flash ✅
+- [x] Migração do projeto para Kali Linux ✅
+- [x] Correção do conflito Nginx sistema vs Nginx Proxy Manager ✅
+- [ ] Melhorar prompt do tutor — mais interativo e socrático
 - [x] Trocar `pm2 restart` por `pm2 reload` no deploy.yml para zero downtime ✅
 - [x] Adicionar 4 novas matérias do módulo ✅
 - [x] Corrigir 6 vulnerabilidades de segurança no responder.js ✅
@@ -188,6 +194,35 @@ uninter-mxos-simulador/
 ---
 
 ## Lições aprendidas
+
+### Nginx do sistema vs Nginx Proxy Manager
+Em 2026-07-07, o site caiu com erro 521 do Cloudflare após criarmos
+um arquivo em /etc/nginx/sites-enabled/ e recarregarmos o Nginx do sistema.
+O servidor usa Nginx Proxy Manager (Docker) nas portas 80/81/443 como
+proxy reverso para todos os domínios. O Nginx do sistema não deveria
+estar ativo — ele competia com o NPM pelas portas.
+
+Causa: criamos /etc/nginx/sites-enabled/mxos e rodamos systemctl reload nginx,
+o que fez o Nginx do sistema tomar a porta 80 do NPM Docker.
+
+Solução:
+1. rm /etc/nginx/sites-enabled/mxos
+2. systemctl stop nginx && systemctl disable nginx
+3. cd /root/nginx && docker compose down && docker compose up -d
+
+Prevenção: NUNCA usar o Nginx do sistema neste servidor.
+Todo gerenciamento de domínios é feito pelo painel do NPM em:
+http://158.220.125.233:81
+
+### Variáveis globais no frontend
+O objeto state no frontend não está disponível via window.state —
+é uma const no escopo do script. Referenciar window.state retorna undefined.
+Sempre usar state diretamente.
+
+### Chave API não vai para o GitHub
+O arquivo backend/.env não é commitado.
+Após qualquer deploy, a chave precisa existir manualmente no servidor:
+/root/mxos-simulador/uninter-mxos-simulador/backend/.env
 
 ### Git — push pendente não detectado
 Em 2026-06-16, após commitar o README atualizado localmente, o GitHub
