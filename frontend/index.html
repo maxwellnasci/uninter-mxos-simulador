@@ -2042,13 +2042,25 @@
       // Reseta histórico quando muda de questão
       const questionEl = document.getElementById('questionText');
       if (questionEl) {
-        new MutationObserver(() => { tutorHistory = []; })
-          .observe(questionEl, { childList: true, characterData: true, subtree: true });
+        new MutationObserver(() => {
+          tutorHistory = [];
+          tutorMsgs.innerHTML = '';
+          if (tutorChat.classList.contains('open')) {
+            enviarPergunta('[SYSTEM_INIT_PROACTIVE]');
+          }
+        }).observe(questionEl, { childList: true, characterData: true, subtree: true });
       }
 
       tutorBtn.addEventListener('click', () => {
         tutorChat.classList.toggle('open');
-        if (tutorChat.classList.contains('open')) { tutorInput.focus(); scrollMsgs(); }
+        if (tutorChat.classList.contains('open')) {
+          tutorInput.focus();
+          if (tutorHistory.length === 0) {
+            tutorMsgs.innerHTML = '';
+            enviarPergunta('[SYSTEM_INIT_PROACTIVE]');
+          }
+          scrollMsgs();
+        }
       });
       tutorClose.addEventListener('click', () => tutorChat.classList.remove('open'));
 
@@ -2082,14 +2094,21 @@
         return { questionText, alternatives, subject };
       }
 
-      async function enviarPergunta() {
-        const pergunta = tutorInput.value.trim();
-        if (!pergunta || tutorSend.disabled) return;
-        addMsg(pergunta, 'user');
-        tutorInput.value = '';
-        tutorInput.style.height = '38px';
+      async function enviarPergunta(mensagemOculta = null) {
+        const isOculta = typeof mensagemOculta === 'string';
+        const pergunta = isOculta ? mensagemOculta : tutorInput.value.trim();
+
+        if (!pergunta || (tutorSend.disabled && !isOculta)) return;
+
+        if (!isOculta) {
+          addMsg(pergunta, 'user');
+          tutorInput.value = '';
+          tutorInput.style.height = '38px';
+        }
+
         tutorSend.disabled = true;
         const typing = addMsg('Tutor está digitando...', 'typing');
+
         try {
           const ctx = getQuizContext();
           const res = await apiRequest('/api/simulado/tutor', {
@@ -2112,7 +2131,7 @@
           console.error('Erro no tutor:', err);
         } finally {
           tutorSend.disabled = false;
-          tutorInput.focus();
+          if (!isOculta) tutorInput.focus();
         }
       }
     })();
