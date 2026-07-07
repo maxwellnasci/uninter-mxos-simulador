@@ -109,12 +109,12 @@ router.post('/finalizar', autenticar, (req, res) => {
       const respostasAntigas = JSON.parse(jaFinalizado.respostas || '{}');
       const todasQuestoes = dbAll('SELECT * FROM questoes WHERE tema_id = ?', [topicId]);
       const detalhes = todasQuestoes
-        .filter(q => respostasAntigas[q.id] !== undefined)
+        .filter(q => respostasAntigas[String(q.id)] !== undefined)
         .map(q => ({
           questionId: q.id,
           number: q.numero,
-          yourAnswer: respostasAntigas[q.id] || '(sem resposta)',
-          isCorrect: respostasAntigas[q.id] === q.resposta_correta,
+          yourAnswer: respostasAntigas[String(q.id)] || '(sem resposta)',
+          isCorrect: respostasAntigas[String(q.id)] === q.resposta_correta,
           correctAnswer: q.resposta_correta,
           explanation: q.explicacao,
           source: q.fonte
