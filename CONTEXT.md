@@ -202,6 +202,16 @@ uninter-mxos-simulador/
 
 ## Lições aprendidas
 
+### Simulado — Bug de envio duplicado no /finalizar
+Se o aluno clicasse múltiplas vezes seguidas no botão "Finalizar" (ou se o
+timer esgotasse exatamente no momento do clique), o frontend disparava
+várias requisições simultâneas para o backend. O backend rejeitava as
+subsequentes com "Simulado já finalizado", causando um erro silencioso
+no frontend.
+Solução: adicionar uma guarda `if (state.isCompleted) return;` no topo
+da função `finishQuiz()` e desabilitar o botão visualmente (`disabled = true`)
+assim que acionado a primeira vez.
+
 ### Tutor IA — overflow: hidden quebra o resize
 O resize do chat não funcionava porque o overflow: hidden do #tutorChat
 cortava o handle de redimensionamento. 

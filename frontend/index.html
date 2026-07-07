@@ -1878,6 +1878,7 @@
     $('submitBtn').addEventListener('click', finishQuiz);
 
     async function finishQuiz() {
+      if (state.isCompleted) return; // guard: impede duplo envio
       const theme = state.currentTheme;
 
       // Marcar não respondidas
@@ -1887,6 +1888,7 @@
 
       state.isCompleted = true;
       stopTimer();
+      $('submitBtn').disabled = true; // desabilita visualmente também
 
       try {
         const result = await apiRequest('/api/simulado/finalizar', {
