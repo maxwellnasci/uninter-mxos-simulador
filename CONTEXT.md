@@ -118,7 +118,11 @@ uninter-mxos-simulador/
 - [x] Agente Tutor IA com Gemini 2.5 Flash ✅
 - [x] Migração do projeto para Kali Linux ✅
 - [x] Correção do conflito Nginx sistema vs Nginx Proxy Manager ✅
-- [ ] Melhorar prompt do tutor — mais interativo e socrático
+- [x] Tutor com memória de sessão completa ✅
+- [x] Método socrático com dicas progressivas ✅
+- [x] Tutor proativo — lê a questão automaticamente ao abrir o chat ✅
+- [x] Tutor detecta mudança de questão e comenta automaticamente ✅
+- [ ] Melhorar personalidade do tutor — mais natural e menos robótico
 - [x] Trocar `pm2 restart` por `pm2 reload` no deploy.yml para zero downtime ✅
 - [x] Adicionar 4 novas matérias do módulo ✅
 - [x] Corrigir 6 vulnerabilidades de segurança no responder.js ✅
@@ -194,6 +198,18 @@ uninter-mxos-simulador/
 ---
 
 ## Lições aprendidas
+
+### Tutor IA — SYSTEM_INIT_PROACTIVE
+Para fazer o tutor iniciar a conversa automaticamente sem mostrar
+a mensagem do sistema para o aluno, usamos a flag [SYSTEM_INIT_PROACTIVE].
+O frontend envia essa flag oculta ao backend quando o chat abre ou
+quando muda de questão. O SYSTEM_PROMPT instrui o Gemini a ignorar
+a flag e iniciar uma conversa natural sobre a questão atual.
+
+### Tutor IA — window.state vs state
+O objeto state do frontend não está disponível via window.state.
+Sempre referenciar diretamente como state.currentTheme.title.
+Usar window.state retorna undefined e quebra o envio do subject.
 
 ### Nginx do sistema vs Nginx Proxy Manager
 Em 2026-07-07, o site caiu com erro 521 do Cloudflare após criarmos
