@@ -277,6 +277,18 @@ Solução: adicionar uma guarda `if (state.isCompleted) return;` no topo
 da função `finishQuiz()` e desabilitar o botão visualmente (`disabled = true`)
 assim que acionado a primeira vez.
 
+### Bug — botão "Ver resultado" desabilitado ao iniciar novo simulado
+**Data:** 2026-07-07
+**Causa:** finishQuiz() seta submitBtn.disabled = true para evitar duplo clique.
+Mas startQuiz() não resetava essa flag ao iniciar novo simulado.
+O botão aparecia visível mas desabilitado (apagado) na segunda tentativa.
+
+**Correção:** Adicionado submitBtn.disabled = false dentro de startQuiz()
+junto com o submitBtn.style.display = 'none' que já existia.
+
+**Lição:** Sempre que desabilitar um elemento via .disabled = true,
+verificar se existe um fluxo de reset que precisa reverter esse estado.
+
 ### Tutor IA — overflow hidden quebra o resize
 O handle de resize do chat não pode ficar dentro de um container com overflow:hidden.
 Solução: wrapper interno .tutor-chat-inner com overflow:hidden,
