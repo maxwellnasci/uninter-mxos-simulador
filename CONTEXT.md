@@ -154,21 +154,70 @@ uninter-mxos-simulador/
 - [x] salvarDebounced para concorrência ✅
 - [x] README profissional com screenshots reais do projeto ✅
 - [x] Arquivo APRESENTACAO.md criado com roteiro para entrevistas ✅
+- [x] Bug fix: resultado em cache sempre mostrava mesmo placar ✅
+- [x] Sistema de retentativa — aluno pode refazer simulado (UPDATE no banco) ✅
+- [x] Agente tutor confirmado sem interferência no fluxo de respostas ✅
 - [ ] Exportar resultado em PDF
+
+---
+
+## Agente Tutor IA — Documentação Completa
+
+### Arquitetura do Tutor
+O tutor é composto por 3 camadas:
+
+**Backend (backend/routes/tutor.js)**
+- Rota: POST /api/simulado/tutor
+- Autenticação: JWT obrigatório
+- Recebe: question, alternatives, subject, studentQuestion, history, questionId
+- Busca gabarito no banco: SELECT resposta_correta, explicacao, fonte FROM questoes WHERE id = ?
+- Chama Gemini 2.5 Flash via @google/generative-ai
+- Usa startChat({ history }) para memória de conversa
+- Retorna: { answer }
+
+**Frontend (frontend/index.html)**
+- Botão flutuante 🤖 aparece apenas na tela do quiz
+- Chat redimensionável — botão ⤡ no canto inferior esquerdo
+- Tamanho salvo no localStorage (mxos-tutor-w, mxos-tutor-h)
+- Memória de toda a sessão via tutorHistory[]
+- Tutor proativo: ao abrir o chat envia [SYSTEM_INIT_PROACTIVE] automaticamente
+- Ao mudar de questão com chat aberto, tutor comenta nova questão automaticamente
+- getQuizContext() captura: questionText, alternatives, subject, questionId
+
+**IA (Gemini 2.5 Flash)**
+- Modelo: gemini-2.5-flash
+- Persona: professor experiente e direto
+- Conhece a resposta correta da questão atual
+- Adapta-se ao ritmo do aluno: se pedir resposta, dá a resposta
+- Memória de conversa via startChat() com histórico formatado
+- Flag especial [SYSTEM_INIT_PROACTIVE] para início proativo
+
+### Configuração em Produção
+- Chave da API: GEMINI_API_KEY no arquivo backend/.env do servidor
+- O .env NUNCA vai para o GitHub
+- Após qualquer deploy, verificar se .env existe no servidor:
+  cat /root/mxos-simulador/uninter-mxos-simulador/backend/.env
+- Para recriar: echo "GEMINI_API_KEY=SUA_CHAVE" >> /root/mxos-simulador/uninter-mxos-simulador/backend/.env
+- Após adicionar a chave: pm2 reload mxos --update-env
+
+### Variáveis de ambiente críticas
+| Variável | Onde | Descrição |
+|----------|------|-----------|
+| GEMINI_API_KEY | backend/.env | Chave da API do Google AI Studio |
+| JWT_SECRET | backend/config.js | Segredo para assinar tokens JWT |
 
 ---
 
 ## Fluxo de trabalho
 
-| Agente | Onde | Uso ideal |
-|--------|------|-----------|
-| **Claude** | claude.ai | Estratégia, planejamento, prompts, decisões de arquitetura |
-| **Gemini 3.1 Pro High** | Antigravity | Executor — código, git, arquivos, terminal |
-| **DeepSeek V4 Flash Pensamento Profundo** | Antigravity | Análise de código, lógica, bugs, revisão técnica |
-| **Sonnet 4.6 Think** | Antigravity (bônus semanal) | Análises profundas pontuais |
-| **Opus 4.6 Think** | Antigravity (bônus semanal) | Decisões arquiteturais complexas |
-
-> Quando o Gemini 3.5 Pro for lançado, atualizar esta tabela.
+| Situação | Ferramenta | Por quê |
+|----------|------------|---------|
+| Planejar feature nova | Claude (claude.ai) | Estratégia e arquitetura |
+| Implementar feature | Gemini 3.1 Pro High | Execução de código e git |
+| Analisar segurança | Claude Sonnet 4.6 Think (sub-agente) | Análise profunda |
+| Bug complexo com teste | Claude Code | Executa, testa e corrige diretamente |
+| Decisão arquitetural | Claude Opus 4.6 Think | Análise crítica |
+| Deploy e servidor | Terminal / Claude Code | Acesso direto ao servidor |
 
 ---
 
@@ -202,6 +251,22 @@ uninter-mxos-simulador/
 
 ## Lições aprendidas
 
+### Bug Crítico — Resultado sempre igual independente das respostas
+**Data:** 2026-07-07
+**Causa:** O endpoint /finalizar tinha um bloco que, ao detectar simulado já 
+finalizado anteriormente, retornava o placar antigo sem recalcular.
+Qualquer nova tentativa mostrava sempre o mesmo resultado da primeira vez.
+
+**Diagnóstico:** Claude Code entrou no servidor, seedou um banco do zero,
+simulou 2 tentativas (todas certas depois todas erradas) e confirmou o bug.
+
+**Correção:** Removido o bloco de cache que retornava placar antigo.
+Agora o /finalizar sempre recalcula e faz UPDATE no registro existente.
+Cada tentativa sobrescreve o resultado anterior com o placar real.
+
+**Lição:** Para bugs complexos que precisam de teste real, usar o Claude Code
+diretamente — ele consegue executar, testar e corrigir sem loop de análise.
+
 ### Simulado — Bug de envio duplicado no /finalizar
 Se o aluno clicasse múltiplas vezes seguidas no botão "Finalizar" (ou se o
 timer esgotasse exatamente no momento do clique), o frontend disparava
@@ -212,12 +277,10 @@ Solução: adicionar uma guarda `if (state.isCompleted) return;` no topo
 da função `finishQuiz()` e desabilitar o botão visualmente (`disabled = true`)
 assim que acionado a primeira vez.
 
-### Tutor IA — overflow: hidden quebra o resize
-O resize do chat não funcionava porque o overflow: hidden do #tutorChat
-cortava o handle de redimensionamento. 
-Solução: mudar o #tutorChat para overflow: visible e criar um wrapper
-interno .tutor-chat-inner com overflow: hidden para manter as bordas.
-O handle deve ficar FORA do wrapper interno para ser visível.
+### Tutor IA — overflow hidden quebra o resize
+O handle de resize do chat não pode ficar dentro de um container com overflow:hidden.
+Solução: wrapper interno .tutor-chat-inner com overflow:hidden,
+e o handle fora desse wrapper com position:absolute no #tutorChat (overflow:visible).
 
 ### Tutor IA — SYSTEM_INIT_PROACTIVE
 Para fazer o tutor iniciar a conversa automaticamente sem mostrar
@@ -226,29 +289,19 @@ O frontend envia essa flag oculta ao backend quando o chat abre ou
 quando muda de questão. O SYSTEM_PROMPT instrui o Gemini a ignorar
 a flag e iniciar uma conversa natural sobre a questão atual.
 
-### Tutor IA — window.state vs state
+### Bug — window.state vs state no tutor
 O objeto state do frontend não está disponível via window.state.
-Sempre referenciar diretamente como state.currentTheme.title.
-Usar window.state retorna undefined e quebra o envio do subject.
+Sempre referenciar diretamente como state?.currentTheme?.title.
+window.state retorna undefined e quebra o envio do campo subject.
 
-### Nginx do sistema vs Nginx Proxy Manager
-Em 2026-07-07, o site caiu com erro 521 do Cloudflare após criarmos
-um arquivo em /etc/nginx/sites-enabled/ e recarregarmos o Nginx do sistema.
-O servidor usa Nginx Proxy Manager (Docker) nas portas 80/81/443 como
-proxy reverso para todos os domínios. O Nginx do sistema não deveria
-estar ativo — ele competia com o NPM pelas portas.
-
-Causa: criamos /etc/nginx/sites-enabled/mxos e rodamos systemctl reload nginx,
-o que fez o Nginx do sistema tomar a porta 80 do NPM Docker.
-
-Solução:
-1. rm /etc/nginx/sites-enabled/mxos
-2. systemctl stop nginx && systemctl disable nginx
+### Nginx Proxy Manager vs Nginx do sistema
+NUNCA configurar o Nginx do sistema neste servidor.
+O NPM (Docker) gerencia todos os domínios via painel em http://158.220.125.233:81
+Qualquer configuração em /etc/nginx/sites-enabled/ causa conflito de porta.
+Se isso acontecer:
+1. rm /etc/nginx/sites-enabled/ARQUIVO
+2. systemctl stop nginx && systemctl disable nginx  
 3. cd /root/nginx && docker compose down && docker compose up -d
-
-Prevenção: NUNCA usar o Nginx do sistema neste servidor.
-Todo gerenciamento de domínios é feito pelo painel do NPM em:
-http://158.220.125.233:81
 
 ### Variáveis globais no frontend
 O objeto state no frontend não está disponível via window.state —
@@ -256,9 +309,8 @@ O objeto state no frontend não está disponível via window.state —
 Sempre usar state diretamente.
 
 ### Chave API não vai para o GitHub
-O arquivo backend/.env não é commitado.
-Após qualquer deploy, a chave precisa existir manualmente no servidor:
-/root/mxos-simulador/uninter-mxos-simulador/backend/.env
+O arquivo backend/.env nunca é commitado.
+Após qualquer deploy novo no servidor, recriar manualmente.
 
 ### Git — push pendente não detectado
 Em 2026-06-16, após commitar o README atualizado localmente, o GitHub
