@@ -1,0 +1,415 @@
+Questão 1/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+O certificado digital é disponibilizado como um produto e não um serviço. Ele é considerado um produto intangível por ser digital. Não se trata de um software que pode ser vendido em caixinha. No procedimento de emissão, são verificadas as características pessoais de cada pessoa que adquire o certificado.
+
+
+Fonte: Aula 2, Tema 2.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas e selecione a alternativa que trata do mecanismo que identifica o remetente de determinada mensagem eletrônica.
+
+Nota: 6.7
+
+	A		Criptografia com Chave Pública.
+	B		Criptografia com Chave Privada.
+	C		Assinatura Digital.
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+Gabarito comentado:
+
+Assinatura digital – Trata-se de um mecanismo que identifica o remetente de determinada mensagem eletrônica.
+
+Referência: Aula 2, Tema 2.
+
+	D		Mensagem eletrônica com identificação pública.
+Questão 2/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+A PNSI trata de um tema abordado há muito tempo nas organizações privadas, a segurança da informação. Uma das definições para segurança da informação, segundo Alves (2006, p. 15), é que a segurança da informação “visa proteger a informação de forma a garantir a continuidade dos negócios, minimizando os danos e maximizando o retorno dos investimentos e as oportunidades de negócios”.
+
+
+Fonte: Aula 1, Tema 2.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, assinale a alternativa que indica como é denominado o grau de acesso à informação restrito a um grupo definido de pessoas autorizadas a ter esse acesso.
+
+Nota: 6.7
+
+	A		Confidencialidade.
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Gabarito comentado:
+
+A confidencialidade é o grau em que o acesso à informação é restrito a um grupo definido de pessoas autorizadas a ter esse acesso. A confidencialidade deve ser garantida para os dados armazenados em todo tipo de repositório em repouso, interna e ou externamente, e no tráfego das informações.
+
+Referência: Aula 1, Tema 2.
+
+	B		Estratégica.
+	C		Continuidade.
+	D		Maximização.
+Questão 3/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+O técnico que recebeu o computador da atriz Carolina Dieckmann tentou suborná-la, solicitando vantagem financeira em troca da não divulgação das imagens, fato que deu origem à criação da Lei 12.737/12, procurando penalizar atos ilícitos praticados quando da invasão e uso de dispositivos informáticos alheios. Um crime cibernético é caracterizado por invasão de computadores, com o objetivo de se apropriar de forma criminosa, e sem autorização, de senhas, violação de dados, obtenção e divulgação de informações sigilosas.
+
+
+Fonte: Aula 2, Tema 5.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, selecione a alternativa que indica a pena prevista para invasão e uso de dispositivos informáticos alheios, previstos na Lei 12.737/12.
+
+Nota: 6.7
+
+	A		
+Pena – reclusão, de 10 (dez) meses a 4 (dois) anos, e multa, se a conduta não constitui crime mais grave.
+
+	B		
+Pena – reclusão, de 3 (três) meses a 3 (três) anos, e multa, se a conduta não constitui crime mais grave.
+
+	C		
+Pena – reclusão, de 1 (um) mês a 1 (um) ano, e multa, se a conduta não constitui crime mais grave.
+
+	D		
+Pena – reclusão, de 6 (seis) meses a 2 (dois) anos, e multa, se a conduta não constitui crime mais grave.
+
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+Gabarito comentado:
+
+Pena – reclusão, de 6 (seis) meses a 2 (dois) anos, e multa, se a conduta não constitui crime mais grave.
+
+Referência: Aula 2, Tema 5.
+
+Questão 4/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+O Marco Civil da Internet (MCI), trata da regulamentação do uso da internet no Brasil. Ele aborda a regulamentação do uso das informações trafegadas na rede mundial e não regulamenta o uso das informações que trafegam nas redes internas das organizações.
+
+
+Fonte: Aula 3, Tema 2.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, selecione a alternativa que indica a Lei que também é conhecida como Marco Civil da Internet.
+
+Nota: 6.7
+
+	A		Lei n. 17.155/19
+	B		Lei n. 12.965/14
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Gabarito comentado:
+
+A Lei n. 12.965/14, também conhecida como Marco Civil da Internet (MCI), trata da regulamentação do uso da internet no Brasil. Ela aborda a regulamentação do uso das informações trafegadas na rede mundial e não regulamenta o uso das informações que trafegam nas redes internas das organizações.
+
+Referência: Aula 3, Tema 1.
+
+	C		Lei n. 17.349/19
+	D		Lei n. 17.171/18
+Questão 5/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+O certificado digital vincula pares de chaves criptográficas ao respectivo titular. Para entendermos o que é criptografia, temos que percorrer sua história que se iniciou na Grécia, com a combinação de dois radicais: kryptos (escondido) e grafo (escrita). A criptografia é utilizada há muito tempo desde gerações passadas. A principal razão para usar a criptografia é que ela é vista como um meio seguro para manter a informação confidencial.
+
+
+Fonte: Aula 2, Tema 3.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, selecione a alternativa que indica o sistema que possui um algoritmo e uma chave que o remetente compartilha com o destinatário.
+
+Nota: 6.7
+
+	A		Chaves privadas
+	B		Chaves públicas
+	C		Criptografia com dupla verificação de chaves
+	D		Criptografia simétrica
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+Gabarito comentado:
+
+Criptografia simétrica – Esse sistema possui um algoritmo e uma chave em que o remetente compartilha com o destinatário. A capacidade de ambos manterem em segredo a chave secreta determina a força do sistema.
+
+Referência: Aula 2, Tema 3.
+
+Questão 6/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+Cada uma das normas da família ISO 27000 possui uma função específica, mas todas possuem como objetivo fornecer os requisitos para estabelecer, implementar, operar, monitorar, revisar, manter e melhorar um sistema de gestão de segurança da informação (SGSI).
+
+
+Fonte: Aula 1, Tema 1.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, assinale a alternativa que indica a ISO que trata da gestão de riscos de segurança da informação.
+
+Nota: 6.7
+
+	A		ISO/IEC 27002.
+	B		ISO/IEC 27003.
+	C		ISO/IEC 27004.
+	D		ISO/IEC 27005.
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+Gabarito comentado:
+
+ISO/IEC 27005: gestão de riscos de segurança da informação.
+
+Referência: Aula 1, Tema 1.
+
+Questão 7/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+A PNSI trata de um tema abordado há muito tempo nas organizações privadas, a segurança da informação. Uma das definições para segurança da informação, segundo Alves (2006, p. 15), é que a segurança da informação “visa proteger a informação de forma a garantir a continuidade dos negócios, minimizando os danos e maximizando o retorno dos investimentos e as oportunidades de negócios”.
+
+
+Fonte: Aula 1, Tema 2.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, assinale a alternativa que se refere à veracidade da alegação de origem ou autoria da informação.
+
+Nota: 6.7
+
+	A		Disponibilidade.
+	B		Autenticidade.
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Gabarito comentado:
+
+A autenticidade se refere à veracidade da alegação de origem ou autoria da informação. A autenticidade pode ser considerada como uma característica da integridade, ou seja, se é autêntica a informação, então ela é considerada íntegra.
+
+Referência: Aula 1, Tema 2.
+
+	C		Integridade.
+	D		Garantia de Segurança.
+Questão 8/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+2018 apenas começou e parece que será um grande ano para a segurança da informação. Com questões levantadas sobre a segurança dos microprocessadores e as principais iniciativas de segurança cibernética, como o Regulamento Geral de Proteção de Dados da UE, implementado este ano, uma nova edição da ISO/IEC 27000 chegou no momento certo.
+
+
+Fonte: ABNT, Site. ISO/IEC 27000: Norma internacional de segurança da informação é revisada. Disponível em: http://www.abnt.org.br/noticias/5777-iso-iec-27000-norma-internacional-de-seguranca-da-informacao-e-revisada. Acesso em: maio de 2020.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, assinale a alternativa que indica a ISO que traz os requisitos para o sistema de gestão de segurança da informação.
+
+Nota: 6.7
+
+	A		ISO/IEC 27001.
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Gabarito comentado:
+
+ISO/IEC 27001: requisitos para o sistema de gestão de segurança da informação (SGSI).
+
+Referência: Aula 1, Tema 1
+
+	B		ISO/IEC 27002.
+	C		ISO/IEC 27003.
+	D		ISO/IEC 27004.
+Questão 9/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+A Lei n. 12.737/12 foi sancionada em 30 de novembro de 2012 pela então presidente da República Dilma Rousseff. Essa lei promoveu alterações no Código Penal Brasileiro no Decreto-Lei n. 2.848, de 7 de dezembro de 1940.
+
+
+O que motivou sua criação? Em maio do ano de 2012, a atriz Carolina Dieckmann tornou o caso de invasão à sua privacidade notório no cenário nacional. Fotos íntimas da atriz foram subtraídas, após ter seu computador invadido, e foram divulgadas na internet sem sua autorização.
+
+
+Fonte: Aula 3, Tema 4.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, selecione a alternativa que indica como se denomina todo hardware conectado ou não em uma rede de computadores.
+
+Nota: 6.7
+
+	A		Dispositivo informático
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Gabarito comentado:
+
+Dispositivo informático – é todo hardware conectado ou não em uma rede de computadores.
+
+Referência: Aula 3, Tema 4.
+
+	B		Computadores e Smatphones
+	C		Dispositivo Telemático
+	D		
+Telemática
+
+Questão 10/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+É necessária uma visão abrangente para que, por meio de um conjunto de ferramentas de análise, processos, estratégias, possamos controlar mudanças e gerenciar riscos a fim tomar medidas para corrigi-los ou mitigá-los. A proteção de dados não pode ser feita sem a aplicação
+
+
+da segurança da informação. É necessária a aplicação de medidas técnicas e organizacionais para proteger os dados pessoais.
+
+
+Fonte: Aula 1, Tema 4.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, selecione a alternativa que indica a Lei que instituiu os direitos dos cidadãos dando a eles o poder para fazer a gestão de seus dados de forma a não ter sua exposição.
+
+Nota: 6.7
+
+	A		Lei Geral de Proteção de Dados Pessoais (LGPD).
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Gabarito comentado:
+
+Com as novas leis de proteção de dados, dentre as quais podemos citar a Lei Geral de Proteção de Dados Pessoais (LGPD), que instituiu os direitos dos cidadãos dando a eles o poder para fazer a gestão de seus dados de forma a não ter sua exposição, a LGPD também é aplicada ao setor público. Isso culminou na necessidade de se criar uma política nacional a fim de normatizar a segurança da informação e assim salvaguardar os dados pessoais custodiados pelos setores públicos.
+
+Referência: Aula 1, Tema 4.
+
+	B		Lei de Proteção de Dados Individuais (LPDI).
+	C		Lei Carolina Dieckmann.
+	D		Lei de Combate ao Crescimento de Crimes Cibernéticos (LCCCC).
+Questão 11/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+A Lei n. 12.737/12 foi sancionada em 30 de novembro de 2012 pela então presidente da República Dilma Rousseff. Essa lei promoveu alterações no Código Penal Brasileiro no Decreto-Lei n. 2.848, de 7 de dezembro de 1940.
+
+
+O que motivou sua criação? Em maio do ano de 2012, a atriz Carolina Dieckmann tornou o caso de invasão à sua privacidade notório no cenário nacional. Fotos íntimas da atriz foram subtraídas, após ter seu computador invadido, e foram divulgadas na internet sem sua autorização.
+
+
+Fonte: Aula 3, Tema 4.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, selecione a alternativa que indica a “ciência que trata da manipulação e utilização da informação através do uso combinado do computador e meios de comunicação”.
+
+Nota: 6.7
+
+	A		Ciência da Tecnologia da comunicação.
+	B		Ciência da Computação.
+	C		Ciência Cibernética.
+	D		Telemática.
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+Gabarito comentado:
+
+A telemática é a “ciência que trata da manipulação e utilização da informação através do uso combinado do computador e meios de comunicação”.
+
+Referência: Aula 3, Tema 4.
+
+Questão 12/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+O art. 2 º trata da abrangência da PNSI:
+
+
+I - a segurança cibernética; II - a defesa cibernética; III - a segurança física e a proteção de dados organizacionais; e IV - as ações destinadas a assegurar a disponibilidade, a integridade, a confidencialidade e a autenticidade da informação (Brasil, 2018).
+
+
+Fonte: Aula 1, Tema 3.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, assinale a alternativa que indica quem tem como objetivo proteger os dados e informações contra os ataques cibernéticos.
+
+Nota: 6.7
+
+	A		A proteção de crimes contra a informação digital.
+	B		A segurança cibernética.
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Gabarito comentado:
+
+A segurança cibernética protege os dados e informações contra os ataques cibernéticos.
+
+A segurança cibernética trata daquelas relacionadas às tecnologias informáticas, para garantir a prevenção de ações que são empreendidas por indivíduos que utilizam a tecnologia como arma.
+
+Referência: Aula 1, Tema 3.
+
+	C		A defesa de crimes digitais.
+	D		A segurança da informação.
+Questão 13/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+A emissão, renovação e revogação de Certificado Digital e-CPF ou e-CNPJ será realizada por uma empresa devidamente autorizada pela Receita Federal do Brasil, denominada Autoridade Certificadora Habilitada.
+
+
+Revogação de Certificado: Revogar um certificado digital da RFB implica torná-lo inválido, impossibilitando, a partir da revogação, o seu uso. Para revogar seu certificado digital, o usuário deverá acessar a página de revogação da Autoridade Certificadora Habilitada, emissora do Certificado Digital da RFB e preenchê-la com os dados solicitados.
+
+
+Fonte: RECEITA FEDERAL, Site. Orientações sobre Emissão, Renovação e Revogação de Certificados Digitais e-CPF ou e-CNPJ. Disponível em: https://receita.economia.gov.br/orientacao/tributaria/senhas-e-procuracoes/senhas/certificados-digitais/orientacoes-sobre-emissao-renovacao-e-revogacao-de-certificados-digitais-e-cpf-ou-e-cnpj. Acesso em: maio de 2020.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas e selecione a alternativa que indica quando um certificado deve obrigatoriamente ser revogado.
+
+Nota: 6.7
+
+	A		Quando for necessária a alteração de qualquer informação constante deste.
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Gabarito comentado:
+
+Um certificado deve obrigatoriamente ser revogado:
+
+a. Quando constatada emissão imprópria ou defeituosa dele;
+
+b. Quando for necessária a alteração de qualquer informação constante deste;
+
+c. O caso de dissolução da AC titular do certificado; ou
+
+d. No caso de comprometimento da chave privada da AC ou da sua mídia armazenadora.
+
+Referência: Aula 2, Tema 2.
+
+	B		Quando o solicitante perder o certificado digital.
+	C		Quando houver o comprometimento da chave pública da AC ou da sua mídia armazenadora.
+	D		Quando o solicitante comprar outro pendriver.
+Questão 14/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+A norma ISO/IEC 27000:2018 fornece a visão geral dos sistemas de gerenciamento de segurança da informação e os termos e definições comumente usados na família de normas ISO/IEC 27001. Projetada para ser aplicável a todos os tipos e tamanhos da organização de negócios, desde multinacionais até as pequenas e médias empresas, a nova versão, lançada em fevereiro é igualmente valiosa para agências governamentais ou organizações sem fins lucrativos.
+
+
+Fonte: ABNT, Site. ISO/IEC 27000: Norma internacional de segurança da informação é revisada. Disponível em: http://www.abnt.org.br/noticias/5777-iso-iec-27000-norma-internacional-de-seguranca-da-informacao-e-revisada. Acesso em: maio de 2020.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, assinale a alternativa que indica a ISO que trata do código de práticas para controle de segurança da informação.
+
+Nota: 6.7
+
+	A		ISO/IEC 27002.
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Gabarito comentado:
+
+ISO/IEC 27002: código de práticas para controle de segurança da informação.
+
+Referência: Aula 1, Tema 1.
+
+	B		ISO/IEC 27003.
+	C		ISO/IEC 27004.
+	D		ISO/IEC 27005.
+Questão 15/15 - Direito e Novas Tecnologias
+  Ler em voz alta
+Disponível gratuitamente desde o mês de abril de 2020, o portal Validador de documentos digitais traz novas funcionalidades aos usuários. Criado para facilitar o relacionamento entre médicos, pacientes e farmacêuticos, o portal ficou ainda mais completo e intuitivo com a versão mobile e uma aba de informações voltadas especificamente aos desenvolvedores e outra com encaminhamentos para cada tipo de mensagem recebida após a consulta do documento.
+
+
+No site Validador de Documentos Digitais é possível validar a assinatura digital de prescrições, atestados, relatórios médicos, além de solicitação de exames. A tecnologia dos certificados digitais no padrão da Infraestrutura de Chaves Públicas Brasileira – ICP-Brasil permite que médicos, pacientes e farmacêuticos mantenham o relacionamento de forma 100%
+
+
+online e com segurança no envio de documentos por email, mensagem ou aplicativos de mensagens.
+
+
+Fonte: ITI, Site. Site Validador de documentos digitais tem versão mobile e mais completa para os usuários. Disponível em: https://www.iti.gov.br/component/content/article?id=4172. Acesso em: maio de 2020.
+
+De acordo com os estudos realizados e levando em consideração o texto acima, selecione a alternativa que indica a primeira autoridade da cadeia de certificação.
+
+Nota: 6.7
+
+	A		AC-Brasil.
+	B		ICP-Brasil.
+	C		CCP-Brasil.
+	D		AC-Raiz.
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+Gabarito comentado:
+
+A AC-Raiz é a primeira autoridade da cadeia de certificação. É ela quem executa as políticas de certificados e as normas técnicas e operacionais aprovadas pelo comitê Gestor da ICP-Brasil. Compete à AC-Raiz emitir, expedir, distribuir, revogar e gerenciar os certificados das autoridades certificadoras de nível imediatamente subsequente ao seu.
+
+Referência: Aula 2, Tema 1.

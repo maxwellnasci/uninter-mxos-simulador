@@ -33,7 +33,7 @@
 
 ---
 
-## 📚 Simulados Disponíveis (8 temas — 240 questões)
+## 📚 Simulados Disponíveis (12 temas — 360 questões)
 
 | # | Tema | Questões no banco |
 |---|------|------------------|
@@ -45,6 +45,10 @@
 | 6 | Sistemas de Segurança na Informação | 30 |
 | 7 | Sistemas de Informações Gerenciais | 30 |
 | 8 | Tecnologias Digitais para Segurança Cibernética | 30 |
+| 9 | Computação Forense | 30 |
+| 10 | Direito e Novas Tecnologias | 30 |
+| 11 | Investigação de Crimes Digitais | 30 |
+| 12 | Matemática Elementar | 30 |
 
 ---
 
@@ -70,7 +74,7 @@ uninter-mxos-simulador/
 │   ├── server.js           # Servidor Express (porta 4000)
 │   ├── database.js         # Conexão SQLite + índices de performance
 │   ├── config.js           # Configurações centralizadas
-│   ├── seed.js             # Popula o banco com 240 questões
+│   ├── seed.js             # Popula o banco com 360 questões
 │   ├── middleware/
 │   │   └── auth.js         # Autenticação JWT
 │   └── routes/

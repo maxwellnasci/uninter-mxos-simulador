@@ -98,7 +98,7 @@ uninter-mxos-simulador/
 
 ---
 
-## Simulados disponíveis (8 no total — 240 questões)
+## Simulados disponíveis (12 no total — 360 questões)
 
 | # | Tema | ID | Cor |
 |---|------|----|-----|
@@ -110,6 +110,10 @@ uninter-mxos-simulador/
 | 6 | Sistemas de Segurança na Informação | aula06 | #dc2626 |
 | 7 | Sistemas de Informações Gerenciais | aula07 | #16a34a |
 | 8 | Tecnologias Digitais para Segurança Cibernética | aula08 | #7c3aed |
+| 9 | Computação Forense | aula09 | #0d9488 |
+| 10 | Direito e Novas Tecnologias | aula10 | #b91c1c |
+| 11 | Investigação de Crimes Digitais | aula11 | #4338ca |
+| 12 | Matemática Elementar | aula12 | #ca8a04 |
 
 ---
 

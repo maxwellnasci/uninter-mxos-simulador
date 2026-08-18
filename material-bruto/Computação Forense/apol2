@@ -1,0 +1,326 @@
+Questão 1/15 - Computação Forense
+  Ler em voz alta
+Recuperação de senha para Sistemas Operacionais Microsoft e recuperação de vários tipos de senha através de sniffer de rede, desencriptação de senha usando dicionários, força bruta e ataque de criptoanálise, gravação de conversas através de VoIP, decodificação de senhas codificadas, exibição de senhas de caixas de senha (ocultas por asteriscos), recuperação de senhas armazenadas em cachê e análise de protocolos roteados, podem ser feitas, facilmente com o uso de softwares específicos que são utilizados por administradores de rede e auditores.
+
+
+Essas informações podem ser cruciais para uma investigação criminal. 
+
+
+Fonte: Autoria do Elaborador da Questão (2020).
+
+De acordo com os estudos realizados, analise as assertivas abaixo e assinale a alternativa que indica um software capaz de fazer tudo o que o texto apresentou.
+
+	A		
+Steghide
+
+	B		
+OpenPuff
+
+	C		
+Camouflage
+
+	D		
+Cain & Abel
+
+ 
+
+Você assinalou essa alternativa (D)
+
+Questão 2/15 - Computação Forense
+  Ler em voz alta
+Os problemas Cain a abel.exe são geralmente o resultado de arquivos executáveis ausentes, excluídos ou movidos do local original. A principal maneira de resolver esses problemas manualmente é ao substituir o arquivo EXE por uma nova cópia. Como último caso, recomendamos o uso de um limpador de registro para reparar qualquer exe do cain e abel inválido, extensão de arquivo EXE e outras referências de caminho de arquivos que possam causar a mensagem de erro.
+
+
+Formatos PortableApps.com Application, classificados como Arquivos executáveis, na maioria das vezes carregam a extensão EXE. A desenvolvedora do software oferece várias versões de arquivos de cain e abel.exe para Windows 10. Se não tiver uma cópia da sua versão de cain e abel.exe, basta clicar no botão “Solicitar” para solicitar uma cópia. Nos raros casos em que você não encontra a versão do seu arquivo abaixo, recomendamos contatar Windows Software Developer para obter mais ajuda.
+
+
+Uma vez que o arquivo é colocado com êxito no local certo no seu disco rígido, estes problemas de cain e abel.exe devem desaparecer. É altamente recomendável executar um teste rapidamente para verificar.
+
+Fonte: encurtador.com.br/jwIQV.
+
+Analise as assertivas abaixo e marque a alternativa que descreve os problemas na instalação de algumas opções como sniffing do Cain a abel.
+	A		Alguns antivírus e navegadores detectam Cain e Abel como malwares
+Você assinalou essa alternativa (A)
+
+	B		As versões mais novas do Windows não reconhecem as DLLs do Cain e Abel.
+	C		O Windows só reconhece dois programas do Cain e Abel.
+	D		O Abel só administra remotamente o Cain quando instalado no Linux
+Questão 3/15 - Computação Forense
+  Ler em voz alta
+Todas as atividades no sistema operacional dependem da sua existência. Um exemplo bem simples, é que é através do Registro que o sistema consegue saber onde os programas estão armazenados e quais arquivos se relacionam a eles. É por isso que se o Registro do Windows corromper, simplesmente, faz o sistema parar. Se isso ocorrer, não será possível encontrar programas, drivers e configurações. 
+
+
+Fonte: encurtador.com.br/imo14
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica o registro que é responsável pelos perfis de hardware utilizados pelo usuário.
+
+	A		
+HKEY_CURRENT_USER.
+
+	B		
+HKEY_LOCAL_MACHINE.
+
+	C		
+HKEY_USERS.
+
+	D		
+HKEY_CURRENT_CONFIG.
+
+Você assinalou essa alternativa (D)
+
+Questão 4/15 - Computação Forense
+  Ler em voz alta
+Nem todo mundo é fã da Cortana, a assistente digital às vezes insistente da Microsoft. Antes da Atualização do Aniversário do Windows 10 ser lançada, em agosto de 2016, isso não era necessariamente um problema, porque era fácil desativar a Cortana. Tudo o que você precisava fazer era abrir a assistente, selecionar Configurações, procurar a configuração “a Cortana pode fornecer sugestões, ideias, lembretes, alertas e muito mais” e mover o controle deslizante para Desativado. Mas a Atualização de Aniversário removeu essa opção, deixando os usuários sem saber o que fazer. 
+
+
+Fonte: encurtador.com.br/oyDM4
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica o registro que pode ser editado para a Cortana.
+
+	A		
+HKEY_CLASSES_ROOT.
+
+	B		
+HKEY_CURRENT_USER.
+
+	C		
+HKEY_LOCAL_MACHINE.
+
+Você assinalou essa alternativa (C)
+
+	D		
+HKEY_USERS.
+
+Questão 5/15 - Computação Forense
+  Ler em voz alta
+O Google criou uma ferramenta, com filtros adicionais que poderão ser aplicados na pesquisa, o que nos permitirá limitar a pesquisa a blogs, jornais, entre outros, por exemplo. Além disso, podemos classificar os resultados por relevância ou data.
+
+
+Fonte: Autoria do Elaborador da Questão (2020).
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica a ferramenta do Google a que o texto se refere acima.
+
+	A		Google Education.
+	B		Google Map Maker.
+	C		Google Notícias.
+Você assinalou essa alternativa (C)
+
+	D		Google Agenda.
+Questão 6/15 - Computação Forense
+  Ler em voz alta
+O Google tem uma ferramenta usada para procurar clipes e aplicar uma variedade de filtros na pesquisa e visualizá-los em diferentes fontes, tornando a busca no Google mais rápida e eficaz.
+
+
+Fonte: Autoria do Elaborador da Questão (2020).
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica a ferramenta do Google a que o texto acima se refere.
+
+	A		Google Education.
+	B		Google Vídeos.
+Você assinalou essa alternativa (B)
+
+	C		Google Notícias.
+	D		Google Agenda.
+Questão 7/15 - Computação Forense
+  Ler em voz alta
+Gerentes e analistas de TI sabem que a informação e os dados de uma empresa são ativos essenciais para o negócio, sendo peças valiosíssimas no meio corporativo.
+
+
+Qualquer vulnerabilidade que aconteça em um dos atributos pode representar uma ameaça, ou seja, um possível ponto de ataque de terceiros.
+
+
+Uma Auditoria em Segurança da Informação é uma avaliação sistemática da segurança do sistema de informação de uma empresa. Basicamente, ela busca medir o quanto o sistema está em conformidade com um conjunto de critérios estabelecidos. Ou, ainda, podemos dizer que a Auditoria em Segurança da Informação conduz uma avaliação com o objetivo de garantir que processos e infraestrutura estejam atualizados.
+
+
+Durante o processo de auditoria, auditores realizam entrevistas pessoais, varredura de vulnerabilidades, análise de configurações do sistema operacional, análises de compartilhamentos de rede e análise de dados históricos. A preocupação está em como as políticas de segurança estão sendo aplicadas. 
+
+
+Fonte: encurtador.com.br/cfjw7
+
+Considerando os ensinamentos do professor da disciplina de Computação Forense, na aula 4 e na contextualização acima, que trata da auditoria do Windows, analise os enunciados abaixo e selecione a alternativa correta.
+
+	A		
+O WinAudit é um software gratuito, de código aberto que relata, virtualmente, todos os aspectos do inventário e configuração do computador.
+
+Você assinalou essa alternativa (A)
+
+	B		
+O WinAudit é um software pago, de código fechado que relata, parcialmente, os aspectos do inventário e configuração do computador.
+
+	C		
+O WinAudit é um software pago, de código fechado que relata, os aspectos do inventário, configuração do computador e registros do Windows.
+
+	D		
+O WinAudit é um software pago, de código aberto, que relata todos os aspectos do inventário e configuração do computador.
+
+Questão 8/15 - Computação Forense
+  Ler em voz alta
+Cain & Abel é composto por dois componentes principais: o primeiro, Cain, é o aplicativo front-end que recupera senhas e a parte de detecção de senhas; o segundo, Abel, é um serviço do Windows NT que precisa ser instalado (local ou remotamente) e tem o papel de embaralhar o tráfego dentro da rede, para proteção adicional.
+
+
+Cain & Abel é um programa bacana que lida com a recuperação de senhas perdidas usando os algoritmos de descriptografia poderosos. Ele é capaz de recuperar rapidamente e eficientemente as senhas do Outlook, da rede e exibir as senhas sob os asteriscos.
+
+
+Fonte: encurtador.com.br/hlEJM
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica a ferramenta que permite crackear senhas baseado na tecnologia de Rainbow Table.
+
+	A		Rainbowcrack-online client.
+Você assinalou essa alternativa (A)
+
+	B		MSCACHE Hashes Dumper.
+	C		Box Revealer.
+	D		Cryptanalysis attacks.
+Questão 9/15 - Computação Forense
+  Ler em voz alta
+O problema de fazer pesquisas avançadas no Google, é que ele nos traz todas as páginas que encontrou em um determinado domínio. Por si só isso não nos fornece muita informação. O Google disponibiliza recursos em forma de comando para mostrar apenas as páginas desse domínio, que contêm os termos especificados. Outro exemplo é quando nos deparamos com sites que contém um local para fazer as buscas que não funcionam direito. Com a ajuda do Google. podemos realizar essas buscas com mais precisão. Esses recursos possibilitam
+
+
+a busca dentro de qualquer site na internet.
+
+
+Fonte: Autoria do Elaborador da Questão (2020).
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica o operador usado na pesquisa a que o texto acima se refere.
+
+	A		O operador “-” (menos – hífen).
+	B		O operador curinga “*” (asterisco).
+	C		O operador “site:”.
+Você assinalou essa alternativa (C)
+
+	D		O operador “OR” (esse OR deve ser digitado em letras maiúsculas).
+Questão 10/15 - Computação Forense
+  Ler em voz alta
+O Registro é a parte essencial do Sistema Operacional Windows, um banco de dados grande e complexo que armazena todas as configurações para o software e o hardware, de forma hierárquica, como as pastas de arquivos. Ele existe desde as versões do Windows 3.x, mas passou a ser utilizado como padrão, a partir do Windows 95. 
+
+
+Fonte: encurtador.com.br/imo14
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica o registro que guarda as configurações de aparência do Windows.
+
+	A		
+HKEY_CLASSES_ROOT.
+
+	B		
+HKEY_CURRENT_USER.
+
+	C		
+HKEY_LOCAL_MACHINE.
+
+	D		
+HKEY_USERS.
+
+Você assinalou essa alternativa (D)
+
+Questão 11/15 - Computação Forense
+  Ler em voz alta
+O HUB é um concentrador, um dispositivo que permite centralizar o cabeamento de uma rede. Funciona repetindo cada pacote de dados em cada uma das portas que possui, exceto na que tenha recebido o pacote, de forma que todos os pontos possuem acesso aos dados.
+
+
+Também está encarregado de enviar um sinal de colisão a todas as portas se detecta uma colisão.
+
+
+Fonte: Autoria do Elaborador da Questão (2020).
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica o dispositivo que filtra e envia ao destino correto de cada frame. Opera na camada dois (nível de rede) do modelo OSI.
+
+	A		SWITCH.
+Você assinalou essa alternativa (A)
+
+	B		ROTEADOR.
+	C		MODEM.
+	D		WIRELLES.
+Questão 12/15 - Computação Forense
+  Ler em voz alta
+A Atualização de Criadores do Windows 10 oculta o Painel de Controle tradicional, mas você pode recuperá-lo com uma invasão do Registro.
+
+
+Existem alguns efeitos colaterais na atualização do Windows 10 que muitos acharão irritantes. Um desses aborrecimentos é o abandono progressivo do painel de controle tradicional em favor de uma tela de configurações atualizada e amigável para a tela sensível ao toque. A tela tradicional do Painel de Controle ainda está disponível, se você souber como encontrá-la. 
+
+
+Fonte: Elaboração própria (2020).
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica o registro responsável pela compatibilidade dos programas mais antigos dos tempos do DOS.
+
+	A		
+HKEY_CLASSES_ROOT.
+
+Você assinalou essa alternativa (A)
+
+	B		
+HKEY_CURRENT_USER.
+
+	C		
+HKEY_LOCAL_MACHINE.
+
+	D		
+HKEY_USERS.
+
+Questão 13/15 - Computação Forense
+  Ler em voz alta
+
+O Registro, numa comparação grosseira, pode ser entendido como "sangue do Windows", pois todas as atividades no sistema operacional dependem da sua existência. Um exemplo bem simples, é que é através do Registro que o sistema consegue saber onde os programas estão armazenados e quais arquivos se relacionam a eles. É por isso que um simples corrompimento do Registro do Windows faz o sistema parar. Se isso ocorre, não será possível encontrar programas, drivers e configurações.
+
+
+Por ser uma parte crítica do Windows, a Microsoft preferiu não disponibilizar um acesso fácil ao Registro do Windows. Isso porque usuários não preparados poderiam facilmente causar danos ao sistema, tentando fazer reparos ou querendo saber para que servem as linhas estranhas do Registro. 
+
+
+Fonte: https://www.infowester.com/tutregistrowin.php.
+
+
+Analise as assertivas abaixo e marque a alternativa que descreve o software usado para acessar o registro do windows.
+
+
+ 
+
+	A		
+O programa chamado aria2.
+
+	B		
+O programa chamado Nugget.
+
+	C		
+O programa chamado ConEmu.
+
+	D		
+O programa chamado Regedit.
+
+ 
+
+Você assinalou essa alternativa (D)
+
+Questão 14/15 - Computação Forense
+  Ler em voz alta
+O fenômeno das fake news está em alta nas redes sociais. Não é incomum ver notícias sem fontes comprovadas ou de sites obscuros circularem em diferentes plataformas digitais. Com esse alastramento, uma outra prática vem preocupando os usuários da rede: as imagens e vídeos falsos.
+
+
+Se já é difícil saber quando uma notícia é verdadeira ou falsa, imagine o quão complicado deve ser descobrir se determinada imagem é verídica ou não. Com o avanço dos programas de manipulação de fotos e vídeos, seja ele o Photoshop ou Adobe Premiere, fica cada vez mais complicado acreditar no ditado popular “uma imagem vale mais do que mil palavras”.
+
+
+Fonte: encurtador.com.br/euvFQ
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica o programa usado para encontrar imagens semelhantes, referenciar sites que publicaram a mesma imagem ou até mesmo encontrar imagens iguais em outras proporções.
+	A		TinEye.
+Você assinalou essa alternativa (A)
+
+	B		Double Image.
+	C		Power Image.
+	D		Power URL.
+Questão 15/15 - Computação Forense
+  Ler em voz alta
+Estamos em uma era em que você pode ser encontrado online por meio de uma simples foto. Se você estiver sentado no transporte coletivo ou mesmo caminhado pela rua e for fotografado sem perceber, o seu espião/stalker poderá encontrá-lo com certa facilidade na internet, mesmo sem saber o seu nome ou onde você mora.
+
+
+Mas eu não estou dizendo que o buscador russo foi feito para espionagem ou qualquer coisa do tipo. Ele é um buscador comum e, em muitos casos, tem praticamente as mesmas ferramentas básicas que encontramos no Google.
+
+
+Fonte: https://www.tecmundo.com.br/software/137553-busca-reversa-imagens-russo-yandex-precisa-do-google.htm 
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica a técnica usada no processo contrário de uma busca, normalmente em algum material gráfico como vídeo ou imagem.
+
+	A		Busca Reversa.
+Você assinalou essa alternativa (A)
+
+	B		Busca Detalhada.
+	C		Busca por Meta Tag.
+	D		Busca Pente Fino.

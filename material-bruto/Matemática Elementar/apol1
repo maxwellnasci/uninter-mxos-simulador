@@ -1,0 +1,432 @@
+Questão 1/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma aula de educação física, os alunos foram desafiados a calcular a área de um quadrado desenhado na quadra da escola. A professora informou que a área do quadrado era de 49 m² e pediu que os alunos descobrissem o comprimento de cada lado. Para isso, os alunos deveriam utilizar o conceito de radiciação, já que a área de um quadrado é dada pelo quadrado do lado: A = l^2 
+
+De acordo com os estudos realizados, analise a situação e depois responda: qual é o comprimento de cada lado do quadrado?
+
+Nota: 6.7
+
+	A		7 metros
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Correta. De acordo com a aula 2, a raiz quadrada de 49 é 7, pois 7 X 7 = 49. Portanto, cada lado do quadrado mede 7 metros.
+
+	B		14 metros
+Incorreta. Representa o dobro do valor correto. Pode confundir o aluno que pensa em perímetro ao invés de lado.
+
+	C		24,5 metros
+Incorreta. Representa metade de 49, o que não tem relação com a raiz quadrada.
+	D		9 metros
+Incorreta. A raiz quadrada de 81 é 9, não de 49. Valor incorreto.
+Questão 2/15 - Matemática Elementar
+  Ler em voz alta
+Durante a organização de uma feira cultural em uma escola, duas turmas ficaram responsáveis por apresentações artísticas. A turma A fará apresentações a cada 6 dias, e a turma B a cada 8 dias. Ambas fizeram apresentações no dia da abertura da feira. A coordenação quer saber em quantos dias as duas turmas voltarão a se apresentar juntas no mesmo dia.
+
+
+Para isso, é necessário calcular o mínimo múltiplo comum (MMC) entre os números 6 e 8, que representa o menor número de dias em que os dois eventos coincidirão novamente. 
+
+Tendo em vista a situação apresentada e os estudos realizados, responda: em quantos dias as duas turmas voltarão a se apresentar juntas no mesmo dia?
+
+Nota: 6.7
+
+	A		24
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Correta. De acordo com a aula 3, o MMC entre 6 e 8 é 24, pois é o menor número que é múltiplo de ambos:
+
+$6: 6, 12, 18, 24, 30…
+
+$8: 8, 16, 24, 32…
+
+O menor múltiplo comum é 24.
+
+	B		48
+Incorreta. Embora 48 seja múltiplo de 6 e 8, não é o menor múltiplo comum.
+	C		14
+Incorreta. 14 não é múltiplo de 6 nem de 8, portanto não pode ser o MMC.
+	D		12
+Incorreta. 12 é múltiplo de 6, mas não é múltiplo de 8.
+Questão 3/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma atividade de contagem de livros em uma biblioteca escolar, os alunos foram orientados a registrar a quantidade de exemplares em cada estante. Os números anotados foram: 0, 12, 25, 37 e 40. A professora explicou que esses números fazem parte de um conjunto muito utilizado no dia a dia para contar objetos, organizar filas e registrar quantidades, sendo conhecido como conjunto dos números naturais.  
+
+Com base nessa situação, qual dos conjuntos abaixo representa corretamente os números naturais?
+
+Nota: 6.7
+
+	A		{–3, –2, –1, 0, 1, 2, 3, ...}
+Incorreta. Esse conjunto inclui números negativos, que pertencem ao conjunto dos inteiros, não aos naturais.
+
+	B		{0, 1, 2, 3, 4, 5, ...}
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Correta. De acordo com a aula 2, o conjunto dos números naturais é formado por números inteiros não negativos, começando do zero.
+
+	C		{1, 2, 3, 4, 5, ...}
+Incorreta. Embora contenha números naturais, exclui o zero, que também faz parte do conjunto dos naturais na definição mais comum.
+
+	D		{0, 2, 4, 6, ...}
+Incorreta. Esse conjunto contém apenas os números pares, não representa a sequência crescente dos naturais.
+
+Questão 4/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma caminhada em trilha, um grupo de estudantes monitorou a altitude em diferentes pontos do percurso. Em determinado momento, eles estavam a +120 metros acima do nível do mar. Após descerem um trecho, chegaram a um ponto com -30 metros de altitude, ou seja, abaixo do nível do mar.
+
+
+A professora pediu que os alunos calculassem a variação total de altitude entre os dois pontos, utilizando a operação de subtração entre números relativos. 
+
+Com base nessa situação, faça o cálculo e responda: qual foi a variação total de altitude entre os dois pontos?
+Nota: 6.7
+
+	A		90 metros
+Incorreta. Essa alternativa considera apenas a diferença entre os valores absolutos, sem aplicar corretamente a subtração entre números relativos: 120 - 30 = 90
+
+	B		120 metros
+Incorreta. Essa alternativa considera apenas a parte positiva da alteração de altitude.
+	C		-150 metros
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+Correta. De acordo com a aula 2, ao aplicarmos a subtração de números relativos, obteremos a variação total, dada por: -30 - 120 = -150. Ou seja, houve uma variação negativa, pois o grupo desceu de +120 para -30, o que representa uma diferença negativa de altitude.
+
+	D		-90 metros
+Incorreta. Resultado incorreto, pois representa uma soma direta, apenas invertendo os sinais iniciais.
+Questão 5/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma aula de tecnologia, os alunos aprenderam sobre o armazenamento de arquivos em dispositivos digitais. A professora explicou que um servidor possui 2^6 (dois elevado à sexta potência) unidades de armazenamento e que, após uma atualização, parte dessas unidades foi realocada para outro sistema que utiliza 2^2 (dois elevado à segunda potência) unidades. Para saber quantas unidades permaneceram no servidor original, os alunos deveriam aplicar a regra da divisão de potências com mesma base.
+
+Com base nessa situação, assinale a alternativa que responde corretamente a seguinte pergunta: qual é o resultado da divisão 2^6 / 2^2?
+
+Nota: 6.7
+
+	A		2^4 = 16
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Correta. De acordo com a aula 2, ao dividir potências de mesma base, subtraímos os expoentes:
+
+2^6 / 2^2 = 2^{6-2} = 2^4 = 16
+
+	B		2^8 = 256
+Incorreta. Representa a soma dos expoentes, o que é uma regra usada na multiplicação, não na divisão.
+
+	C		2^3 = 8
+Incorreta. Resultado incorreto da operação. A subtração correta dos expoentes é 6 - 2 = 4, não 3.
+
+	D		2^2 = 4
+Incorreta. Representa o valor do divisor, não o resultado da operação.
+Questão 6/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma feira de ciências em uma escola de Curitiba, dois grupos de alunos apresentaram projetos em diferentes salas.
+
+
+• O grupo X apresentou projetos em 8 salas.
+
+
+• O grupo Y apresentou projetos em 10 salas.
+
+
+• 3 salas receberam projetos de ambos os grupos.
+
+
+A coordenação da feira deseja saber em quantas salas diferentes houve apresentação de projetos, considerando que algumas salas foram compartilhadas pelos dois grupos. 
+
+Com base nessa situação, assinale a alternativa que indica corretamente qual é o total de salas que receberam projetos?
+
+Nota: 6.7
+
+	A		21
+Incorreta. Soma diretamente 8 + 10 + 3, o que resulta em contagem duplicada das salas compartilhadas.
+
+	B		15
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Correta. De acordo com a aula 1, a união dos conjuntos é dada por:
+
+X?Y = |X| + |Y| - |XnY| = 8 + 10 - 3 = 15
+
+Portanto, 15 salas diferentes receberam projetos.
+
+	C		18
+Incorreta. Subtrai incorretamente apenas parte da interseção, resultando em uma contagem excessiva.
+
+	D		25
+Incorreta. Soma os valores sem considerar a interseção, o que gera duplicidade.
+Questão 7/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma aula de informática, os alunos aprenderam sobre o armazenamento de dados em dispositivos digitais. A professora explicou que, ao duplicar a capacidade de armazenamento de um chip, a quantidade de dados que ele pode guardar pode ser representada por potências de base 2. Por exemplo, um chip com capacidade de 2^3 (dois elevado à terceira potência) unidades  ode ser combinado com outro de 2^2 (dois elevado à segunda potência) unidades, formando um sistema com capacidade total representada pelo produto dessas potências. 
+
+Com base nessa situação e de acordo com os conteúdos estudados, responda: qual é o valor de 2^3 x 2^2?
+
+Nota: 6.7
+
+	A		2^5 = 32
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Correta. De acordo com a aula 2, quando multiplicamos potências de mesma base, somamos os expoentes:
+
+2^3 x 2^2 = 2^{3+2} = 2^5 = 32
+
+	B		2^6 = 64
+Incorreta. Representa a soma incorreta dos expoentes (3 + 2 = 5, não 6).
+	C		2^4 = 16
+Incorreta. Representa uma soma incorreta dos expoentes (3 + 2 ? 4).
+	D		2^3 = 8
+Incorreta. Representa apenas uma das potências, ignorando o produto.
+Questão 8/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma atividade de reciclagem em um condomínio de Curitiba, os moradores foram convidados a separar materiais recicláveis.
+
+
+• 30 moradores participaram da coleta de papel.
+
+
+• 12 desses também participaram da coleta de plástico.
+
+
+A administração do condomínio deseja saber quantos moradores participaram apenas da coleta de papel, ou seja, excluindo os que também participaram da coleta de plástico. 
+
+Com base nessa situação, responda: quantos moradores participaram somente da coleta de papel? Assinale a alternativa correta.
+
+Nota: 6.7
+
+	A		18
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Correta. De acordo com a aula 1, a operação de diferença de conjuntos consiste em retirar os elementos que pertencem a ambos os conjuntos.
+
+|Papel - Plástico| = 30 - 12 = 18
+
+Portanto, 18 moradores participaram somente da coleta de papel.
+
+	B		42
+Incorreta. Soma os dois grupos, o que não faz sentido na operação de diferença de conjuntos.
+
+	C		12
+Incorreta. Representa os moradores que participaram de ambas as coletas, não apenas da de papel.
+
+	D		30
+Incorreta. Representa o total de moradores que participaram da coleta de papel, sem considerar os que também participaram da coleta de plástico.
+
+Questão 9/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma aula de ciências, os alunos aprenderam sobre o crescimento de bactérias em ambientes favoráveis. A professora explicou que, em determinadas condições, uma bactéria pode se dividir em duas a cada hora. Se uma única bactéria for colocada em uma placa de Petri, após 4 horas, haverá uma quantidade de bactérias igual a 2^4. 
+
+Com base nessa situação, calcule e responda: qual será o número total de bactérias após 4 horas?
+
+Nota: 6.7
+
+	A		8
+Incorreta. Representa o resultado de 2^3, ou seja, após 3 horas de duplicação.
+	B		16
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Correta. Ao aplicarmos a potenciação, de acordo com a aula 2, teremos que o número de bactérias após 4 horas é dado por /
+
+2^4 = 2 X 2 X 2 X 2 = 16, pois a cada hora irá dobrar a quantidade anterior.
+
+	C		12
+Incorreta. Não corresponde a nenhuma potência de base 2. Pode confundir o aluno que tenta somar os valores intermediários.
+
+	D		4
+Incorreta. Representa o resultado de 2^2, ou seja, após 2 horas de duplicação.
+Questão 10/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma campanha de arrecadação de alimentos em um bairro de Curitiba, dois grupos de voluntários se organizaram para coletar doações. O grupo A arrecadou alimentos em 12 casas, enquanto o grupo B arrecadou em 15 casas diferentes. No entanto, 5 casas foram visitadas por ambos os grupos. Para saber o total de casas que participaram da campanha, é necessário considerar a união dos conjuntos de casas visitadas por cada grupo, sem contar duas vezes as casas que foram visitadas por ambos. 
+
+Com base nessa situação, assinale a alternativa que indica corretamente qual é o total de casas que participaram da campanha?
+
+Nota: 6.7
+
+	A		27
+Incorreta. Essa alternativa soma diretamente 12 + 15, sem considerar que 5 casas foram visitadas por ambos os grupos. Isso gera uma contagem duplicada.
+
+	B		22
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Correta. De acordo com a aula 1, a união dos conjuntos é dada por:
+
+ = |A| + |B| - || = 12 + 15 - 5 = 22
+
+	C		32
+Incorreta. Soma incorretamente os valores sem considerar interseção, e ainda adiciona casas extras.
+
+	D		25
+Incorreta. Essa alternativa subtrai apenas duas casas: (12 + 15) - 2 = 25.
+
+Questão 11/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma aula de educação financeira, os alunos analisaram o extrato bancário de uma conta corrente. O extrato apresentava os seguintes lançamentos:
+
+
+• Depósito de R$ 200
+
+
+• Saque de R$ 50
+
+
+• Pagamento de conta no valor de R$ 120
+
+
+• Recebimento de R$ 80
+
+
+A professora explicou que, ao representar esses valores em uma planilha, os depósitos e recebimentos são indicados por números positivos, enquanto os saques e pagamentos são indicados por números negativos, pois representam saída de dinheiro. 
+
+Considerando a definição de quais números pertencem ao conjunto dos números inteiros, identifique qual dos conjuntos abaixo contém apenas números inteiros.
+
+Nota: 6.7
+
+	A		{ -50; -20; 5,5; 200}
+Incorreta. O número 5,5 é um número decimal e não pertence ao conjunto dos inteiros.
+	B		{0; 10; 50,2; 100}
+Incorreta. O número 50,2 é um número decimal e não pertence ao conjunto dos inteiros.
+	C		{-120; -10,3; 5; 12}
+Incorreta. O número 10,3 é um número decimal e não pertence ao conjunto dos inteiros.
+	D		{-10; -5; 0; 12; 240}
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+Correta. De acordo com a aula 2, todos os números deste conjunto pertencem ao conjunto dos números inteiros, que inclui apenas os números negativos, zero e positivos sem parte decimal.
+
+Questão 12/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma caminhada em trilha, um grupo de estudantes monitorou a altitude em diferentes pontos do percurso. Em determinado momento, eles estavam a +120 metros acima do nível do mar. Após descerem um trecho, chegaram a um ponto com -30 metros de altitude, ou seja, abaixo do nível do mar.
+
+
+A professora pediu que os alunos calculassem a variação total de altitude entre os dois pontos, utilizando a operação de subtração entre números relativos. 
+
+Com base nessa situação, faça o cálculo e responda: qual foi a variação total de altitude entre os dois pontos?
+
+Nota: 6.7
+
+	A		90 metros
+Incorreta. Essa alternativa considera apenas a diferença entre os valores absolutos, sem aplicar corretamente a subtração entre números relativos:
+
+120 - 30 = 90
+
+	B		150 metros
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Correta. De acordo com a aula 2, ao aplicarmos a subtração de números relativos, obteremos a variação total, dada por:
+
++120 - (-30) = +120 + 30 = +150
+
+Ou seja, houve uma variação de 150 metros entre os dois pontos.
+
+	C		-150 metros
+Incorreta. Representa uma variação negativa, o que não faz sentido nesse contexto, pois o grupo desceu de +120 para -30, o que representa uma diferença positiva de altitude.
+
+	D		-90 metros
+Incorreta. Resultado incorreto da operação. Representaria uma subtração direta sem considerar o sinal do segundo número.
+
+Questão 13/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma aula de ciências, os alunos analisaram a variação de temperatura em uma câmara fria usada para conservar alimentos. A cada hora, a temperatura diminuía 2 graus Celsius. Após 5 horas, a professora pediu que os alunos calculassem a variação total da temperatura. 
+
+Com base nessa situação, calcule qual foi a variação total da temperatura após 5 horas e assinale a alternativa que apresenta a resposta correta:
+
+Nota: 6.7
+
+	A		+10 graus Celsius
+Incorreta. O produto de um número positivo por um número negativo resulta em um número negativo. Aqui, 5 × (-2) = -10.
+
+	B		-10 graus Celsius
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Correta. De acordo com a aula 2, a multiplicação de um número positivo (5 horas) por um número negativo (-2 graus por hora) resulta em um número negativo (-10). Isso indica que a temperatura caiu 10 graus Celsius.
+
+	C		-7 graus Celsius
+Incorreta. Valor incorreto, não corresponde ao produto correto da operação.
+	D		+7 graus Celsius
+Incorreta. Além de o valor estar errado, o sinal positivo não condiz com a situação de queda de temperatura.
+
+Questão 14/15 - Matemática Elementar
+  Ler em voz alta
+Em uma lanchonete, o cardápio oferece 2 opções de sanduíches (X-burguer e X-salada) e 3 opções de bebidas (refrigerante, suco e água). Um cliente pode escolher um sanduíche e uma bebida para montar seu combo.
+
+
+A atendente deseja listar todas as possíveis combinações de pedidos que podem ser feitas com essas opções. Para isso, ela utiliza o conceito de produto cartesiano, que consiste em formar pares ordenados com todos os elementos de dois conjuntos. 
+
+Com base nessa situação e no conteúdo estudado, responda: quantas combinações diferentes de pedidos podem ser feitas?
+
+Nota: 6.7
+
+	A		5
+Incorreta. Essa alternativa ignora uma das combinações possíveis. O produto cartesiano entre dois conjuntos com 2 e 3 elementos resulta em 2 × 3 = 6 pares.
+
+	B		6
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Correta. De acordo com a aula 1, o produto cartesiano entre os conjuntos S = {X-burguer, X-salada} e B = {refrigerante, suco, água} resulta em 2 × 3 = 6 pares ordenados, ou seja, 6 combinações possíveis de pedidos.
+
+	C		3
+Incorreta. Representa apenas o número de bebidas, desconsiderando as opções de sanduíche.
+
+	D		2
+Incorreta. Representa apenas o número de sanduíches, desconsiderando as opções de bebida.
+
+Questão 15/15 - Matemática Elementar
+  Ler em voz alta
+Durante uma campanha de vacinação em uma escola de Curitiba, foram registrados os seguintes dados:
+
+
+• 40 alunos receberam a vacina contra gripe.
+
+
+• 15 desses alunos também receberam a vacina contra sarampo.
+
+
+A coordenação da escola deseja saber quantos alunos receberam apenas a vacina contra gripe, ou seja, excluindo os que também receberam a vacina contra sarampo. 
+
+Com base nessa situação, assinale a alternativa que indica corretamente quantos alunos receberam somente a vacina contra gripe? 
+
+Nota: 6.7
+
+	A		25
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Correta. De acordo com a aula 1, a operação de subtração de conjuntos consiste em retirar os elementos que pertencem a ambos os conjuntos.
+
+|Gripe - Sarampo| = 40 - 15 = 25
+
+Portanto, 25 alunos receberam somente a vacina contra gripe.
+
+	B		55
+Incorreta. Soma os dois grupos, o que não faz sentido na operação de subtração de conjuntos.
+
+	C		15
+Incorreta. Representa os alunos que receberam ambas as vacinas, não apenas a de gripe.
+	D		40
+Incorreta. Representa o total de alunos vacinados contra gripe, sem considerar os que também receberam a vacina contra sarampo.
+
+
+
+

@@ -100,7 +100,7 @@ por causa do modelo assíncrono. Além disso, uso JavaScript
 tanto no frontend quanto no backend — menos contexto para trocar."
 
 **"Por que SQLite e não MySQL ou PostgreSQL?"**
-"Para o volume atual — 240 questões e poucos alunos simultâneos —
+"Para o volume atual — 360 questões e poucos alunos simultâneos —
 o SQLite é suficiente e simplifica o deploy. Se o sistema crescer,
 a migração para PostgreSQL seria o próximo passo natural."
 

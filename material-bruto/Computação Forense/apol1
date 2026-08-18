@@ -1,0 +1,578 @@
+Questão 1/15 - Computação Forense
+  Ler em voz alta
+A Delegacia Especial de Atendimento à Mulher (Deam) do Distrito Federal identificou em São José dos Pinhais, na Região Metropolitana de Curitiba, o autor das ameaças contra a professora da Universidade de Brasília (UnB) Débora Diniz. Os investigadores cumpriram mandados de busca e apreensão em Ceilândia e em São José dos Pinhais. O homem tem 42 anos e irá responder em liberdade por injúria e ameaças. Computadores foram apreendidos no local. O nome dele não foi informado.
+
+
+Os policiais chegaram até o acusado com dados cibernéticos coletados por peritos do Instituto de Criminalística do Distrito Federal. Os policiais descobriam que o suspeito mantinha contato com um dos integrantes de um grupo de extrema-direita alvo de duas operações da Polícia Federal que combatiam crimes de ódio racial pela internet.
+
+
+Fonte: https://www.bemparana.com.br/noticia/suspeito-de-ameacar-professora-da-unb-de-morte-e-identificado-na-grande-curitiba#.Xi9PlOhKiUk
+
+
+ 
+
+
+A busca por evidências nos computadores apreendidos é útil para o levantamento de provas de ocorrências de crimes virtuais. Portanto, analise as assertivas abaixo e marque a alternativa que descreve, corretamente, o objetivo do uso de procedimentos para se analisar as evidências.
+
+Nota: 6.7
+
+	A		Facilitar a inviabilização da prova para usá-la em processos judiciais.
+	B		Apreender dados informáticos, que podem ser recuperados no momento da apreensão.
+	C		Encontrar vestígios de crimes digitais no local de crime, sem se preocupar com a cadeia de custódia.
+	D		Impedir a inviabilização da prova pela quebra da cadeia de custódia.
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+As evidências também são úteis para o levantamento de provas de ocorrências de crimes virtuais, e sua análise é realizada com procedimentos que impeçam a inviabilização da prova pela quebra da cadeia de custódia.
+
+ROTA Aula 1, página 2.
+
+Questão 2/15 - Computação Forense
+  Ler em voz alta
+Os sistemas operacionais forense (SOF)  são como um arsenal de ferramentas forenses e hackers. Porém, a grande maioria dos SOs e das ferramentas forense são criadas para ambiente Linux. 
+
+
+Fonte: Rota Aula 2, página 9.
+
+Assinale a alternativa que indica um SOF da família Windows que tem como base o ambiente de pré-instalação do sistema operacional da Microsoft.
+
+Nota: 6.7
+
+	A		
+DEFT (Digital Evidence & Forensics Toolkit).
+
+	B		
+WinPE (Windows Preinstallation Enviromment).
+
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+O WinFE foi desenvolvido e pesquisado em 2008 por Troy Larson, Sr Forensic Examiner e Research at Microsoft. O WinFE é baseado no ambiente de pré-instalação do Windows de mídia sendo somente leitura por padrão. Ele funciona de forma semelhante aos CDs forenses do Linux, que são configurados para não montar mídia na inicialização. 
+
+Fonte: Rota Aula 2, página 9.
+
+	C		
+CAINE (Computer Aided INvestigative Environment).
+
+	D		
+PALADIN Forensic Suite
+
+Questão 3/15 - Computação Forense
+  Ler em voz alta
+Já sabemos que os registros de crimes digitais são diversos, o que demonstra que a investigação forense computacional necessita de atenção e cuidado especial por parte dos profissionais de tecnologia.
+
+
+ 
+
+
+De acordo com uma pesquisa da empresa Symantec, os crimes digitais mais frequentes envolvem:
+
+
+ 
+
+
+
+Aparelhos infectados por vírus ou outras ameaças de segurança;
+
+Senhas de contas descobertas;
+
+Compras online que eram na verdade golpes;
+
+Cliques em e-mails fraudulentos ou envio de informações sigilosas.
+
+
+ 
+
+
+Fonte: Elaborado pelo autor (2020).
+
+
+ 
+
+
+Com base no texto para leitura relativo à disciplina de Computação Forense, analise as assertivas abaixo e assinale a alternativa que mostra, corretamente, as etapas para análise de dispositivos de armazenamento.
+
+Nota: 6.7
+
+	A		Preservação, extração dos dados, análise e apresentação.
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+De acordo com Velho (2016), a primeira fase, a preservação, tem como objetivo principal garantir que a evidência digital não sofra alterações durante a realização do exame. A etapa seguinte, a extração dos dados, visa identificar os arquivos ou fragmentos de arquivos presentes na mídia examinada. A terceira etapa do processo investigativo é a análise, que tem como principal propósito identificar nos arquivos recuperados informações úteis ao fato que está sob investigação. E por fim, a etapa de apresentação, que é o modo como o perito irá formalmente relatar suas conclusões ao final dos exames. Em outras palavras, essa última etapa, é o laudo ou outro documento técnico que será elaborado.
+
+ 
+
+Fonte: Fonte: Rota Aula 2, página 2.
+
+	B		Coleta, análise, armazenamento e laudo técnico.
+	C		Coleta, extração dos dados, comparação e abertura do inquérito.
+	D		Mandato de busca e apreensão, recolhimento dos equipamentos, transporte e analise.
+Questão 4/15 - Computação Forense
+  Ler em voz alta
+Durante a abertura dos Jogos Olímpicos de Londres, em 2012, a imprensa noticiou que hackers atacaram e tentaram comprometer o sistema de energia do Estádio Olímpico. A informação dada pelas autoridades inglesas é de que o ataque não foi bem-sucedido por conta da equipe de segurança digital a postos durante o acontecimento. Em 2014, o Gabinete de Segurança Institucional da Presidência da República registrou mais de 400 invasões a computadores do Governo Federal do Brasil no mês de maio, todas com potencial vazamento de material sensível. É possível que referidos ataques estivessem relacionados às manifestações de hacktivistas contrários à realização da Copa do Mundo de 2014 no Brasil, a qual se iniciaria no mês seguinte ao dos ataques.
+
+
+ 
+
+
+Fonte: https://bit.ly/2SXKJ4v
+
+
+ 
+
+
+O processo de uma investigação envolve a análise das evidências cibernéticas e a criação de um ambiente de trabalho equipado com os recursos de software (programas de computação forense) e hardware (cabos e adaptadores) necessários para a atividade investigativa.  A investigação pode ser feita individualmente ou em equipe, e sempre em conformidade com a legislação vigente.
+
+
+ 
+
+
+
+Analise as assertivas abaixo e assinale a alternativa que indica, corretamente, as características obrigatórias de uma evidência.
+
+Nota: 6.7
+
+	A		Legível, Verdadeira, Simples, Insuspeita e Assertiva.
+	B		Admissível, Completa, Autêntica, Confiável e Acreditável.
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+Uma evidência deve, obrigatoriamente, apresentar as seguintes características: Admissível, Completa, Autêntica, Confiável e Acreditável.
+
+Fonte: Rota Aula 1, página 4.
+
+	C		Verdadeira, Simples, Insuspeita, Fidedigna e Completa.
+	D		Fidedigna, Completa, Autêntica, Confiável e Sensata.
+Questão 5/15 - Computação Forense
+  Ler em voz alta
+No dia 17 de setembro de 2019, um perito paulista foi contratado para analisar se as imagens compartilhadas via WhatsApp, conforme informações obtidas junto aos órgãos policiais de Cerro Largo, estavam sendo repassadas em montagens de fotos, de cunho pejorativo e pornográfico.
+
+
+Foi registrado um Boletim de Ocorrência, pelo artigo 218-C do Código Penal Brasileiro, por divulgação de pornografia, crime com pena prevista de até 5 anos.
+
+
+A vítima, inconformada com a falsa acusação, pois não é ela nas imagens que estão sendo compartilhadas e visando provar a errônea imputação, contratou um perito de São Paulo, o professor Ricardo Caires dos Santos, que é perito em criminalística forense, pós-graduado em Direito Penal e Processo Penal, membro da Sociedade Brasileira de Ciências Forenses (SBCF) e presidente da Comissão de Audiovisual da Academia Brasileira de Ciências Criminais (ABCCRIM). (ADAPTADO) 
+
+
+Fonte: encurtador.com.br/jlpEW.
+
+A Image Forensics é um ramo específico da análise forense que lida com vários tipos de ataques e a autenticidade de uma imagem é um deles. Analise as assertivas abaixo e assinale a alternativa que trata sobre a autenticidade de uma imagem.
+
+Nota: 6.7
+
+	A		
+Quando falamos de autenticidade, estamos realmente falando se a imagem está bem estruturada ou não.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Quando falamos de autenticidade, estamos realmente falando se a imagem está bem estruturada ou não. Às vezes, os dados preservados podem ser adulterados. Os analistas forenses são obrigados a recuperar esses dados adulterados ao seu estado original. 
+
+Fonte: Fonte: Rota Aula 3, página 13.
+
+	B		
+Autenticidade refere-se às imagens bem estruturadas, impossíveis de serem modificadas.
+
+	C		
+Entende-se por autenticidade as mutações ao longo de um processo investigativo.
+
+	D		
+Autenticidade são condições desiguais, propiciadas a todos, ao longo do percurso histórico de uma existência.
+
+Questão 6/15 - Computação Forense
+  Ler em voz alta
+Uma investigação policial desmontou a maior rede de pedofilia já descoberta na internet, com cerca de 70 mil integrantes e conexões em 30 países, informou nesta quarta-feira a Europol (agência de polícia da Europa). A operação teve uma ramificação no Brasil que, em novembro de 2009, resultou na prisão e no indiciamento de um brasileiro de 48 anos acusado de molestar crianças em sua casa em Suzano (SP), explica à BBC Brasil o delegado da Polícia Federal Stenio Santos Souza, chefe do grupo especial de combate a crimes de pedofilia.
+
+
+A prisão foi feita a partir de uma denúncia anônima e de vídeos que mostravam o abuso de menores.
+
+
+ 
+
+
+Fonte: https://bbc.in/2Hr2eER
+
+
+ 
+
+
+ 
+
+
+Durante uma investigação são coletadas várias evidências e dentre elas teremos algumas unidades de armazenamento.
+
+
+Com base no texto para leitura, relativo à disciplina de Computação Forense, analise as assertivas abaixo e assinale a alternativa que descreve, corretamente, onde é feita a investigação para encontrar evidências digitais.
+
+Nota: 6.7
+
+	A		Nas unidades originais coletadas na cena do crime.
+	B		Nas gavetas e armários do suspeito.
+	C		Em cópias dos dispositivos encontrados.
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+Durante uma investigação são coletadas várias evidências e dentre elas teremos algumas unidades de armazenamento. Como falado anteriormente, nunca devemos fazer a investigação na unidade original, portanto, devemos fazer várias cópias para iniciar o trabalho investigativo.
+
+ 
+
+Fonte: Rota Aula 2, página 4.
+
+	D		No smartphone e nas redes sociais do suspeito.
+Questão 7/15 - Computação Forense
+  Ler em voz alta
+No dia 17 de setembro de 2019, um perito paulista foi contratado para analisar se as imagens compartilhadas via WhatsApp, conforme informações obtidas junto aos órgãos policiais de Cerro Largo, estavam sendo repassadas em montagens de fotos, de cunho pejorativo e pornográfico.
+
+
+Foi registrado um Boletim de Ocorrência, pelo artigo 218-C do Código Penal Brasileiro, por divulgação de pornografia, crime com pena prevista de até 5 anos.
+
+
+A vítima, inconformada com a falsa acusação, pois não é ela nas imagens que estão sendo compartilhadas, e visando provar a errônea imputação, contratou um perito de São Paulo, o professor Ricardo Caires dos Santos, que é perito em criminalística forense, pós-graduado em Direito Penal e Processo Penal, membro da Sociedade Brasileira de Ciências Forenses (SBCF) e presidente da Comissão de Audiovisual da Academia Brasileira de Ciências Criminais (ABCCRIM). 
+
+
+Fonte: encurtador.com.br/jlpEW. 
+
+
+Cada arquivo tem uma assinatura que define a sua natureza, inclusive uma imagem, e nos informa sobre os recursos específicos que o determinam.
+
+Analise as assertivas abaixo e assinale a alternativa que trata da assinatura de um arquivo.
+
+Nota: 6.7
+
+	A		
+Um arquivo PNG tem a seguinte assinatura “89 50 4E 47 0D 0A 1A 0A” e esse valor em hexadecimal são também chamados de números mágicos.
+
+ 
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Uma assinatura de arquivo típica é algo que define a natureza de um arquivo e também nos informa sobre os recursos específicos de um determinado arquivo. Isso também é chamado como o cabeçalho do arquivo ou, às vezes, como a soma de verificação ou checksum. 
+
+Exemplos: 
+
+PNG -> 89 50 4E 47 0D 0A 1A 0A
+
+ZIP FILE -> 50 4B 03 04 ou 50 4B 05 06
+
+EXE -> 4D 5A 50 00 ou 4D 5A 90 00
+
+FLV -> 46 4C 56 01
+
+PDF - > 25 50 44 46 
+
+Os valores ‘hexadecimais’ mostrados são também chamados de números mágicos. 
+
+Fonte: Fonte: Rota Aula 3, página 17.
+
+	B		
+Um arquivo JPG tem a seguinte assinatura “25 50 44 46” e esse valor em hexadecimal é também chamado de números chaves.
+
+	C		
+Um arquivo JPEG tem a seguinte assinatura “4D 5A 50 00 ou 4D 5A 90 00” e esse valor em hexadecimal é também chamado de números de assinatura.
+
+	D		
+Um arquivo TIFF tem a seguinte assinatura “50 4B 05 06” e esse valor em hexadecimal é também chamado de números de identificação.
+
+Questão 8/15 - Computação Forense
+  Ler em voz alta
+Os vestígios digitais devem ser zelados com o mesmo cuidado com que são tratados os vestígios encontrados em uma cena de crime, como manchas de sangue e projéteis. Apesar de bastante confiáveis, as mídias de armazenamento estão sujeitas às falhas provenientes de choque mecânicos, da umidade excessiva ou do envelhecimento. 
+
+
+Fonte: Rota Aula 2, página 3.
+
+Com base no texto para leitura relativo à disciplina de Computação Forense, analise as assertivas abaixo e assinale a alternativa que descreve, corretamente, uma particularidade que difere os vestígios digitais dos vestígios tradicionais.
+
+Nota: 6.7
+
+	A		
+A possibilidade de serem reproduzidas integralmente para outro dispositivo de armazenamento.
+
+ 
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Por outro lado, as mídias de armazenamento apresentam uma particularidade que as difere dos vestígios tradicionais: a possibilidade de serem reproduzidas integralmente para outro dispositivo de armazenamento.
+
+Dessa forma, evita-se que a mídia original seja manipulada desnecessariamente durante os exames, o que pode vir a prejudicar a integridade dos dados. Desse modo, sempre que plausível, a analise deve ser conduzida sobre a cópia, de forma que se alguma mudança imprevidente acontecer, todo o processo pode ser repetido a partir da mídia original ou demais cópias. 
+
+Fonte: Rota Aula 2, página 3.
+
+	B		
+O fato de se constatar técnica e cientificamente a sua relação com o crime.
+
+	C		
+O material recolhido em um local de crime pode ser utilizado para análise posterior.
+
+	D		Há a depuração total dos elementos encontrados no local do crime.
+Questão 9/15 - Computação Forense
+  Ler em voz alta
+Fazer um dump da memória RAM é como “congelar” o estado da memória em um determinado momento, ao fazermos o dump, criamos um arquivo com a extensão “.mem” tal qual a memória. Na computação forense, isso serve para análise de possíveis malwares alojados na RAM, como também para descobrir dados voláteis sobre o que estava sendo feito naquele dispositivo tecnológico.
+
+
+Todas as informações presentes em memória RAM serão perdidas assim que o dispositivo em questão for desligado, e qualquer ação no dispositivo ligado altera o estado da memória. Devido a essa volatilidade, quando necessário e possível, faz-se o uso do dump.
+
+A volatilidade dá-se pela perda de informação com o tempo, assim como a capacidade de recuperação ou validação dos dados, diminuindo a veracidade e possivelmente impedindo que tenha algo de valor probatório em juízo na RAM. 
+
+
+Fonte: https://www.lucasthyerre.com.br/2018/06/01/computacao-forense-dump-de-memoria-ram/
+
+Com base no texto relativo à disciplina, analise as assertivas abaixo e assinale a alternativa que indica um software capaz de fazer um dump na memória.
+
+Nota: 6.7
+
+	A		
+FTK Imager.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+O FTK Imager também pode realizar dumps de memória e até mesmo realizar uma pequena análise forense na imagem criada.
+
+Fonte: Rota Aula 1, página 6.
+
+	B		
+B1 Free Archiver.
+
+	C		
+Bandizip.
+
+	D		
+Ashampoo Zip Free.
+
+Questão 10/15 - Computação Forense
+  Ler em voz alta
+Quase sempre baixamos alguma "coisa" da internet, seja um arquivo compactado, um software ou, para quem tem o costume de testar outras distribuições Linux, baixar várias ISOs, mas são poucas as pessoas que checam se o arquivo está "perfeito" após o download.
+
+
+Mesmo que o seu gerenciador de downloads indique que o seu arquivo foi baixado completamente, ele pode estar com algum erro, e só se vai descobrir que a ISO estava corrompida após verificar o MD5 dela.
+
+
+ 
+
+
+Fonte: https://bit.ly/2UVDQ67
+
+
+ 
+
+
+Com base no texto para leitura relativo à disciplina de Computação Forense, analise as assertivas abaixo e assinale a alternativa que está relacionada, corretamente, com o MD5.
+
+Nota: 6.7
+
+	A		
+Pode executar o arquivo da ISO por meio de um gerador MD5 que vai retornar uma cadeia de 32 caracteres.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Essas distribuições Linux fornecem um hash MD5 para verificar se o arquivo foi corrompido durante o envio do arquivo ISO. Pode executar esse arquivo por meio de um gerador MD5 que vai retornar uma cadeia de 32 caracteres. Se a string corresponder com a string da distribuição teremos uma ISO sem falhas e completa.
+
+Fonte: Fonte: Rota Aula 1, página 6.
+
+	B		Pode executar o arquivo da ISSO, por meio de um gerador MD5, que vai retornar uma cadeia de 64 caracteres.
+	C		Pode executar o arquivo da ISSO, por meio de um gerador MD5, que vai retornar uma cadeia de 28 caracteres.
+	D		Pode executar o arquivo da ISSO, por meio de um gerador MD5, que vai retornar uma cadeia de 128 caracteres.
+Questão 11/15 - Computação Forense
+  Ler em voz alta
+A Open Whisper Systems, mais conhecida pelo aplicativo seguro de mensagens TextSecure, anunciou que fechou uma parceria com o WhatsApp para permitir que os usuários enviem mensagens criptografadas de ponta a ponta. A novidade já está disponível na versão mais recente do aplicativo do WhatsApp para Android.
+
+
+A criptografia de ponta a ponta significa que apenas os usuários envolvidos na conversa terão acesso às mensagens, já que para descriptografá-las é necessário possuir uma chave particular, que somente eles possuirão. Teoricamente, nem o Facebook, nem o WhatsApp e nem o Obama podem ler suas mensagens.
+
+
+ 
+
+
+Fonte: https://tecnoblog.net/noticias/whatsapp-criptografia-ponta-a-ponta-android/. Acesso em 06/02/2026.
+
+
+ 
+
+
+Com base no texto para leitura relativo à disciplina de Computação Forense, analise as assertivas abaixo e assinale a alternativa que está relacionada, corretamente, com o MD5.
+
+Nota: 6.7
+
+	A		Uma função hash não é uma criptografia. O hash é habitualmente usado para comparar informações.
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Uma função hash não pode ser confundido com criptografia. A encriptação é usada sempre que houver a necessidade de armazenar uma informação e recuperá-la através de uma chave simétrica ou privada. Já o hash é normalmente usado para comparar informações.
+
+ 
+
+Fonte: Fonte: Rota Aula 1, página 6.
+
+	B		Uma função hash é igual a criptografia. O hash é usado para esconder mensagens e comparar informações.
+	C		Uma função hash assemelha-se a criptografia. O hash é usado para embaralhar mensagens através de um cálculo matemático.
+	D		Uma função hash não é uma criptografia. O hash é habitualmente usado para embaralhar mensagens.
+Questão 12/15 - Computação Forense
+  Ler em voz alta
+O Autopsy é uma ferramenta gratuita de código aberto, desenvolvida por Brian Carrier. Através da interface gráfica do Autopsy, as imagens podem ser examinadas no nível de abstração de arquivos e realizar buscas por expressões regulares e palavras-chave. O Autopsy tem interface baseada em HTML, seguindo um modelo cliente-servidor. Com isso, é permitido que a interface seja executada diretamente no sistema alvo. 
+
+
+Fonte: (Autoria do elaborador da questão)
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que indica os dois modos de análises do Autopsy.
+
+Nota: 6.7
+
+	A		
+Dead analysis e o Live analysis.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Dead analysis: ocorre quando um sistema de análise todo é usado para examinar dados de um sistema suspeito.
+
+Live analysis: ocorre quando o sistema suspeito está sendo analisado, enquanto ele está sendo executado. 
+
+Fonte: Rota Aula 2, página 11.
+
+	B		
+Open analysis e Closed analysis.
+
+	C		
+Simple analysis e Multi analysis.
+
+	D		
+RAM analysis e HD analysis.
+
+Questão 13/15 - Computação Forense
+  Ler em voz alta
+Alberto Miranda Sobrinho, de 38 anos, foi condenado a 40 anos de prisão em regime fechado. Ele foi preso na casa em que mora, em 11/2, após ser identificado em 18 vídeos e mais de mil fotos que estavam em um pen drive. O homem perdeu o objeto na rua. Uma mulher encontrou e encaminhou para a polícia.
+
+
+As imagens mostravam o homem, que tem sete filhos, tendo relações sexuais com uma criança de seis anos e duas adolescentes. Não há informações sobre a relação de parentesco de Miranda com as crianças que aparecem nas imagens. O arquivo foi entregue a 30ª Delegacia de Polícia (São Sebastião). O autor já tinha passagens pela polícia por lesão corporal e desacato à autoridade.
+
+
+            Outro homem, de 40 anos, foi condenado a 14 anos e sete meses, também em regime fechado. Nilton Hélio de Jesus se entregou à polícia um mês depois do início das invetigações, após cumprimento de mandado de busca e apreensão em sua casa, onde foram apreendidos 11 discos rígidos, um laptop, três máquinas fotográficas, um pen drive e vários cds com conteúdo relacionado a pedofilia.
+
+
+ 
+
+
+Fonte: https://bit.ly/2SrjXSF
+
+
+ 
+
+
+As evidências são peças utilizadas por advogados nos tribunais e cortes do mundo inteiro, mas para que sejam consideradas provas válidas é muito importante que o perito realize o processo de investigação de maneira cuidadosa e sistemática. É importante estabelecer padrões e estabelecer políticas para a aquisição e manipulação dos dados e, a partir dessas políticas, desenvolver protocolos e procedimentos.
+
+
+Analise as assertivas abaixo e assinale a alternativa que indica, corretamente, como essas políticas devem prover os dados que serão analisados.
+
+Nota: 6.7
+
+	A		Os resultados devem ser válidos, reproduzíveis e que reflitam os objetivos de todos os cientistas.
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Para a aquisição de dados, é importante também, estabelecer padrões. Devem-se estabelecer políticas para a manipulação destes e, a partir dessas políticas, desenvolver protocolos e procedimentos. Essas políticas devem prover resultados válidos e reproduzíveis refletindo os objetivos de todos os cientistas.
+
+ 
+
+Fonte: Rota Aula 1, página 5.
+
+	B		
+Evidências devem ser analisadas no dispositivo informático original e detalhadamente documentadas.
+
+	C		
+Para garantir que os dados sejam exatamente iguais aos originais é usado algoritmos de registros.
+
+	D		
+O digest pode ser entendido como uma sequência de dados copiados.
+
+Questão 14/15 - Computação Forense
+  Ler em voz alta
+Os Arquivos ZIP, RAR, Office, PDF, IMG e ISO são os mais perigosos segundo a F-Secure. Os cibercriminosos adoram esconder malwares em arquivos ZIP. Por exemplo, usavam arquivos ZIP com o nome Love_You0891 para distribuir o ransomware GandCrab no Dia dos Namorados. Algumas semanas depois, um grupo de golpistas enviou arquivos com o Trojan Qbot, especializado em roubo de dados.
+
+
+A Kaspersky lembra que este ano houve a descoberta de um recurso muito interessante no WinRAR.  Aparentemente, durante a criação de um arquivo, você pode definir uma série de comandos para que o conteúdo seja descompactado na pasta do sistema. Ou seja, os arquivos poderiam ir para a pasta de inicialização, e seriam executados na próxima reinicialização. Por isso, a Kaspersky recomendou que todos os usuários do WinRAR atualizassem o programa imediatamente par evitar malwares. 
+
+
+Fonte: encurtador.com.br/gLS13
+
+De acordo com os estudos realizados e levando em consideração o texto acima, analise as assertivas abaixo e assinale a alternativa que esteja relacionada a um arquivo com a extensão .zip:
+
+Nota: 6.7
+
+	A		
+O formato de arquivo .zip usa vários algoritmos de compactação.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Na verdade, se trata de um formato de arquivo com suporte a compressão de dados sem perdas. Este formato de arquivo atinge a compactação de um arquivo usando vários algoritmos de compactação. DEFLATE é o algoritmo de compressão mais utilizado. Os arquivos ZIP têm a extensão de arquivo .zip ou .ZIP. 
+
+Fonte: Fonte: Rota Aula 3, página 19.
+
+	B		
+Esse formato de arquivo tem suporte a compressão de dados com perdas.
+
+	C		
+Só é possível a compactação de um arquivo nesse formato.
+
+	D		
+É um formato de arquivo padrão para executáveis, códigos de objeto, dumps principais etc. para qualquer sistema baseado em UNIX.
+
+Questão 15/15 - Computação Forense
+  Ler em voz alta
+O CAINE oferece um ambiente forense completo que é organizado para integrar ferramentas de software existentes como módulos de software e fornecer uma interface gráfica amigável. 
+
+
+Os principais objetivos do projeto que o CAINE visa garantir são os seguintes:
+
+
+. Um ambiente interoperável que dá suporte ao investigador digital durante as quatro fases da investigação digital;
+
+
+. Uma interface gráfica amigável;
+
+
+. Ferramentas de fácil utilização. 
+
+
+Fonte: Rota Aula 2, página 6.
+
+Com base no texto para leitura relativo à disciplina de Computação Forense, analise as assertivas abaixo e assinale a alternativa que descreve, corretamente, as quatro fases de uma investigação forense.
+
+Nota: 6.7
+
+	A		
+Coleta dos vestígios, análise, documentação e apresentação.
+
+	B		
+Acesso à cena do crime, recolhimento dos aparelhos digitais, transporte e análise.
+
+	C		
+Preservação, extração dos dados, análise e apresentação.
+
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+Os passos essenciais para um processo de investigação forense são: Preservação, extração dos dados, análise e apresentação. 
+
+Fonte: Rota Aula 2, página 4.
+
+	D		
+Coleta, análise, armazenamento e laudo técnico.
