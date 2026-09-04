@@ -30,3 +30,8 @@ logs/
 # Misc
 caminhos-servidor.txt
 Sistema RU.txt
+
+# Orquestra
+.orquestra_vault
+.orquestra_salt
+.orquestra_logs.md
