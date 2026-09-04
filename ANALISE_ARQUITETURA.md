@@ -257,3 +257,44 @@ Dois endpoints com propósitos distintos:
 - `.github/workflows/deploy.yml`
 - `.gitignore`
 - `CONTEXT.md`
+
+---
+
+## 8. Revisão técnica independente
+
+> Revisão realizada em 2026-09-04 por inspeção independente do código-fonte, sem alterar a aplicação. Veredito geral: o relatório é majoritariamente preciso e bem calibrado — os 7 fluxos, a estrutura, as decisões arquiteturais e a maior parte dos riscos conferem com o código, inclusive os números de linha citados. Porém há **1 erro factual relevante** (comportamento do `seed.js`), **1 erro factual menor** (`material-bruto/`), **3 atribuições/citações imprecisas** e **lacunas operacionais concretas** não cobertas. Correções e complementos abaixo.
+
+### 8.1 Correções — afirmações que não correspondem ao código
+
+1. **O seed não é "não idempotente" — ele é destrutivo por reset.** `backend/seed.js:191-196` executa `DELETE FROM alternativas/resultados/questoes/temas/alunos` antes de inserir tudo de novo. Consequências:
+   - A afirmação das seções 1.5 e 5.2.5 ("rodar duas vezes duplica e quebra por violação de chave primária") é **incorreta** — reexecutar não viola chave nenhuma; o seed faz reset completo e re-insere.
+   - O risco real, mais grave e não relatado: **rodar o seed em produção apaga o histórico (`resultados`) de todos os alunos e remove qualquer aluno que não esteja entre os 6 fixos do script** (alunos reais cadastrados manualmente no banco somem). O `CONTEXT.md:230-232` instrui rodar o seed após cada deploy sem alertar para esse efeito colateral destrutivo.
+   - A etapa 5 do plano de evolução ("tornar seed idempotente… cuidado para não sobrescrever resultados de alunos reais") parte de premissa invertida: o código atual já é mais destrutivo do que o relatório descreve. A melhoria correta é o contrário do que está escrito — **tornar o seed não-destrutivo** (preservar `alunos`/`resultados`), não "adicionar UPSERT para permitir reexecução".
+   - Detalhe operacional adicional: o seed roda em processo separado do servidor. Com o servidor no ar (o caso padrão do fluxo via SSH), a cópia em memória do processo antigo permanece antiga e **qualquer escrita dele após o seed sobrescreve o `mxos.db` recém-seedado** (última escrita vence). O procedimento seguro é seed → `pm2 reload mxos` imediatamente, sem atividade de usuários no intervalo — isso não está documentado em lugar nenhum.
+2. **`material-bruto/` é versionado.** Os 8 arquivos brutos (4 matérias × 2 APOLs) estão trackeados no git (`git ls-files` confirma), ao contrário do que afirma a seção 1.1 ("pasta não versionada"). A conclusão sobre o artefato órfão permanece (única referência a `aulas-09-12.js` é o próprio gerador, `convert-material-bruto.js:270`), mas a fonte dos dados está no repositório.
+3. **Atribuição de índices trocada (seção 1.3).** `idx_resultados_aluno` é o índice usado por `historico.js` (`WHERE r.aluno_id = ?`) e pelo check de duplicata do `/finalizar`; `idx_resultados_nota` (`tema_id, nota DESC`) é o usado por `ranking.js`. O índice simples `idx_resultados_tema` não é usado por nenhuma rota atual e é redundante — o composto já cobre o prefixo `tema_id`.
+4. **Citações off-by-one.** `bcryptjs` está em `backend/package.json:12` (não `:13`, citado nas seções 2.1 e 5.1.3); `package-lock.json` está na linha 4 do `.gitignore` (não `:6`).
+5. **Risco 5.3.2 mal formulado.** Num processo único não existe a janela de concorrência descrita: Node é single-threaded e `salvar()` é síncrono — `db.export()` nunca intercala com outra escrita do mesmo processo. O risco real de perda de escrita é outro, e é concreto: **`closeDatabase()` não é ligado a SIGINT/SIGTERM em `server.js`** (confirmado por grep) — um `pm2 reload` nos últimos 500 ms após uma escrita perde a gravação pendente do debounce. Correção barata: handler de shutdown chamando `closeDatabase()`/`salvar()`.
+6. **Risco 5.4.4 não se materializa.** O frontend nunca lê nem exibe `passingScore` (grep em `frontend/index.html`: zero ocorrências); o único valor que chega à tela é o `passingScore: 7` fixo retornado por `/finalizar`. A ambiguidade é só de API/schema, sem risco de confundir o aluno hoje. A recomendação 12 permanece válida, mas com urgência menor.
+7. **Evidência dos "RUs sequenciais" qualificada.** Os RUs em escada (`1234567`→`5678901`) são os 5 alunos *fake* do seed — placeholders de teste, não evidência sobre RUs reais. O risco de enumeração se sustenta independentemente (espaço de 7 dígitos + zero rate limiting), mas a linha de evidência usada na seção 3 deve ser lida com essa ressalva.
+
+### 8.2 Lacunas — achados que o relatório não cobriu
+
+1. **Colheita de gabarito via `/responder`.** O ponto forte "gabarito nunca trafega antes da resposta" é verdadeiro quanto ao payload de `/questoes`, mas não é uma barreira: `POST /responder` aceita qualquer `questionId` e revela `correctAnswerLetter` quando o aluno acerta — basta testar A–E (≤5 chamadas por questão, sem rate limit) para extrair o gabarito das 360 questões. Para um app de estudo isso é aceitável (coerente com a decisão do tutor "professor direto"), mas o ponto forte da seção 4 deveria ser qualificado e `/responder` incluído no escopo do rate limiting.
+2. **Token JWT em `localStorage` + renderização via `innerHTML` sem CSP.** Combinação sensível a XSS: qualquer injeção no HTML expõe o token de sessão. Hoje os dados renderizados vêm do banco (seed-controlado, risco baixo), mas a recomendação 11 (`helmet`) também mitiga o impacto do roubo de token — vale registrar essa conexão.
+3. **Campo `alunos.ativo` é inoperável.** Só o login o lê (`routes/auth.js:21`); não existe rota para desativar aluno. A única forma prática de revogar acesso hoje é editar o banco manualmente ou reativar o fluxo de senha — isso reforça a prioridade da etapa 4 do plano.
+4. **O drift do `CONTEXT.md` é maior que o citado.** Além do `better-sqlite3` (linha 21): a seção CI/CD (linha 92) ainda diz `pm2 restart` enquanto o deploy usa `reload` (inconsistência interna — a linha 133 do próprio arquivo registra a troca); as lições aprendidas (linhas 274-282) descrevem o backend rejeitando `/finalizar` duplicado com "Simulado já finalizado", comportamento que não existe mais no código (hoje recalcula e faz UPDATE); a árvore do projeto (linha 51) pendura `config.js` sob `.github/workflows/`; e a linha 211 sugere que `JWT_SECRET` fica "em config.js" quando na verdade vem do ambiente com fallback hardcoded. A recomendação 5 ("corrigir CONTEXT.md") tem escopo maior do que o relatório estima.
+5. **Validação assimétrica em `/finalizar`.** `answers` é validado apenas como objeto (valores fora de A–E contam como erro — sem risco de inflar nota), e o campo `respostas` gravado em `resultados` é o payload bruto do cliente (`JSON.stringify(answers)`), não os detalhes calculados pelo servidor — divergência sutil caso o campo seja usado para auditoria no futuro.
+
+### 8.3 Reavaliação das prioridades
+
+A ordenação geral do plano de evolução (etapas 1–7) está sensata e é mantida, com estes ajustes:
+
+- **Etapa 1 (segurança de baixo custo) — estender o escopo:** incluir `/responder` e `/finalizar` no rate limiting (cobre a colheita de gabarito de 8.2.1 e spam de escrita), e adicionar graceful shutdown (8.1.5) — custo de poucas linhas.
+- **Etapa 5 (seed) — reformular e subir de prioridade:** o problema não é idempotência; é **destrutividade sobre dado real** (`resultados`/`alunos`). Enquanto não for corrigido, o procedimento em produção deveria incluir backup do `mxos.db` antes de rodar o seed. Com a leitura correta, o custo da correção cai de "médio" para "baixo" (não deletar `resultados`/`alunos`, ou copiar o arquivo antes do reset).
+- **Recomendação 12 (passingScore) — rebaixar:** sem impacto visível ao aluno hoje (8.1.6); pode virar tarefa de higiene de schema.
+- **Etapa 4 (autenticação) — mantida como a decisão central**, agora reforçada por 8.2.3 (não há mecanismo de revogação operável).
+
+### 8.4 Confirmações
+
+Verificados e confirmados como corretos contra o código: os 7 fluxos da seção 2 (incluindo as referências de linha); a caracterização das decisões arquiteturais da seção 3; os pontos fortes da seção 4 (com a ressalva de 8.2.1); os riscos de segurança 5.1.1–5.1.7 (com a ressalva de 8.1.7); a análise de escalabilidade (5.3.1, 5.3.3, 5.3.4); os números de linha do frontend (`apiRequest` 1341-1357, `state` 1362-1373, `views` 1376-1384, `localStorage` 1466-1467, `innerHTML` em 1608/1751/1923/1944); as citações do `CONTEXT.md` (10-12, 21, 136, 161-162, 200-205, 230-232, 258-272); e as contagens (seed 6611 linhas, frontend 2213, artefato 3172, 12 aulas/360 questões/6 alunos). Nenhum código da aplicação foi alterado nesta revisão.
