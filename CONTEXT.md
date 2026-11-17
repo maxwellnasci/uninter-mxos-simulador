@@ -18,7 +18,7 @@ A correção acontece no backend — o gabarito nunca é exposto no frontend.
 ## Stack
 
 - **Backend:** Node.js + Express (porta 4000)
-- **Banco de dados:** SQLite (better-sqlite3)
+- **Banco de dados:** SQLite via `sql.js` (100% JavaScript/WASM, sem binário nativo — o banco fica em memória e é gravado em `backend/mxos.db`)
 - **Frontend:** HTML5 + CSS3 + JavaScript puro (SPA em um único arquivo)
 - **Servidor:** Contabo VPS Ubuntu — IP: 158.220.125.233
 - **Processo:** PM2 — nome do processo: `mxos`
@@ -32,7 +32,10 @@ uninter-mxos-simulador/
 ├── backend/
 │   ├── server.js          → Servidor Express (porta 4000)
 │   ├── database.js        → Conexão SQLite
-│   ├── seed.js            → Popula o banco com as questões
+│   ├── seed.js            → Popula o banco com as questões (não destrutivo)
+│   ├── scripts/
+│   │   ├── convert-material-bruto.js → Converte material-bruto/ em constantes AULAxx
+│   │   └── output/        → Arquivos gerados pelo conversor (aulas-09-12.js, aulas-13-16.js)
 │   ├── middleware/
 │   │   └── auth.js        → Autenticação por RU
 │   └── routes/
@@ -45,6 +48,7 @@ uninter-mxos-simulador/
 │       └── tutor.js       → POST /api/simulado/tutor (Gemini 2.5 Flash)
 ├── frontend/
 │   └── index.html         → SPA completa (CSS e JS embutidos)
+├── material-bruto/        → Export bruto das provas (APOL1/APOL2) por matéria — VERSIONADO no git
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml     → CI/CD GitHub Actions
@@ -168,7 +172,12 @@ uninter-mxos-simulador/
 - [x] Bug fix: resultado em cache sempre mostrava mesmo placar ✅
 - [x] Sistema de retentativa — aluno pode refazer simulado (UPDATE no banco) ✅
 - [x] Agente tutor confirmado sem interferência no fluxo de respostas ✅
+- [x] 4 matérias novas (aula13–aula16) — 16 matérias, 480 questões ✅ (2026-11-17)
+- [x] Conversor de material-bruto genérico (A–E, "Justificativa", lista de matérias, correções) ✅ (2026-11-17)
+- [x] Seed não destrutivo — preserva resultados e alunos ✅ (2026-11-17)
 - [ ] Exportar resultado em PDF
+- [ ] Ruído de bots: 2 erros `unsupported content encoding "br"` no log do PM2 (requisições com corpo
+      comprimido em brotli, provavelmente bots) — inofensivo, só poluem o log
 
 ---
 
@@ -234,9 +243,8 @@ O tutor é composto por 3 camadas:
 
 ## Como adicionar novas questões
 
-> ⚠️ **ATENÇÃO:** Após o deploy, sempre rodar o seed manualmente no servidor:
-> `ssh -i C:\Users\maxwe\.ssh\id_ed25519 root@158.220.125.233 "cd /root/mxos-simulador/uninter-mxos-simulador/backend && node seed.js"`
-> O deploy (GitHub Actions) copia os arquivos mas NÃO roda o seed automaticamente.
+> ⚠️ **ATENÇÃO:** O deploy (GitHub Actions) copia os arquivos mas NÃO roda o seed automaticamente.
+> Após o deploy, rodar o seed manualmente no servidor (com backup e reload — ver passo 6 abaixo).
 
 
 1. Colocar o export bruto das provas em `material-bruto/<Nome da Matéria>/apol1` e `apol2`
@@ -360,3 +368,61 @@ Imagens no README do GitHub precisam estar commitadas no repositório
 e referenciadas com caminho relativo correto (docs/screenshots/nome.png).
 O Gemini deve sempre verificar se as imagens foram commitadas antes
 de confirmar que o README está pronto.
+
+### 2026-11-17 — 4 matérias novas (aula13–aula16) + seed não destrutivo
+**Feito por:** Claude Code (análise, implementação, testes, deploy e seed em produção).
+**Commits:** `3119c19` (feature) e merge `ccca8e9` na main.
+
+**O que entrou:**
+| ID | Matéria | Alternativas | Ícone |
+|----|---------|--------------|-------|
+| aula13 | Arquitetura Computacional e Sistemas Operacionais | A–E | 🖥️ |
+| aula14 | Gestão da Tecnologia e da Informação | A–E | 📈 |
+| aula15 | Produção Textual | A–D | ✍️ |
+| aula16 | Relações Étnico-raciais: Africana, Afro-brasileira e Indígena | A–D | 🌍 |
+
+**Como o gabarito foi garantido:** o material bruto tinha nota máxima (todas as 120
+questões com exatamente um "Você assinalou (X)" e um "Você acertou!"). O gabarito foi
+conferido de duas formas independentes (conversor × leitura direta do texto), o texto da
+alternativa correta foi comparado com o arquivo original, e um teste ponta a ponta pela API
+passou pelas 30 questões de cada matéria (resposta certa → acerto, errada → erro, 10/10 APROVADO).
+
+**Decisões do Maxwell:**
+- Questão repetida entre APOL1 e APOL2 (Relações q5 = q26) fica como **duas questões
+  separadas** — padrão de 30 questões por matéria é mantido.
+- A explicação continua aparecendo **sempre** (no acerto e no erro), como já era.
+- Seed não destrutivo (opção B) em vez de só fazer backup antes de um seed que apaga tudo.
+
+**Correção no material oficial:** Relações Q15 (APOL1, frenologia de Gall) — o comentário da
+UNINTER dizia "A letra E é a opção correta", mas a questão só tem A–D e a resposta assinalada e
+confirmada é **D**. O texto foi corrigido para "A letra D" via campo `corrections` do conversor
+(o gabarito não foi alterado; o tutor IA lê esse comentário, por isso a correção importa).
+
+**Conversor (`backend/scripts/convert-material-bruto.js`):**
+- Aceita 4 ou 5 alternativas e valida a sequência de letras.
+- Descarta o feedback "Justificativa: Falsa/Verdadeira" que a Produção Textual traz sob cada alternativa.
+- Matérias parametrizadas: `node scripts/convert-material-bruto.js aula13 aula14 ...`.
+- Regressão: regenera aula09–aula12 **idênticas** ao seed.js — usar esse teste sempre que mexer no parser.
+
+**Seed não destrutivo — por quê:** o seed antigo fazia `DELETE` em resultados e alunos. Só
+parar de apagar resultados não bastava: `resultados.aluno_id` aponta para `alunos.id`
+(AUTOINCREMENT) e recriar os alunos mudaria os IDs, deixando resultados órfãos. Solução: apagar só
+questões/alternativas, UPSERT em temas, `INSERT OR IGNORE` em alunos, nunca tocar em resultados.
+Testado sobre uma cópia do banco de produção antes de rodar no servidor.
+
+**Execução em produção (2026-11-17):**
+1. Push na main → GitHub Actions: Verificar projeto ✅, Deploy no Contabo ✅.
+2. No servidor: backup `backend/mxos.db.bak-antes-materias-13-16` → `node seed.js` → `pm2 reload mxos`.
+3. Resultado: 12 → **16 matérias**, 360 → **480 questões**, 1440 → 1980 alternativas;
+   6 alunos e 5 resultados **idênticos** antes e depois.
+
+**Outros ajustes:** landing dizia "São 8 simulados" (texto fixo e desatualizado) → "São 16 simulados".
+Cor de Arquitetura trocada de cinza `#475569` para `#65a30d`, porque o selo "Nota mín" ficava ilegível no tema escuro.
+
+**Lições:**
+- `material-bruto/` **é versionado** — commitar as pastas novas junto com o seed.
+- Ao testar com servidor local numa porta extra, confirmar que o processo anterior foi encerrado:
+  um servidor antigo esquecido na mesma porta fez um teste "passar" contra o código velho.
+- Git: o remote `origin` tinha um token `ghp_` escrito na URL, que já não funcionava (o push pedia
+  senha). O remote foi trocado para a URL limpa e o git passou a usar o login do `gh`
+  (`gh auth setup-git`). Nunca colocar token na URL do remote.
