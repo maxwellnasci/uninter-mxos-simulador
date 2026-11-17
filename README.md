@@ -33,7 +33,7 @@
 
 ---
 
-## 📚 Simulados Disponíveis (12 temas — 360 questões)
+## 📚 Simulados Disponíveis (16 temas — 480 questões)
 
 | # | Tema | Questões no banco |
 |---|------|------------------|
@@ -49,6 +49,10 @@
 | 10 | Direito e Novas Tecnologias | 30 |
 | 11 | Investigação de Crimes Digitais | 30 |
 | 12 | Matemática Elementar | 30 |
+| 13 | Arquitetura Computacional e Sistemas Operacionais | 30 |
+| 14 | Gestão da Tecnologia e da Informação | 30 |
+| 15 | Produção Textual | 30 |
+| 16 | Relações Étnico-raciais: Africana, Afro-brasileira e Indígena | 30 |
 
 ---
 
@@ -74,7 +78,7 @@ uninter-mxos-simulador/
 │   ├── server.js           # Servidor Express (porta 4000)
 │   ├── database.js         # Conexão SQLite + índices de performance
 │   ├── config.js           # Configurações centralizadas
-│   ├── seed.js             # Popula o banco com 360 questões
+│   ├── seed.js             # Popula o banco com 480 questões
 │   ├── middleware/
 │   │   └── auth.js         # Autenticação JWT
 │   └── routes/

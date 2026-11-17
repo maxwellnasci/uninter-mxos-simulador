@@ -1,0 +1,557 @@
+Questão 1/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+A operação dos computadores consiste em executar instruções sequenciais (uma após a outra).
+
+
+Referências: Rota de aprendizagem 4, Microprocessadores e a Microprogramação, slide da aula 4. 
+
+
+Assinale a alternativa que indica, corretamente, em quantas etapas a execução de instruções é subdividida:
+
+Nota: 6.7
+
+	A		
+5.
+
+	B		4.
+	C		7.
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+Em sete etapas. A etapa “7” volta para a etapa “1” para iniciar a instrução seguinte.
+
+Referências: Rota de aprendizagem 4, Microprocessadores e a Microprogramação, slide da aula 4.
+
+	D		
+8.
+
+	E		
+16.
+
+Questão 2/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Wilkes, em 1951, sugeriu uma unidade de controle microprogramada, que foi um dos maiores avanços desde o nascimento do computador e introduzida pela IBM na linha System/360 em 1964.
+
+
+Referência: Rota de aprendizagem 4, Microprocessamento, slide da aula 4.
+
+
+A microprogramação facilita a tarefa de projetar e implementar a unidade de controle. Analise as alternativas abaixo e assinale aquela em que a microprogramação oferece suporte para a construção do seu conceito.
+
+Nota: 6.7
+
+	A		
+Família de computadores
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+A microprogramação facilita a tarefa de projetar e implementar a unidade de controle e oferece suporte para o conceito da família de computadores. 
+
+Referência: Rota de aprendizagem 4, Microprocessamento, slide da aula 4.
+
+	B		
+Circuito integrado.
+
+	C		
+Comunicação entre periféricos.
+
+	D		
+Arquitetura RISC.
+
+	E		
+Hierarquia de memória.
+
+Questão 3/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Na década de 1970, os arquitetos de computadores promoveram uma corrida na busca pela economia no custo e no tamanho de circuitos eletrônicos (válvulas eletrônicas). A meta era a redução do número de válvulas e o aumento da confiabilidade da principais máquinas que interpretavam o nível ISA.
+
+Referência: Rota de aprendizagem 4, Portas Lógicas Fundamentais, slide da aula 4.
+
+
+
+
+Assinale a alternativa que indica, corretamente, qual o dispositivo responsável pela interpretação do nível ISA nas principais máquinas na década de 1970.
+Nota: 6.7
+
+	A		Discos rígidos.
+	B		
+Memórias Flash.
+
+	C		Microprogramas.
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+As principais máquinas (da década de 1970) interpretavam o nível ISA por microprograma.
+
+Referência: Rota de aprendizagem 4, Portas Lógicas Fundamentais, slide da aula 4.
+
+	D		SDRAM
+	E		RAM
+Questão 4/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Historicamente, as CPUs sempre foram mais rápidas do que as memórias. Conforme as memórias melhoram as CPUs também se aperfeiçoam, mantendo o desequilíbrio. Na verdade, à medida que fica possível colocar cada vez mais circuitos em um chip, os projetistas estão usando essas novas facilidades no paralelismo, fazendo as CPUs ficarem ainda mais velozes. 
+
+
+Referência: TANENBAUM, Andrew S. Organização estruturada de computadores. Pearson Prentice Hall, 6a. Edição, 2013. 64 p.
+
+
+Assinale a alternativa que descreve a ideia central do texto acima.
+
+Nota: 6.7
+
+	A		
+Trata-se de paralelismo, que é uma alternativa de comunicação utilizada por impressoras (paralelas) que estão sendo gradativamente substituídas pelas impressoras USB.
+
+	B		
+Constitui - se em Paralelismo, que nada mais é do que o uso de dois computadores idênticos, lado a lado (em paralelo) para executar determinadas tarefas complexas e diferentes, criadas e definidas exclusivamente pelo usuário, que deve ser apto ao uso.
+
+	C		Embora os computadores continuem a ficar cada vez mais rápidos, as demandas impostas a eles estão crescendo no mínimo com a mesma rapidez.
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+Referência: Rota de aprendizagem 6, Portas Lógicas Fundamentais, slide da aula 6.
+
+	D		
+É um caso de comunicação Paralela ou Serial, que são formas de computação primitivas e que funcionam muito bem, principalmente em ambientes corporativos de grande demanda.
+
+	E		
+Entende-se que é uma comunicação Paralela, pois esta é uma forma de computação primitiva usada em toda comunicação de longo alcance e na maioria das redes de computadores, onde o custo de cabos e as dificuldades de sincronização tornam a comunicação serial impraticável.
+
+Questão 5/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+O Paralelismo tem alguns conceitos e termos específicos que auxiliam no melhor entendimento e compreensão deste importante assunto. Alguns desses termos usados em arquitetura de computadores são os: Fortemente e Fracamente Acoplado. 
+
+
+Analise as questões e assinale a alternativa que descreve, corretamente, os dois termos.
+
+Nota: 6.7
+
+	A		
+Quando das placas e os componentes computacionais (periféricos) são soldados a altas temperaturas são fortemente acoplados e em baixa temperatura são fracamente acoplados.
+
+	B		
+Placas e Componentes computacionais (Dispositivos e Periféricos) soldados, são fortemente acoplados e os apenas encaixados uns aos outros são fracamente acoplados
+
+	C		
+Componentes Computacionais (Dispositivos e Periféricos) locais são fortemente acoplados e quando estão remotos (conectados via rede) são fracamente acoplados.
+
+	D		
+Duas CPUs próximas, em termos computacionais, são fortemente acopladas e quando longe uma da outra, são fracamente acopladas
+
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+Referência: Rota de aprendizagem 6, Paralelismo, slide da aula 6.
+
+	E		
+Chips soldados junto com os barramentos são fortemente acoplados e os soldados separados dos barramentos são fracamente acoplados
+
+ 
+
+Questão 6/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Os arquitetos de computadores estão sempre se esforçando para melhorar o desempenho das máquinas que projetam. Fazer com que os chips funcionem com maior rapidez aumentando suas velocidades de clock é um modo. Por consequência, grande parte dos arquitetos de computadores busca o paralelismo (fazer duas ou mais coisas ao mesmo tempo) como meio de conseguir um desempenho ainda melhor para a velocidade do clock. 
+
+
+Referência: TANENBAUM, Andrew S. Organização estruturada de computadores. Pearson Prentice Hall, 6a. Edição, 2013. 50 p. 
+
+
+Assinale a alternativa que indica quais são os modos utilizados para aumento da velocidade do clock.
+
+Nota: 6.7
+
+	A		
+Atualização (UPGRADE) de Processador e Memória RAM por frequências de CLOCK maiores.
+
+	B		
+Combinação no Uso de CPUs de diferentes fabricantes, como INTEL e AMD.
+
+	C		
+Paralelismo no nível da instrução, multithreading e mais de uma CPU no Chip.
+
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+Usa-se o paralelismo no nível da instrução, multithreading e mais de uma CPU no Chip para aumentar a velocidade do clock.
+
+
+Referências: Rota de aprendizagem 6, Arquiteturas Paralelas, slide da aula 6.
+
+	D		
+Paralelismo no Nível físico ou CPU com mais de um núcleo ou Clusters de Computadores.
+
+	E		
+Paralelismo no Nível lógico com CPU de múltiplos núcleos.
+
+Questão 7/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+O Paralelismo tem alguns conceitos e termos específicos que auxiliam no melhor entendimento e compreensão deste importante assunto. Dentre esses conceitos, quando temos duas CPUs próximas, em termos computacionais, diz-se que essas são fortemente acopladas.
+
+
+ 
+
+
+Referência: Rota de aprendizagem 6 do Tema Visão Geral de Sistema Operacional, slide da aula 6.
+
+
+ 
+
+
+Assinale a alternativa que descreve outro conceito relacionado ao conceito de paralelismo.
+
+Nota: 6.7
+
+	A		
+Quando as placas e os periféricos são soldados a altas temperaturas são fortemente acoplados.
+
+	B		
+Dispositivos e Componentes computacionais que são apenas encaixados uns aos outros são fracamente acoplados.
+
+	C		
+Comunicação Paralela ou Serial são fortemente acoplados.
+
+	D		
+Quando temos duas CPUs longe uma da outra, essas são definidas como fracamente acopladas.
+
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+Duas CPUs próximas, em termos computacionais, são fortemente acopladas. Quando longe uma da outra, são fracamente acopladas
+
+Referência: Rota de aprendizagem 6 do Tema Visão Geral de Sistema Operacional, slide da aula 6.
+
+	E		
+Impressoras USB, paralela ou serial são definidas como fracamente acopladas.
+
+ 
+
+Questão 8/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Computador é um conjunto de recursos (processar, transferir e armazenar dados e controlar essas funções) controlados pelo SO.
+
+
+Referência: Rota de aprendizagem 5, Sistema operacional, slide da aula 5.
+
+
+.
+
+Assinale a alternativa que apresenta as atividades que fazem parte do gerenciamento de recurso de um SO
+Nota: 6.7
+
+	A		
+Renuncia o controle da CPU para, em seguida, obter o controle novamente.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Outras atividades que fazem parte do gerenciamento de recursos realizadas pelo SO são a renúncia e obtenção do controle da CPU. O SO renuncia o controle da CPU para, em seguida, obter o controle novamente.
+
+Referência: Rota de aprendizagem 5, Sistema operacional, slide da aula 5.
+
+	B		
+Gestão da memória ROM.
+
+	C		
+É responsável pela execução dos aplicativos parcialmente, atribuindo-lhes os recursos limitados para seu funcionamento.
+
+	D		
+Terceiriza a segurança ligada à execução dos programas.
+
+	E		
+Separa o acesso dos programas aos recursos materiais através dos drivers.
+
+Questão 9/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+"Os circuitos eletrônicos que compõem o computador são capazes de reconhecer e executar diretamente um conjunto limitado de instruções simples. Estas instruções constituem uma linguagem (linguagem de máquina) que torna possível a “Comunicação”."
+
+
+Referência: Rota de aprendizagem 5, Definições de linguagem de máquina, slide da aula 5.
+
+A escolha deste conjunto de instruções primitivas é uma tarefa importante e delicada. Assinale a alternativa que descreve as características que uma instrução deve ter.
+
+Nota: 6.7
+
+	A		Simplicidade - Consistência – Desempenho.
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+A escolha deste conjunto de instruções primitivas é uma tarefa importante e delicada, envolvendo:
+
+Simplicidade - Questão de custo.
+
+Consistência - A simplicidade não deve interferir com a consistência do conjunto.
+
+Desempenho - Mesmo para usos domésticos, espera-se de toda máquina um desempenho mínimo.           
+
+Referência: Rota de aprendizagem 5, Definições de linguagem de máquina, slide da aula 5.
+
+	B		
+Status - Tamanho - Preço.
+
+	C		
+Material que compõe o produto - temperatura - Valor.
+
+	D		
+Linguagem - Complexidade – Circuitos.
+
+	E		
+Memória, CPU e Barramentos.
+
+Questão 10/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+A ISA (Instruction Set Architecture) é normalmente formada por um conjunto reduzido de instruções totais do processador, entre as quais, lógicas, aritméticas, desvio condicional e incondicional, acesso à memória e a chamada retorno de função. 
+A ISA é apresentada como a interface entre hardware e software e os sistemas operacionais como a interface entre o usuário e a máquina. Portanto, o Nível ISA está entre o nível da microarquitetura e o nível do sistema operacional.
+
+
+Referência: 
+FERNANDES, Sílvio Roberto; SILVA, Ivan Saraiva. Relato de Experiência Interdisciplinar Usando MIPS. International Journal of Computer Architecture Education (IJCAE), v. 6, n. 1, p. 52-61, 2017.
+Rota de aprendizagem 5 do Tema Visão Geral ISA, Tema 1, slide da aula 5.
+
+
+Considerando a linguagem que compõem a interface entre os compiladores e o Hardware, assinale a alternativa que conclui o real objetivo da ISA.
+Nota: 6.7
+
+	A		
+ A ISA separa bem o Hardware do Software.
+
+	B		
+O principal objetivo da ISA é encontrar a linguagem que ambos têm de entender.
+
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+A ISA define a interface entre os compiladores e o hardware com uma linguágem que ambos têm de entender.
+
+ 
+
+Referência: Rota de aprendizagem 5 do Tema Visão Geral ISA, Tema 1, slide da aula 5.
+
+	C		
+A ISA deve atuar como fronteira, impedindo que Hardware e Compiladores conversem.
+
+	D		
+A ISA deve ser traduzida para linguagem do compilador.
+
+	E		
+A ISA faz a interface entre o sistema operacional e o usuário.
+
+Questão 11/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+
+
+
+Descrição da imagem:
+
+
+A figura apresenta uma estrutura em forma de degraus, composta por quatro níveis empilhados, numerados de 1 a 4. Cada nível representa uma camada de abstração em um sistema computacional. Acima dos degraus aparecem três perfis de usuários, cada um apontando para um nível diferente da estrutura.
+
+
+Na parte superior da imagem está o Usuário Final, com uma seta apontando para o nível 1, o degrau mais alto da figura. Isso indica que o usuário final interage principalmente com a camada mais próxima das aplicações.
+
+
+À direita aparece o Programador, com setas apontando para os níveis 2 e 3, indicando que o programador trabalha com camadas intermediárias do sistema, que oferecem recursos para o desenvolvimento de programas.
+
+
+Mais à direita aparece o Designer do Sistema Operacional, com uma seta apontando para o nível 4, a camada mais baixa da estrutura, que está mais próxima do hardware do computador.
+
+
+Os níveis numerados estão organizados de cima para baixo da seguinte forma:
+
+
+
+Posição 1: camada mais alta, utilizada diretamente pelo usuário final.
+
+Posição 2: camada intermediária superior, acessada pelo programador.
+
+Posição 3: camada intermediária inferior, também relacionada ao trabalho do programador.
+
+Posição 4: camada mais baixa da estrutura, utilizada pelo projetista ou designer do sistema operacional.
+
+
+A imagem demonstra que diferentes perfis de usuários interagem com diferentes camadas do sistema computacional. Quanto mais alto o nível, mais próximo ele está do usuário. Quanto mais baixo o nível, mais próximo ele está do funcionamento interno do computador e do hardware.
+
+
+Referência: Rota de aprendizagem 5, Sistema operacional, slide da aula 5.
+
+Analise a imagem acima, para, em seguida, marcar a alternativa que identifica as camadas de um sistema de computação.
+Nota: 6.7
+
+	A		
+1) Monitor; 2) Programação 1º nível; 3) Programação 2º nível; 4) Interface gráfica.
+
+	B		
+1) Programas de aplicação; 2) Utilitários; 3) Sistema operacional; 4) Hardware do computador.
+
+Você assinalou essa alternativa (B)
+
+Você acertou!
+
+As camadas de um sistema de computação são: Programas de aplicação, utilitários, sistema operacional e hardware do computador.
+
+Referência: Rota de aprendizagem 5, Sistema operacional, slide da aula 5.
+
+	C		
+1) Usuário; 2) Programação C; 3) Gráficos e ícones; 4) Internet.
+
+	D		
+1) Programador; 2) Sistema operacional; 3) Linguagem de Máquina; 4) Computador.
+
+	E		
+1) Computador; 2) Compilador; 3) Linguagem de alto nível; 4) Programador.
+
+Questão 12/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+O sistema operacional é um programa que controla a execução de programas aplicativos e age como interface entre o usuário e o hardware do computador.   
+
+
+Referência: Rota de aprendizagem 5, Objetivos e Funções de SO, slide da aula 5.
+
+
+Com base nessa afirmação, assinale a alternativa que descreve os dois objetivos desse controle.
+
+Nota: 6.7
+
+	A		
+Custo e Desempenho.
+
+	B		
+Acessível e Elegante.
+
+	C		
+Silencioso e Rápido.
+
+	D		
+Organização e armazenamento
+
+	E		
+Conveniência e Eficiência
+
+Você assinalou essa alternativa (E)
+
+Você acertou!
+
+Conveniência: um sistema operacional visa tornar o uso do computador mais conveniente.
+
+Eficiência: um sistema operacional permite uma utilização mais eficiente dos recursos do sistema. 
+
+Referência: Rota de aprendizagem 5, Objetivos e Funções de SO, slide da aula 5.
+
+Questão 13/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Em se tratando do desempenho de um computador, é preciso saber que o ponto principal da construção de uma arquitetura paralela é fazer com que o computador execute suas funções de um modo mais rápido do que uma máquina com um único processador. Se ele não cumprir esse simples objetivo, esse é um computador que não vale a pena adquirir.
+
+
+
+
+Referência: Rota de aprendizagem 6.
+
+
+ 
+
+
+Assinale a alternativa que indica os parâmetros usados para mensurar o desempenho de um computador.
+
+Nota: 6.7
+
+	A		São utilizados programas aplicativos (Apps) para medir o desempenho da CPU
+	B		O Desempenho é medido pelo fabricante do processador que informa aos clientes os testes de desempenho realizados.
+	C		
+São comparados pelos fabricantes, quais entre os processadores quais são os mais velozes e quais mais lentos.
+
+	D		A análise de desempenho é medida pelo site do fabricante do processador através de aplicativo online.
+	E		
+Para mensurar (Medir) o desempenho são utilizadas as métricas de Hardware e Software
+
+Você assinalou essa alternativa (E)
+
+Você acertou!
+
+Para que o desempenho possa ser mensurado, são utilizadas as métricas de hardware e software.
+
+
+Referência: Rota de aprendizagem 6.
+
+Questão 14/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+O escalonamento de processos ou tarefas é definido como uma das funções mais importantes do SO, pois O SO determina quais processos devem ser executados a cada instante.
+
+
+Referência: Rota de aprendizagem 5, Sistema operacional, slide da aula 5.
+
+
+Com base nessa afirmação, assinale a alternativa que descreve o objetivo do escalonamento de processos.
+
+Nota: 6.7
+
+	A		
+Criar uma pilha ordenada de comandos a serem executados pelo usuário.
+
+	B		
+Escolher a melhor CPU para execução de cada tarefa.
+
+	C		
+Elencar qual processo ou tarefa executar em cada instante.
+
+	D		
+Alocar espaço na memória.
+
+	E		
+Compartilhar o tempo de CPU entre determinado número de processos de modo imparcial.
+
+Você assinalou essa alternativa (E)
+
+Você acertou!
+
+A imparcialidade é uma característica do escalonamento de processos na hora de compartilhar o tempo de CPU. 
+
+Referência: Rota de aprendizagem 5, Sistema operacional, slide da aula 5.
+
+Questão 15/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Um sistema operacional é definido como um programa que gerencia os recursos do computador, fornece serviços para os programadores e estabelece uma ordem de execução de outros programas.
+
+
+Referência: Rota de aprendizagem 5, Sistema operacional, slide da aula 5.
+
+
+Conforme os estudos da disciplina, sabe-se que o SO controla a execução de programas em um processador. Pensando nisso, assinale a alternativa que mostra, corretamente, quais são as principais funções do SO.
+
+Nota: 6.7
+
+	A		
+Escalonamento de processos e gerenciamento de memória.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+O SO controla a execução de programas em um processador, principalmente as funções:
+
+• Escalonamento de processos.
+
+• Gerenciamento de memória.
+
+Referência: Rota de aprendizagem 5, Sistema operacional, slide da aula 5.
+
+	B		
+Registro dos endereços de memória.
+
+	C		
+Armazenamento de dados.
+
+	D		
+Comunicação entre os periféricos.
+
+	E		
+Reconhecimento dos periféricos no momento que ligamos o computador.

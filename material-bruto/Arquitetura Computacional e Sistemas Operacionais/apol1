@@ -1,0 +1,599 @@
+Questão 1/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+As portas lógicas
+
+
+ 
+
+
+ 
+
+
+Descrição da imagem:
+
+
+A imagem apresenta um exemplo de porta lógica. No lado esquerdo aparecem duas entradas identificadas pelas letras A e B. Essas duas linhas entram em um símbolo com formato característico da porta OR, que possui a parte esquerda curva para dentro e a parte direita afunilada até uma única saída.
+
+
+No lado direito da figura há uma única saída representada pela expressão A + B. O símbolo de soma (+) é utilizado na Álgebra Booleana para representar a operação lógica
+
+
+Referência: Rota de aprendizagem 3, Portas Lógicas Fundamentais, slide da aula 3.
+
+
+A figura acima representa uma porta com um operador que necessita de pelo menos duas variáveis e é representado pelo símbolo matemático da adição. Com base nessas informações assinale a alternativa que corresponde ao nome desta porta lógica.
+
+Nota: 6.7
+
+	A		Porta Lógica AND.
+	B		Porta Lógica NAND.
+	C		
+Porta Lógica OR.
+
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+Porta Lógica OR requer duas ou mais entradas e é representada pelo operador: +. Exemplo: (F = A + B).
+
+Referência: Rota de aprendizagem 3, Portas Lógicas Fundamentais, slide da aula 3.
+
+	D		
+Porta Lógica XOR.
+
+	E		Porta Lógica NOT.
+Questão 2/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+"A execução de uma instrução é semelhante à execução de um programa muito pequeno, utilizado por diversos fabricantes de microprocessadores". 
+
+
+Referência: Rota de aprendizagem 4, Portas Lógicas Fundamentais, slide da aula 4.
+
+
+A afirmação acima é a apresentação/definição de:
+
+Nota: 6.7
+
+	A		Microprograma.
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+A execução de uma instrução é semelhante à execução de um programa muito pequeno, o microprograma, utilizado por diversos fabricantes de microprocessadores 
+
+Referência: Rota de aprendizagem 3, Portas Lógicas Fundamentais, slide da aula 4.
+
+	B		
+Microprocessador.
+
+	C		
+Memória Principal.
+
+	D		
+Sistema de Computação.
+
+	E		
+Memória RAM.
+
+Questão 3/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Os barramentos são responsáveis pela comunicação entre os elementos computacionais.
+
+
+A arquitetura padrão da indústria – padrão IBM, antigo e pioneiro na integração de dispositivos diversos, usa um tipo de barramento padrão para comunicação com outros periféricos. 
+
+Referência: Rota de aprendizagem 2, Barramento, slide da aula 2.
+
+Assinale a alternativa que indica o barramento usado nessa arquitetura padrão da IBM.
+Nota: 6.7
+
+	A		
+EISA (Extended ISA).
+
+	B		
+PCI (Peripheral Component Interconnect).
+
+	C		
+PCIe (PCI Express – sucessor do PCI).
+
+	D		
+DMA (Direct Memory Access).
+
+	E		ISA (Industry Standard Architeture).
+Você assinalou essa alternativa (E)
+
+Você acertou!
+
+As placas-mãe mais antigas apresentavam ainda o slot ISA (Industry Standard Architecture).
+
+Referências:
+DE OLIVEIRA NETO, Rosalvo Ferreira. Disciplina: Introdução à Engenharia da Computação.
+Rota de aprendizagem 2, Barramento, slide da aula 2.
+
+Questão 4/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+A álgebra booleana torna possível a construção de um dispositivo de "estado" que pode armazenar qualquer informação específica, seja um dado ou uma operação. Se um circuito elétrico pudesse executar operações matemáticas e lógicas, e conseguisse também armazenar os resultados de tais operações, então os computadores digitais poderiam ser construídos. Deste modo, Boole contribuiu, de forma indireta para a evolução da informática e dos computadores. 
+
+
+
+
+Referência: KALINKE, Marco Aurélio; MOCROSKY, Luciane; ESTEPHAN, Violeta Maria. Matemáticos, educadores matemáticos e tecnologias: uma articulação possível A relationship between history of technologies, mathematicians and mathematics educators. Educação Matemática Pesquisa: Revista do Programa de Estudos Pós-Graduados em Educação Matemática, v. 15, n. 2, 2013.
+
+Na lógica booleana só há dois valores no sistema de cálculo lógico. Assinale a alternativa que indica esses valores.
+Nota: 6.7
+
+	A		
+32 e 64.
+
+	B		
+0,6 e 1,6.
+
+	C		
+0 e 1.
+
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+1 e 0. Se um valor é verdadeiro, ele pode ser representado pelo valor 1 e, se falso, pelo 0. As operações lógicas da álgebra booleana podem ser agrupadas e formar novas operações
+
+Referências:
+
+Rota de aprendizagem 3, Álgebra de Boole, slide da aula 3.
+
+KALINKE, Marco Aurélio; MOCROSKY, Luciane; ESTEPHAN, Violeta Maria. Matemáticos, educadores matemáticos e tecnologias: uma articulação possível A relationship between history of technologies, mathematicians and mathematics educators. Educação Matemática Pesquisa: Revista do Programa de Estudos Pós-Graduados em Educação Matemática, v. 15, n. 2, 2013.
+
+	D		
+128 e 256.
+
+	E		
+8 e 16.
+
+Questão 5/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+
+A Unidade Central de Processamento, ou “o cérebro” do computador, tem a função de executar as instruções armazenadas na memória sequencialmente.
+
+
+Referência: Rota de aprendizagem 2, Processadores, slide da aula 2.
+
+
+Assinale a alternativa que indica como os componentes da CPU são interconectados
+
+Nota: 6.7
+
+	A		
+Por transistores.
+
+	B		
+Por Circuitos digitais.
+
+	C		
+Por RFID.
+
+	D		
+Por barramento.
+
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+Os Componentes da CPU são interconectados por um barramento
+
+Referência: Rota de aprendizagem 2, Processadores, slide da aula 2.
+
+	E		Por solda de estanho.
+ 
+
+Questão 6/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+As portas lógicas
+
+
+ 
+
+
+Na figura aparecem duas entradas identificadas pelas letras A e B, posicionadas à esquerda. Essas duas entradas chegam a uma porta lógica com formato semelhante a um retângulo com o lado direito arredondado. Do lado direito existe apenas uma saída, representada pela expressão A . B. O ponto entre as letras A e B é um símbolo utilizado na Álgebra Booleana para indicar a operação lógica.
+
+Referência: Rota de aprendizagem 3, Portas Lógicas Fundamentais, slide da aula 3.
+
+
+A figura descrita acima representa a porta do operador binário que necessita de pelo menos duas variáveis e representado pelo (.) ou multiplicação algébrica. Com base nessas informações assinale qual a alternativa que corresponde ao nome desta porta lógica.
+
+Nota: 6.7
+
+	A		Porta Lógica AND
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Porta Lógica AND requer duas ou mais entradas e é representada pelo operador: ponto (.). Exemplo: (F = A . B)
+
+Referência: Rota de aprendizagem 3, Portas Lógicas Fundamentais, slide da aula 3.
+
+	B		
+Porta Lógica OR.
+
+	C		
+Porta Lógica NAND.
+
+	D		
+Porta Lógica XOR.
+
+	E		
+Porta Lógica NOT.
+
+Questão 7/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+
+
+
+Na imagem há um diagrama da Arquitetura de Von Neumann. Na parte superior aparece um bloco identificado como “Memória”. Abaixo desse bloco existem dois grandes retângulos numerados como 1 e 2, conectados à memória por setas que indicam a troca de informações.
+
+Referência: Rota de aprendizagem 1, Arquitetura de Von Neumann, slide da aula 1
+Analise a figura acima e assinale a alternativa que identifica as posições 1 e 2 de uma CPU no modelo de von Neumann, respectivamente.
+Nota: 6.7
+
+	A		
+1 – Unidade de Controle; 2 – Unidade Aritmética e Lógica.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Refinamento do modelo de von Neumann, o modelo de barramento de sistema possui uma CPU com uma unidade lógica e aritimética e uma unidade de controle, memória e uma unidade de entrada/saída (I/O). 
+
+Referência: Rota de aprendizagem 1, Arquitetura de Von Neumann, slide da aula 1.
+
+	B		
+1 – Compilador; 2 – Tradutor.
+
+	C		
+1 - Memória RAM; 2 - Memória ROM.
+
+	D		
+1 – Cache L1; 2 – Cache L2.
+
+	E		
+1 – Dispositivo de E/S; 2 - Registrador.
+
+Questão 8/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Segundo Tanenbaum (2013) um computador é uma máquina para solucionar problemas através da execução de instruções.
+
+
+Referência: Rota de aprendizagem 1, Definições: Computador, slide da aula 1.
+
+
+Analise as questões a abaixo e assinale a alternativa que cita, corretamente, o responsável por solucionar os problemas computacionais.
+Nota: 6.7
+
+	A		
+Programa.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+Um programa é definido como uma sequência de instruções descritivas, de execução e usado para transmitir as instruções, as quais vão resolver os problemas computacionais. 
+
+Referência: Rota de aprendizagem 1, Definições: Computador, slide da aula 1.
+
+	B		
+CPS.
+
+	C		
+Teclado.
+
+	D		
+Impressora.
+
+	E		
+Mouse.
+
+Questão 9/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+As portas lógicas
+
+
+
+
+
+
+
+
+Descrição da imagem:
+
+
+A imagem apresenta uma porta lógica, também conhecida como inversora.
+
+
+No lado esquerdo da figura há apenas uma entrada, identificada pela letra A. Essa entrada está conectada a um símbolo em formato de triângulo apontado para a direita. Na extremidade direita do triângulo existe um pequeno círculo, conhecido como "bolha de inversão". Após esse círculo, há uma única linha de saída identificada como A' (A linha).
+
+
+O pequeno círculo é o elemento mais importante da figura, pois indica que o valor da entrada será invertido.
+
+
+Referência: Rota de aprendizagem 3, Portas Lógicas Fundamentais, slide da aula 3.
+A figura acima representa a porta do operador representado pela barra ou pela apóstrofe. Com base nessas informações assinale qual a alternativa que corresponde ao nome desta porta lógica.
+
+Nota: 6.7
+
+	A		
+Porta Lógica AND
+
+	B		
+Porta Lógica OR
+
+	C		
+Porta Lógica NAND
+
+	D		
+Porta Lógica XOR
+
+	E		
+Porta Lógica NOT
+
+Você assinalou essa alternativa (E)
+
+Você acertou!
+
+Porta Lógica NOT é a porta Inversora que usa o operador: Barra, Apóstrofe
+
+Referência: Rota de aprendizagem 3, Portas Lógicas Fundamentais, slide da aula 3.
+
+Questão 10/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Um dos modos mais simples de subdividir operações em etapas é requerer que os operandos para a maioria das instruções venham de registradores e a eles retornem.
+
+
+Referência: TANENBAUM, Andrew S. Organização estruturada de computadores. Pearson Prentice Hall, 6a. Edição, 2013. 49 p.
+
+
+Analise as assertivas abaixo para, em seguida, assinalar a alternativa correta sobre os registradores.
+
+
+I. Recebem Dados, armazenam por pouco tempo e os transferem a outro dispositivo.
+
+
+II. Armazenamento a longo prazo (definitivo)
+
+
+III. Extremamente Rápidos e com Capacidade Reduzida.
+
+
+Nota: 6.7
+
+	A		
+APENAS a Alternativa I está CORRETA.
+
+	B		
+APENAS a Alternativa II está CORRETA.
+
+	C		
+APENAS a Alternativa III está CORRETA.
+
+	D		As Alternativas II e III estão CORRETAS.
+	E		
+As Alternativas I e III estão CORRETAS.
+
+Você assinalou essa alternativa (E)
+
+Você acertou!
+
+Os registradores fazem parte da CPU, recebem dados, armazenam por um tempo e os transferem a outro dispositivo. Esse armazenamento é temporário, extremamente rápido e tem capacidade reduzida. 
+
+Referências: Rota de aprendizagem 2, Registradores, slide da aula 2.
+
+Questão 11/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+A principal função dos registradores é receber dados e os transferi-los para outro dispositivo. Eles são extremamente rápidos e tem sua capacidade de armazenamento reduzida.
+
+
+Referência: Rota de aprendizagem 2, Registradores, slide da aula 2.
+
+
+Assinale a alternativa que demostra outra característica dos registradores.
+Nota: 6.7
+
+	A		
+Armazenamento temporário.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+O armazenamento temporário dos dados é uma outra característica dos registradores. 
+
+Referência: Rota de aprendizagem 2, Registradores, slide da aula 2.
+
+	B		Armazenamento de dados a longo prazo.
+	C		
+Armazenamento de dados em 8 milissegundos.
+
+	D		
+Armazenamento de dados em 16 milissegundos.  
+
+	E		
+Armazenamento de dados em 32 milissegundos.  
+
+Questão 12/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+
+
+
+Descrição da imagem:
+A imagem apresenta uma pirâmide que representa a hierarquia das memórias de um computador. A pirâmide está dividida em seis níveis numerados de 1 a 6, sendo que o nível 1 está no topo e os níveis 5 e 6 estão lado a lado na base.
+À esquerda da pirâmide há uma seta apontando para cima acompanhada das palavras "Velocidade" e "Custo". Isso indica que, quanto mais próximo do topo da pirâmide, maior é a velocidade de acesso e maior é o custo da memória.
+À direita da pirâmide há uma seta apontando para baixo acompanhada da palavra "Capacidade". Isso significa que, quanto mais próximo da base da pirâmide, maior é a capacidade de armazenamento da memória.
+Os níveis estão organizados da seguinte forma:
+
+Posição 1: menor área da pirâmide, localizada no topo.
+
+Posição 2: logo abaixo da posição 1.
+
+Posição 3: região central da pirâmide.
+
+Posição 4: abaixo da posição 3, ocupando uma área maior.
+
+Posições 5 e 6: localizadas na base da pirâmide, dividindo horizontalmente o último nível em duas partes.
+
+
+Ao analisar a figura, lembre-se de que as memórias localizadas no topo costumam ser as mais rápidas e mais caras, enquanto as localizadas na base possuem maior capacidade de armazenamento, porém são mais lentas. Dessa forma, observe atentamente as alternativas da questão e verifique qual delas apresenta a sequência correta das memórias da mais rápida para a mais lenta, seguindo as posições de 1 a 6 apresentadas na pirâmide.
+Analise a figura acima e assinale a alternativa que identifica as hierarquias de memória nas posições 1, 2, 3, 4, 5 e 6 respectivamente:
+Nota: 6.7
+
+	A		
+Cache, Registradores, Memória Principal, Disco magnético ou de estado sólido, Fita, disco.
+
+	B		
+Cache, Registradores, Disco magnético ou de estado sólido, Memória Principal, Fita, disco.
+
+	C		
+Registradores, Cache, Memória Principal, Fita, disco, Disco magnético ou de estado sólido.
+
+	D		
+Registradores, Cache, Memória Principal, Disco magnético ou de estado sólido, Fita, disco.
+
+Você assinalou essa alternativa (D)
+
+Você acertou!
+
+No nível mais alto da hierarquia está os registradores, seguidos da memória cache, Memória Principal, Disco magnético ou de estado sólido, Fita e disco.
+
+
+Referência: Rota de aprendizagem 2, Processadores, slide da aula 2.
+
+	E		
+Memória Principal, Registradores, Cache, Fita, disco, Disco magnético ou de estado sólido.
+
+Questão 13/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+Computadores são construídos com base em chips de circuito integrado que contêm minúsculos elementos comutadores.
+
+
+Referência: Rota de aprendizagem 3, Síntese, slide da aula 3.
+
+
+Assinale a alternativa que indica o nome dado a esses chips de circuito integrado.
+Nota: 6.7
+
+	A		
+RAM.
+
+	B		
+ROM.
+
+	C		
+Portas.
+
+Você assinalou essa alternativa (C)
+
+Você acertou!
+
+O temo porta refere-se aos chips de circuito integrado.
+
+
+Referência: Rota de aprendizagem 3, Síntese, slide da aula 3.
+
+	D		
+CPU.
+
+	E		
+Memória Flash.
+
+Questão 14/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+CISC – Complex Instruction Set Computer é um conjunto de instruções grande, de tamanhos variáveis, com formatos complexos.
+
+
+Referência: Rota de aprendizagem 2, RISC versus CISC, slide da aula 2.
+
+
+Assinale a alternativa que mostra como o CISC executa as operações.
+Nota: 6.7
+
+	A		
+Executa múltiplas operações quando uma única instrução é dada.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+O CISC executa múltiplas operações quando uma única instrução é dada.
+
+Referência: Rota de aprendizagem 2, RISC versus CISC, slide da aula 2.
+
+	B		
+Simplifica as instruções para executar mais rapidamente.
+
+	C		Executa as operações usando muita paralelização (pipelined).
+	D		
+Cada instrução executa apenas uma operação.
+
+	E		
+Executa operações com instruções do mesmo tamanho.
+
+Questão 15/15 - Arquitetura Computacional e Sistemas Operacionais
+  Ler em voz alta
+
+
+
+
+
+Descrição da imagem:
+
+
+A imagem apresenta uma representação dos níveis de organização de um sistema computacional, organizados de baixo para cima. Cada nível é mostrado em um retângulo horizontal e conectado ao nível seguinte por uma seta apontando para baixo. À direita de cada nível existe um número de 1 a 5, indicando posições que devem ser associadas às alternativas da questão.
+
+
+Os níveis apresentados são:
+
+
+
+Nível 5: Linguagem Orientada a Problema (posição 1).
+
+Nível 4: Linguagem de Montagem (Assembly) (posição 2).
+
+Nível 3: Sistemas Operacionais (posição 3).
+
+Nível 2: ISA – Conjunto de Instruções (posição 4).
+
+Nível 1: Microarquitetura (posição 5).
+
+Nível 0: Lógica Digital (não possui numeração na figura, servindo como base do sistema).
+
+
+A organização da figura demonstra uma hierarquia em que os níveis superiores são mais próximos da linguagem utilizada pelos usuários e programadores, enquanto os níveis inferiores são mais próximos do hardware físico do computador.
+
+
+
+
+Analise a figura acima e assinale a alternativa que identifica as posições 1, 2, 3, 4 e 5 respectivamente.
+
+Nota: 6.7
+
+	A		
+1 - Compilação; 2 – Tradução; 3 - Interpretação parcial; 4 - Interpretação; 5 - Hardware.
+
+Você assinalou essa alternativa (A)
+
+Você acertou!
+
+A compilação fica entre os níveis  5 e 4, a tradução entre os níveis 4 e 3, a interpretação parcial entre os níveis 3 e 2, a interpretação entre os níveis 2 e 1, e o hardware entre os níveis 1 e 0.
+
+
+Referência: Rota de aprendizagem 1, Definições: Computador, slide da aula 1.
+
+	B		
+1 - Processamento; 2 - Resgate; 3 - Armazenamento; 4 - Paginação; 5 - Organização.
+
+	C		
+1 - Execução; 2 - Interrupção; 3 - Interpretação imparcial; 4 - Análise; 5 - Tradução.
+
+	D		
+1 - Resgate; 2 - Tradução; 3 – Processamento; 4 - Análise; Interrupção; 5 - Execução.
+
+	E		
+1 - Compilação; 2 - Processamento; 3 - Execução; 4 - Resgate; 5 - Execução.
+
