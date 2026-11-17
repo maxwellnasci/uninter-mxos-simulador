@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 /* ================================================================
    Converte os arquivos brutos em material-bruto/ para o formato
-   de AULA usado em seed.js (AULA09..AULA12).
+   de AULA usado em seed.js (AULA09 em diante).
+
+   Uso:
+     node scripts/convert-material-bruto.js              → todas as matérias
+     node scripts/convert-material-bruto.js aula13 aula16 → só as indicadas
+   Saída: scripts/output/aulas-<primeira>-<última>.js
    ================================================================ */
 const fs = require('fs');
 const path = require('path');
@@ -9,8 +14,8 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..', '..');
 const MATERIAL_DIR = path.join(ROOT, 'material-bruto');
 
-const ALT_RE = /^\t([A-D])\t+(.*)$/;
-const SELECTED_RE = /^Você assinalou essa alternativa \(([A-D])\)\s*$/;
+const ALT_RE = /^\t([A-E])\t+(.*)$/;
+const SELECTED_RE = /^Você assinalou essa alternativa \(([A-E])\)\s*$/;
 const CORRECT_RE = /^Você acertou!?\s*$/;
 const NOTA_RE = /^Nota:\s*[\d.,]+\s*$/;
 const LER_RE = /^\s*Ler em voz alta\s*$/;
@@ -73,13 +78,14 @@ function parseBlock(lines, fallbackSource) {
   const prompt = cleanParagraphs(promptLines);
 
   // 2) Alternativas + resposta selecionada + explicação/fonte
-  const altLines = { A: [], B: [], C: [], D: [] };
+  const altLines = { A: [], B: [], C: [], D: [], E: [] };
   const order = [];
   let selectedLetter = null;
   let currentAltLetter = null;
   let inExplanation = false;
-  // Algumas apostilas (ex.: Matemática Elementar) trazem feedback por
-  // alternativa ("Correta."/"Incorreta. ...") logo abaixo de cada opção.
+  // Algumas apostilas trazem feedback por alternativa logo abaixo de cada
+  // opção: "Correta."/"Incorreta. ..." (Matemática Elementar) ou
+  // "Justificativa: Falsa/Verdadeira. ..." (Produção Textual).
   // Isso não é o texto da alternativa nem a explicação da questão — deve
   // ser descartado.
   let skippingAltFeedback = false;
@@ -113,7 +119,7 @@ function parseBlock(lines, fallbackSource) {
         explanationLines.push(t.text);
       } else if (currentAltLetter) {
         if (skippingAltFeedback) continue;
-        if (/^(Correta|Incorreta)\b/i.test(t.text.trim())) {
+        if (/^(Correta|Incorreta|Justificativa)\b/i.test(t.text.trim())) {
           skippingAltFeedback = true;
           continue;
         }
@@ -159,7 +165,7 @@ function parseFile(filePath, fallbackSource) {
   return blocks.map((block) => parseBlock(block, fallbackSource));
 }
 
-function buildAula({ id, title, shortTitle, description, accent, icon, folder }) {
+function buildAula({ id, title, shortTitle, description, accent, icon, folder, corrections = {} }) {
   const dir = path.join(MATERIAL_DIR, folder);
   const fallbackSource = `${title} – Material de apoio.`;
   const apol1 = parseFile(path.join(dir, 'apol1'), fallbackSource);
@@ -167,9 +173,30 @@ function buildAula({ id, title, shortTitle, description, accent, icon, folder })
   const combined = [...apol1, ...apol2];
 
   const errors = [];
+  // Correções pontuais de erros de digitação do material oficial
+  // (nunca alteram o gabarito — só textos).
+  for (const [num, fixes] of Object.entries(corrections)) {
+    const q = combined[Number(num) - 1];
+    for (const [field, [from, to]] of Object.entries(fixes)) {
+      if (!q || !q[field].includes(from)) {
+        errors.push(`Questão ${num}: correção "${from}" não encontrada em ${field}`);
+        continue;
+      }
+      q[field] = q[field].replace(from, to);
+    }
+  }
+
+  // Todas as questões de uma matéria devem ter o mesmo nº de alternativas
+  // (4 = A–D ou 5 = A–E), em sequência a partir de A.
+  const expected = combined[0] ? combined[0].alternatives.length : 0;
   combined.forEach((q, idx) => {
-    if (q.alternatives.length !== 4) {
-      errors.push(`Questão ${idx + 1}: ${q.alternatives.length} alternativas (esperado 4)`);
+    const letters = q.alternatives.map((a) => a.letter).join('');
+    if (![4, 5].includes(q.alternatives.length) || q.alternatives.length !== expected
+        || letters !== 'ABCDE'.slice(0, q.alternatives.length)) {
+      errors.push(`Questão ${idx + 1}: alternativas "${letters}" (esperado ${'ABCDE'.slice(0, expected)})`);
+    }
+    if (q.alternatives.some((a) => !a.text)) {
+      errors.push(`Questão ${idx + 1}: alternativa com texto vazio`);
     }
     if (!q.answer || !q.alternatives.some((a) => a.letter === q.answer)) {
       errors.push(`Questão ${idx + 1}: resposta correta inválida ou ausente ("${q.answer}")`);
@@ -243,10 +270,58 @@ const SUBJECTS = [
     icon: '🧮',
     folder: 'Matemática Elementar',
   },
+  {
+    id: 'aula13',
+    title: 'Arquitetura Computacional e Sistemas Operacionais',
+    shortTitle: 'Arquitetura e SO',
+    description: 'Portas lógicas, organização de computadores, CPU, memória e sistemas operacionais.',
+    accent: '#65a30d',
+    icon: '🖥️',
+    folder: 'Arquitetura Computacional e Sistemas Operacionais',
+  },
+  {
+    id: 'aula14',
+    title: 'Gestão da Tecnologia e da Informação',
+    shortTitle: 'Gestão de TI',
+    description: 'Gestão da inovação, PD&I, tecnologia da informação e estratégia nas organizações.',
+    accent: '#0369a1',
+    icon: '📈',
+    folder: 'Gestão da Tecnologia e da Informação',
+  },
+  {
+    id: 'aula15',
+    title: 'Produção Textual',
+    shortTitle: 'Produção Textual',
+    description: 'Princípios linguísticos, níveis de linguagem, comunicação, argumentação e texto.',
+    accent: '#be185d',
+    icon: '✍️',
+    folder: 'Produção Textual',
+  },
+  {
+    id: 'aula16',
+    title: 'Relações Étnico-raciais: Africana, Afro-brasileira e Indígena',
+    shortTitle: 'Relações Étnico-raciais',
+    description: 'História e cultura africana, afro-brasileira e indígena, racismo e identidade no Brasil.',
+    accent: '#9a3412',
+    icon: '🌍',
+    folder: 'Relações Étnico-raciais: Africana, Afro-brasileira e Indígena',
+    corrections: {
+      // APOL1 Q15: o comentário oficial diz "letra E", mas a questão só
+      // tem A–D e a alternativa assinalada/confirmada como certa é a D.
+      15: { explanation: ['A letra E é a opção correta', 'A letra D é a opção correta'] },
+    },
+  },
 ];
 
 function main() {
-  const results = SUBJECTS.map(buildAula);
+  const wanted = process.argv.slice(2);
+  const unknown = wanted.filter((id) => !SUBJECTS.some((s) => s.id === id));
+  if (unknown.length) {
+    console.error(`Matéria(s) desconhecida(s): ${unknown.join(', ')}`);
+    process.exit(1);
+  }
+  const selected = wanted.length ? SUBJECTS.filter((s) => wanted.includes(s.id)) : SUBJECTS;
+  const results = selected.map(buildAula);
 
   let hasErrors = false;
   for (const { aula, errors } of results) {
@@ -262,12 +337,13 @@ function main() {
   const outDir = path.join(__dirname, 'output');
   fs.mkdirSync(outDir, { recursive: true });
 
-  const varNames = ['AULA09', 'AULA10', 'AULA11', 'AULA12'];
   let jsOutput = '';
-  results.forEach(({ aula }, idx) => {
-    jsOutput += `const ${varNames[idx]} = ${JSON.stringify(aula, null, 2)};\n\n`;
+  results.forEach(({ aula }) => {
+    jsOutput += `const ${aula.id.toUpperCase()} = ${JSON.stringify(aula, null, 2)};\n\n`;
   });
-  const outFile = path.join(outDir, 'aulas-09-12.js');
+  const first = results[0].aula.id.replace('aula', '');
+  const last = results[results.length - 1].aula.id.replace('aula', '');
+  const outFile = path.join(outDir, `aulas-${first}-${last}.js`);
   fs.writeFileSync(outFile, jsOutput, 'utf8');
 
   console.log(`\nArquivo gerado: ${outFile}`);

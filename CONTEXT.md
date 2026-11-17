@@ -98,7 +98,7 @@ uninter-mxos-simulador/
 
 ---
 
-## Simulados disponíveis (12 no total — 360 questões)
+## Simulados disponíveis (16 no total — 480 questões)
 
 | # | Tema | ID | Cor |
 |---|------|----|-----|
@@ -114,6 +114,13 @@ uninter-mxos-simulador/
 | 10 | Direito e Novas Tecnologias | aula10 | #b91c1c |
 | 11 | Investigação de Crimes Digitais | aula11 | #4338ca |
 | 12 | Matemática Elementar | aula12 | #ca8a04 |
+| 13 | Arquitetura Computacional e Sistemas Operacionais | aula13 | #65a30d |
+| 14 | Gestão da Tecnologia e da Informação | aula14 | #0369a1 |
+| 15 | Produção Textual | aula15 | #be185d |
+| 16 | Relações Étnico-raciais: Africana, Afro-brasileira e Indígena | aula16 | #9a3412 |
+
+> Arquitetura (aula13) e Gestão de TI (aula14) têm **5 alternativas (A–E)**; as demais têm 4 (A–D).
+> Backend e frontend já tratam isso dinamicamente — nenhuma mudança de código foi necessária.
 
 ---
 
@@ -232,12 +239,24 @@ O tutor é composto por 3 camadas:
 > O deploy (GitHub Actions) copia os arquivos mas NÃO roda o seed automaticamente.
 
 
-1. Preparar os dados no formato correto (ver seed.js)
-2. Atualizar o seed.js com as novas questões
-3. Fazer push na main
-4. GitHub Actions faz o deploy automaticamente
-5. Rodar o seed no servidor:
-   `ssh -i C:\Users\maxwe\.ssh\id_ed25519 root@158.220.125.233 "cd /root/mxos-simulador/uninter-mxos-simulador/backend && node seed.js"`
+1. Colocar o export bruto das provas em `material-bruto/<Nome da Matéria>/apol1` e `apol2`
+   (15 questões cada, todas com "Você assinalou essa alternativa (X)" — de preferência com nota máxima)
+2. Cadastrar a matéria (id, título, ícone, cor, pasta) na lista `SUBJECTS` de
+   `backend/scripts/convert-material-bruto.js` e rodar, por exemplo:
+   `cd backend && node scripts/convert-material-bruto.js aula17 aula18`
+   → gera `scripts/output/aulas-17-18.js` e avisa se alguma questão ficou sem gabarito/alternativas.
+   Aceita 4 (A–D) ou 5 (A–E) alternativas; erros de digitação do material oficial podem ser
+   corrigidos no campo `corrections` da matéria (nunca altera o gabarito).
+3. Colar as constantes geradas no seed.js (antes de `const aulas = [`) e incluí-las no array `aulas`
+4. Testar local: `node seed.js && node server.js`
+5. Fazer push na main → GitHub Actions faz o deploy do código
+6. Atualizar o banco no servidor (backup + seed + reload):
+   `ssh -i C:\Users\maxwe\.ssh\id_ed25519 root@158.220.125.233 "cd /root/mxos-simulador/uninter-mxos-simulador/backend && cp mxos.db mxos.db.bak && node seed.js && pm2 reload mxos"`
+
+> ✅ **Seed não destrutivo (desde 2026-11-17):** o seed só recria questões/alternativas e faz
+> UPSERT dos temas; **resultados e alunos são preservados** (alunos fixos são inseridos só se o RU
+> ainda não existir). Mesmo assim, rodar seed → `pm2 reload mxos` em sequência imediata: o servidor
+> mantém o banco em memória e, se gravar algo entre os dois comandos, sobrescreve o arquivo seedado.
 
 
 ---
